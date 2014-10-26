@@ -2,12 +2,12 @@
 
 //import Input;
 
-public class newtonMethodSquareRoot {
+public class newtonMethodSquareRootDouble {
 	public static void main(String[] args) { 
-		float x = 0, e = 0, r1 = 0, r0 = 0 , eTest = 0 ;
+		double x = 0, e = 0, r1 = 0, r0 = 0 , eTest = 0 ;
 		int i=0;
 		System.out.print("Please enter your x (<=0 for exit): "); 
-		x = Input.readFloat(); 
+		x = Input.readDouble(); 
 		
 		if (x>0) {
 		} else {
@@ -17,7 +17,7 @@ public class newtonMethodSquareRoot {
 		
 		r1 = x;
 		System.out.print("Please enter your e: "); 
-		e = Input.readFloat(); 
+		e = Input.readDouble(); 
 		
 		if (x>0) {
 		} else {
@@ -27,7 +27,7 @@ public class newtonMethodSquareRoot {
 		
 		do{
 			r0 = r1;
-			r1=(float) (0.5*(r0+x/r0));
+			r1=0.5*(r0+x/r0);
 
 			eTest = Math.abs(r1-r0);
 			i=i+1;

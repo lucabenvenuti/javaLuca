@@ -13,6 +13,7 @@ public class CaloriesCalculator {
 		
 		if (age>0) {
 		} else {
+			System.out.print("Restart");
 			return;
 		}
 		
@@ -21,6 +22,7 @@ public class CaloriesCalculator {
 		
 		if (weight>0) {
 		} else {
+			System.out.print("Restart");
 			return;
 		}		
 		
@@ -29,6 +31,7 @@ public class CaloriesCalculator {
 		
 		if (height>0) {
 		} else {
+			System.out.print("Restart");
 			return;
 		}
 
@@ -37,16 +40,17 @@ public class CaloriesCalculator {
 		
 		if (sex=='m') {
 			sexAdd = 5;
-		} else {
+		} else if (sex=='f') {
 			sexAdd = -161;
-		}	
+		} else {
+			System.out.print("Restart");
+			return;
+		}
+		
 		
 		BMR = Math.round(10*weight + 6.25*height - 5*age + sexAdd) ;
 
-		//long BMR2 = Math.round(BMR);
-
 		System.out.printf("Sum of numbers: %.0f ",BMR); 
-	//	System.out.println(BMR); 
   }
 
 }
