@@ -7,13 +7,13 @@ import java.util.Calendar;
 public class birthdayCalendar {
 
 	public static void main(String[] args) {
-		int year = 0, month = 0, days = 0, daysMax = 0, m = 0, x = 0, y = 0, d = days, yearPrint = 0, age =0 , weekday = 0;
+		int year = 0, month = 0, days = 0, daysMax = 0, m = 0, x = 0, y = 0, d = days, yearPrint = 0, age =0 , weekday = 0, dateCheck =0, yearPrintStore = 0, ageRest = 0;
 		int yearNow = Calendar.getInstance().get(Calendar.YEAR);
 		int monthNow = Calendar.getInstance().get(Calendar.MONTH);
 		monthNow = monthNow + 1; //It's just part of the horrendous mess which is the Java date/time API
 		int dayNow = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		boolean leapyear; // = true;
-		boolean birthdayToday = false; // = true;
+//		boolean birthdayToday = false; // = true;
 		String dayOfTheWeek = null;
 		
 		System.out.print("Please enter your birth year: "); 
@@ -68,9 +68,10 @@ public class birthdayCalendar {
 
 		if (monthNow > month ){
 			yearPrint = yearNow +1;
+			dateCheck = 2;
 		} else if (monthNow == month){
-			if (dayNow > days){yearPrint = yearNow +1;}
-			else if (dayNow == days){yearPrint = yearNow; birthdayToday = true;}
+			if (dayNow > days){yearPrint = yearNow +1;; dateCheck = 2;}
+			else if (dayNow == days){yearPrint = yearNow; dateCheck = 1;}
 			else{yearPrint = yearNow;}	
 		}
 		else {yearPrint = yearNow;}
@@ -111,14 +112,20 @@ public class birthdayCalendar {
 		
 	//	assessment = "hot like hell";
 		
-		if (birthdayToday){
-			System.out.println("Today is your birthday. Congratulations! Today is: "  + dayOfTheWeek + " and your age is: " + age );
-		}
-		else{
-		System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + age ); //, yearNow); 
+		switch (dateCheck) {
+		case 1: { System.out.println("Today is your birthday. Congratulations! Today is: "  + dayOfTheWeek + " and your age is: " + age );
+		break;}//birthday today
+		case 2: { 
+			System.out.println("Your birthday in " + yearNow + " has already passed; birthday in " + yearPrint + " will be on "  + dayOfTheWeek + " and your age will be: " + age );
+			break;} //birthday next year
+
+		default:
+			System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + age ); //, yearNow); 
 		}
 		
-		int ageRest = age/10;
+		yearPrintStore = yearPrint;
+		
+		ageRest = age/10;
 	//	int ageNew = ageRest * 10 + 10;
 		
 		for (int ageNew = ageRest * 10 + 10 ; ageNew < 101; ageNew = ageNew+10) {
@@ -139,25 +146,10 @@ public class birthdayCalendar {
 			case 6: dayOfTheWeek = "Friday";break;
 			}
 			yearPrint = ageNew + year;
-			System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + ageNew);
+			if (yearPrint!= yearPrintStore){
+			System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + ageNew);}
 		 }
 
 	}
 
 }
-
-/*for(int x = 10; x < 20; x = x+1) {
-    System.out.print("value of x : " + x );
-    System.out.print("\n");
- } */
-
-//if (year < 2015 & year > 1582 & year != 1600 & year != 2000 ){			
-
-/*		 rest = year % 4;
-	if (rest==0)
-		leapyear = true;
-	else
-		leapyear = false;
-}
-else if (year == 1600 | year == 2000){
-	leapyear = false; */
