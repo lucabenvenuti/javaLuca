@@ -10,20 +10,20 @@ public class LoveIndex {
 
 		while (char2int != 10) {
 			
-			if (char2int == 32 & j==0){
+			if (char2int == 32 && j==0){
 			}
-			else if (char2int == 32 & j==1){
+			else if (char2int == 32 && j==1){
 				charRead = Input.readCharSequence();
 				char2int = (int) charRead;
 				i=i+1;
 				break;
 			}
-			else if (char2int <= 122 & char2int >= 97 ){
+			else if (char2int <= 122 && char2int >= 97 ){
 				char2int = char2int-32;
 				sumFirstName = sumFirstName + char2int;
 				j=1;
 			}
-			else if (char2int <= 90 & char2int >= 65 ){
+			else if (char2int <= 90 && char2int >= 65 ){
 				sumFirstName = sumFirstName + char2int;
 				j=1;
 			}
@@ -45,17 +45,17 @@ public class LoveIndex {
 		
 		while (char2int != 10) {
 			
-			if (char2int == 32 & j==0){
+			if (char2int == 32 && j==0){
 			}
-			else if (char2int == 32 & j==1){
+			else if (char2int == 32 && j==1){
 				break;
 			}
-			else if (char2int <= 122 & char2int >= 97 ){
+			else if (char2int <= 122 && char2int >= 97 ){
 				char2int = char2int-32;
 				sumSecondName = sumSecondName + char2int;
 				j=1;
 			}
-			else if (char2int <= 90 & char2int >= 65 ){
+			else if (char2int <= 90 && char2int >= 65 ){
 				sumSecondName = sumSecondName + char2int;
 				j=1;
 			}

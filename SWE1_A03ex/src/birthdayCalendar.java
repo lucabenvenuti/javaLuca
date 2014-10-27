@@ -15,21 +15,21 @@ public class birthdayCalendar {
 		System.out.print("Please enter your birth year (YYYY): "); 
 		year = Input.readInt(); 
 		
-		if (year < 2015 & year > 1582){
+		if (year < (yearNow) && year > 1582){
 			leapyear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
 		}
 		else{
-			System.out.print("Invalid year (1582 <= YYYY <= 2014)");
+			System.out.println("Invalid year! (1582 <= YYYY < " + (yearNow) + ")");
 			return;
 		}
 		
 		System.out.print("Please enter your birth month (M or MM, 0..12): "); 
 		month = Input.readInt(); 
 		
-		if (month <= 12 & month >0){
+		if (month <= 12 && month >0){
 		}
 		else{
-			System.out.print("Invalid month");
+			System.out.print("Invalid month!");
 			return;
 		}
 		
@@ -53,10 +53,10 @@ public class birthdayCalendar {
 		System.out.print("Please enter your birth day (D or DD, 0..31): "); 
 		days =  Input.readInt(); 
 		
-		if (days <= daysMax & days >0){
+		if (days <= daysMax && days >0){
 		}
 		else{
-			System.out.print("Invalid number of days for this month");
+			System.out.print("Invalid number of days for this month!");
 			return;
 		}
 
