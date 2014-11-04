@@ -76,20 +76,23 @@ public class printXSinCX {
 	
 
 	public static void main(String[] args) {
-		int m = 0, l = 0, a = 0, b = 1;
-		double c = 0.0;
+		int m = 35, l = 45, a = 0, b = 2;
+		double c = 1.5;
 		int power2=10 , n = 8, num2 = 10;
 		double poweredNum2 = 2.0, factorialNum2 = 0.0, sineNum2 = 0.0;
+		double trota = Math.PI, x = 1.85, posStar =0.0;
 		
 
 		
 	poweredNum2 = calcPower(num2, power2);
 	factorialNum2 = calcFactorial(2*3+1);
-	double trota = Math.PI;
+	
 	sineNum2 = calcSine(6);
 	
+	posStar = (l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI);
 	
-	System.out.format("H:  %.3f H:  %.3f H:  %.8f", poweredNum2, factorialNum2, sineNum2); 
+	
+	System.out.format("H:  %.3f H:  %.3f H:  %.8f", poweredNum2, posStar, sineNum2); 
 		
 	}
 
