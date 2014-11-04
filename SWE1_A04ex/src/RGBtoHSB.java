@@ -1,13 +1,34 @@
-import java.util.Calendar;
-
-
 public class RGBtoHSB {
 
 	public static void main(String[] args) {
-		int Rinput = 75, Ginput = 0, Binput = 130;
+		int Rinput = 1000, Ginput = 1000, Binput = -1000;
 		double H = 0.0, S = 0.0, V = 0.0, R = 0.0, G = 0.0, B = 0.0, delta = 0.0, cMax = 0.0, cMin = 0.0;
 		
 		//input
+		
+		System.out.print("R: "); 
+		Rinput = Input.readInt(); 
+		
+		while (Rinput<0 || Rinput>255) {
+			System.out.print("R: "); 
+			Rinput = Input.readInt(); 
+		} 
+		
+		System.out.print("G: "); 
+		Ginput = Input.readInt(); 
+		
+		while (Ginput<0 || Ginput>255) {
+			System.out.print("G: "); 
+			Ginput = Input.readInt(); 
+		} 
+		
+		System.out.print("B: "); 
+		Binput = Input.readInt(); 
+		
+		while (Binput<0 || Binput>255) {
+			System.out.print("B: "); 
+			Binput = Input.readInt(); 
+		} 
 		
 		R = (double) Rinput; 
 		G = (double) Ginput; 
@@ -20,11 +41,6 @@ public class RGBtoHSB {
 		if (B<cMin) cMin = B;
 		
 		delta = cMax - cMin;
-		
-		System.out.format("The of thee is " + "%.3f, while the value of "
-				+ "the integer variable is %.3f, and the string is %.3f \n", delta, cMin, cMax); 
-		
-		
 		
 		if (cMax==0.0){ //H = 0
 		} else if (cMax==R){
@@ -45,28 +61,10 @@ public class RGBtoHSB {
 		else {S = delta/cMax;}
 		
 		V = cMax/255.0;
-	//	H = (((45.0)/(117.0))%6)*60;
-		System.out.format("The of thee is " + "%.3f, while the value of "
-				+ "the integer variable is %.3f, and the string is %.3f", H,S,V); 
+		System.out.format("H: %.3f S: "
+				+ "%.3f V: %.3f", H,S,V); 
 		
 
 	}
 
 }
-
-//	int ageNew = ageRest * 10 + 10;
-
-/*	System.out.printf("Error made: %d \n", yearNow); 
-	System.out.printf("Error made: %d \n", monthNow); 
-	System.out.printf("Error made: %d \n", dayNow); 
-	System.out.printf("Error made: %d \n", weekday); 
-				yearPrint = year + ageNew;
-	*/
-
-//	    System.out.print("value of x : " + ageNew );
-//	    System.out.print("\n");
-
-
-//	assessment = "hot like hell";
-
-	
