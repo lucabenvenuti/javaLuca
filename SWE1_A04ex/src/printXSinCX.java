@@ -1,138 +1,98 @@
-import java.util.Calendar;
 
 
 public class printXSinCX {
+	
+	public static double calcPower (double num, int power){
+		double poweredNum = num;
+		
+		if (power==1){poweredNum = num;}
+		else {
+
+		//poweredNum = num * power;
+		
+		while (power !=1){
+			poweredNum = poweredNum * num; //n * 
+			power = power -1;
+			// n = n -1;
+		//	System.out.format("Hvv  %d ", nn); 
+		}
+		}
+	//	System.out.format("power:   %.4f  ", poweredNum); 
+		// do calculations here;
+		return poweredNum; // leave the method
+		}
+	
+	public static double calcFactorial (int n){
+		double nn = (double) n;
+		if (n==1){nn =1.0;}
+		else{
+		
+		
+		double nBis = (double) n - 1.0;
+		
+		while (nBis !=1){
+			nn = nBis * nn; //n * 
+			nBis = nBis -1;
+			// n = n -1;
+
+		}
+		}
+
+		// do calculations here;
+		return nn; // leave the method
+		}
+	
+	public static double calcSine (double x){
+		//double xx = 0.0;
+		x = x%(2*Math.PI);
+		double sinX = 0.0, adding = 0.0;
+		int k = 3;
+		
+		
+		sinX = x / calcFactorial(1) - calcPower(x, 3)/ calcFactorial(3) + calcPower(x, 5)/ calcFactorial(5);
+		
+		adding = calcPower(-1, k)*calcPower(x, (2*k+1))/calcFactorial(2*k+1);
+		
+		double test = Math.abs(calcFactorial(2*k+1));
+		
+		System.out.format("trotaaaa  %.8f, %.8f \n", adding, test); 
+		
+		while (Math.abs(adding)>10e-8) {
+			
+			sinX = sinX + adding; 
+			k = k+1;
+			adding = calcPower(-1, k)*calcPower(x, (2*k+1))/calcFactorial(2*k+1); //calcPower(-1, k)*
+			
+			test = calcFactorial(2*k+1);
+			double testBis = calcPower(x, (2*k+1));
+			System.out.format("rest  %.8f, %.8f, %.8f \n", adding, test, testBis); 
+		 } 
+		
+		System.out.format("rest  %.8f \n", sinX); 
+	//	xx = x * 8;
+		// do calculations here;
+		return sinX; // leave the method
+		}
+	
 
 	public static void main(String[] args) {
+		int m = 0, l = 0, a = 0, b = 1;
+		double c = 0.0;
+		int power2=10 , n = 8, num2 = 10;
+		double poweredNum2 = 2.0, factorialNum2 = 0.0, sineNum2 = 0.0;
+		
 
+		
+	poweredNum2 = calcPower(num2, power2);
+	factorialNum2 = calcFactorial(2*3+1);
+	double trota = Math.PI;
+	sineNum2 = calcSine(6);
+	
+	
+	System.out.format("H:  %.3f H:  %.3f H:  %.8f", poweredNum2, factorialNum2, sineNum2); 
 		
 	}
 
 }
 
-/*double pi = Math.PI; %.3f
-double pi2 = pi*2;
-double pi3 = pi*3;
-
-//System.out.format("%.3f%n", pi);     // -->  "3.142"
-//System.out.format("%.3f", pi);     // -->  "3.142"
-
-System.out.format("The of thee is " + "%.3f, while the value of "
-		+ "the integer variable is %.5f, and the string is %.7f", pi, pi2, pi3); */
-
-/*		System.out.print("Please enter your birth year (YYYY): "); 
-year = Input.readInt(); 
-
-if (year < (yearNow) && year > 1582){
-	leapyear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
-}
-else{
-	System.out.println("Invalid yeardd (1582 <= YYYY < " + (yearNow) + ")");
-	return;
-}
-
-System.out.print("Please enter your birth month (M or MM, 0..12): "); 
-month = Input.readInt(); 
-
-if (month <= 12 && month >0){
-}
-else{
-	System.out.print("Invalid month!");
-	return;
-}
-
-switch (month) {
-case 9:
-case 4:
-case 6:
-case 11:
-	daysMax = 30;
-	break;
-case 2:
-	if (leapyear)
-		daysMax = 29;
-	else
-		daysMax = 28;
-	break;
-default:
-	daysMax = 31;
-}
-
-System.out.print("Please enter your birth day (D or DD, 0..31): "); 
-days =  Input.readInt(); 
-
-if (days <= daysMax && days >0){
-}
-else{
-	System.out.print("Invalid number of days for this month!");
-	return;
-}
-
-if (monthNow > month ){
-	yearPrint = yearNow +1;
-	dateCheck = 2;
-} else if (monthNow == month){
-	if (dayNow > days){yearPrint = yearNow +1;; dateCheck = 2;}
-	else if (dayNow == days){yearPrint = yearNow; dateCheck = 1;}
-	else{yearPrint = yearNow;}	
-}
-else {yearPrint = yearNow;}
-
-if (month >= 3){
-	m = month - 2;
-	x = 8;
-	y = yearPrint;
-	}
-else{
-	m = month;
-	x = 13;
-	y = yearPrint - 1;
-}
-d = days;
-weekday = (x + d + (31*m)/12 + (5*y)/4 - (3*(1+y/100)/4) ) % 7 ;
-
-switch (weekday) {
-case 0: dayOfTheWeek = "Saturday"; break;
-case 1: dayOfTheWeek = "Sunday"; break;
-case 2: dayOfTheWeek = "Monday";break;
-case 3: dayOfTheWeek = "Tuesday";break;
-case 4: dayOfTheWeek = "Wednesday";break;
-case 5: dayOfTheWeek = "Thursday";break;
-case 6: dayOfTheWeek = "Friday";break;
-}
-
-age = yearPrint - year;
-
-switch (dateCheck) {
-case 1: { System.out.println("Today is your birthday. Congratulations! Today is: "  + dayOfTheWeek + " and your age is: " + age );
-break;}//birthday today
-case 2: { 
-	System.out.println("Your birthday in " + yearNow + " has already passed; birthday in " + yearPrint + " will be on "  + dayOfTheWeek + " and your age will be: " + age );
-	break;} //birthday next year
-
-default:
-	System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + age ); //, yearNow); 
-}
-
-yearPrintStore = yearPrint;
-ageRest = age/10;
-
-for (int ageNew = ageRest * 10 + 10 ; ageNew < 101; ageNew = ageNew+10) {
-
-	yearPrint = ageNew + year;
-    y = yearPrint;
-    weekday = (x + d + (31*m)/12 + (5*y)/4 - (3*(1+y/100)/4) ) % 7 ;
-    
-	switch (weekday) {
-	case 0: dayOfTheWeek = "Saturday"; break;
-	case 1: dayOfTheWeek = "Sunday"; break;
-	case 2: dayOfTheWeek = "Monday";break;
-	case 3: dayOfTheWeek = "Tuesday";break;
-	case 4: dayOfTheWeek = "Wednesday";break;
-	case 5: dayOfTheWeek = "Thursday";break;
-	case 6: dayOfTheWeek = "Friday";break;
-	}
-	yearPrint = ageNew + year;
-	if (yearPrint!= yearPrintStore){
-	System.out.println("Your birthday in " + yearPrint + " will be on: "  + dayOfTheWeek + " and you will be: " + ageNew);}
- } */
+//	sineNum2 = Math.abs(10e-8);
