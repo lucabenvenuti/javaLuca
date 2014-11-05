@@ -84,18 +84,33 @@ public class printXSinCX {
 		
 
 		
-	poweredNum2 = calcPower(num2, power2);
-	factorialNum2 = calcFactorial(2*3+1);
+//	poweredNum2 = calcPower(num2, power2);
+//	factorialNum2 = calcFactorial(2*3+1);
 	
-	sineNum2 = calcSine(6);
+//	sineNum2 = calcSine(6);
+		
+	System.out.print("m: "); 
+	m = Input.readInt(); 	
+	
+	System.out.print("l: "); 
+	l = Input.readInt(); 	
+	
+	System.out.print("b: "); 
+	b = Input.readInt(); 	
+	
+	System.out.print("a: "); 
+	a = Input.readInt(); 	
+	
+	System.out.print("c: "); 
+	c = Input.readDouble(); 	
+		
 	
 	posStar = (int) ((int)(l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI));
 	posStar2 = (l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI);
 	
-	
-	System.out.format("H:  %.3f H:  %d H:  %.8f, H:  %.8f \n", poweredNum2, posStar, posStar2, sineNum2); 
 
-	int lHalf = (int) l/2;
+
+	int lHalf = (int) l/2 -1;
 	//posStar =22;
 	int k = 0;
 	while (k<=l){
@@ -110,15 +125,22 @@ public class printXSinCX {
 	k = k+1;
 	}
 	System.out.print("\n"); 
+	
+	
+	System.out.format("H:  %.3f H:  %d H:  %.8f, H:  %.8f \n", poweredNum2, posStar, posStar2, sineNum2); 
+	
 	//int nLines = (b-a)/m;
 	double interval = (b-a)*Math.PI/m;
 	double xx = 0.0;
+	double fx = 0.0;
 	int i = 0;
 	
 	while (i<=m){
 		xx = interval*i;
-		posStar = (int) ((int)(l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI));
+		fx = xx* calcSine(c*xx);
+		posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI));
 		posStar2 = (l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI);
+
 	//	System.out.format("pippoH:  %.3f H:  %d H:  %.8f, H:  %d \n", xx, posStar, posStar2, i); 
 		i = i+1;
 		
@@ -135,7 +157,8 @@ public class printXSinCX {
 //		System.out.println(sum); 
 		k = k+1;
 		}
-		System.out.print("\n"); 
+		System.out.format("( %.3f , %.8f ) \n", xx, fx); 
+//		System.out.print("\n"); 
 		
 	}
 		
