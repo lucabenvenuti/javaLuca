@@ -55,7 +55,7 @@ public class printXSinCX {
 		
 		double test = Math.abs(calcFactorial(2*k+1));
 		
-		System.out.format("trotaaaa  %.8f, %.8f \n", adding, test); 
+//		System.out.format("trotaaaa  %.8f, %.8f \n", adding, test); 
 		
 		while (Math.abs(adding)>10e-8) {
 			
@@ -65,10 +65,10 @@ public class printXSinCX {
 			
 			test = calcFactorial(2*k+1);
 			double testBis = calcPower(x, (2*k+1));
-			System.out.format("rest  %.8f, %.8f, %.8f \n", adding, test, testBis); 
+	//		System.out.format("rest  %.8f, %.8f, %.8f \n", adding, test, testBis); 
 		 } 
 		
-		System.out.format("rest  %.8f \n", sinX); 
+//		System.out.format("rest  %.8f \n", sinX); 
 	//	xx = x * 8;
 		// do calculations here;
 		return sinX; // leave the method
@@ -78,9 +78,9 @@ public class printXSinCX {
 	public static void main(String[] args) {
 		int m = 35, l = 45, a = 0, b = 2;
 		double c = 1.5;
-		int power2=10 , n = 8, num2 = 10;
-		double poweredNum2 = 2.0, factorialNum2 = 0.0, sineNum2 = 0.0;
-		double trota = Math.PI, x = 1.85, posStar =0.0;
+		int power2=10 , n = 8, num2 = 10, posStar =0;
+		double poweredNum2 = 2.0, factorialNum2 = 0.0, sineNum2 = 0.0, posStar2 =0.0;
+		double trota = Math.PI, x = 1.85;
 		
 
 		
@@ -89,10 +89,55 @@ public class printXSinCX {
 	
 	sineNum2 = calcSine(6);
 	
-	posStar = (l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI);
+	posStar = (int) ((int)(l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI));
+	posStar2 = (l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI);
 	
 	
-	System.out.format("H:  %.3f H:  %.3f H:  %.8f", poweredNum2, posStar, sineNum2); 
+	System.out.format("H:  %.3f H:  %d H:  %.8f, H:  %.8f \n", poweredNum2, posStar, posStar2, sineNum2); 
+
+	int lHalf = (int) l/2;
+	//posStar =22;
+	int k = 0;
+	while (k<=l){
+		if (k == posStar){
+			System.out.print("*"); 
+		}else if(k == lHalf){
+	System.out.print("|"); 
+		}else {
+	System.out.print("-"); 
+		}
+//	System.out.println(sum); 
+	k = k+1;
+	}
+	System.out.print("\n"); 
+	//int nLines = (b-a)/m;
+	double interval = (b-a)*Math.PI/m;
+	double xx = 0.0;
+	int i = 0;
+	
+	while (i<=m){
+		xx = interval*i;
+		posStar = (int) ((int)(l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI));
+		posStar2 = (l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI);
+	//	System.out.format("pippoH:  %.3f H:  %d H:  %.8f, H:  %d \n", xx, posStar, posStar2, i); 
+		i = i+1;
+		
+		
+		k = 0;
+		while (k<=l){
+			if (k == posStar){
+				System.out.print("*"); 
+			}else if(k == lHalf){
+		System.out.print("|"); 
+			}else {
+		System.out.print("-"); 
+			}
+//		System.out.println(sum); 
+		k = k+1;
+		}
+		System.out.print("\n"); 
+		
+	}
 		
 	}
 
