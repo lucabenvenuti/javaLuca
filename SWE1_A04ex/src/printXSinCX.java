@@ -89,31 +89,37 @@ public class printXSinCX {
 	
 //	sineNum2 = calcSine(6);
 		
-	System.out.print("m: "); 
+	System.out.print("Enter m (number of lines): "); 
 	m = Input.readInt(); 	
 	
-	System.out.print("l: "); 
+	System.out.print("Enter l (number of columns): "); 
 	l = Input.readInt(); 	
 	
-	System.out.print("b: "); 
+	System.out.print("Enter b (maximum value of the interval): "); 
 	b = Input.readInt(); 	
 	
-	System.out.print("a: "); 
+	System.out.print("Enter a (minimum value of the interval) (a<b): "); 
 	a = Input.readInt(); 	
 	
-	System.out.print("c: "); 
+	while (a>b) {
+		System.out.print("Invalid input! (a<b): \n"); 
+		System.out.print("Enter a (minimum value of the interval) (a<b): "); 
+		a = Input.readInt(); 
+	} 
+	
+	System.out.print("Enter c (multiplication factor): "); 
 	c = Input.readDouble(); 	
 		
 	
 	posStar = (int) ((int)(l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI));
 	posStar2 = (l*(b*Math.PI + x* calcSine(c*x)))/(2*b*Math.PI);
-	
+	boolean col = true;
 
 
-	int lHalf = (int) l/2 -1;
+	int lHalf =  l/2 ;
 	//posStar =22;
 	int k = 0;
-	while (k<=l){
+/*	while (k<=l){
 		if (k == posStar){
 			System.out.print("*"); 
 		}else if(k == lHalf){
@@ -124,21 +130,42 @@ public class printXSinCX {
 //	System.out.println(sum); 
 	k = k+1;
 	}
-	System.out.print("\n"); 
+	System.out.print("\n");  */
 	
+	//check if the columnns are odd or even
+    if (l % 2 == 0 ){
+    	 col = true;
+    //    System.out.println("You entered an even number.");
+        }
+     else{
+    	 col = false;
+    //    System.out.println("You entered an odd number.");
+        }
 	
-	System.out.format("H:  %.3f H:  %d H:  %.8f, H:  %.8f \n", poweredNum2, posStar, posStar2, sineNum2); 
+//	System.out.format("H:  %.2f H:  %d H:  %.8f, H:  %.8f \n", poweredNum2, posStar, posStar2, sineNum2); 
 	
 	//int nLines = (b-a)/m;
-	double interval = (b-a)*Math.PI/m;
+	double interval = (b-a)*Math.PI/(m-1);
 	double xx = 0.0;
 	double fx = 0.0;
+	double xPrint = 0.0;
 	int i = 0;
 	
-	while (i<=m){
+	double xStart = a*Math.PI;
+	
+	
+	//Graph of the function: x*sin(c*x) on interval: [1*Pi,2*Pi]
+	System.out.format("Graph of the function: x*sin(c*x) on interval: [%d*Pi,%d*Pi] \n", a,b); 
+	
+	while (i<m){
 		xx = interval*i;
+		xPrint = xx +xStart;
 		fx = xx* calcSine(c*xx);
-		posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI));
+		if (col){
+			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI)+1);}
+		else {
+			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI) );
+		}
 		posStar2 = (l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI);
 
 	//	System.out.format("pippoH:  %.3f H:  %d H:  %.8f, H:  %d \n", xx, posStar, posStar2, i); 
@@ -146,7 +173,7 @@ public class printXSinCX {
 		
 		
 		k = 0;
-		while (k<=l){
+		while (k<l){
 			if (k == posStar){
 				System.out.print("*"); 
 			}else if(k == lHalf){
@@ -157,7 +184,7 @@ public class printXSinCX {
 //		System.out.println(sum); 
 		k = k+1;
 		}
-		System.out.format("( %.3f , %.8f ) \n", xx, fx); 
+		System.out.format(" ( %.2f , %.2f , %d , %d  , %d, %d) \n", xPrint, fx, posStar, lHalf, k, i); 
 //		System.out.print("\n"); 
 		
 	}
