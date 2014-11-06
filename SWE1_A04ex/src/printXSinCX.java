@@ -34,7 +34,7 @@ public class printXSinCX {
 		}
 		}
 
-		return nn; // leave the method aa
+		return nn; // leave the method aabb
 		}
 	
 	public static double calcSine (double x){
