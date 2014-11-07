@@ -55,7 +55,7 @@ public class RGBtoHSB {
 			if ((R-G)==0.0 && delta==0.0){H = 0.0;} // = 300.0;}
 			else {
 				H = 60*(R-G)/delta + 240;}			
-		} else {System.out.format("trotaculo");}
+		} else {System.out.format("error!");}
 		
 		if (delta==0.0 && cMax ==0.0){S = 0.0;}
 		else {S = delta/cMax;}

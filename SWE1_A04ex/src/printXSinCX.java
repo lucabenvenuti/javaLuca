@@ -5,16 +5,13 @@ public class printXSinCX {
 	public static double calcPower (double num, int power){
 		double poweredNum = num;
 		
-		if (power==1){poweredNum = num;}
+		if (power==1){
+			}
 		else {
-
-
-		
-		while (power !=1){
-			poweredNum = poweredNum * num; //n * 
-			power = power -1;
-
-		}
+			while (power !=1){
+				poweredNum = poweredNum * num; //n * 
+				power = power -1;
+			}
 		}
 
 		return poweredNum; // leave the method
@@ -26,12 +23,12 @@ public class printXSinCX {
 		else{
 		
 		
-		double nBis = (double) n - 1.0;
-		
-		while (nBis !=1){
-			nn = nBis * nn; //n * 
-			nBis = nBis -1;
-		}
+			double nBis = (double) n - 1.0;
+			
+			while (nBis !=1){
+				nn = nBis * nn; //n * 
+				nBis = nBis -1;
+			}
 		}
 
 		return nn; // leave the method aabb
@@ -75,28 +72,52 @@ public class printXSinCX {
 		
 
 		
-	System.out.print("Enter m (number of lines): "); 
+	System.out.print("Enter m (number of lines) (m>0): "); 
 	m = Input.readInt(); 	
 	
-	System.out.print("Enter l (number of columns): "); 
+	while (m<1) {
+		System.out.print("Invalid input! (m>0): \n"); 
+		System.out.print("Enter m (number of lines) (m>0): "); 
+		m = Input.readInt(); 
+	} 
+	
+	System.out.print("Enter l (number of columns) (l>0): "); 
 	l = Input.readInt(); 	
 	
-	System.out.print("Enter b (maximum value of the interval): "); 
+	while (l<1) {
+		System.out.print("Invalid input! (l>0): \n"); 
+		System.out.print("Enter l (number of columns) (l>0): "); 
+		l = Input.readInt(); 
+	} 
+	
+	System.out.print("Enter b (maximum value of the interval) (b>0): "); 
 	b = Input.readInt(); 	
 	
-	System.out.print("Enter a (minimum value of the interval) (a<b): "); 
+	while (b<2) {
+		System.out.print("Invalid input! (b>0): \n"); 
+		System.out.print("Enter b (maximum value of the interval) (b>0): "); 
+		b = Input.readInt(); 
+	} 
+	
+	System.out.print("Enter a (minimum value of the interval) (0<=a<b): "); 
 	a = Input.readInt(); 	
 	
-	while (a>b) {
-		System.out.print("Invalid input! (a<b): \n"); 
-		System.out.print("Enter a (minimum value of the interval) (a<b): "); 
+	while (a>b || a <0) {
+		System.out.print("Invalid input! (0<=a<b): \n"); 
+		System.out.print("Enter a (minimum value of the interval) (0<=a<b): "); 
 		a = Input.readInt(); 
 	} 
 	
-	System.out.print("Enter c (multiplication factor): "); 
+	System.out.print("Enter c (multiplication factor) (c>0.0): "); 
 	c = Input.readDouble(); 	
+	
+	while (c<0.0) {
+		System.out.print("Invalid input! (c>0.0): \n"); 
+		System.out.print("Enter c (multiplication factor) (c>0.0): "); 
+		c = Input.readDouble(); 
+	} 
 
-	lHalf =  l/2 ;
+	lHalf =  l/2 -1 ;
 
 	
     if (l % 2 == 0 ){
@@ -119,9 +140,9 @@ public class printXSinCX {
 		xPrint = xx +xStart;
 		fx = xx* calcSine(c*xx);
 		if (col){
-			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI)+1);}
+			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI));}
 		else {
-			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI) );
+			posStar = (int) ((int)(l*(b*Math.PI + fx))/(2*b*Math.PI)-1 );
 		}
 		posStar2 = (l*(b*Math.PI + xx* calcSine(c*xx)))/(2*b*Math.PI);
 
@@ -134,18 +155,21 @@ public class printXSinCX {
 			}else if(k == lHalf){
 		System.out.print("|"); 
 			}else {
-		System.out.print("-"); 
+		System.out.print("."); 
 			}
 
 		k = k+1;
 		}
-		System.out.format(" ( %.2f , %.2f , %d , %d  , %d, %d) \n", xPrint, fx, posStar, lHalf, k, i); 
+		//System.out.format(" ( %.2f , %.2f , %d , %d  , %d, %d) \n", xPrint, fx, posStar, lHalf, k, i); 
+		System.out.format(" (%.2f, %.2f) \n", xPrint, fx);
 	
 	}
 		
 	}
 
 }
+
+//	poweredNum = num;
 //poweredNum2 = calcPower(num2, power2); test
 //factorialNum2 = calcFactorial(2*3+1);
 
