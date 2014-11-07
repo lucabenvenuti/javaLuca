@@ -146,7 +146,7 @@ public class printXSinCX {
 	}
 
 }
-//poweredNum2 = calcPower(num2, power2);
+//poweredNum2 = calcPower(num2, power2); test
 //factorialNum2 = calcFactorial(2*3+1);
 
 //sineNum2 = calcSine(6);
