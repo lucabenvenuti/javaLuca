@@ -58,14 +58,18 @@ public class GameOfLife {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		int a=0 , countAlive =0 , jj=0;
+		int a=0 , countAlive =0 , jj=0 , value = 0;
 		boolean live = true;		
 		
 		System.out.print("B: "); 
 		String file = Input.readString();
 		try {
 			int [][] arrayNumbers = readFile(file);
-			int [][] arrayNumbers2 = arrayNumbers;
+			
+			  int row = arrayNumbers.length;
+			  int col = arrayNumbers[0].length;
+			int [][] arrayNumbersNew = new int [row][col];
+			System.out.format(" (%d , %d ) \n \n ",  row, col);
 			
 			System.out.print("CXX: "); 
 			System.out.print("\n");
@@ -80,7 +84,7 @@ public class GameOfLife {
 			System.out.print("trota: "); 
 			System.out.print("\n");
 			
-			while (jj<3){
+			while (live && jj<10){
 				live = false;
 			
 			for (int line1 = 1; line1 < 9; line1++) {
@@ -100,27 +104,46 @@ public class GameOfLife {
 			        //System.out.print("\n");
 			        if(countAlive <2 || countAlive>3){
 			        	System.out.print(" DEAD \n");
-			        	//arrayNumbers2[line1][column1]=0;
+			        	//arrayNumbersNew[line1][column1]=0;
+			        	value = 0;
 			        }
 			        else if(countAlive ==2 && arrayNumbers[line1][column1]==1) {
 			        	System.out.print(" ALIVE \n");
 			        	live = true;	
+			        	value = 1;
 			        }
 			        else if(countAlive==3) {
 			        	System.out.print(" ALIVE \n");
 			        	live = true;	
+			        	value = 1;
 			        	
 			        }
 			        else{
 			        	System.out.print(" DEAD \n");
+			        	value = 0;
 			        }
 			        countAlive = 0;
+			        
+			        arrayNumbersNew[line1][column1]=value;
+			        value = 0;
 			        
 			    }
 			    System.out.print("\n");
 			} 
 			System.out.print(" TROTA \n");
+			
+			for (int line1 = 0; line1 < 10; line1++) {
+			    for (int column1 = 0; column1 < 10; column1++) {
+			
+			    	arrayNumbers[line1][column1] = 0;
+			    	arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+			    	arrayNumbersNew[line1][column1] = 0;
+			    }
+			}
+			//arrayNumbers = arrayNumbersNew;
 			jj =jj+1;
+			 System.out.format(" loop number (%d) ", jj);
+		      
 			}
 			System.out.print("CXX: "); 
 			
