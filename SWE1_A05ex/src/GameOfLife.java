@@ -37,41 +37,124 @@ public class GameOfLife {
 					
 			arrayNumbers[j][ira] = a;
 			
-			System.out.format(" (%d) \n", a);
+		//	System.out.format(" (%d) \n", a);
 			ira = ira+1;
 			}
 		}
 		//read next line
-		System.out.format("trota \n ");
+	//	System.out.format("trota \n ");
 		line = buffRead.readLine();
 		j = j+1;
 		ira = 0;
 		}
 		
-		for (int k = 0; k < 10; k++) {
-		    for (int l = 0; l < 10; l++) {
-		        System.out.print(arrayNumbers[k][l] + " ");
-		    }
-		    System.out.print("\n");
-		}
+
 		
-		int b[][] = {{0, 0 },{ 0, 0}};
-		return b;
+	//	int b[][] = {{0, 0 },{ 0, 0}};
+		return arrayNumbers;
 		
 		}
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		int a=0;
+		int a=0 , countAlive =0 , jj=0;
+		boolean live = true;		
+		
 		System.out.print("B: "); 
 		String file = Input.readString();
 		try {
-		readFile(file);
+			int [][] arrayNumbers = readFile(file);
+			int [][] arrayNumbers2 = arrayNumbers;
+			
+			System.out.print("CXX: "); 
+			System.out.print("\n");
+			
+			for (int k = 0; k < 10; k++) {
+			    for (int l = 0; l < 10; l++) {
+			        System.out.print(arrayNumbers[k][l] + " ");
+			    }
+			    System.out.print("\n");
+			} 
+			System.out.print("\n");
+			System.out.print("trota: "); 
+			System.out.print("\n");
+			
+			while (jj<3){
+				live = false;
+			
+			for (int line1 = 1; line1 < 9; line1++) {
+			    for (int column1 = 1; column1 < 9; column1++) {
+			       // System.out.print(arrayNumbers[line1][column1] + " ");
+			        
+			        countAlive = countAlive + arrayNumbers[line1-1][column1-1];
+			        countAlive = countAlive + arrayNumbers[line1-1][column1+1];
+			        countAlive = countAlive + arrayNumbers[line1-1][column1];
+			        countAlive = countAlive + arrayNumbers[line1][column1-1];
+			        countAlive = countAlive + arrayNumbers[line1][column1+1];
+			        countAlive = countAlive + arrayNumbers[line1+1][column1-1];
+			        countAlive = countAlive + arrayNumbers[line1+1][column1+1];
+			        countAlive = countAlive + arrayNumbers[line1+1][column1];		
+			        System.out.print("\n");
+			        System.out.format(" (%d, line %d, column %d) ", countAlive, line1+1 , column1+1);
+			        //System.out.print("\n");
+			        if(countAlive <2 || countAlive>3){
+			        	System.out.print(" DEAD \n");
+			        	arrayNumbers2[line1][column1]=0;
+			        }
+			        else if(countAlive ==2 && arrayNumbers[line1][column1]==1) {
+			        	System.out.print(" ALIVE \n");
+			        	arrayNumbers2[line1][column1]=1;
+			        	live = true;	
+			        }
+			        else if(countAlive==3) {
+			        	System.out.print(" ALIVE \n");
+			        	arrayNumbers2[line1][column1]=1;
+			        	live = true;	
+			        	
+			        }
+			        else{
+			        	System.out.print(" DEAD \n");
+			        	arrayNumbers2[line1][column1]=0;
+			        }
+			        countAlive = 0;
+			        
+			    }
+			    System.out.print("\n");
+			} 
+			System.out.print(" TROTA \n");
+			jj =jj+1;
+			arrayNumbers = arrayNumbers2;
+			}
+			System.out.print("CXX: "); 
+			
 		//add your code here...
 		} catch (IOException e) {
 		e.printStackTrace();
 		}
-		System.out.print("CX: "); 
+		System.out.print("CXX: "); 
+		
+		
+		
+
+		
 }
 }
+
+
+/*		switch (month) {
+		case 9:
+		case 4:
+		case 6:
+		case 11:
+			daysMax = 30;
+			break;
+		case 2:
+			if (leapyear)
+				daysMax = 29;
+			else
+				daysMax = 28;
+			break;
+		default:
+			daysMax = 31;
+		}*/
