@@ -96,26 +96,23 @@ public class GameOfLife {
 			        countAlive = countAlive + arrayNumbers[line1+1][column1+1];
 			        countAlive = countAlive + arrayNumbers[line1+1][column1];		
 			        System.out.print("\n");
-			        System.out.format(" (%d, line %d, column %d) ", countAlive, line1+1 , column1+1);
+			        System.out.format(" (%d, line %d, column %d, initialValue %d) ", countAlive, line1+1 , column1+1, arrayNumbers[line1][column1]);
 			        //System.out.print("\n");
 			        if(countAlive <2 || countAlive>3){
 			        	System.out.print(" DEAD \n");
-			        	arrayNumbers2[line1][column1]=0;
+			        	//arrayNumbers2[line1][column1]=0;
 			        }
 			        else if(countAlive ==2 && arrayNumbers[line1][column1]==1) {
 			        	System.out.print(" ALIVE \n");
-			        	arrayNumbers2[line1][column1]=1;
 			        	live = true;	
 			        }
 			        else if(countAlive==3) {
 			        	System.out.print(" ALIVE \n");
-			        	arrayNumbers2[line1][column1]=1;
 			        	live = true;	
 			        	
 			        }
 			        else{
 			        	System.out.print(" DEAD \n");
-			        	arrayNumbers2[line1][column1]=0;
 			        }
 			        countAlive = 0;
 			        
@@ -124,7 +121,6 @@ public class GameOfLife {
 			} 
 			System.out.print(" TROTA \n");
 			jj =jj+1;
-			arrayNumbers = arrayNumbers2;
 			}
 			System.out.print("CXX: "); 
 			
