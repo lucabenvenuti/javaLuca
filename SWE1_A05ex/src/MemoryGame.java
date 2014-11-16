@@ -53,6 +53,7 @@ public class MemoryGame {
 		    		//until it is true the while goes
 		    		// I want to continue until I get a random that is not in the list //!newGen
 		    		counter2 = 0;
+		    		newGen = true;
 		    		while (newGen){
 		    			
 		    			if (counter2 > 1000){break;}
@@ -85,6 +86,8 @@ public class MemoryGame {
 		    	
 		    	arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
 		    	arrayNumbersNew[line1][column1] = 0;
+		    	
+		    	System.out.print(y + " \n");
 		    }
 		    
 		    if (counter>(row*col/2) )
