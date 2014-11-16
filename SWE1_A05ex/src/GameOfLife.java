@@ -87,8 +87,8 @@ public class GameOfLife {
 			while (live && jj<10){
 				live = false;
 			
-			for (int line1 = 1; line1 < 9; line1++) {
-			    for (int column1 = 1; column1 < 9; column1++) {
+			for (int line1 = 1; line1 < (row-1); line1++) {
+			    for (int column1 = 1; column1 < (col-1); column1++) {
 			       // System.out.print(arrayNumbers[line1][column1] + " ");
 			        
 			        countAlive = countAlive + arrayNumbers[line1-1][column1-1];
@@ -132,8 +132,8 @@ public class GameOfLife {
 			} 
 			System.out.print(" TROTA \n");
 			
-			for (int line1 = 0; line1 < 10; line1++) {
-			    for (int column1 = 0; column1 < 10; column1++) {
+			for (int line1 = 0; line1 < (row); line1++) {
+			    for (int column1 = 0; column1 < (col); column1++) {
 			
 			    	arrayNumbers[line1][column1] = 0;
 			    	arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];

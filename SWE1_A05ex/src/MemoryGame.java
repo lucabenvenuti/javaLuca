@@ -11,13 +11,29 @@ public class MemoryGame {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		int a=0 , countAlive =0 , jj=0 , value = 0;
-		boolean live = true;		
+		//int a=0 , countAlive =0 , jj=0 , value = 0;
+		//boolean live = true;		
 		
+		int [][] arrayNumbers = new int [20][20];
 		
-		System.out.print("CXX test: "); 
+		int row = arrayNumbers.length;
+		int col = arrayNumbers[0].length;
+		int [][] arrayNumbersNew = new int [row][col];
 		
+		double x = Math.random()*77;
+		int y = (int) (Math.round(x)+48);		
 		
+		System.out.print("CXX test: \n"); 
+		System.out.format(" loop number %.3f (%d) ", x, y);
+		
+		for (int line1 = 0; line1 < 10; line1++) {
+		    for (int column1 = 0; column1 < 10; column1++) {
+		
+		    	arrayNumbers[line1][column1] = 0;
+		    	arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+		    	arrayNumbersNew[line1][column1] = 0;
+		    }
+		}
 		
 
 		
