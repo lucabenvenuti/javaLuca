@@ -28,22 +28,46 @@ public class MemoryGame {
 		//int a=0 , countAlive =0 , jj=0 , value = 0;
 		boolean newGen = false;		
 		
-		int [][] arrayNumbers = new int [2][3];
+		System.out.print("Playground-height: "); 
+		int row = Input.readInt(); 
+		System.out.print("Playground-width: "); 
+		int col = Input.readInt(); 
+		
+		while (row*col>156 || row*col<4 || row*col%2==1){
+			
+			if (row*col>156 || row*col<4){
+				System.out.print("The maximal playground size has 156 cards and the minimal 4 cards, yours "
+						+ "has 234 cards. Try again. \n"); 	
+			}
+			
+			if (row*col%2==1){
+				System.out.print("Odd number of cells. Try again. \n");
+			}
+			System.out.print("Playground-height: "); 
+			row = Input.readInt(); 
+			System.out.print("Playground-width: "); 
+			col = Input.readInt(); 
+		}
+		
+		int [][] arrayNumbers = new int [row][col];
 		int counter =0, counter2 =0, counter3 =0;
 		
-		int row = arrayNumbers.length;
-		int col = arrayNumbers[0].length;
-		int [][] arrayNumbersNew = new int [row][col];
+		// store the attempts
+		int [][] tryAttempts = new int [70][4];
+		
+		//int row = arrayNumbers.length;
+		//int col = arrayNumbers[0].length;
+//		int [][] arrayNumbersNew = new int [row][col];
 		int [] arrayStorage = new int [row*col/2];
 		
 		double x = Math.random()*77;
 		int y = (int) (Math.round(x)+48);	
 		
-		double rowPos = Math.random()*row;
-		int rowPos2 = (int) (Math.round(rowPos));	
+	//	double rowPos = Math.random()*row;
+	//	int rowPos2 = (int) (Math.round(rowPos));	
 		
 	//	System.out.print("CXX test: \n"); 
-		System.out.format(" loop number %.3f (%d) ", x, y);
+	//	System.out.format(" loop number %.3f (%d) ", x, y);
 		
 		
 		 for (int column1 = 0; column1 < col; column1++) {
@@ -105,7 +129,7 @@ public class MemoryGame {
 		    }
 		    //System.out.println();
 		    
-		    System.out.format(" counter  (%d) ", counter);
+		  //  System.out.format(" counter  (%d) ", counter);
 		    
 			 for (int column1 = 0; column1 < col; column1++) {
 				    for (int line1 = 0; line1 < row; line1++) {
@@ -129,16 +153,16 @@ public class MemoryGame {
 						    
 						}
 		
-			 System.out.print("\n");
+		//	 System.out.print("\n");
 				
 			 
-				for (int k = 0; k < row; k++) {
+		/*		for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
 				        System.out.print(arrayNumbers[k][l] + " ");
 				    }
 				    System.out.print("\n");
 				} 
-				System.out.print(" TROTA \n");
+				System.out.print(" TROTA \n"); */
 				//char a = 'b';
 				char [][] arrayLettersNew = new char [row][col];
 				//arrayLettersNew[1][1] = 'c';
@@ -147,10 +171,10 @@ public class MemoryGame {
 				    for (int l = 0; l < col; l++) {
 				    	arrayLettersNew[k][l]= (char)arrayNumbers[k][l];
 				    	
-				        System.out.print(arrayLettersNew[k][l]);
+				      /////////////////////////////////////////  System.out.print(arrayLettersNew[k][l]);
 				     //   System.out.print(" ,");
 				    }
-				    System.out.print("\n");
+				  //////////////////////////////////////////////  System.out.print("\n");
 				} 
 				
 			//	System.out.print(arrayLettersNew[1][1]);
@@ -172,39 +196,231 @@ public class MemoryGame {
 				
 				
 				
-				int h1 = 1, w1 =1, h2 =1, w2 = 2;
 				
+				////FIRST INPUT
+				int playerNum = 1;
+				int playerPrint = 2;
+				System.out.format("--- Player %d --- \n", playerNum);
+				int h1 = 0, w1 =0, h2 =0, w2 = 1;
+				
+				System.out.print("h1: "); 
+				h1 = Input.readInt(); 
+				System.out.print("w1: "); 
+				w1 = Input.readInt(); 
+				
+				while (h1>row || w1>col){
+					System.out.print("Invalid coordinates. Try again. \n");
+					
+					System.out.print("h1: "); 
+					h1 = Input.readInt(); 
+					System.out.print("w1: "); 
+					w1 = Input.readInt(); 
+				}				
+				
+				System.out.print("h2: "); 
+				h2 = Input.readInt(); 
+				System.out.print("w2: "); 
+				w2 = Input.readInt(); 
+				
+				
+				while (h2>row || w2>col || (h1==h2 && w1==w2)){
+					System.out.print("Invalid coordinates. Try again. \n");
+					
+					System.out.print("h2: "); 
+					h2 = Input.readInt(); 
+					System.out.print("w2: "); 
+					w2 = Input.readInt(); 
+				}
+
+				h1 = h1-1;
+				w1 = w1-1;
+				h2 = h2-1;
+				w2 = w2-1;
+				
+/*				int attemptsCounter = 0;
+				tryAttempts[attemptsCounter][0] = h1;
+				tryAttempts[attemptsCounter][1] = w1;
+				tryAttempts[attemptsCounter][2] = h2;
+				tryAttempts[attemptsCounter][3] = w2; */
+				
+				boolean continuation = true;
+				
+				while(continuation){
+				
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    	//arrayCovered[k][l]= '#';
+				    	
+				    	if((k==h1 && l == w1) || (k==h2 && l == w2)){
+				    		System.out.print(arrayLettersNew[k][l]);
+				    	}
+				    	else  { //if ()
+				    		 System.out.print(arrayCovered[k][l]);
+				    	}
+				    	//else {System.out.print("trotaculo2 \n");}
+				    	
+				    	
+				     //   System.out.print(arrayCovered[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} 
+				System.out.print("\n");
+				
+				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
+					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
+				//	System.out.print(arrayCovered[h1][w1]);
+					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
+				//	System.out.print(arrayCovered[h2][w2]);
+					playerNum = playerNum;
+				}
+				else{
+					playerNum = playerNum+1;
+				}
+				
+				//System.out.print("\n");
+				
+				System.out.print("'q'/'Q' to quit, <Enter> to continue... \n");
 				
 				
 				char a = '!';
 				a = Input.readCharSequence();
 
 				int aff = (int) a;
-				System.out.println(aff);
-				System.out.print("trotaculo2 \n");
+				//System.out.println(aff);
+				//System.out.print("trotaculo2 \n");
 				
 				if (a=='q' || a == 'Q'){
-					System.out.print("trotaculo \n");
+					System.out.print("GAME FINISHED \n");
 					return;
 				}
 				else if(aff == 10) {
 					
 					//System.out.print(a);
-					System.out.print("WIN \n");
+					System.out.print("LET'S PLAY \n");
+					//playerNum = playerNum+1;
+					if (playerNum%2==0){playerPrint = 2;}
+					else{playerPrint = 1;}
+					System.out.format("--- Player %d --- \n", playerPrint);
+					
+					System.out.print("h1: "); 
+					h1 = Input.readInt(); 
+					System.out.print("w1: "); 
+					w1 = Input.readInt(); 
+					
+					while (h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#') ){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h1: "); 
+						h1 = Input.readInt(); 
+						System.out.print("w1: "); 
+						w1 = Input.readInt(); 
+					}				
+					
+					System.out.print("h2: "); 
+					h2 = Input.readInt(); 
+					System.out.print("w2: "); 
+					w2 = Input.readInt(); 
+					
+					
+					while (h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h2: "); 
+						h2 = Input.readInt(); 
+						System.out.print("w2: "); 
+						w2 = Input.readInt(); 
+					}
+
+					h1 = h1-1;
+					w1 = w1-1;
+					h2 = h2-1;
+					w2 = w2-1;
+
+					
 				}
 				else {
-					System.out.print("trotaculofx \n");
+					//System.out.print("trotaculofx \n");
 					return;
 				}
 				
+				}
+				
+			
+				
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+
+				
 				
 				
 }
 }
 
 
-/*		 System.out.print(" TROTA \n");
- */
+/*		h1 = 0;
+				w1 =0;
+				h2 =0;
+				w2 = 2;
+				
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    	//arrayCovered[k][l]= '#';
+				    	
+				    	if((k==h1 && l == w1) || (k==h2 && l == w2)){
+				    		System.out.print(arrayLettersNew[k][l]);
+				    	}
+				    	else  { //if ()
+				    		 System.out.print(arrayCovered[k][l]);
+				    	}
+				    	//else {System.out.print("trotaculo2 \n");}
+				    	
+				    	
+				     //   System.out.print(arrayCovered[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} 
+				System.out.print("\n");
+				
+				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
+					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
+				//	System.out.print(arrayCovered[h1][w1]);
+					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
+				//	System.out.print(arrayCovered[h2][w2]);
+				}
+				System.out.print("\n");
+				
+				//System.out.print("Please enter your age (<=0 for exit): "); 
+				//age = Input.readInt(); 
+				
+		/*		for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    //	arrayCovered[k][l]= '#';
+				    	
+				        System.out.print(arrayCovered[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} */
+
+//System.out.print("Please enter your age (<=0 for exit): "); 
+				//age = Input.readInt(); 
+				
+			/*	for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    //	arrayCovered[k][l]= '#';
+				    	
+				        System.out.print(arrayCovered[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} */
+	
+	////////////////////////////////////////////////////////////////////////////////////////////	
+/* 
+/* 	 System.out.print(" TROTA \n");
+/*/
 						   // 	{
 						    //	break;}
 						    	//else {break;}
