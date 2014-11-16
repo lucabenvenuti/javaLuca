@@ -28,8 +28,8 @@ public class MemoryGame {
 		//int a=0 , countAlive =0 , jj=0 , value = 0;
 		boolean newGen = false;		
 		
-		int [][] arrayNumbers = new int [20][2];
-		int counter =0, counter2 =0;
+		int [][] arrayNumbers = new int [2][3];
+		int counter =0, counter2 =0, counter3 =0;
 		
 		int row = arrayNumbers.length;
 		int col = arrayNumbers[0].length;
@@ -42,7 +42,7 @@ public class MemoryGame {
 		double rowPos = Math.random()*row;
 		int rowPos2 = (int) (Math.round(rowPos));	
 		
-		System.out.print("CXX test: \n"); 
+	//	System.out.print("CXX test: \n"); 
 		System.out.format(" loop number %.3f (%d) ", x, y);
 		
 		
@@ -79,15 +79,12 @@ public class MemoryGame {
 
 		    	}
 
-		  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
-		   // 	{
-		    //	break;}
 		    	else {break;}
 		    	
 		    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
 		    	//arrayNumbersNew[line1][column1] = 0;
 		    	
-		    	System.out.print(y + " \n");
+		    	//System.out.print(y + " \n");
 		    }
 		    
 		    if (counter>(row*col/2) )
@@ -104,48 +101,129 @@ public class MemoryGame {
 		    shuffleArray(arrayStorage);
 		    for (int i = 0; i < arrayStorage.length; i++)
 		    {
-		      System.out.print(arrayStorage[i] + " ");
+		      //System.out.print(arrayStorage[i] + " ");
 		    }
-		    System.out.println();
+		    //System.out.println();
+		    
+		    System.out.format(" counter  (%d) ", counter);
 		    
 			 for (int column1 = 0; column1 < col; column1++) {
 				    for (int line1 = 0; line1 < row; line1++) {
-				    	if (counter>=(row*col/2) && arrayNumbers[line1][column1] ==0 )
+				    	if (arrayNumbers[line1][column1] ==0 ) //counter>(row*col/2 -1) && 
 				    	{
+				    		
+					    	arrayNumbers[line1][column1] = arrayStorage[counter3];
+					    	//arrayStorage[counter]=y;
+					    	
+					    	counter3 = counter3 +1;
+					    	
 				    	}
 
-						  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
-						   // 	{
-						    //	break;}
-						    	else {break;}
+
+				    	
 						    	
-						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-						    	//arrayNumbersNew[line1][column1] = 0;
-						    	
-						    	System.out.print(y + " \n");
+						    	//System.out.print(y + " \n");
 						    }
 						    
-						    if (counter<=(row*col/2) )
-					    	{
-					    	break;}
+
 						    
 						}
 		
-			 System.out.print(" TROTA \n");
+			 System.out.print("\n");
 				
-				
+			 
 				for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
 				        System.out.print(arrayNumbers[k][l] + " ");
 				    }
 				    System.out.print("\n");
 				} 
-		
+				System.out.print(" TROTA \n");
+				//char a = 'b';
+				char [][] arrayLettersNew = new char [row][col];
+				//arrayLettersNew[1][1] = 'c';
+				
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    	arrayLettersNew[k][l]= (char)arrayNumbers[k][l];
+				    	
+				        System.out.print(arrayLettersNew[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} 
+				
+			//	System.out.print(arrayLettersNew[1][1]);
+				
+				
+				
+				char [][] arrayCovered = new char [row][col];
+				//arrayLettersNew[1][1] = 'c';
+				
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				    	arrayCovered[k][l]= '#';
+				    	
+				        System.out.print(arrayCovered[k][l]);
+				     //   System.out.print(" ,");
+				    }
+				    System.out.print("\n");
+				} 
+				
+				
+				
+				int h1 = 1, w1 =1, h2 =1, w2 = 2;
+				
+				
+				
+				char a = '!';
+				a = Input.readCharSequence();
+
+				int aff = (int) a;
+				System.out.println(aff);
+				System.out.print("trotaculo2 \n");
+				
+				if (a=='q' || a == 'Q'){
+					System.out.print("trotaculo \n");
+					return;
+				}
+				else if(aff == 10) {
+					
+					//System.out.print(a);
+					System.out.print("WIN \n");
+				}
+				else {
+					System.out.print("trotaculofx \n");
+					return;
+				}
+				
+				
+				
 }
 }
 
 
-/*		switch (month) {
+/*		 System.out.print(" TROTA \n");
+ */
+						   // 	{
+						    //	break;}
+						    	//else {break;}
+						    	
+						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+						    	//arrayNumbersNew[line1][column1] = 0;	
+ //* 						  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
+						   // 	{
+						    //	break;}
+						    	//else {break;}
+						    	
+						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+						    	//arrayNumbersNew[line1][column1] = 0;
+						 /*   if (counter<=(row*col/2) )
+				    	{
+				    	break;} */
+ /* 
+ * 
+ * switch (month) {
 		case 9:
 		case 4:
 		case 6:
@@ -174,6 +252,11 @@ public class MemoryGame {
 		      System.out.print(solutionArray[i] + " ");
 		    }
 		    System.out.println();	
+		    
+		    
+		  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
+		   // 	{
+		    //	break;}
 		*
 		*
 		*/
