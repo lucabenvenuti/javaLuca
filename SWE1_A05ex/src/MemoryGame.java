@@ -15,7 +15,7 @@ public class MemoryGame {
 		boolean live = true;		
 		
 		
-		System.out.print("CXX: "); 
+		System.out.print("CXX test: "); 
 		
 		
 		
