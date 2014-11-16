@@ -34,7 +34,7 @@ public class MemoryGame {
 		int row = arrayNumbers.length;
 		int col = arrayNumbers[0].length;
 		int [][] arrayNumbersNew = new int [row][col];
-		int [] arrayStorage = new int [row*col];
+		int [] arrayStorage = new int [row*col/2];
 		
 		double x = Math.random()*77;
 		int y = (int) (Math.round(x)+48);	
@@ -45,10 +45,10 @@ public class MemoryGame {
 		System.out.print("CXX test: \n"); 
 		System.out.format(" loop number %.3f (%d) ", x, y);
 		
-		for (int line1 = 0; line1 < row; line1++) {
-		    for (int column1 = 0; column1 < col; column1++) {
-		    	
-		    	if (counter<=(row*col/2) && arrayNumbers[line1][column1] ==0 )
+		
+		 for (int column1 = 0; column1 < col; column1++) {
+		    for (int line1 = 0; line1 < row; line1++) {
+		    	if (counter<(row*col/2) && arrayNumbers[line1][column1] ==0 )
 		    	{
 		    		//until it is true the while goes
 		    		// I want to continue until I get a random that is not in the list //!newGen
@@ -79,13 +79,13 @@ public class MemoryGame {
 
 		    	}
 
-		    	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
-		    	{
-		    	break;}
+		  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
+		   // 	{
+		    //	break;}
 		    	else {break;}
 		    	
-		    	arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-		    	arrayNumbersNew[line1][column1] = 0;
+		    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+		    	//arrayNumbersNew[line1][column1] = 0;
 		    	
 		    	System.out.print(y + " \n");
 		    }
@@ -95,19 +95,51 @@ public class MemoryGame {
 	    	break;}
 		    
 		}
-		
-		
-		
-		 int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
+		 
 
-		    shuffleArray(solutionArray);
-		    for (int i = 0; i < solutionArray.length; i++)
+		 
+		
+		 //int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
+
+		    shuffleArray(arrayStorage);
+		    for (int i = 0; i < arrayStorage.length; i++)
 		    {
-		      System.out.print(solutionArray[i] + " ");
+		      System.out.print(arrayStorage[i] + " ");
 		    }
 		    System.out.println();
-		
+		    
+			 for (int column1 = 0; column1 < col; column1++) {
+				    for (int line1 = 0; line1 < row; line1++) {
+				    	if (counter>=(row*col/2) && arrayNumbers[line1][column1] ==0 )
+				    	{
+				    	}
 
+						  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
+						   // 	{
+						    //	break;}
+						    	else {break;}
+						    	
+						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+						    	//arrayNumbersNew[line1][column1] = 0;
+						    	
+						    	System.out.print(y + " \n");
+						    }
+						    
+						    if (counter<=(row*col/2) )
+					    	{
+					    	break;}
+						    
+						}
+		
+			 System.out.print(" TROTA \n");
+				
+				
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				        System.out.print(arrayNumbers[k][l] + " ");
+				    }
+				    System.out.print("\n");
+				} 
 		
 }
 }
@@ -133,7 +165,15 @@ public class MemoryGame {
 }
 		    	else{}
 		    	
-		    	}		
+		    	}	
+		    	int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
+
+		    shuffleArray(solutionArray);
+		    for (int i = 0; i < solutionArray.length; i++)
+		    {
+		      System.out.print(solutionArray[i] + " ");
+		    }
+		    System.out.println();	
 		*
 		*
 		*/
