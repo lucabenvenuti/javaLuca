@@ -27,11 +27,21 @@ public class MemoryGame {
 	public static void main(String[] args) {
 		//int a=0 , countAlive =0 , jj=0 , value = 0;
 		boolean newGen = false;		
+		int keyboardInputInt = 0;
+		char keyboardInput = '!';
 		
 		System.out.print("Playground-height: "); 
 		int row = Input.readInt(); 
 		System.out.print("Playground-width: "); 
 		int col = Input.readInt(); 
+		
+		int [][] arrayNumbers = new int [row][col];
+		int counter =0, counter2 =0, counter3 =0;
+		
+		int [] arrayStorage = new int [row*col/2];
+		
+		double x = Math.random()*77; 
+		int y = (int) (Math.round(x)+48);	//if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
 		
 		while (row*col>156 || row*col<4 || row*col%2==1){
 			
@@ -49,25 +59,8 @@ public class MemoryGame {
 			col = Input.readInt(); 
 		}
 		
-		int [][] arrayNumbers = new int [row][col];
-		int counter =0, counter2 =0, counter3 =0;
-		
-		// store the attempts
-		int [][] tryAttempts = new int [70][4];
-		
-		//int row = arrayNumbers.length;
-		//int col = arrayNumbers[0].length;
-//		int [][] arrayNumbersNew = new int [row][col];
-		int [] arrayStorage = new int [row*col/2];
-		
-		double x = Math.random()*77;
-		int y = (int) (Math.round(x)+48);	
-		
-	//	double rowPos = Math.random()*row;
-	//	int rowPos2 = (int) (Math.round(rowPos));	
-		
-	//	System.out.print("CXX test: \n"); 
-	//	System.out.format(" loop number %.3f (%d) ", x, y);
+
+
 		
 		
 		 for (int column1 = 0; column1 < col; column1++) {
@@ -104,11 +97,7 @@ public class MemoryGame {
 		    	}
 
 		    	else {break;}
-		    	
-		    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-		    	//arrayNumbersNew[line1][column1] = 0;
-		    	
-		    	//System.out.print(y + " \n");
+
 		    }
 		    
 		    if (counter>(row*col/2) )
@@ -116,20 +105,13 @@ public class MemoryGame {
 	    	break;}
 		    
 		}
-		 
-
-		 
-		
-		 //int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
 
 		    shuffleArray(arrayStorage);
 		    for (int i = 0; i < arrayStorage.length; i++)
 		    {
 		      //System.out.print(arrayStorage[i] + " ");
 		    }
-		    //System.out.println();
-		    
-		  //  System.out.format(" counter  (%d) ", counter);
+
 		    
 			 for (int column1 = 0; column1 < col; column1++) {
 				    for (int line1 = 0; line1 < row; line1++) {
@@ -143,27 +125,10 @@ public class MemoryGame {
 					    	
 				    	}
 
-
-				    	
-						    	
-						    	//System.out.print(y + " \n");
 						    }
-						    
-
-						    
 						}
 		
-		//	 System.out.print("\n");
-				
-			 
-		/*		for (int k = 0; k < row; k++) {
-				    for (int l = 0; l < col; l++) {
-				        System.out.print(arrayNumbers[k][l] + " ");
-				    }
-				    System.out.print("\n");
-				} 
-				System.out.print(" TROTA \n"); */
-				//char a = 'b';
+
 				char [][] arrayLettersNew = new char [row][col];
 				//arrayLettersNew[1][1] = 'c';
 				
@@ -202,6 +167,7 @@ public class MemoryGame {
 				int playerPrint = 2;
 				System.out.format("--- Player %d --- \n", playerNum);
 				int h1 = 0, w1 =0, h2 =0, w2 = 1;
+				int score1 = 0, score2 = 0;
 				
 				System.out.print("h1: "); 
 				h1 = Input.readInt(); 
@@ -237,11 +203,7 @@ public class MemoryGame {
 				h2 = h2-1;
 				w2 = w2-1;
 				
-/*				int attemptsCounter = 0;
-				tryAttempts[attemptsCounter][0] = h1;
-				tryAttempts[attemptsCounter][1] = w1;
-				tryAttempts[attemptsCounter][2] = h2;
-				tryAttempts[attemptsCounter][3] = w2; */
+
 				
 				boolean continuation = true;
 				
@@ -257,11 +219,7 @@ public class MemoryGame {
 				    	else  { //if ()
 				    		 System.out.print(arrayCovered[k][l]);
 				    	}
-				    	//else {System.out.print("trotaculo2 \n");}
-				    	
-				    	
-				     //   System.out.print(arrayCovered[k][l]);
-				     //   System.out.print(" ,");
+
 				    }
 				    System.out.print("\n");
 				} 
@@ -272,32 +230,40 @@ public class MemoryGame {
 				//	System.out.print(arrayCovered[h1][w1]);
 					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
 				//	System.out.print(arrayCovered[h2][w2]);
-					playerNum = playerNum;
+					//playerNum = playerNum;
+					if (playerNum%2==0){
+						//playerPrint = 2;
+						score2 = score2+1;
+					}
+					else{
+						//playerPrint = 1;
+						score1 = score1+1;
+					}
+					
 				}
 				else{
 					playerNum = playerNum+1;
 				}
 				
-				//System.out.print("\n");
-				
-				System.out.print("'q'/'Q' to quit, <Enter> to continue... \n");
-				
-				
-				char a = '!';
-				a = Input.readCharSequence();
 
-				int aff = (int) a;
-				//System.out.println(aff);
-				//System.out.print("trotaculo2 \n");
+				if ((score1+score2)==row*col/2){
+					break;
+				}
 				
-				if (a=='q' || a == 'Q'){
-					System.out.print("GAME FINISHED \n");
+				else 
+				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... \n");
+					keyboardInput = Input.readCharSequence();
+
+					keyboardInputInt = (int) keyboardInput;
+					
+					if (keyboardInput=='q' || keyboardInput == 'Q'){
+					//System.out.print("GAME FINISHED \n");
 					return;
 				}
-				else if(aff == 10) {
+				else if(keyboardInputInt == 10) {
 					
 					//System.out.print(a);
-					System.out.print("LET'S PLAY \n");
+					//System.out.print("LET'S PLAY \n");
 					//playerNum = playerNum+1;
 					if (playerNum%2==0){playerPrint = 2;}
 					else{playerPrint = 1;}
@@ -343,10 +309,10 @@ public class MemoryGame {
 					//System.out.print("trotaculofx \n");
 					return;
 				}
-				
+				}
 				}
 				
-			
+				System.out.format(" counter  (%d) bis (%d) ", score1, score2);
 				
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 				
@@ -358,8 +324,61 @@ public class MemoryGame {
 }
 
 
-/*		h1 = 0;
-				w1 =0;
+
+//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
+//arrayNumbersNew[line1][column1] = 0;
+
+//System.out.print(y + " \n");
+
+
+//System.out.println();
+
+//  System.out.format(" counter  (%d) ", counter);	 
+
+//int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
+
+
+//System.out.print(y + " \n");
+//	 System.out.print("\n");
+
+
+/*		for (int k = 0; k < row; k++) {
+		    for (int l = 0; l < col; l++) {
+		        System.out.print(arrayNumbers[k][l] + " ");
+		    }
+		    System.out.print("\n");
+		} 
+		System.out.print(" TROTA \n"); */
+		//char a = 'b';
+
+//else {System.out.print("trotaculo2 \n");}
+
+
+//   System.out.print(arrayCovered[k][l]);
+//   System.out.print(" ,");
+/*				int attemptsCounter = 0;
+tryAttempts[attemptsCounter][0] = h1;
+tryAttempts[attemptsCounter][1] = w1;
+tryAttempts[attemptsCounter][2] = h2;
+tryAttempts[attemptsCounter][3] = w2; */
+
+/*				
+		// store the attempts
+		//int [][] tryAttempts = new int [70][4];
+		
+		//int row = arrayNumbers.length;
+		//int col = arrayNumbers[0].length;
+//		int [][] arrayNumbersNew = new int [row][col];
+
+		
+	//	double rowPos = Math.random()*row;
+	//	int rowPos2 = (int) (Math.round(rowPos));	
+		
+	//	System.out.print("CXX test: \n"); 
+	//	System.out.format(" loop number %.3f (%d) ", x, y);
+	 * h1 = 0;
+	 */
+	/*			w1 =0;
 				h2 =0;
 				w2 = 2;
 				
