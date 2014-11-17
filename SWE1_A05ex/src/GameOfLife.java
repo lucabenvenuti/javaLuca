@@ -59,34 +59,44 @@ public class GameOfLife {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
 		int a=0 , countAlive =0 , jj=0 , value = 0;
-		boolean live = true;		
+		boolean live = true;	
 		
-		System.out.print("B: "); 
+		System.out.print("Number of life cycles: "); 
+		int cycles = Input.readInt(); 
+		
+		System.out.print("File name (stable.txt, disappears.txt, or alternate.txt): "); 
 		String file = Input.readString();
 		try {
 			int [][] arrayNumbers = readFile(file);
 			
-			  int row = arrayNumbers.length;
-			  int col = arrayNumbers[0].length;
+			int row = arrayNumbers.length;
+			int col = arrayNumbers[0].length;
 			int [][] arrayNumbersNew = new int [row][col];
-			System.out.format(" (%d , %d ) \n \n ",  row, col);
+			char [][] arrayNumbersChar = new char [row][col];
+	//		System.out.format(" (%d , %d ) \n \n ",  row, col);
 			
-			System.out.print("CXX: "); 
-			System.out.print("\n");
+	//		System.out.print("CXX: "); 
+	//		System.out.print("\n");
 			
-			for (int k = 0; k < 10; k++) {
-			    for (int l = 0; l < 10; l++) {
-			        System.out.print(arrayNumbers[k][l] + " ");
+			for (int k = 0; k < row; k++) {
+			    for (int l = 0; l < col; l++) {
+			        //System.out.print(arrayNumbers[k][l] + " ");
+			    	if (arrayNumbers[k][l]==1){
+			    		System.out.print("*");
+			    	}
+			    	else{System.out.print(".");}
+			        //System.out.print(arrayNumbersChar[k][l]);
+			        arrayNumbersChar[k][l] = '.';
 			    }
 			    System.out.print("\n");
 			} 
-			System.out.print("\n");
-			System.out.print("trota: "); 
-			System.out.print("\n");
+		//	System.out.print("\n");
+		//	System.out.print("trota: "); 
+		//	System.out.print("\n");
 			
-			while (live && jj<10){
+			while (live && jj<cycles){
 				live = false;
-			
+				System.out.print("\n");
 			for (int line1 = 1; line1 < (row-1); line1++) {
 			    for (int column1 = 1; column1 < (col-1); column1++) {
 			       // System.out.print(arrayNumbers[line1][column1] + " ");
@@ -99,27 +109,31 @@ public class GameOfLife {
 			        countAlive = countAlive + arrayNumbers[line1+1][column1-1];
 			        countAlive = countAlive + arrayNumbers[line1+1][column1+1];
 			        countAlive = countAlive + arrayNumbers[line1+1][column1];		
-			        System.out.print("\n");
-			        System.out.format(" (%d, line %d, column %d, initialValue %d) ", countAlive, line1+1 , column1+1, arrayNumbers[line1][column1]);
+			       // System.out.print("\n");
+			        //System.out.format(" (%d, line %d, column %d, initialValue %d) ", countAlive, line1+1 , column1+1, arrayNumbers[line1][column1]);
 			        //System.out.print("\n");
 			        if(countAlive <2 || countAlive>3){
-			        	System.out.print(" DEAD \n");
+			        	//System.out.print("."); //  DEAD \n");
 			        	//arrayNumbersNew[line1][column1]=0;
+			        	arrayNumbersChar[line1][column1] = '.';
 			        	value = 0;
 			        }
 			        else if(countAlive ==2 && arrayNumbers[line1][column1]==1) {
-			        	System.out.print(" ALIVE \n");
+			        	//System.out.print("*"); //ALIVE \n");
 			        	live = true;	
+			        	arrayNumbersChar[line1][column1] = '*';
 			        	value = 1;
 			        }
 			        else if(countAlive==3) {
-			        	System.out.print(" ALIVE \n");
+			        	//System.out.print("*"); // ALIVE \n");
 			        	live = true;	
+			        	arrayNumbersChar[line1][column1] = '*';
 			        	value = 1;
 			        	
 			        }
 			        else{
-			        	System.out.print(" DEAD \n");
+			        	//System.out.print("."); // DEAD \n");
+			        	arrayNumbersChar[line1][column1] = '.';
 			        	value = 0;
 			        }
 			        countAlive = 0;
@@ -128,9 +142,9 @@ public class GameOfLife {
 			        value = 0;
 			        
 			    }
-			    System.out.print("\n");
+		//	    System.out.print("\n");
 			} 
-			System.out.print(" TROTA \n");
+	//		System.out.print(" TROTA \n");
 			
 			for (int line1 = 0; line1 < (row); line1++) {
 			    for (int column1 = 0; column1 < (col); column1++) {
@@ -142,16 +156,29 @@ public class GameOfLife {
 			}
 			//arrayNumbers = arrayNumbersNew;
 			jj =jj+1;
-			 System.out.format(" loop number (%d) ", jj);
+//			 System.out.format(" loop number (%d) \n", jj);
 		      
+			
+			
+			
+				for (int k = 0; k < row; k++) {
+				    for (int l = 0; l < col; l++) {
+				        System.out.print(arrayNumbersChar[k][l]);
+				        arrayNumbersChar[k][l] = '.';
+				    }
+				    System.out.print("\n");
+				} 
+			
+
+			
 			}
-			System.out.print("CXX: "); 
+	//		System.out.print("CXX: "); 
 			
 		//add your code here...
 		} catch (IOException e) {
 		e.printStackTrace();
 		}
-		System.out.print("CXX: "); 
+//		System.out.print("CXX: "); 
 		
 		
 		
