@@ -34,12 +34,13 @@ public class MemoryGame {
 		System.out.print("Playground-width: "); 
 		int col = Input.readInt(); 
 		
-		int [][] arrayNumbers = new int [row][col];
-		int [] arrayStorage = new int [row*col/2];
-		char [][] arrayLettersNew = new char [row][col];
+
 		
-		double x = Math.random()*77; 
-		int y = (int) (Math.round(x)+48);	//if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
+		double x = 0.0; //Math.random()*77; 
+		int y = 0; //(int) (Math.round(x)+48);	
+//		double x = Math.random()*20; 
+//		int y = (int) (Math.round(x)+97);	
+//		System.out.format("test %d \n", y);
 		
 		while (row*col>156 || row*col<4 || row*col%2==1){
 			
@@ -56,6 +57,10 @@ public class MemoryGame {
 			System.out.print("Playground-width: "); 
 			col = Input.readInt(); 
 		}
+		
+		int [][] arrayNumbers = new int [row][col];
+		int [] arrayStorage = new int [row*col/2];
+		char [][] arrayLettersNew = new char [row][col];
 
 		 for (int column1 = 0; column1 < col; column1++) {
 		    for (int line1 = 0; line1 < row; line1++) {
@@ -70,8 +75,9 @@ public class MemoryGame {
 		    			if (counter2 > 1000){break;}
 		    			
 			    		newGen = false;
-			    		x = Math.random()*77;
-			    		y = (int) (Math.round(x)+48);	
+			    		x = Math.random()*77; //if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
+			    		y = (int) (Math.round(x)+48);	 //if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
+			    		//System.out.format("test %d \n", y);
 			    		
 			    		for (int k = 0; k < arrayStorage.length; k++) {
 			    			if (y == arrayStorage[k]){
@@ -102,7 +108,8 @@ public class MemoryGame {
 
 		    shuffleArray(arrayStorage);
 
-		    for (int column1 = 0; column1 < col; column1++) {
+		    
+			 for (int column1 = 0; column1 < col; column1++) {
 				    for (int line1 = 0; line1 < row; line1++) {
 				    	if (arrayNumbers[line1][column1] ==0 ) //counter>(row*col/2 -1) && 
 				    	{arrayNumbers[line1][column1] = arrayStorage[counter3];
@@ -189,13 +196,15 @@ public class MemoryGame {
 				
 				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
 					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
-				
+					arrayCovered[h2][w2]= '#';
 					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
 
 					if (playerNum%2==0){
+						
 						score2 = score2+1;
 					}
 					else{
+						
 						score1 = score1+1;
 					}
 					
@@ -208,13 +217,13 @@ public class MemoryGame {
 				}
 				
 				else 
-				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... \n");
+				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... ");
 					keyboardInput = Input.readCharSequence();
 					keyboardInputInt = (int) keyboardInput;
 					
 					if (keyboardInput=='q' || keyboardInput == 'Q'){
 					//System.out.print("GAME FINISHED \n");
-					return;
+					break;
 						}
 				else if(keyboardInputInt == 10) {
 										
@@ -263,202 +272,8 @@ public class MemoryGame {
 				}
 				}
 				
-				System.out.format(" counter  (%d) bis (%d) ", score1, score2);
+				System.out.format("Player 1 scores %d \n", score1);
+				System.out.format("Player 2 scores %d \n", score2);
 				
 	}
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//playerPrint = 1;
-//	System.out.print(arrayCovered[h2][w2]);
-//playerNum = playerNum;//playerPrint = 2;//	System.out.print(arrayCovered[h1][w1]);
-//playerNum = playerNum+1;//System.out.print(a);
-//System.out.print("trotaculofx \n");
-/*	    for (int i = 0; i < arrayStorage.length; i++)
-{
-  //System.out.print(arrayStorage[i] + " ");
-}*/
-//arrayStorage[counter]=y;
-
-  /////////////////////////////////////////  System.out.print(arrayLettersNew[k][l]);
- //   System.out.print(" ,");
-//////////////////////////////////////////////System.out.print("\n");
-//System.out.print(arrayLettersNew[1][1]);
-
-
-
-//arrayLettersNew[1][1] = 'c';
-//arrayLettersNew[1][1] = 'c';
- //   System.out.print(" ,");
-//arrayCovered[k][l]= '#';//if ()
-
-//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-//arrayNumbersNew[line1][column1] = 0;
-
-//System.out.print(y + " \n");
-
-
-//System.out.println();
-
-//  System.out.format(" counter  (%d) ", counter);	 
-
-//int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
-
-
-//System.out.print(y + " \n");
-//	 System.out.print("\n");
-
-
-/*		for (int k = 0; k < row; k++) {
-		    for (int l = 0; l < col; l++) {
-		        System.out.print(arrayNumbers[k][l] + " ");
-		    }
-		    System.out.print("\n");
-		} 
-		System.out.print(" TROTA \n"); */
-		//char a = 'b';
-
-//else {System.out.print("trotaculo2 \n");}
-
-
-//   System.out.print(arrayCovered[k][l]);
-//   System.out.print(" ,");
-/*				int attemptsCounter = 0;
-tryAttempts[attemptsCounter][0] = h1;
-tryAttempts[attemptsCounter][1] = w1;
-tryAttempts[attemptsCounter][2] = h2;
-tryAttempts[attemptsCounter][3] = w2; */
-
-/*				
-		// store the attempts
-		//int [][] tryAttempts = new int [70][4];
-		
-		//int row = arrayNumbers.length;
-		//int col = arrayNumbers[0].length;
-//		int [][] arrayNumbersNew = new int [row][col];
-
-		
-	//	double rowPos = Math.random()*row;
-	//	int rowPos2 = (int) (Math.round(rowPos));	
-		
-	//	System.out.print("CXX test: \n"); 
-	//	System.out.format(" loop number %.3f (%d) ", x, y);
-	 * h1 = 0;
-	 */
-	/*			w1 =0;
-				h2 =0;
-				w2 = 2;
-				
-				for (int k = 0; k < row; k++) {
-				    for (int l = 0; l < col; l++) {
-				    	//arrayCovered[k][l]= '#';
-				    	
-				    	if((k==h1 && l == w1) || (k==h2 && l == w2)){
-				    		System.out.print(arrayLettersNew[k][l]);
-				    	}
-				    	else  { //if ()
-				    		 System.out.print(arrayCovered[k][l]);
-				    	}
-				    	//else {System.out.print("trotaculo2 \n");}
-				    	
-				    	
-				     //   System.out.print(arrayCovered[k][l]);
-				     //   System.out.print(" ,");
-				    }
-				    System.out.print("\n");
-				} 
-				System.out.print("\n");
-				
-				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
-					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
-				//	System.out.print(arrayCovered[h1][w1]);
-					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
-				//	System.out.print(arrayCovered[h2][w2]);
-				}
-				System.out.print("\n");
-				
-				//System.out.print("Please enter your age (<=0 for exit): "); 
-				//age = Input.readInt(); 
-				
-		/*		for (int k = 0; k < row; k++) {
-				    for (int l = 0; l < col; l++) {
-				    //	arrayCovered[k][l]= '#';
-				    	
-				        System.out.print(arrayCovered[k][l]);
-				     //   System.out.print(" ,");
-				    }
-				    System.out.print("\n");
-				} */
-
-//System.out.print("Please enter your age (<=0 for exit): "); 
-				//age = Input.readInt(); 
-				
-			/*	for (int k = 0; k < row; k++) {
-				    for (int l = 0; l < col; l++) {
-				    //	arrayCovered[k][l]= '#';
-				    	
-				        System.out.print(arrayCovered[k][l]);
-				     //   System.out.print(" ,");
-				    }
-				    System.out.print("\n");
-				} */
-	
-	////////////////////////////////////////////////////////////////////////////////////////////	
-/* 
-/* 	 System.out.print(" TROTA \n");
-/*/
-						   // 	{
-						    //	break;}
-						    	//else {break;}
-						    	
-						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-						    	//arrayNumbersNew[line1][column1] = 0;	
- //* 						  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
-						   // 	{
-						    //	break;}
-						    	//else {break;}
-						    	
-						    	//arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
-						    	//arrayNumbersNew[line1][column1] = 0;
-						 /*   if (counter<=(row*col/2) )
-				    	{
-				    	break;} */
- /* 
- * 
- * switch (month) {
-		case 9:
-		case 4:
-		case 6:
-		case 11:
-			daysMax = 30;
-			break;
-		case 2:
-			if (leapyear)
-				daysMax = 29;
-			else
-				daysMax = 28;
-			break;
-		default:
-			daysMax = 31;
-		}
-		    	if (newGen){	
-}
-		    	else{}
-		    	
-		    	}	
-		    	int[] solutionArray = { 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12, 11 };
-
-		    shuffleArray(solutionArray);
-		    for (int i = 0; i < solutionArray.length; i++)
-		    {
-		      System.out.print(solutionArray[i] + " ");
-		    }
-		    System.out.println();	
-		    
-		    
-		  //  	else if (counter>(row*col/2) && arrayNumbers[line1][column1] ==0 )
-		   // 	{
-		    //	break;}
-		*
-		*
-		*/
