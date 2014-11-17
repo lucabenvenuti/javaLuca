@@ -25,9 +25,8 @@ public class MemoryGame {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		//int a=0 , countAlive =0 , jj=0 , value = 0;
-		boolean newGen = false;		
-		int keyboardInputInt = 0;
+		boolean newGen = false, continuation = true;;		
+		int keyboardInputInt = 0, counter =0, counter2 =0, counter3 =0;
 		char keyboardInput = '!';
 		
 		System.out.print("Playground-height: "); 
@@ -36,9 +35,8 @@ public class MemoryGame {
 		int col = Input.readInt(); 
 		
 		int [][] arrayNumbers = new int [row][col];
-		int counter =0, counter2 =0, counter3 =0;
-		
 		int [] arrayStorage = new int [row*col/2];
+		char [][] arrayLettersNew = new char [row][col];
 		
 		double x = Math.random()*77; 
 		int y = (int) (Math.round(x)+48);	//if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
@@ -58,16 +56,12 @@ public class MemoryGame {
 			System.out.print("Playground-width: "); 
 			col = Input.readInt(); 
 		}
-		
 
-
-		
-		
 		 for (int column1 = 0; column1 < col; column1++) {
 		    for (int line1 = 0; line1 < row; line1++) {
 		    	if (counter<(row*col/2) && arrayNumbers[line1][column1] ==0 )
 		    	{
-		    		//until it is true the while goes
+		    		//while it is true the while goes
 		    		// I want to continue until I get a random that is not in the list //!newGen
 		    		counter2 = 0;
 		    		newGen = true;
@@ -107,60 +101,32 @@ public class MemoryGame {
 		}
 
 		    shuffleArray(arrayStorage);
-		    for (int i = 0; i < arrayStorage.length; i++)
-		    {
-		      //System.out.print(arrayStorage[i] + " ");
-		    }
 
-		    
-			 for (int column1 = 0; column1 < col; column1++) {
+		    for (int column1 = 0; column1 < col; column1++) {
 				    for (int line1 = 0; line1 < row; line1++) {
 				    	if (arrayNumbers[line1][column1] ==0 ) //counter>(row*col/2 -1) && 
-				    	{
-				    		
-					    	arrayNumbers[line1][column1] = arrayStorage[counter3];
-					    	//arrayStorage[counter]=y;
-					    	
-					    	counter3 = counter3 +1;
-					    	
-				    	}
-
+				    	{arrayNumbers[line1][column1] = arrayStorage[counter3];
+					    	counter3 = counter3 +1;}
 						    }
 						}
-		
-
-				char [][] arrayLettersNew = new char [row][col];
-				//arrayLettersNew[1][1] = 'c';
-				
+			
 				for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
 				    	arrayLettersNew[k][l]= (char)arrayNumbers[k][l];
-				    	
-				      /////////////////////////////////////////  System.out.print(arrayLettersNew[k][l]);
-				     //   System.out.print(" ,");
 				    }
-				  //////////////////////////////////////////////  System.out.print("\n");
 				} 
-				
-			//	System.out.print(arrayLettersNew[1][1]);
-				
-				
-				
+
 				char [][] arrayCovered = new char [row][col];
-				//arrayLettersNew[1][1] = 'c';
-				
+	
 				for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
 				    	arrayCovered[k][l]= '#';
 				    	
 				        System.out.print(arrayCovered[k][l]);
-				     //   System.out.print(" ,");
+
 				    }
 				    System.out.print("\n");
 				} 
-				
-				
-				
 				
 				////FIRST INPUT
 				int playerNum = 1;
@@ -203,20 +169,16 @@ public class MemoryGame {
 				h2 = h2-1;
 				w2 = w2-1;
 				
-
-				
-				boolean continuation = true;
-				
 				while(continuation){
 				
 				for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
-				    	//arrayCovered[k][l]= '#';
+				    	
 				    	
 				    	if((k==h1 && l == w1) || (k==h2 && l == w2)){
 				    		System.out.print(arrayLettersNew[k][l]);
 				    	}
-				    	else  { //if ()
+				    	else  { 
 				    		 System.out.print(arrayCovered[k][l]);
 				    	}
 
@@ -227,16 +189,13 @@ public class MemoryGame {
 				
 				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
 					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
-				//	System.out.print(arrayCovered[h1][w1]);
+				
 					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
-				//	System.out.print(arrayCovered[h2][w2]);
-					//playerNum = playerNum;
+
 					if (playerNum%2==0){
-						//playerPrint = 2;
 						score2 = score2+1;
 					}
 					else{
-						//playerPrint = 1;
 						score1 = score1+1;
 					}
 					
@@ -244,8 +203,6 @@ public class MemoryGame {
 				else{
 					playerNum = playerNum+1;
 				}
-				
-
 				if ((score1+score2)==row*col/2){
 					break;
 				}
@@ -253,18 +210,15 @@ public class MemoryGame {
 				else 
 				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... \n");
 					keyboardInput = Input.readCharSequence();
-
 					keyboardInputInt = (int) keyboardInput;
 					
 					if (keyboardInput=='q' || keyboardInput == 'Q'){
 					//System.out.print("GAME FINISHED \n");
 					return;
-				}
+						}
 				else if(keyboardInputInt == 10) {
-					
-					//System.out.print(a);
+										
 					//System.out.print("LET'S PLAY \n");
-					//playerNum = playerNum+1;
 					if (playerNum%2==0){playerPrint = 2;}
 					else{playerPrint = 1;}
 					System.out.format("--- Player %d --- \n", playerPrint);
@@ -302,11 +256,8 @@ public class MemoryGame {
 					w1 = w1-1;
 					h2 = h2-1;
 					w2 = w2-1;
-
-					
 				}
 				else {
-					//System.out.print("trotaculofx \n");
 					return;
 				}
 				}
@@ -314,16 +265,32 @@ public class MemoryGame {
 				
 				System.out.format(" counter  (%d) bis (%d) ", score1, score2);
 				
+	}
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-				
+//playerPrint = 1;
+//	System.out.print(arrayCovered[h2][w2]);
+//playerNum = playerNum;//playerPrint = 2;//	System.out.print(arrayCovered[h1][w1]);
+//playerNum = playerNum+1;//System.out.print(a);
+//System.out.print("trotaculofx \n");
+/*	    for (int i = 0; i < arrayStorage.length; i++)
+{
+  //System.out.print(arrayStorage[i] + " ");
+}*/
+//arrayStorage[counter]=y;
 
-				
-				
-				
-}
-}
+  /////////////////////////////////////////  System.out.print(arrayLettersNew[k][l]);
+ //   System.out.print(" ,");
+//////////////////////////////////////////////System.out.print("\n");
+//System.out.print(arrayLettersNew[1][1]);
 
 
+
+//arrayLettersNew[1][1] = 'c';
+//arrayLettersNew[1][1] = 'c';
+ //   System.out.print(" ,");
+//arrayCovered[k][l]= '#';//if ()
 
 //arrayNumbers[line1][column1] = arrayNumbersNew[line1][column1];
 //arrayNumbersNew[line1][column1] = 0;
