@@ -38,9 +38,6 @@ public class MemoryGame {
 		
 		double x = 0.0; //Math.random()*77; 
 		int y = 0; //(int) (Math.round(x)+48);	
-//		double x = Math.random()*20; 
-//		int y = (int) (Math.round(x)+97);	
-//		System.out.format("test %d \n", y);
 		
 		while (row*col>156 || row*col<4 || row*col%2==1){
 			
