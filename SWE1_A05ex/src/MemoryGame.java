@@ -235,27 +235,7 @@ public class MemoryGame {
 					System.out.print("w1: "); 
 					w1 = Input.readInt(); 
 					
-/*					while (h1>row || w1>col || h1<1 || w1<1){
-						if (h1<1 || w1<1 || h1>row || w1>col){
-							System.out.print("Invalid coordinates. Try again. \n");			
-							System.out.print("h1: "); 
-							h1 = Input.readInt(); 
-							System.out.print("w1: "); 
-							System.out.print("TROTA "); 
-							w1 = Input.readInt();
-						}
-						else{
-						while(arrayCovered[h1-1][w1-1] != '#'){
-						System.out.print("Invalid coordinates. Try again. \n");
-						
-						System.out.print("h1: "); 
-						h1 = Input.readInt(); 
-						System.out.print("w1: "); 
-						System.out.print("TROTA2 "); 
-						w1 = Input.readInt(); }}
-					}				*/
-					
-					while (h1<1 || w1<1){
+					while (h1<1 || w1<1 || h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#')){
 						System.out.print("Invalid coordinates. Try again. \n");
 						
 						System.out.print("h1: "); 
@@ -264,21 +244,21 @@ public class MemoryGame {
 						w1 = Input.readInt(); 
 					}
 					
-					while (h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#') ){
+/*					while ((arrayCovered[h1-1][w1-1] != '#') ){
 						System.out.print("Invalid coordinates. Try again. \n");
 						
 						System.out.print("h1: "); 
 						h1 = Input.readInt(); 
 						System.out.print("w1: "); 
 						w1 = Input.readInt(); 
-					}
+					} */
 					
 					System.out.print("h2: "); 
 					h2 = Input.readInt(); 
 					System.out.print("w2: "); 
 					w2 = Input.readInt(); 
 
-					while (h2<1 || w2<1){
+					while (h2<1 || w2<1 || h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
 						System.out.print("Invalid coordinates. Try again. \n");
 						
 						System.out.print("h2: "); 
@@ -287,34 +267,14 @@ public class MemoryGame {
 						w2 = Input.readInt(); 
 					}
 					
-					while (h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
+		/*			while ((h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
 						System.out.print("Invalid coordinates. Try again. \n");
 						
 						System.out.print("h2: "); 
 						h2 = Input.readInt(); 
 						System.out.print("w2: "); 
 						w2 = Input.readInt(); 
-					}
-
-					
-			/*		while (h2>row || w2>col || h2<1 || w2<1 || (h1==h2 && w1==w2)){
-						if (h2<1 || w2<1 || h2>row || w2>col || (h1==h2 && w1==w2)){
-							System.out.print("Invalid coordinates. Try again. \n");			
-							System.out.print("h2: "); 
-							h2 = Input.readInt(); 
-							System.out.print("w2: "); 
-							w2 = Input.readInt();
-						}
-						else{
-						while(arrayCovered[h2-1][w2-1] != '#'){
-						System.out.print("Invalid coordinates. Try again. \n");
-						
-						System.out.print("h1: "); 
-						h2 = Input.readInt(); 
-						System.out.print("w1: "); 
-						w2 = Input.readInt(); }}
-					}			*/		
-					
+					} */
 
 					h1 = h1-1;
 					w1 = w1-1;
