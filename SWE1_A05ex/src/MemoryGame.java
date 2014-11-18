@@ -1,8 +1,9 @@
-import java.io.IOException;
-import java.util.*;
+/*import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Arrays;
+import java.util.Arrays;*/
+import java.util.*;
+
 
 
 public class MemoryGame {
@@ -25,19 +26,18 @@ public class MemoryGame {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		boolean newGen = false, continuation = true;;		
-		int keyboardInputInt = 0, counter =0, counter2 =0, counter3 =0;
+		boolean newGen = false, continuation = true;		
+		int keyboardInputInt = 0, counter =0, counter2 =0, counter3 =0, y = 0, playerNum = 1, playerPrint = 2, h1 = 0, w1 =0, h2 =0, w2 = 1, score1 = 0, score2 = 0;
 		char keyboardInput = '!';
+		double x = 0.0;
+		
+
 		
 		System.out.print("Playground-height: "); 
 		int row = Input.readInt(); 
 		System.out.print("Playground-width: "); 
 		int col = Input.readInt(); 
-		
 
-		
-		double x = 0.0; //Math.random()*77; 
-		int y = 0; //(int) (Math.round(x)+48);	
 		
 		while (row*col>156 || row*col<4 || row*col%2==1){
 			
@@ -58,6 +58,7 @@ public class MemoryGame {
 		int [][] arrayNumbers = new int [row][col];
 		int [] arrayStorage = new int [row*col/2];
 		char [][] arrayLettersNew = new char [row][col];
+		char [][] arrayCovered = new char [row][col];
 
 		 for (int column1 = 0; column1 < col; column1++) {
 		    for (int line1 = 0; line1 < row; line1++) {
@@ -120,7 +121,8 @@ public class MemoryGame {
 				    }
 				} 
 
-				char [][] arrayCovered = new char [row][col];
+				
+
 	
 				for (int k = 0; k < row; k++) {
 				    for (int l = 0; l < col; l++) {
@@ -133,18 +135,16 @@ public class MemoryGame {
 				} 
 				
 				////FIRST INPUT
-				int playerNum = 1;
-				int playerPrint = 2;
+
 				System.out.format("--- Player %d --- \n", playerNum);
-				int h1 = 0, w1 =0, h2 =0, w2 = 1;
-				int score1 = 0, score2 = 0;
+
 				
 				System.out.print("h1: "); 
 				h1 = Input.readInt(); 
 				System.out.print("w1: "); 
 				w1 = Input.readInt(); 
 				
-				while (h1>row || w1>col){
+				while (h1>row || w1>col || h1<1 || w1<1){
 					System.out.print("Invalid coordinates. Try again. \n");
 					
 					System.out.print("h1: "); 
@@ -159,7 +159,7 @@ public class MemoryGame {
 				w2 = Input.readInt(); 
 				
 				
-				while (h2>row || w2>col || (h1==h2 && w1==w2)){
+				while (h2>row || w2>col || (h1==h2 && w1==w2) || h2<1 || w2<1){
 					System.out.print("Invalid coordinates. Try again. \n");
 					
 					System.out.print("h2: "); 
@@ -192,6 +192,7 @@ public class MemoryGame {
 				System.out.print("\n");
 				
 				if (arrayLettersNew[h1][w1]==arrayLettersNew[h2][w2]){
+					arrayCovered[h1][w1]= '#';
 					arrayCovered[h1][w1]=arrayLettersNew[h1][w1];
 					arrayCovered[h2][w2]= '#';
 					arrayCovered[h2][w2]=arrayLettersNew[h2][w2];
@@ -214,7 +215,7 @@ public class MemoryGame {
 				}
 				
 				else 
-				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... ");
+				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... (any other key + Enter to abort) ");
 					keyboardInput = Input.readCharSequence();
 					keyboardInputInt = (int) keyboardInput;
 					
@@ -234,6 +235,35 @@ public class MemoryGame {
 					System.out.print("w1: "); 
 					w1 = Input.readInt(); 
 					
+/*					while (h1>row || w1>col || h1<1 || w1<1){
+						if (h1<1 || w1<1 || h1>row || w1>col){
+							System.out.print("Invalid coordinates. Try again. \n");			
+							System.out.print("h1: "); 
+							h1 = Input.readInt(); 
+							System.out.print("w1: "); 
+							System.out.print("TROTA "); 
+							w1 = Input.readInt();
+						}
+						else{
+						while(arrayCovered[h1-1][w1-1] != '#'){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h1: "); 
+						h1 = Input.readInt(); 
+						System.out.print("w1: "); 
+						System.out.print("TROTA2 "); 
+						w1 = Input.readInt(); }}
+					}				*/
+					
+					while (h1<1 || w1<1){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h1: "); 
+						h1 = Input.readInt(); 
+						System.out.print("w1: "); 
+						w1 = Input.readInt(); 
+					}
+					
 					while (h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#') ){
 						System.out.print("Invalid coordinates. Try again. \n");
 						
@@ -241,13 +271,21 @@ public class MemoryGame {
 						h1 = Input.readInt(); 
 						System.out.print("w1: "); 
 						w1 = Input.readInt(); 
-					}				
+					}
 					
 					System.out.print("h2: "); 
 					h2 = Input.readInt(); 
 					System.out.print("w2: "); 
 					w2 = Input.readInt(); 
-					
+
+					while (h2<1 || w2<1){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h2: "); 
+						h2 = Input.readInt(); 
+						System.out.print("w2: "); 
+						w2 = Input.readInt(); 
+					}
 					
 					while (h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
 						System.out.print("Invalid coordinates. Try again. \n");
@@ -257,6 +295,26 @@ public class MemoryGame {
 						System.out.print("w2: "); 
 						w2 = Input.readInt(); 
 					}
+
+					
+			/*		while (h2>row || w2>col || h2<1 || w2<1 || (h1==h2 && w1==w2)){
+						if (h2<1 || w2<1 || h2>row || w2>col || (h1==h2 && w1==w2)){
+							System.out.print("Invalid coordinates. Try again. \n");			
+							System.out.print("h2: "); 
+							h2 = Input.readInt(); 
+							System.out.print("w2: "); 
+							w2 = Input.readInt();
+						}
+						else{
+						while(arrayCovered[h2-1][w2-1] != '#'){
+						System.out.print("Invalid coordinates. Try again. \n");
+						
+						System.out.print("h1: "); 
+						h2 = Input.readInt(); 
+						System.out.print("w1: "); 
+						w2 = Input.readInt(); }}
+					}			*/		
+					
 
 					h1 = h1-1;
 					w1 = w1-1;
