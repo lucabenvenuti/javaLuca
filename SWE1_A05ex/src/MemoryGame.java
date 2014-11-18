@@ -30,18 +30,16 @@ public class MemoryGame {
 		int keyboardInputInt = 0, counter =0, counter2 =0, counter3 =0, y = 0, playerNum = 1, playerPrint = 2, h1 = 0, w1 =0, h2 =0, w2 = 1, score1 = 0, score2 = 0;
 		char keyboardInput = '!';
 		double x = 0.0;
-		
-
-		
+	
 		System.out.print("Playground-height: "); 
 		int row = Input.readInt(); 
 		System.out.print("Playground-width: "); 
 		int col = Input.readInt(); 
 
 		
-		while (row*col>156 || row*col<4 || row*col%2==1){
+		while (row<1 || col<1 || row*col>156 || row*col<4 || row*col%2==1){
 			
-			if (row*col>156 || row*col<4){
+			if (row<1 || col<1 || row*col>156 || row*col<4){
 				System.out.print("The maximal playground size has 156 cards and the minimal 4 cards, yours "
 						+ "has 234 cards. Try again. \n"); 	
 			}
@@ -75,8 +73,7 @@ public class MemoryGame {
 			    		newGen = false;
 			    		x = Math.random()*77; //if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
 			    		y = (int) (Math.round(x)+48);	 //if x = 0 ==> y = 48 // if x = 1 ==> y = 125 // ==> 78 different numbers
-			    		//System.out.format("test %d \n", y);
-			    		
+			    					    		
 			    		for (int k = 0; k < arrayStorage.length; k++) {
 			    			if (y == arrayStorage[k]){
 			    				newGen = true;
@@ -210,11 +207,10 @@ public class MemoryGame {
 				else{
 					playerNum = playerNum+1;
 				}
+				
 				if ((score1+score2)==row*col/2){
 					break;
-				}
-				
-				else 
+				} else 
 				{	System.out.print("'q'/'Q' to quit, <Enter> to continue... (any other key + Enter to abort) ");
 					keyboardInput = Input.readCharSequence();
 					keyboardInputInt = (int) keyboardInput;
@@ -223,64 +219,46 @@ public class MemoryGame {
 					//System.out.print("GAME FINISHED \n");
 					break;
 						}
-				else if(keyboardInputInt == 10) {
-										
-					//System.out.print("LET'S PLAY \n");
-					if (playerNum%2==0){playerPrint = 2;}
-					else{playerPrint = 1;}
-					System.out.format("--- Player %d --- \n", playerPrint);
-					
-					System.out.print("h1: "); 
-					h1 = Input.readInt(); 
-					System.out.print("w1: "); 
-					w1 = Input.readInt(); 
-					
-					while (h1<1 || w1<1 || h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#')){
-						System.out.print("Invalid coordinates. Try again. \n");
+						else if(keyboardInputInt == 10) {
+											
+						//System.out.print("LET'S PLAY \n");
+						if (playerNum%2==0){playerPrint = 2;}
+						else{playerPrint = 1;}
+						System.out.format("--- Player %d --- \n", playerPrint);
 						
 						System.out.print("h1: "); 
 						h1 = Input.readInt(); 
 						System.out.print("w1: "); 
 						w1 = Input.readInt(); 
-					}
-					
-/*					while ((arrayCovered[h1-1][w1-1] != '#') ){
-						System.out.print("Invalid coordinates. Try again. \n");
 						
-						System.out.print("h1: "); 
-						h1 = Input.readInt(); 
-						System.out.print("w1: "); 
-						w1 = Input.readInt(); 
-					} */
-					
-					System.out.print("h2: "); 
-					h2 = Input.readInt(); 
-					System.out.print("w2: "); 
-					w2 = Input.readInt(); 
-
-					while (h2<1 || w2<1 || h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
-						System.out.print("Invalid coordinates. Try again. \n");
+						while (h1<1 || w1<1 || h1>row || w1>col || (arrayCovered[h1-1][w1-1] != '#')){
+							System.out.print("Invalid coordinates. Try again. \n");
+							
+							System.out.print("h1: "); 
+							h1 = Input.readInt(); 
+							System.out.print("w1: "); 
+							w1 = Input.readInt(); 
+						}
 						
 						System.out.print("h2: "); 
 						h2 = Input.readInt(); 
 						System.out.print("w2: "); 
 						w2 = Input.readInt(); 
-					}
-					
-		/*			while ((h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
-						System.out.print("Invalid coordinates. Try again. \n");
+	
+						while (h2<1 || w2<1 || h2>row || w2>col || (h1==h2 && w1==w2) || (arrayCovered[h2-1][w2-1] != '#')){
+							System.out.print("Invalid coordinates. Try again. \n");
+							
+							System.out.print("h2: "); 
+							h2 = Input.readInt(); 
+							System.out.print("w2: "); 
+							w2 = Input.readInt(); 
+						}
 						
-						System.out.print("h2: "); 
-						h2 = Input.readInt(); 
-						System.out.print("w2: "); 
-						w2 = Input.readInt(); 
-					} */
-
-					h1 = h1-1;
-					w1 = w1-1;
-					h2 = h2-1;
-					w2 = w2-1;
-				}
+						h1 = h1-1;
+						w1 = w1-1;
+						h2 = h2-1;
+						w2 = w2-1;
+					}
 				else {
 					return;
 				}
