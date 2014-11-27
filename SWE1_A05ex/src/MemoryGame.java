@@ -1,7 +1,3 @@
-/*import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Arrays;*/
 import java.util.*;
 
 
@@ -38,7 +34,7 @@ public class MemoryGame {
 
 		
 		while (row<1 || col<1 || row*col>156 || row*col<4 || row*col%2==1){
-			
+			//the while with OR-OR are read in order, when the first condition is true, it does not read the following			
 			if (row<1 || col<1 || row*col>156 || row*col<4){
 				System.out.print("The maximal playground size has 156 cards and the minimal 4 cards, yours "
 						+ "has 234 cards. Try again. \n"); 	
