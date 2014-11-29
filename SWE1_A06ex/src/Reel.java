@@ -19,13 +19,17 @@ public class Reel {
 		}
 		
 		
-		public char[] createSymbolList(int newReelIndex) {
+	/*	public char[] createSymbolList(int newReelIndex) {
 			 //...
 			 char[] symbolExtractedList2 = new char[newReelIndex];
 			 //... set values ...
+			 
+			 
+			 
 			 return symbolExtractedList2;
-			}
+			}*/
 		
+		public List a1 = new ArrayList();
 		
 		//public char[] symbolExtractedList = new char[getReelIndex()];
 		
@@ -56,25 +60,27 @@ public class Reel {
 		public char tempChar = 'a';
 
 //		public char[] spinning(int reelIndex, char[] symbolExtractedList) {
-		public char[] spinning(int reelIndex){//, char[] symbolExtractedList) {	
+		public void spinning(int reelIndex){//, char[] symbolExtractedList) {	
 			System.out.println(getReelIndex()); 
-			char[] symbolExtractedList1 = createSymbolList(getReelIndex());
+	//		char[] symbolExtractedList1 = createSymbolList(getReelIndex());
 			
 			//char[] symbolExtractedList = new char[getReelIndex()];
-			System.out.println(symbolExtractedList1.length);
-			System.out.format("\n"); 
+	//		System.out.println(symbolExtractedList1.length);
+		//	System.out.format("\n"); 
 			
 			for (int i=0; i < getReelIndex(); i++){
 				randomSpinning = rndGen.nextInt(SYMBOLS.length());
 				tempChar = SYMBOLS.charAt(randomSpinning);
 	//			this.saveList[i]=randomSpinning;
-				symbolExtractedList1[i]=tempChar;
+		//		symbolExtractedList1[i]=tempChar;
+				a1.add(tempChar);
 //				setSymbolExtracted(i, (char)randomSpinning);
 	//			printSymbolExtracted(i);
 				
-				System.out.format("%d ", randomSpinning); 
-				System.out.println(tempChar);
-				System.out.println(symbolExtractedList1[i]);
+			//	System.out.format("%d ", randomSpinning); 
+			//	System.out.println(tempChar);
+			//	System.out.println(symbolExtractedList1[i]);
+				System.out.println(a1.get(i));
 				System.out.format("\n"); 
 				try {
 					Thread.sleep(250);
@@ -84,7 +90,7 @@ public class Reel {
 				}
 			}
 		
-		return symbolExtractedList1;
+	//	return symbolExtractedList1;
 		}
 
 }

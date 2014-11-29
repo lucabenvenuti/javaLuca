@@ -39,9 +39,9 @@ public class SlotMachine {
 		Reel germanic = new Reel();
 		germanic.setReelIndex(german.getNOfWheels());
 		//char[] test= germanic.createSymbolList(german.getNOfWheels());
-		char[] test = germanic.spinning(german.getNOfWheels());//,test);
+		germanic.spinning(german.getNOfWheels());//,test);
 		
-		System.out.println(test);
+		System.out.println(germanic.a1);
 	}
 
 }
