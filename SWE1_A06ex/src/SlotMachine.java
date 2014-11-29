@@ -42,6 +42,12 @@ public class SlotMachine {
 		germanic.spinning(german.getNOfWheels());//,test);
 		
 		System.out.println(germanic.a1);
+		
+		
+		SlotMachineCalc teutonic = new SlotMachineCalc();
+		
+		teutonic.setScore(germanic.a1);
+	//	System.out.println(teutonic.getArray2(0));
 	}
 
 }
