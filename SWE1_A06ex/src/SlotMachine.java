@@ -39,7 +39,7 @@ public class SlotMachine {
 		boolean play = true;
 		boolean mustRePlay = false;
 		boolean poor = false;
-		
+		//int a =0;
 		SlotMachine german = new SlotMachine();
 		
 		System.out.format("Which SlotMachine type do you want to play with? 3,4,5 Reels \n"); 
@@ -59,11 +59,12 @@ public class SlotMachine {
 		char keyboardInput;
 		if(!mustRePlay){
 			keyboardInput = Input.readCharSequence();
+			
 		}else {
 			keyboardInput = 'c';
-			mustRePlay = false;
+		//	mustRePlay = false;
 		}
-		
+		mustRePlay = false;
 		String userInput = "";
 		int keyboardInputInt = (int) keyboardInput;
 	//	System.out.println(keyboardInput);
@@ -108,6 +109,7 @@ public class SlotMachine {
 			
 			teutonic.setScore(germanic.getListSpinned());
 			//System.out.println("\n");
+			
 			if (teutonic.getScore()==-1 || teutonic.getScore()>1){
 				moneyAvailable = moneyAvailable +teutonic.getScore();
 				if(teutonic.getScore()>1) {
@@ -115,16 +117,19 @@ public class SlotMachine {
 					System.out.format("You have won the following amount of credit: %d \n", teutonic.getScore());}
 			} else if (teutonic.getScore()==0){//all R, free re-spin
 				//moneyAvailable = moneyAvailable
+			//	a=1;
 				mustRePlay = true;
+				System.out.print("\n");
 				System.out.format("You got a re-spin for free \n");
 				try {
-					Thread.sleep(50);
+					Thread.sleep(250);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if (teutonic.getScore()==1){//all W, money back
 				//moneyAvailable = moneyAvailable
+				System.out.print("\n");
 				System.out.format("You got your money back \n");
 			}
 			else{}

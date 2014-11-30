@@ -79,6 +79,7 @@ public class Reel {
 			for (int i=0; i < getReelIndex(); i++){
 				randomSpinning = rndGen.nextInt(SYMBOLS.length());
 				tempChar = SYMBOLS.charAt(randomSpinning);
+				//tempChar = 'W';
 	//			this.saveList[i]=randomSpinning;
 		//		symbolExtractedList1[i]=tempChar;
 				listSpinned.add(tempChar);
