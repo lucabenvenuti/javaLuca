@@ -18,7 +18,7 @@ public class ShoppingListTest {
         String a1 = Input.readString();
         String a2 = Input.readString();
         
-        if(a1.equals(a2)){
+        if(a1.equals("exit")){
         	System.out.println("trotaculo");
         }
 		
