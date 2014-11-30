@@ -53,7 +53,7 @@ public class SlotMachineCalc {
 		//		tempInt= ((int)(tempChar2)+1);
 		//		array2[i]=tempInt;
 			}
-			System.out.println(Arrays.toString(array2));
+	//		System.out.println(Arrays.toString(array2));
 	//		System.out.println(array2);
 		/*	System.out.println(Reel.SYMBOLS.indexOf((Character) obtainedList.get(1)));*/
 			
@@ -79,44 +79,47 @@ public class SlotMachineCalc {
 				
 				if (testEquals){
 					if (array2[0]==(Reel.MAXIMALVALUE-1)){//all W, money back
-						System.out.println("W");
-						score=0;
-					}
-					else if (array2[0]==(Reel.MAXIMALVALUE)){//all R, free re-spin
-						System.out.println("R");
+				//		System.out.println("W");
 						score=1;
 					}
+					else if (array2[0]==(Reel.MAXIMALVALUE)){//all R, free re-spin
+					//	System.out.println("R");
+						score=0;
+					}
 					else{// all real cards and equals, win money
-						System.out.println("great");
+					//	System.out.println("great");
 						score=2;
 					}
 				}
 				else{//loser
-					System.out.println("loser");
+					score=-1;
+			//		System.out.println("loser");
 				}
 			}
 			else if (array2[0]==(array2[1]-1)){//try straight
 				testStraight = true;	
 				for(int i = 2; i < array2.length; i++){
-					if (array2[i]==(array2[0]+i)&& testStraight){
+					if (array2[i]==(array2[0]+i)&& testStraight && array2[i]<=Reel.ACEVALUE){
 						testStraight = true;			
 					}else {testStraight = false;}
 					
 				}				
 				if (testStraight && (array2[array2.length-1]==Reel.ACEVALUE)){
-					System.out.println("royal straight winner");
+			//		System.out.println("royal straight winner");
 					score=4;
 				} else if (testStraight){
-					System.out.println("straight winner");
+			//		System.out.println("straight winner");
 					score=3;
 				} else{//loser
-					System.out.println("loser3");
+					score=-1;
+			//		System.out.println("loser3");
 				}
 		//		System.out.println("trota2");
 				
 				
 			} else{//loser
-				System.out.println("loser2");
+				score=-1;
+		//		System.out.println("loser2");
 			}
 			
 			if (score>1){

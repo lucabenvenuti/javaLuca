@@ -69,13 +69,13 @@ public class Reel {
 
 //		public char[] spinning(int reelIndex, char[] symbolExtractedList) {
 		public void spinning(int reelIndex){//, char[] symbolExtractedList) {	
-			System.out.println(getReelIndex()); 
+		//	System.out.println(getReelIndex()); 
 	//		char[] symbolExtractedList1 = createSymbolList(getReelIndex());
 			
 			//char[] symbolExtractedList = new char[getReelIndex()];
 	//		System.out.println(symbolExtractedList1.length);
 		//	System.out.format("\n"); 
-			
+			System.out.print("[");
 			for (int i=0; i < getReelIndex(); i++){
 				randomSpinning = rndGen.nextInt(SYMBOLS.length());
 				tempChar = SYMBOLS.charAt(randomSpinning);
@@ -86,17 +86,19 @@ public class Reel {
 	//			printSymbolExtracted(i);
 				
 			//	System.out.format("%d ", randomSpinning); 
-			//	System.out.println(tempChar);
+				System.out.print(tempChar);
 			//	System.out.println(symbolExtractedList1[i]);
 		//		System.out.println(listSpinned.get(i));
 			//	System.out.format("\n"); 
-			/*	try {
-					Thread.sleep(250);
+				try {
+					Thread.sleep(50);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}*/
-			}
+				}
+				if (i<getReelIndex()-1) System.out.print("|");
+				
+			}System.out.print("]");
 		
 	//	return symbolExtractedList1;
 		}

@@ -5,7 +5,7 @@ public class SlotMachine {
 	
 	private int nOfWheels = 0;
 	
-	
+	final static int INITIALMONEYSLOT = 200;
 
 	
 	public void setNOfWheels(int newNOfWheels) {
@@ -19,7 +19,7 @@ public class SlotMachine {
 		return nOfWheels;
 	}
 	public void printNOfWheels() {
-		System.out.println (nOfWheels);
+	//5	System.out.println (nOfWheels);
 	}
 
 	
@@ -35,9 +35,10 @@ public class SlotMachine {
 		// TODO Auto-generated method stub
 		
 		int moneyAvailable = 100;
-		int moneySlot = 100;
+		int moneySlot = 200;
 		boolean play = true;
-		boolean mustRePlay = true;
+		boolean mustRePlay = false;
+		boolean poor = false;
 		
 		SlotMachine german = new SlotMachine();
 		
@@ -55,7 +56,14 @@ public class SlotMachine {
 		System.out.format("Your Credit: %d \n", moneyAvailable); 
 		System.out.format("Hit Enter to spin or type exit to terminate the program \n"); 
 		
-		char keyboardInput = Input.readCharSequence();
+		char keyboardInput;
+		if(!mustRePlay){
+			keyboardInput = Input.readCharSequence();
+		}else {
+			keyboardInput = 'c';
+			mustRePlay = false;
+		}
+		
 		String userInput = "";
 		int keyboardInputInt = (int) keyboardInput;
 	//	System.out.println(keyboardInput);
@@ -72,7 +80,7 @@ public class SlotMachine {
 		//	System.out.print(keyboardInputInt);
 		//	System.out.println("trota");
 			if (keyboardInputInt==543){//stop playing(mustRePlay){//
-				System.out.println("trota2");
+			//	System.out.println("trota2");
 				break;
 			}
 			else{
@@ -84,26 +92,64 @@ public class SlotMachine {
 		//	break;
 				}
 		//else if(keyboardInputInt == 10) {
-		else{
+		else if (poor){
+			System.out.format("Not enough credit. Please leave. \n");
+		}
+		else if (moneyAvailable>0){
 			Reel germanic = new Reel();
 			germanic.setReelIndex(german.getNOfWheels());
 			//char[] test= germanic.createSymbolList(german.getNOfWheels());
 			germanic.spinning(german.getNOfWheels());//,test);
 			
-			System.out.println(germanic.getListSpinned());
-			
-			
+		//	System.out.println(germanic.getListSpinned());
+			if (moneyAvailable>0){
+		//	moneyAvailable = moneyAvailable -1;
 			SlotMachineCalc teutonic = new SlotMachineCalc();
 			
 			teutonic.setScore(germanic.getListSpinned());
-			System.out.println(teutonic.getScore());
+			//System.out.println("\n");
+			if (teutonic.getScore()==-1 || teutonic.getScore()>1){
+				moneyAvailable = moneyAvailable +teutonic.getScore();
+				if(teutonic.getScore()>1) {
+					System.out.print("\n");
+					System.out.format("You have won the following amount of credit: %d \n", teutonic.getScore());}
+			} else if (teutonic.getScore()==0){//all R, free re-spin
+				//moneyAvailable = moneyAvailable
+				mustRePlay = true;
+				System.out.format("You got a re-spin for free \n");
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else if (teutonic.getScore()==1){//all W, money back
+				//moneyAvailable = moneyAvailable
+				System.out.format("You got your money back \n");
+			}
+			else{}
+			//moneyAvailable = moneyAvailable -1;
+			
+		//	System.out.println("\n");
+		//	System.out.println(moneyAvailable);
+			moneySlot = INITIALMONEYSLOT - moneyAvailable;}
+			else {
+				System.out.format("Not enough credit. Please leave. \n");
+				poor = true;
+			}
 			
 		}
+		else {
+			System.out.format("Not enough credit. Please leave. \n");
+			poor = true;
+		}
+		
+		System.out.println("\n");
 	}
 	//	while(keyboardInput!= -1 || keyboardInput != 'BS')
 		
-
-	//	System.out.println(teutonic.getArray2(0));
+		System.out.format("The SlotMachine contains %d credit \n", moneySlot); 
+		//System.out.println(moneySlot);
 	}
 
 }
