@@ -14,6 +14,13 @@ public class ShoppingListTest {
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);
         shoppingList1[1].setTotalPriceItem();
+        
+        String a1 = Input.readString();
+        String a2 = Input.readString();
+        
+        if(a1.equals(a2)){
+        	System.out.println("trotaculo");
+        }
 		
 		/*	Item[] head = new Item()[10];
 			head.setName("fish");
