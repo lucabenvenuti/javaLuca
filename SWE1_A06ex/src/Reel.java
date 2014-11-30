@@ -29,7 +29,11 @@ public class Reel {
 			 return symbolExtractedList2;
 			}*/
 		
-		public List a1 = new ArrayList();
+		public List listSpinned = new ArrayList();
+		
+		public List<String> getListSpinned() {
+		    return listSpinned;
+		}
 		
 		//public char[] symbolExtractedList = new char[getReelIndex()];
 		
@@ -73,14 +77,14 @@ public class Reel {
 				tempChar = SYMBOLS.charAt(randomSpinning);
 	//			this.saveList[i]=randomSpinning;
 		//		symbolExtractedList1[i]=tempChar;
-				a1.add(tempChar);
+				listSpinned.add(tempChar);
 //				setSymbolExtracted(i, (char)randomSpinning);
 	//			printSymbolExtracted(i);
 				
 			//	System.out.format("%d ", randomSpinning); 
 			//	System.out.println(tempChar);
 			//	System.out.println(symbolExtractedList1[i]);
-				System.out.println(a1.get(i));
+				System.out.println(listSpinned.get(i));
 				System.out.format("\n"); 
 				try {
 					Thread.sleep(250);

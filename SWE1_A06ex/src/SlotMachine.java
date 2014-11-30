@@ -41,12 +41,12 @@ public class SlotMachine {
 		//char[] test= germanic.createSymbolList(german.getNOfWheels());
 		germanic.spinning(german.getNOfWheels());//,test);
 		
-		System.out.println(germanic.a1);
+		System.out.println(germanic.getListSpinned());
 		
 		
 		SlotMachineCalc teutonic = new SlotMachineCalc();
 		
-		teutonic.setScore(germanic.a1);
+		teutonic.setScore(germanic.getListSpinned());
 	//	System.out.println(teutonic.getArray2(0));
 	}
 
