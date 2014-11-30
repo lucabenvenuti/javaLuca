@@ -2,7 +2,9 @@ import java.util.*;
 
 public class Reel {
 		public final static String SYMBOLS = "9XBQKAWR";
-	
+		public final static int MINIMALVALUE = 9;
+		public final static int MAXIMALVALUE = 16;
+		public final static int ACEVALUE = 14;
 	
 		private int reelIndex =0;
 		
@@ -86,14 +88,14 @@ public class Reel {
 			//	System.out.format("%d ", randomSpinning); 
 			//	System.out.println(tempChar);
 			//	System.out.println(symbolExtractedList1[i]);
-				System.out.println(listSpinned.get(i));
-				System.out.format("\n"); 
-				try {
+		//		System.out.println(listSpinned.get(i));
+			//	System.out.format("\n"); 
+			/*	try {
 					Thread.sleep(250);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 			}
 		
 	//	return symbolExtractedList1;

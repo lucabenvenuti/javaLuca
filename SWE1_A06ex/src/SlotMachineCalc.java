@@ -9,6 +9,8 @@ public class SlotMachineCalc {
 	public char[] array;// = "";
 	public int[] array2;
 	public char tempChar;
+	public boolean testEquals = false;
+	public boolean testStraight = false;
 //	public char tempChar2;
 //	public int tempInt;
 	
@@ -20,6 +22,10 @@ public class SlotMachineCalc {
 		array2[index]=newValue;
 		}*/
 	
+	public int getScore() {
+		return score;
+	}
+	
 	public void setScore(List obtainedList) {
 		if(obtainedList.isEmpty()){}
 		else {		
@@ -29,7 +35,7 @@ public class SlotMachineCalc {
 			
 			for (int i=0; i < obtainedList.size(); i++){
 				array[i] = (Character) obtainedList.get(i);
-				array2[i] = Reel.SYMBOLS.indexOf(array[i])+9;
+				array2[i] = Reel.SYMBOLS.indexOf(array[i])+ Reel.MINIMALVALUE;
 		/*		tempChar = (Character) obtainedList.get(i);
 				array[i] = tempChar;
 				switch (tempChar) {
@@ -49,25 +55,79 @@ public class SlotMachineCalc {
 			}
 			System.out.println(Arrays.toString(array2));
 	//		System.out.println(array2);
-		/*	System.out.println(Reel.SYMBOLS.indexOf((Character) obtainedList.get(1)));
+		/*	System.out.println(Reel.SYMBOLS.indexOf((Character) obtainedList.get(1)));*/
 			
 			
-		/*	
-			
+		/*	for(int i = 0; i < array2.length; i++){
+				array2[i]=13;
+			}
+	/*	//	array2[3]=10;*/
+		/*	array2[0]=10;
+			array2[1]=11;
+			array2[2]=12;
+		//	array2[3]=13;
+		//	array2[4]=14;*/
 			
 			if(array2[0]==array2[1]) {//try equals
-				System.out.println("trota");
+				testEquals = true;		
+				for(int i = 2; i < array2.length; i++){
+					if (array2[i]==array2[0]&& testEquals){
+						testEquals = true;			
+					}else {testEquals = false;}
+					
+				}
+				
+				if (testEquals){
+					if (array2[0]==(Reel.MAXIMALVALUE-1)){//all W, money back
+						System.out.println("W");
+						score=0;
+					}
+					else if (array2[0]==(Reel.MAXIMALVALUE)){//all R, free re-spin
+						System.out.println("R");
+						score=1;
+					}
+					else{// all real cards and equals, win money
+						System.out.println("great");
+						score=2;
+					}
+				}
+				else{//loser
+					System.out.println("loser");
+				}
 			}
 			else if (array2[0]==(array2[1]-1)){//try straight
-				System.out.println("trota2");
+				testStraight = true;	
+				for(int i = 2; i < array2.length; i++){
+					if (array2[i]==(array2[0]+i)&& testStraight){
+						testStraight = true;			
+					}else {testStraight = false;}
+					
+				}				
+				if (testStraight && (array2[array2.length-1]==Reel.ACEVALUE)){
+					System.out.println("royal straight winner");
+					score=4;
+				} else if (testStraight){
+					System.out.println("straight winner");
+					score=3;
+				} else{//loser
+					System.out.println("loser3");
+				}
+		//		System.out.println("trota2");
+				
+				
+			} else{//loser
+				System.out.println("loser2");
 			}
-			else{//loser
-				System.out.println("trotaculo");
-			}*/
 			
-			
+			if (score>1){
+				switch(obtainedList.size()){
+				case 4: score = score*2;break;
+				case 5: score = score*3;break;
+				default: //score=score;
+				}
+			}
 			//array[0] = (Character) obtainedList.get(0);
-	//		System.out.println(array);
+		//	System.out.println(score);
 			
 	//		int temp =0;
 			
