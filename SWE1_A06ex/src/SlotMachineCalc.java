@@ -28,7 +28,9 @@ public class SlotMachineCalc {
 		//	System.out.println(obtainedList.size());
 			
 			for (int i=0; i < obtainedList.size(); i++){
-				tempChar = (Character) obtainedList.get(i);
+				array[i] = (Character) obtainedList.get(i);
+				array2[i] = Reel.SYMBOLS.indexOf(array[i])+9;
+		/*		tempChar = (Character) obtainedList.get(i);
 				array[i] = tempChar;
 				switch (tempChar) {
 				case '9': array2[i]=9;break;//System.out.println("trota");break;
@@ -38,16 +40,19 @@ public class SlotMachineCalc {
 				case 'K': array2[i]=13;break;
 				case 'A': array2[i]=14;break;
 				default:array2[i]=20;
-				}
+				}*/
 		//		System.out.println(i);
 			//	System.out.println(array2[i]);
 	//			System.out.format("%d \n",tempInt); 
 		//		tempInt= ((int)(tempChar2)+1);
 		//		array2[i]=tempInt;
 			}
-	//		System.out.println(array2);
 			System.out.println(Arrays.toString(array2));
+	//		System.out.println(array2);
+		/*	System.out.println(Reel.SYMBOLS.indexOf((Character) obtainedList.get(1)));
 			
+			
+		/*	
 			
 			
 			if(array2[0]==array2[1]) {//try equals
@@ -58,7 +63,7 @@ public class SlotMachineCalc {
 			}
 			else{//loser
 				System.out.println("trotaculo");
-			}
+			}*/
 			
 			
 			//array[0] = (Character) obtainedList.get(0);

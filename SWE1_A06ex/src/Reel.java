@@ -1,7 +1,9 @@
 import java.util.*;
 
 public class Reel {
-	private final static String SYMBOLS = "9XBQKAWR";
+		public final static String SYMBOLS = "9XBQKAWR";
+	
+	
 		private int reelIndex =0;
 		
 		public void setReelIndex(int newReelIndex) {
