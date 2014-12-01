@@ -18,12 +18,12 @@ public class ShoppingListTest {
 		
 		
        shoppingList1[0].setName("meat");
-        shoppingList1[0].setPrice(5);
+        shoppingList1[0].setPrice(250);
         shoppingList1[0].setQuantity(3);
         shoppingList1[1].setName("fish");
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);
-        shoppingList1[2].setPrice(500);
+//        shoppingList1[2].setPrice(5);
         shoppingList1[1].setTotalPriceItem();
 	/*	System.out.println("trota");
 		System.out.println(shoppingListHandler.getTotalItems());
@@ -52,15 +52,15 @@ public class ShoppingListTest {
 				
 		//		shoppingList1[1].printTotalPriceItem();
 				shoppingListHandler.calculateSubTotalPrice();//shoppingList1);
-				System.out.println(shoppingListHandler.getSubTotalPrice());
+		//		System.out.println(shoppingListHandler.getSubTotalPrice());
 				shoppingListHandler.calculateSalesPercentage();
-				System.out.println(shoppingListHandler.getSalesPercentage());
+		//		System.out.println(shoppingListHandler.getSalesPercentage());
 				//otalAfterSale
 				shoppingListHandler.calculateTotalAfterSale();
-				System.out.println(shoppingListHandler.getTotalAfterSale());
+			//	System.out.println(shoppingListHandler.getTotalAfterSale());
 				//getTotalItems(Item[] arrayItem)
-				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
-				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
+			//	System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
+			//	System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
 			//	System.out.println(shoppingListHandler.getTotalItems(shoppingList1)+1);
 				shoppingListHandler.printInvoice();
 				

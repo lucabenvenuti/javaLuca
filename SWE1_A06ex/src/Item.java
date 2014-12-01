@@ -66,6 +66,9 @@ public class Item {
 		}
 	
 	public float getTotalPriceItem() {
+		if(totalPriceItem<1){
+			setTotalPriceItem();
+		}
 		return totalPriceItem;
 	}
 	public void printTotalPriceItem() {
