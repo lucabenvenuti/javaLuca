@@ -5,7 +5,28 @@ public class ShoppingListTest {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
+		String s01 = "======= Your Shopping List =======";
+		String s02 = "What would you like to do?";
+		
+		String s11 = "1. Add an Item to the Shopping List";
+		String s12 = "2. Remove an Item from the Shopping List";
+		String s13 = "3. Clear the Shopping List";
+		String s14 = "4. Show the total amount to Pay";
+		String s15 = "5. Print the Invoice";
+		String s16 = "q. To Quit";
+		
+		String s21 = "Choose an option from above:";
+		String s22 = "Name:";
+		String s23 = "Quantity:";
+		String s24 = "Price:";
+		String s25 = "The Item ";
+		String s26 = " was added in your Shopping List.";
+		String s27 = "The quantity of ";
+		String s28 = " in your Shopping List has been updated.";
+		
+		
+		System.out.printf("%s%n", s01);
 		Item[] shoppingList1 = new Item[ShoppingList.MAXIMALNUMBEROFELEMENTS];
         //step2 : now create objects in a loop.
         for(int i=0; i<shoppingList1.length; i++){
