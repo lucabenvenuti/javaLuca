@@ -28,6 +28,7 @@ public class ShoppingList {
 	}
 	
 	public void calculateSubTotalPrice(Item[] arrayItem){
+		subtotalprice = 0.0;
 		for(int i=0; i<arrayItem.length; i++){
 			subtotalprice = subtotalprice + arrayItem[i].getPrice();
 			}
@@ -65,12 +66,26 @@ public class ShoppingList {
 		return totalAfterSale;
 	}
 	
-	public void getTotalItems(Item[] arrayItem){
+	private int totalItems = 0;
+	
+	public int getTotalItems(Item[] arrayItem){
+		totalItems = 0;
 		for(int i=0; i<arrayItem.length; i++){
+			
 			if(arrayItem[i].getName() != null && !arrayItem[i].getName().isEmpty()){
-				int a =1;
+				totalItems = totalItems + 1;
 			}
-			}
+			} return totalItems;
+	}
+	
+	public void clear(Item[] arrayItem){
+		//totalItems = 0;
+		for(int i=0; i<arrayItem.length; i++){
+			arrayItem[i]=new Item();}
+		/*	if(arrayItem[i].getName() != null && !arrayItem[i].getName().isEmpty()){
+				totalItems = totalItems + 1;
+			}*/
+			 //return totalItems;
 	}
 	
 //	Returns the sum of all items of your shopping list. //Item[] arrayItem
