@@ -38,9 +38,18 @@ public class ShoppingListTest {
 		shoppingListHandler.exportArrayItem(shoppingList1);
 		
 		
-       shoppingList1[0].setName("meat");
+		//option 1
+	//	System.out.println(shoppingListHandler.getTotalItems());
+		int adder = shoppingListHandler.getTotalItems();
+		shoppingList1[adder].setName(Input.readString());
+		shoppingList1[adder].setQuantity(Input.readInt());
+		shoppingList1[adder].setPrice(Input.readFloat());
+		String s31 = s25 + shoppingList1[adder].getName()+ s26;
+		System.out.printf("%s%n", s31);
+		
+/*       shoppingList1[0].setName(Input.readString());
         shoppingList1[0].setPrice(250);
-        shoppingList1[0].setQuantity(3);
+        shoppingList1[0].setQuantity(3);*/
         shoppingList1[1].setName("fish");
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);

@@ -205,7 +205,13 @@ public class ShoppingList {
 		String s11 = s9+s12+s10;
 		String s13 = "|                          SubTotal:";
 	//	String s14 = getTotalAfterSale() + "|";
-		String total3 = Double.toString(getTotalAfterSale());
+		double number =  Math.round(getTotalAfterSale() * 100);
+		number = number/100;
+		
+	//	System.out.println(number);
+		String total3 = Double.toString(number);
+	//	System.out.println(total3.length());
+		//String total3 = Double.toString(getTotalAfterSale());
 		char[] chars4 = new char[14-total3.length()];
 		Arrays.fill(chars4, ' ');
 		String s16  = new String(chars4);
@@ -225,7 +231,10 @@ public class ShoppingList {
 				Arrays.fill(chars, ' ');
 				s6 = new String(chars);
 				
-				total2 = Double.toString(getArrayItem()[i].getTotalPriceItem());
+				double number2 =  Math.round(getArrayItem()[i].getTotalPriceItem() * 100);
+				number2 = number2/100;
+				//String total3 = Double.toString(number);
+				total2 = Double.toString(number2);
 			//	System.out.printf("%d%n", total2.length());
 				char[] chars2 = new char[14-total2.length()];
 				Arrays.fill(chars2, ' ');
