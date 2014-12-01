@@ -17,7 +17,7 @@ public class ShoppingListTest {
 		shoppingListHandler.exportArrayItem(shoppingList1);
 		
 		
-  /*      shoppingList1[0].setName("meat");
+       shoppingList1[0].setName("meat");
         shoppingList1[0].setPrice(5);
         shoppingList1[0].setQuantity(3);
         shoppingList1[1].setName("fish");
@@ -25,6 +25,11 @@ public class ShoppingListTest {
         shoppingList1[1].setPrice(4);
         shoppingList1[2].setPrice(500);
         shoppingList1[1].setTotalPriceItem();
+	/*	System.out.println("trota");
+		System.out.println(shoppingListHandler.getTotalItems());
+		System.out.println("trota");*/
+       // shoppingListHandler.removeItem("fish");
+        //shoppingListHandler.removeItem("meat");
         
    /*     String a1 = Input.readString();
         String a2 = Input.readString();
@@ -57,6 +62,7 @@ public class ShoppingListTest {
 				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
 				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
 			//	System.out.println(shoppingListHandler.getTotalItems(shoppingList1)+1);
+				shoppingListHandler.printInvoice();
 				
 	}
 

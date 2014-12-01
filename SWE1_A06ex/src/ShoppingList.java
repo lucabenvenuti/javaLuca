@@ -99,6 +99,7 @@ public class ShoppingList {
 			
 			if(getArrayItem()[i].getName() != null && !getArrayItem()[i].getName().isEmpty()){
 				totalItems = totalItems + 1;
+				System.out.println(getArrayItem()[i].getName());
 			}
 			} return totalItems;
 	}
@@ -134,7 +135,8 @@ public class ShoppingList {
 	public void removeItem(String name){
 		int position =0;
 		boolean willDelete = false;
-		for(int i=0; i<getArrayItem().length; i++){
+		//for(int i=0; i<getArrayItem().length; i++){ //getTotalItems()
+		for(int i=0; i<getTotalItems(); i++){ //getTotalItems()
 			if (getArrayItem()[i].getName().equals(name)){
 				willDelete = true;
 				position =i;
@@ -144,10 +146,17 @@ public class ShoppingList {
 			
 		}
 		if (willDelete){
-			for(int i=position; i<(getArrayItem().length-1); i++){
+			setSingleArrayItem(position, new Item());
+		//	for(int i=position; i<(getArrayItem().length-1); i++){
+			for(int i=position; i<(getTotalItems()-1); i++){				
 				//setSingleArrayItem(int i, Item newItem)
-			setSingleArrayItem(i,getArrayItem()[i-1]);}
-			getArrayItem()[getArrayItem().length]=new Item();
+			setSingleArrayItem(i,getArrayItem()[i+1]);
+			setSingleArrayItem(i+1, new Item());
+				}
+	/*		System.out.println("trota");
+			System.out.println(getTotalItems());
+			System.out.println("trota");
+			//getArrayItem()[getArrayItem().length]=new Item();*/
 		}
 		
 		
@@ -155,7 +164,42 @@ public class ShoppingList {
 
 	
 	
-	
+	public void printInvoice(){
+		//System.out.printf("The value of %s is: %.2f%n", name, value);
+		String s1 = "-----------------------------------------------------";
+		String s2 = "|*********************INVOICE***********************|";
+		String s3 = "|Nr  Product                Quantity           Price|";
+		String s4 = "|                                                   |"; //34 until y
+		String s5 = "";
+		String s6 = "";
+		String s7 = "";
+		int counter = 0;
+		
+		if (getTotalItems()==0){s5 = s4;}
+		else {s5 = s3;
+			for(int i=0; i<(getTotalItems()); i++){
+				s6 = "";
+				if(i>=8)s7 = "  ";
+				else s7 = "   ";
+				if(getArrayItem()[i].getQuantity()>9)counter = 29;
+				else counter = 30;
+				for(int j=0; j<(counter-getArrayItem()[i].getName().length()); j++){
+					//;
+					s6 = s6 + " ";
+				}
+				
+				s5 = s5 + "\n" + "|" + (i+1) + s7 + getArrayItem()[i].getName() + s6 + getArrayItem()[i].getQuantity();
+				s6 = "";
+			}
+			//s5 = s3 + "\n" + s2;
+			}
+		
+	//	System.out.println(getArrayItem()[0].getName().length());
+	//	System.out.println(getTotalItems());
+		System.out.printf("%s%n%s%n%s%n%s%n", s1, s2, s1, s5);
+
+	}
+
 	
 	
 	

@@ -59,10 +59,10 @@ public class Item {
 
 	
 	public void setTotalPriceItem() {
-		if(getQuantity() == 0 || getPrice()==0)
+		if(getQuantity() == 0 || getPrice()==0 || getPrice()*getQuantity()<=0)
 			totalPriceItem = 0;
 		else
-			totalPriceItem = price*quantity;//getQuantity()*getPrice();
+			totalPriceItem = getPrice()*getQuantity();//getQuantity()*getPrice();
 		}
 	
 	public float getTotalPriceItem() {
