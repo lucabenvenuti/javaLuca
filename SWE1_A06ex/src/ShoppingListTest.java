@@ -11,7 +11,13 @@ public class ShoppingListTest {
         for(int i=0; i<shoppingList1.length; i++){
         	shoppingList1[i] = new Item();//this will call constructor.
         }
-        shoppingList1[0].setName("meat");
+        
+		ShoppingList shoppingListHandler = new ShoppingList();
+		shoppingListHandler.setShoppingIndex(shoppingList1.length); 
+		shoppingListHandler.exportArrayItem(shoppingList1);
+		
+		
+  /*      shoppingList1[0].setName("meat");
         shoppingList1[0].setPrice(5);
         shoppingList1[0].setQuantity(3);
         shoppingList1[1].setName("fish");
@@ -36,12 +42,11 @@ public class ShoppingListTest {
 		//		System.out.println(shoppingList1[1].getName());
 		//		System.out.println(shoppingList1[1].getQuantity());
 				
-				ShoppingList shoppingListHandler = new ShoppingList();
-				shoppingListHandler.setShoppingIndex(shoppingList1.length); // = null;
+// = null;
 			//	shoppingListHandler.clear(shoppingList1);
 				
 		//		shoppingList1[1].printTotalPriceItem();
-				shoppingListHandler.calculateSubTotalPrice(shoppingList1);
+				shoppingListHandler.calculateSubTotalPrice();//shoppingList1);
 				System.out.println(shoppingListHandler.getSubTotalPrice());
 				shoppingListHandler.calculateSalesPercentage();
 				System.out.println(shoppingListHandler.getSalesPercentage());
@@ -49,8 +54,10 @@ public class ShoppingListTest {
 				shoppingListHandler.calculateTotalAfterSale();
 				System.out.println(shoppingListHandler.getTotalAfterSale());
 				//getTotalItems(Item[] arrayItem)
-				System.out.println(shoppingListHandler.getTotalItems(shoppingList1));
-				System.out.println(shoppingListHandler.getTotalItems(shoppingList1));
+				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
+				System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
+			//	System.out.println(shoppingListHandler.getTotalItems(shoppingList1)+1);
+				
 	}
 
 }
