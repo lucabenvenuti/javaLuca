@@ -53,6 +53,26 @@ public class ShoppingList {
 		}
 	}
 	
+	private double totalAfterSale = 0.0;
+	
+	public void calculateTotalAfterSale(){
+		totalAfterSale = subtotalprice * (1.0 - salesPercentage);
+		
+	}
+
+	public double getTotalAfterSale(){
+		
+		return totalAfterSale;
+	}
+	
+	public void getTotalItems(Item[] arrayItem){
+		for(int i=0; i<arrayItem.length; i++){
+			if(arrayItem[i].getName() != null && !arrayItem[i].getName().isEmpty()){
+				int a =1;
+			}
+			}
+	}
+	
 //	Returns the sum of all items of your shopping list. //Item[] arrayItem
 	
 	

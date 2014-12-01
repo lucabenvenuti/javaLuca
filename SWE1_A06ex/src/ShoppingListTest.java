@@ -43,6 +43,10 @@ public class ShoppingListTest {
 				System.out.println(shoppingListHandler.getSubTotalPrice());
 				shoppingListHandler.calculateSalesPercentage();
 				System.out.println(shoppingListHandler.getSalesPercentage());
+				//otalAfterSale
+				shoppingListHandler.calculateTotalAfterSale();
+				System.out.println(shoppingListHandler.getTotalAfterSale());
+				
 	}
 
 }
