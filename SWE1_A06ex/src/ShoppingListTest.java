@@ -16,7 +16,7 @@ public class ShoppingListTest {
         shoppingList1[1].setName("fish");
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);
-        shoppingList1[2].setPrice(4);
+        shoppingList1[2].setPrice(500);
         shoppingList1[1].setTotalPriceItem();
         
    /*     String a1 = Input.readString();
@@ -41,7 +41,8 @@ public class ShoppingListTest {
 		//		shoppingList1[1].printTotalPriceItem();
 				shoppingListHandler.calculateSubTotalPrice(shoppingList1);
 				System.out.println(shoppingListHandler.getSubTotalPrice());
-			
+				shoppingListHandler.calculateSalesPercentage();
+				System.out.println(shoppingListHandler.getSalesPercentage());
 	}
 
 }

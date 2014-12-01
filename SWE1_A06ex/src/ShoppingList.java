@@ -30,11 +30,31 @@ public class ShoppingList {
 	public void calculateSubTotalPrice(Item[] arrayItem){
 		for(int i=0; i<arrayItem.length; i++){
 			subtotalprice = subtotalprice + arrayItem[i].getPrice();
-			
-		}
-		
-//	Returns the sum of all items of your shopping list. //Item[] arrayItem
+			}
 	}
+	
+	
+	private double salesPercentage = 0.0;
+		
+	public double getSalesPercentage(){
+		
+		return salesPercentage;
+	}
+
+	public void calculateSalesPercentage(){
+		if (getSubTotalPrice()>=1000.0){
+			salesPercentage = 15.0/100.0;
+		} else if (getSubTotalPrice()>=500.0){
+			salesPercentage = 10.0/100.0;
+		} else if (getSubTotalPrice()>=100.0){
+			salesPercentage = 5.0/100.0;
+		} else {
+			salesPercentage = 0.0;
+		}
+	}
+	
+//	Returns the sum of all items of your shopping list. //Item[] arrayItem
+	
 	
 	
 }
