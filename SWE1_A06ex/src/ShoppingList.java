@@ -16,10 +16,10 @@ public class ShoppingList {
 	public final static String S15 = "5. Print the Invoice";
 	public final static String S16 = "q. To Quit";
 	
-	public final static String S21 = "Choose an option from above:";
-	public final static String S22 = "Name:";
-	public final static String S23 = "Quantity:";
-	public final static String S24 = "Price:";
+	public final static String S21 = "Choose an option from above: ";
+	public final static String S22 = "Name: ";
+	public final static String S23 = "Quantity: ";
+	public final static String S24 = "Price: ";
 	public final static String S25 = "The Item ";
 	public final static String S26 = " was added in your Shopping List.";
 	public final static String S27 = "The quantity of ";
@@ -72,9 +72,9 @@ public class ShoppingList {
 	private double subtotalprice = 0.0;
 	
 	public double getSubTotalPrice(){
-				if(subtotalprice<0.1){
+			//	if(subtotalprice<0.1){
 					calculateSubTotalPrice();
-				}
+			//	}
 		return subtotalprice;
 //	Returns the sum of all items of your shopping list. //Item[] arrayItem
 	}
@@ -116,15 +116,17 @@ public class ShoppingList {
 	}
 
 	public double getTotalAfterSale(){
-		if (totalAfterSale<0.01){
+	//	if (totalAfterSale<0.01){
 			calculateTotalAfterSale();
-		}
+	//	}
 		return totalAfterSale;
 	}
 	
 	public void printTotalAfterSale(){
 		getTotalAfterSale();
-		double number =  Math.round(getTotalAfterSale() * 100);
+		double number = 0.0;
+		if (getTotalItems()==0){}
+		else {number =  Math.round(getTotalAfterSale() * 100);}
 		number = number/100;
 		String s33 = ShoppingList.S29 + number + EURO;
 		System.out.printf("%s%n", s33);
@@ -182,7 +184,7 @@ public class ShoppingList {
 				}
 			}
 			getTotalItems();
-				
+			calculateTotalAfterSale();	
 			}
 		
 	//	}
@@ -190,9 +192,11 @@ public class ShoppingList {
 	
 	public void removeItem(String name){
 		int position =0;
+		int total = getTotalItems();
+	//	System.out.println(total);
 		boolean willDelete = false;
 		//for(int i=0; i<getArrayItem().length; i++){ //getTotalItems()
-		for(int i=0; i<getTotalItems(); i++){ //getTotalItems()
+		for(int i=0; i<total; i++){ //getTotalItems()
 			if (getArrayItem()[i].getName().equals(name)){
 				willDelete = true;
 				position =i;
@@ -201,6 +205,7 @@ public class ShoppingList {
 			}
 			
 		}
+	//	System.out.println(position);
 		if (willDelete){
 			if (position==0){
 				setSingleArrayItem(0,getArrayItem()[1]);
@@ -208,11 +213,12 @@ public class ShoppingList {
 			}
 		//	setSingleArrayItem(position, new Item()); // BAAAAAAAAAAADDD
 		//	for(int i=position; i<(getArrayItem().length-1); i++){
-			for(int i=position; i<(getTotalItems()-1); i++){				
+			for(int i=position; i<(total); i++){				
 				//setSingleArrayItem(int i, Item newItem)
 			setSingleArrayItem(i,getArrayItem()[i+1]);
-			setSingleArrayItem(i+1, new Item());
+			
 				}
+			setSingleArrayItem(total, new Item());
 	/*		System.out.println("trota");
 			System.out.println(getTotalItems());
 			System.out.println("trota");
@@ -226,10 +232,12 @@ public class ShoppingList {
 	
 	
 	public void printInvoice(){
-		
+	//	System.out.println(getTotalItems());
+		calculateSalesPercentage();
+	//	System.out.println(getTotalAfterSale());	
 		for(int i=0; i<(getTotalItems()); i++){
 			getArrayItem()[i].setTotalPriceItem();}
-		calculateSalesPercentage();
+		
 	//	System.out.println(getSubTotalPrice());
 		//System.out.printf("The value of %s is: %.2f%n", name, value);
 		String s1 = "-----------------------------------------------------";
@@ -256,7 +264,9 @@ public class ShoppingList {
 		String s11 = s9+s12+s10;
 		String s13 = "|                          SubTotal:";
 	//	String s14 = getTotalAfterSale() + "|";
-		double number =  Math.round(getTotalAfterSale() * 100);
+		double number = 0.0;
+		if (getTotalItems()==0){}
+		else {number =  Math.round(getTotalAfterSale() * 100);}
 		number = number/100;
 		
 	//	System.out.println(number);
@@ -269,7 +279,7 @@ public class ShoppingList {
 		String s15 = s13 + s16 + total3 + " " + EURO  + "|"; 
 
 		String total2;
-		
+	//	System.out.println(getTotalItems());
 		if (getTotalItems()==0){s5 = s4;}
 		else {s5 = s3;
 			for(int i=0; i<(getTotalItems()); i++){

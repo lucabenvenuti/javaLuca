@@ -9,7 +9,7 @@ public class ShoppingListTest {
 		boolean go = true;
 		ShoppingList shoppingListHandler = new ShoppingList();
 		
-		System.out.printf("%s%n", ShoppingList.S01);
+		System.out.printf("%s%n%n", ShoppingList.S01);
 		Item[] shoppingList1 = new Item[ShoppingList.MAXIMALNUMBEROFELEMENTS];
         //step2 : now create objects in a loop.
         for(int i=0; i<shoppingList1.length; i++){
@@ -21,12 +21,13 @@ public class ShoppingListTest {
 		shoppingListHandler.exportArrayItem(shoppingList1);
 		
 		goCycle: while (go){
-			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n", ShoppingList.S02, ShoppingList.S11, 
+			
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%s", ShoppingList.S02, ShoppingList.S11, 
 					ShoppingList.S12,ShoppingList.S13,ShoppingList.S14,ShoppingList.S15,ShoppingList.S16,ShoppingList.S21);
 		char keyboardInput = Input.readChar();
 		
 		switch (keyboardInput){
-		case '1': {System.out.printf("%s%n", ShoppingList.S11);
+		case '1': {
 		/*	int adder = shoppingListHandler.getTotalItems();
 			System.out.println("Name: ");
 			shoppingList1[adder].setName(Input.readString());
@@ -36,26 +37,33 @@ public class ShoppingListTest {
 			shoppingList1[adder].setPrice(Input.readFloat());*/
 			
 	        Item newItemTemp = new Item();
-	        System.out.println("Name: ");
+	        System.out.printf("%s", ShoppingList.S22);
 	        newItemTemp.setName(Input.readString());
-	        System.out.println("Quantity: ");
+	        System.out.printf("%s", ShoppingList.S23);
 	        newItemTemp.setQuantity(Input.readInt());
-	        System.out.println("Price: ");
+	        System.out.printf("%s", ShoppingList.S24);
 	        newItemTemp.setPrice(Input.readFloat());
 	        
 	        shoppingListHandler.addItem(newItemTemp);
 	        newItemTemp = new Item();
 			
 			break;}
-		case '2': System.out.printf("%s%n", ShoppingList.S12);System.out.println("Name: ");shoppingListHandler.removeItem(Input.readString());break;
-		case '3': System.out.printf("%s%n", ShoppingList.S13);shoppingListHandler.clear();break;
-		case '4': System.out.printf("%s%n", ShoppingList.S14);shoppingListHandler.printTotalAfterSale();break;
-		case '5': System.out.printf("%s%n", ShoppingList.S15);shoppingListHandler.printInvoice(); break;
-		case 'q': System.out.printf("%s%n", ShoppingList.S16);go = false; break goCycle;
+		case '2': System.out.println("Name: ");shoppingListHandler.removeItem(Input.readString());break;
+		case '3': shoppingListHandler.clear();break;
+		case '4': shoppingListHandler.printTotalAfterSale();break;
+		case '5': shoppingListHandler.printInvoice(); break;
+		case 'q':  System.out.printf("%s", ShoppingList.S30);go = false; break goCycle;
 		
-		}}
+		}System.out.printf("%n%s%n%n", ShoppingList.S01);
+		}
 		
+		/* System.out.printf("%s%n", ShoppingList.S11);
+		 System.out.printf("%s", ShoppingList.S12);
+		 System.out.printf("%s", ShoppingList.S13);
+		 System.out.printf("%s", ShoppingList.S14);
+		 System.out.printf("%s", ShoppingList.S15);
 		
+		 */
 		
 	/*	//option 1
 	//	System.out.println(shoppingListHandler.getTotalItems());
