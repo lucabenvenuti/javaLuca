@@ -54,6 +54,19 @@ public class ShoppingListTest {
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);
 //        shoppingList1[2].setPrice(5);
+        
+        Item umbrella = new Item();
+        umbrella.setName("umbrella");
+        umbrella.setQuantity(5);
+        umbrella.setPrice(8);
+        
+        shoppingListHandler.addItem(umbrella);
+        
+ //       umbrella.setName("umbrella");
+        umbrella.setQuantity(5);
+        
+        shoppingListHandler.addItem(umbrella);
+        
         shoppingList1[1].setTotalPriceItem();
 	/*	System.out.println("trota");
 		System.out.println(shoppingListHandler.getTotalItems());
