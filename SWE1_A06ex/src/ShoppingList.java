@@ -6,6 +6,25 @@ public class ShoppingList {
 	public static final String EURO = "\u20AC";
 	public final static int MAXIMALNUMBEROFELEMENTS = 10;
 	
+	public final static String S01 = "======= Your Shopping List =======";
+	public final static String S02 = "What would you like to do?";
+	
+	public final static String S11 = "1. Add an Item to the Shopping List";
+	public final static String S12 = "2. Remove an Item from the Shopping List";
+	public final static String S13 = "3. Clear the Shopping List";
+	public final static String S14 = "4. Show the total amount to Pay";
+	public final static String S15 = "5. Print the Invoice";
+	public final static String S16 = "q. To Quit";
+	
+	public final static String S21 = "Choose an option from above:";
+	public final static String S22 = "Name:";
+	public final static String S23 = "Quantity:";
+	public final static String S24 = "Price:";
+	public final static String S25 = "The Item ";
+	public final static String S26 = " was added in your Shopping List.";
+	public final static String S27 = "The quantity of ";
+	public final static String S28 = " in your Shopping List has been updated.";
+	
 	private Item[] arrayItem2 = new Item[MAXIMALNUMBEROFELEMENTS];
 	
 	public void exportArrayItem(Item[] arrayItem){
@@ -139,12 +158,17 @@ public class ShoppingList {
 			
 		//	getArrayItem()[i]=new Item();
 			if (isANewItem){
-				setSingleArrayItem(getTotalItems(),newItem);} //I give the new item to the first free position
+				setSingleArrayItem(getTotalItems(),newItem);
+				String s31 = ShoppingList.S25 + newItem.getName()+ ShoppingList.S26;
+				System.out.printf("%s%n", s31);
+			} //I give the new item to the first free position
 											 // arrays in java starts from zero
 			else{
 				if (getArrayItem()[position].getName()==newItem.getName()){ //double check
 					temp = getArrayItem()[position].getQuantity();
 					getArrayItem()[position].setQuantity(temp + newItem.getQuantity());
+					String s31 = ShoppingList.S25 + newItem.getName()+ ShoppingList.S28;
+					System.out.printf("%s%n", s31);
 				}
 			}
 			getTotalItems();
@@ -180,8 +204,9 @@ public class ShoppingList {
 			System.out.println("trota");
 			//getArrayItem()[getArrayItem().length]=new Item();*/
 		}
-		
-		
+		String s31 = ShoppingList.S25 + name+ ShoppingList.S28;
+		System.out.printf("%s%n", s31);
+		getTotalItems();
 	}
 
 	
