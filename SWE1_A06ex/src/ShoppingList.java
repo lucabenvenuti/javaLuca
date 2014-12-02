@@ -160,7 +160,7 @@ public class ShoppingList {
 		int position = 0;
 		int temp = 0;
 		for(int i=0; i<getArrayItem().length; i++){
-			if (getArrayItem()[i].getName()==newItem.getName()){
+			if (getArrayItem()[i].getName().equals(newItem.getName())){
 				isANewItem = false;
 				position = i;
 				break;
@@ -174,7 +174,7 @@ public class ShoppingList {
 			} //I give the new item to the first free position
 											 // arrays in java starts from zero
 			else{
-				if (getArrayItem()[position].getName()==newItem.getName()){ //double check
+				if (getArrayItem()[position].getName().equals(newItem.getName())){ //double check
 					temp = getArrayItem()[position].getQuantity();
 					getArrayItem()[position].setQuantity(temp + newItem.getQuantity());
 					String s31 = ShoppingList.S25 + newItem.getName()+ ShoppingList.S28;
