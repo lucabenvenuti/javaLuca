@@ -26,6 +26,7 @@ public class ShoppingList {
 	public final static String S28 = " in your Shopping List has been updated.";
 	public final static String S29 = "The total Amount to be paid is: ";
 	public final static String S30 = "Goodbye!"; 
+	public final static String S31 = "Invalid inputs"; 
 	
 	private Item[] arrayItem2 = new Item[MAXIMALNUMBEROFELEMENTS];
 	

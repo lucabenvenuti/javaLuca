@@ -44,6 +44,15 @@ public class ShoppingListTest {
 	        System.out.printf("%s", ShoppingList.S24);
 	        newItemTemp.setPrice(Input.readFloat());
 	        
+	        while (newItemTemp.getPrice()*newItemTemp.getQuantity()<0.1 || newItemTemp.getName().equals("")){
+	        	System.out.printf("%s%n", ShoppingList.S31);
+		        System.out.printf("%s", ShoppingList.S22);
+		        newItemTemp.setName(Input.readString());
+		        System.out.printf("%s", ShoppingList.S23);
+		        newItemTemp.setQuantity(Input.readInt());
+		        System.out.printf("%s", ShoppingList.S24);
+		        newItemTemp.setPrice(Input.readFloat());
+	        }
 	        shoppingListHandler.addItem(newItemTemp);
 	        newItemTemp = new Item();
 			
