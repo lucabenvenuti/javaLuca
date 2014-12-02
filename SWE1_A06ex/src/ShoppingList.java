@@ -24,6 +24,8 @@ public class ShoppingList {
 	public final static String S26 = " was added in your Shopping List.";
 	public final static String S27 = "The quantity of ";
 	public final static String S28 = " in your Shopping List has been updated.";
+	public final static String S29 = "The total Amount to be paid is: ";
+	public final static String S30 = "Goodbye!"; 
 	
 	private Item[] arrayItem2 = new Item[MAXIMALNUMBEROFELEMENTS];
 	
@@ -118,6 +120,14 @@ public class ShoppingList {
 			calculateTotalAfterSale();
 		}
 		return totalAfterSale;
+	}
+	
+	public void printTotalAfterSale(){
+		getTotalAfterSale();
+		double number =  Math.round(getTotalAfterSale() * 100);
+		number = number/100;
+		String s33 = ShoppingList.S29 + number + EURO;
+		System.out.printf("%s%n", s33);
 	}
 	
 	private int totalItems = 0;

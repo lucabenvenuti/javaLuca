@@ -49,7 +49,8 @@ public class ShoppingListTest {
         
         shoppingListHandler.addItem(umbrella);
         shoppingListHandler.removeItem("fish");
-        
+    //    shoppingListHandler.clear();
+        shoppingListHandler.printTotalAfterSale();
         shoppingList1[1].setTotalPriceItem();
 	/*	System.out.println("trota");
 		System.out.println(shoppingListHandler.getTotalItems());
