@@ -6,7 +6,7 @@ public class ShoppingListTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-
+		boolean go = true;
 		ShoppingList shoppingListHandler = new ShoppingList();
 		
 		System.out.printf("%s%n", ShoppingList.S01);
@@ -20,19 +20,55 @@ public class ShoppingListTest {
 		shoppingListHandler.setShoppingIndex(shoppingList1.length); 
 		shoppingListHandler.exportArrayItem(shoppingList1);
 		
+		goCycle: while (go){
+			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n", ShoppingList.S02, ShoppingList.S11, 
+					ShoppingList.S12,ShoppingList.S13,ShoppingList.S14,ShoppingList.S15,ShoppingList.S16,ShoppingList.S21);
+		char keyboardInput = Input.readChar();
 		
-		//option 1
+		switch (keyboardInput){
+		case '1': {System.out.printf("%s%n", ShoppingList.S11);
+		/*	int adder = shoppingListHandler.getTotalItems();
+			System.out.println("Name: ");
+			shoppingList1[adder].setName(Input.readString());
+			System.out.println("Quantity: ");
+			shoppingList1[adder].setQuantity(Input.readInt());
+			System.out.println("Price: ");
+			shoppingList1[adder].setPrice(Input.readFloat());*/
+			
+	        Item newItemTemp = new Item();
+	        System.out.println("Name: ");
+	        newItemTemp.setName(Input.readString());
+	        System.out.println("Quantity: ");
+	        newItemTemp.setQuantity(Input.readInt());
+	        System.out.println("Price: ");
+	        newItemTemp.setPrice(Input.readFloat());
+	        
+	        shoppingListHandler.addItem(newItemTemp);
+	        newItemTemp = new Item();
+			
+			break;}
+		case '2': System.out.printf("%s%n", ShoppingList.S12);System.out.println("Name: ");shoppingListHandler.removeItem(Input.readString());break;
+		case '3': System.out.printf("%s%n", ShoppingList.S13);shoppingListHandler.clear();break;
+		case '4': System.out.printf("%s%n", ShoppingList.S14);shoppingListHandler.printTotalAfterSale();break;
+		case '5': System.out.printf("%s%n", ShoppingList.S15);shoppingListHandler.printInvoice(); break;
+		case 'q': System.out.printf("%s%n", ShoppingList.S16);go = false; break goCycle;
+		
+		}}
+		
+		
+		
+	/*	//option 1
 	//	System.out.println(shoppingListHandler.getTotalItems());
-		int adder = shoppingListHandler.getTotalItems();
+	/*	int adder = shoppingListHandler.getTotalItems();
 		shoppingList1[adder].setName(Input.readString());
 		shoppingList1[adder].setQuantity(Input.readInt());
-		shoppingList1[adder].setPrice(Input.readFloat());
+		shoppingList1[adder].setPrice(Input.readFloat());*/
 
 		
 /*       shoppingList1[0].setName(Input.readString());
         shoppingList1[0].setPrice(250);
         shoppingList1[0].setQuantity(3);*/
-        shoppingList1[1].setName("fish");
+     /*   shoppingList1[1].setName("fish");
         shoppingList1[1].setQuantity(10);
         shoppingList1[1].setPrice(4);
 //        shoppingList1[2].setPrice(5);
@@ -48,9 +84,14 @@ public class ShoppingListTest {
         umbrella.setQuantity(5);
         
         shoppingListHandler.addItem(umbrella);
-        shoppingListHandler.removeItem("fish");
+        
     //    shoppingListHandler.clear();
-        shoppingListHandler.printTotalAfterSale();
+        
+  //      shoppingListHandler.printTotalAfterSale();
+        
+        
+        
+        
         shoppingList1[1].setTotalPriceItem();
 	/*	System.out.println("trota");
 		System.out.println(shoppingListHandler.getTotalItems());
@@ -62,7 +103,7 @@ public class ShoppingListTest {
         String a2 = Input.readString();
         
         if(a1.equals("exit")){
-        	System.out.println("trotaculo");
+        
         }*/
 		
 		/*	Item[] head = new Item()[10];
@@ -78,7 +119,7 @@ public class ShoppingListTest {
 			//	shoppingListHandler.clear(shoppingList1);
 				
 		//		shoppingList1[1].printTotalPriceItem();
-				shoppingListHandler.calculateSubTotalPrice();//shoppingList1);
+	/*			shoppingListHandler.calculateSubTotalPrice();//shoppingList1);
 		//		System.out.println(shoppingListHandler.getSubTotalPrice());
 				shoppingListHandler.calculateSalesPercentage();
 		//		System.out.println(shoppingListHandler.getSalesPercentage());
@@ -89,7 +130,7 @@ public class ShoppingListTest {
 			//	System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
 			//	System.out.println(shoppingListHandler.getTotalItems());//(shoppingList1));
 			//	System.out.println(shoppingListHandler.getTotalItems(shoppingList1)+1);
-				shoppingListHandler.printInvoice();
+			//	shoppingListHandler.printInvoice();*/
 				
 	}
 
