@@ -192,7 +192,7 @@ public class ShoppingList {
 			
 		}
 		if (willDelete){
-			setSingleArrayItem(position, new Item());
+		//	setSingleArrayItem(position, new Item()); // BAAAAAAAAAAADDD
 		//	for(int i=position; i<(getArrayItem().length-1); i++){
 			for(int i=position; i<(getTotalItems()-1); i++){				
 				//setSingleArrayItem(int i, Item newItem)
