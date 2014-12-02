@@ -59,6 +59,7 @@ public class Item {
 
 	
 	public void setTotalPriceItem() {
+	//	setQuantity();
 		if(getQuantity() == 0 || getPrice()==0 || getPrice()*getQuantity()<=0)
 			totalPriceItem = 0;
 		else

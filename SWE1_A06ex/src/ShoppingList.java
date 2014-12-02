@@ -202,6 +202,10 @@ public class ShoppingList {
 			
 		}
 		if (willDelete){
+			if (position==0){
+				setSingleArrayItem(0,getArrayItem()[1]);
+				setSingleArrayItem(1, new Item());
+			}
 		//	setSingleArrayItem(position, new Item()); // BAAAAAAAAAAADDD
 		//	for(int i=position; i<(getArrayItem().length-1); i++){
 			for(int i=position; i<(getTotalItems()-1); i++){				
