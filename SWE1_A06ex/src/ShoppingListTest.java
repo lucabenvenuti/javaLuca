@@ -53,7 +53,8 @@ public class ShoppingListTest {
 		case '3': shoppingListHandler.clear();break;
 		case '4': shoppingListHandler.printTotalAfterSale();break;
 		case '5': shoppingListHandler.printInvoice(); break;
-		case 'q':  System.out.printf("%s", ShoppingList.S30);go = false; break goCycle;
+		case 'q': System.out.printf("%s", ShoppingList.S30);go = false; break goCycle;
+		default : System.out.printf("%n%s%n%n", ShoppingList.S31);
 		
 		}System.out.printf("%n%s%n%n", ShoppingList.S01);
 		}

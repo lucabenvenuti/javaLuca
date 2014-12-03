@@ -6,6 +6,13 @@ public class ShoppingList {
 	public static final String EURO = "\u20AC";
 	public final static int MAXIMALNUMBEROFELEMENTS = 10;
 	
+	public final static String S1 = "-----------------------------------------------------";
+	public final static String S2 = "|*********************INVOICE***********************|";
+	public final static String S3 = "|Nr  Product                Quantity           Price|";
+	public final static String S4 = "|                                                   |"; 
+	public final static String S9 = "|                          Sale (%):";
+	public final static String S33 = "|                          SubTotal:";
+	
 	public final static String S01 = "======= Your Shopping List =======";
 	public final static String S02 = "What would you like to do?";
 	
@@ -46,6 +53,20 @@ public class ShoppingList {
 		arrayItem2[i]=newItem;		
 	}
 /////////////////////////////////////////////////////////////////////////////////////////	
+	
+	
+	public String obtain2DecimalsStringOfTotalAfterSale(){
+		getTotalAfterSale();
+		double number = 0.0;
+		if (getTotalItems()==0){}
+		else {number =  Math.round(getTotalAfterSale() * 100);}
+		number = number/100;
+		String s51 = Double.toString(number);
+		return s51;
+	}
+	
+////////////////////////////////////////////////////////////////////////////////////////	
+	
 	private int shoppingIndex =0;
 	
 	public void setShoppingIndex(int newShoppingIndex) {
@@ -112,12 +133,8 @@ public class ShoppingList {
 	}
 	
 	public void printTotalAfterSale(){
-		getTotalAfterSale();
-		double number = 0.0;
-		if (getTotalItems()==0){}
-		else {number =  Math.round(getTotalAfterSale() * 100);}
-		number = number/100;
-		String s33 = ShoppingList.S29 + number + EURO;
+
+		String s33 = ShoppingList.S29 + obtain2DecimalsStringOfTotalAfterSale() + EURO;
 		System.out.printf("%s%n", s33);
 	}
 
@@ -202,17 +219,13 @@ public class ShoppingList {
 		calculateSalesPercentage();
 		for(int i=0; i<(getTotalItems()); i++){
 			getArrayItem()[i].setTotalPriceItem();}
-
-		String s1 = "-----------------------------------------------------";
-		String s2 = "|*********************INVOICE***********************|";
-		String s3 = "|Nr  Product                Quantity           Price|";
-		String s4 = "|                                                   |"; 
+		
 		String s5 = "";
 		String s6 = "";
 		String s7 = "";
 		String s8 = "";
 		int counter = 0;
-		String s9 = "|                          Sale (%):";
+		
 		int counter2 =0;
 		if(getSalesPercentage()>0.09){counter2 = 14;}
 		else{counter2=15;}
@@ -221,20 +234,15 @@ public class ShoppingList {
 		String s12 = new String(chars3);
 		
 		String s10 =(int)(getSalesPercentage()*100) + "|";
-		String s11 = s9+s12+s10;
-		String s13 = "|                          SubTotal:";
-		double number = 0.0;
-		if (getTotalItems()==0){}
-		else {number =  Math.round(getTotalAfterSale() * 100);}
-		number = number/100;
-		String total3 = Double.toString(number);
-		char[] chars4 = new char[14-total3.length()];
+		String s11 = S9+s12+s10;
+		
+		char[] chars4 = new char[14-obtain2DecimalsStringOfTotalAfterSale().length()];
 		Arrays.fill(chars4, ' ');
 		String s16  = new String(chars4);
-		String s15 = s13 + s16 + total3 + " " + EURO  + "|"; 
+		String s15 = S33 + s16 + obtain2DecimalsStringOfTotalAfterSale() + " " + EURO  + "|"; 
 		String total2;
-		if (getTotalItems()==0){s5 = s4;}
-		else {s5 = s3;
+		if (getTotalItems()==0){s5 = S4;}
+		else {s5 = S3;
 			for(int i=0; i<(getTotalItems()); i++){
 				s6 = "";
 				if(i>=8)s7 = "  ";
@@ -256,6 +264,6 @@ public class ShoppingList {
 				s6 = "";
 			}
 			}
-		System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n", s1, s2, s1, s5, s1, s11, s15, s1);
+		System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n", S1, S2, S1, s5, S1, s11, s15, S1);
 	}
 }
