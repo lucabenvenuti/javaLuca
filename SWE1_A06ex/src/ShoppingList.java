@@ -3,8 +3,9 @@ import java.util.Arrays;
 
 public class ShoppingList {
 	
-	public static final String EURO = "\u20AC";
 	public final static int MAXIMALNUMBEROFELEMENTS = 10;
+	
+	public static final String EURO = "\u20AC";
 	
 	public final static String S1 = "-----------------------------------------------------";
 	public final static String S2 = "|*********************INVOICE***********************|";
