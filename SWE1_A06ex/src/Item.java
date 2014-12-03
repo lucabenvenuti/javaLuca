@@ -1,8 +1,6 @@
 
 public class Item {
-	//trotaculo
 
-	// name of the person
 	private String name = "";
 	
 	public void setName(String newName) {

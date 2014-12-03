@@ -28,7 +28,8 @@ public class ShoppingList {
 	public final static String S30 = "Goodbye!"; 
 	public final static String S31 = "Invalid inputs"; 
 	public final static String S32 = " was not available in your Shopping List.";
-	
+
+/////////////////////////////////////////////////////////////////////////////////////	/
 	private Item[] arrayItem2 = new Item[MAXIMALNUMBEROFELEMENTS];
 	
 	public void exportArrayItem(Item[] arrayItem){
@@ -42,18 +43,9 @@ public class ShoppingList {
 	}
 	
 	public void setSingleArrayItem(int i, Item newItem){
-	//	return arrayItem2;
-		arrayItem2[i]=newItem;
-		
+		arrayItem2[i]=newItem;		
 	}
-	
-	/*public void setQuantity(int newQuantity) {
-		if(newQuantity != 0)
-			quantity = newQuantity;
-		else
-			quantity = 0;
-		}*/
-	
+/////////////////////////////////////////////////////////////////////////////////////////	
 	private int shoppingIndex =0;
 	
 	public void setShoppingIndex(int newShoppingIndex) {
@@ -70,25 +62,22 @@ public class ShoppingList {
 		System.out.println (shoppingIndex);
 	}
 	
-	
+///////////////////////////////////////////////////////////////////////////////////////////	
 	private double subtotalprice = 0.0;
 	
 	public double getSubTotalPrice(){
-			//	if(subtotalprice<0.1){
 					calculateSubTotalPrice();
-			//	}
 		return subtotalprice;
-//	Returns the sum of all items of your shopping list. //Item[] arrayItem
 	}
 	
-	public void calculateSubTotalPrice(){//(Item[] arrayItem){
+	public void calculateSubTotalPrice(){
 		subtotalprice = 0.0;
 		for(int i=0; i<getArrayItem().length; i++){
 			subtotalprice = subtotalprice + getArrayItem()[i].getTotalPriceItem();
 			}
 	}
 	
-	
+/////////////////////////////////////////////////////////////////////////////////////////////	
 	private double salesPercentage = 0.0;
 		
 	public double getSalesPercentage(){
@@ -109,7 +98,7 @@ public class ShoppingList {
 			salesPercentage = 0.0;
 		}
 	}
-	
+//////////////////////////////////////////////////////////////////////////////////////////////	
 	private double totalAfterSale = 0.0;
 	
 	public void calculateTotalAfterSale(){
@@ -118,9 +107,7 @@ public class ShoppingList {
 	}
 
 	public double getTotalAfterSale(){
-	//	if (totalAfterSale<0.01){
 			calculateTotalAfterSale();
-	//	}
 		return totalAfterSale;
 	}
 	
@@ -133,33 +120,26 @@ public class ShoppingList {
 		String s33 = ShoppingList.S29 + number + EURO;
 		System.out.printf("%s%n", s33);
 	}
-	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 	private int totalItems = 0;
 	
-	public int getTotalItems(){//(Item[] arrayItem){
+	public int getTotalItems(){
 		totalItems = 0;
 		for(int i=0; i<getArrayItem().length; i++){
 			
 			if(getArrayItem()[i].getName() != null && !getArrayItem()[i].getName().isEmpty()){
 				totalItems = totalItems + 1;
-		//		System.out.println(getArrayItem()[i].getName());
 			}
 			} return totalItems;
 	}
-	
-	public void clear(){//(Item[] arrayItem){
-		//totalItems = 0;
+/////////////////////////////////////////////////////////////////////////////////////////////////
+	public void clear(){
 		for(int i=0; i<getArrayItem().length; i++){
 			getArrayItem()[i]=new Item();}}
 	
-		/*	if(arrayItem[i].getName() != null && !arrayItem[i].getName().isEmpty()){
-				totalItems = totalItems + 1;
-			}*/
-			 //return totalItems;
-	
+/////////////////////////////////////////////////////////////////////////////////////////////////	
 	public void addItem(Item newItem){
-		//getTotalItems()
-	//	newItem.setName(newName);
 		boolean isANewItem = true;
 		int position = 0;
 		int temp = 0;
@@ -169,14 +149,12 @@ public class ShoppingList {
 				position = i;
 				break;
 			}}
-			
-		//	getArrayItem()[i]=new Item();
+
 			if (isANewItem){
 				setSingleArrayItem(getTotalItems(),newItem);
 				String s31 = ShoppingList.S25 + newItem.getName()+ ShoppingList.S26;
 				System.out.printf("%s%n", s31);
 			} //I give the new item to the first free position
-											 // arrays in java starts from zero
 			else{
 				if (getArrayItem()[position].getName().equals(newItem.getName())){ //double check
 					temp = getArrayItem()[position].getQuantity();
@@ -187,46 +165,31 @@ public class ShoppingList {
 			}
 			getTotalItems();
 			calculateTotalAfterSale();	
-			}
-		
-	//	}
-//	Returns the sum of all items of your shopping list. //Item[] arrayItem
-	
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////	
 	public void removeItem(String name){
 		int position =0;
 		int total = getTotalItems();
-	//	System.out.println(total);
 		boolean willDelete = false;
-		//for(int i=0; i<getArrayItem().length; i++){ //getTotalItems()
-		for(int i=0; i<total; i++){ //getTotalItems()
+		for(int i=0; i<total; i++){
 			if (getArrayItem()[i].getName().equals(name)){
 				willDelete = true;
 				position =i;
 				break;
-				
 			}
-			
 		}
-	//	System.out.println(position);
 		String s31 = "";
 		if (willDelete){
 			if (position==0){
 				setSingleArrayItem(0,getArrayItem()[1]);
 				setSingleArrayItem(1, new Item());
 			}
-		//	setSingleArrayItem(position, new Item()); // BAAAAAAAAAAADDD
-		//	for(int i=position; i<(getArrayItem().length-1); i++){
 			for(int i=position; i<(total); i++){				
-				//setSingleArrayItem(int i, Item newItem)
 			setSingleArrayItem(i,getArrayItem()[i+1]);
-			
 				}
 			setSingleArrayItem(total, new Item());
-	/*		System.out.println("trota");
-			System.out.println(getTotalItems());
-			System.out.println("trota");
-			//getArrayItem()[getArrayItem().length]=new Item();*/
-		
 		s31 = ShoppingList.S25 + name+ ShoppingList.S28;
 		}
 		else {s31 = ShoppingList.S25 + name+ ShoppingList.S32;}
@@ -234,22 +197,16 @@ public class ShoppingList {
 		getTotalItems();
 	}
 
-	
-	
+/////////////////////////////////////////////////////////////////////////////////////////////////	
 	public void printInvoice(){
-	//	System.out.println(getTotalItems());
 		calculateSalesPercentage();
-	//	System.out.println(getTotalAfterSale());	
 		for(int i=0; i<(getTotalItems()); i++){
 			getArrayItem()[i].setTotalPriceItem();}
-		
-	//	System.out.println(getSubTotalPrice());
-		//System.out.printf("The value of %s is: %.2f%n", name, value);
+
 		String s1 = "-----------------------------------------------------";
 		String s2 = "|*********************INVOICE***********************|";
 		String s3 = "|Nr  Product                Quantity           Price|";
-		String s4 = "|                                                   |"; //34 until y
-		//getSalesPercentage();
+		String s4 = "|                                                   |"; 
 		String s5 = "";
 		String s6 = "";
 		String s7 = "";
@@ -264,27 +221,18 @@ public class ShoppingList {
 		String s12 = new String(chars3);
 		
 		String s10 =(int)(getSalesPercentage()*100) + "|";
-		/*if(getSalesPercentage()>0.09){s10 =             "             "+ getSalesPercentage()*100 + "|";}
-		else{s10 =             "            "+ }*/
 		String s11 = s9+s12+s10;
 		String s13 = "|                          SubTotal:";
-	//	String s14 = getTotalAfterSale() + "|";
 		double number = 0.0;
 		if (getTotalItems()==0){}
 		else {number =  Math.round(getTotalAfterSale() * 100);}
 		number = number/100;
-		
-	//	System.out.println(number);
 		String total3 = Double.toString(number);
-	//	System.out.println(total3.length());
-		//String total3 = Double.toString(getTotalAfterSale());
 		char[] chars4 = new char[14-total3.length()];
 		Arrays.fill(chars4, ' ');
 		String s16  = new String(chars4);
 		String s15 = s13 + s16 + total3 + " " + EURO  + "|"; 
-
 		String total2;
-	//	System.out.println(getTotalItems());
 		if (getTotalItems()==0){s5 = s4;}
 		else {s5 = s3;
 			for(int i=0; i<(getTotalItems()); i++){
@@ -299,35 +247,15 @@ public class ShoppingList {
 				
 				double number2 =  Math.round(getArrayItem()[i].getTotalPriceItem() * 100);
 				number2 = number2/100;
-				//String total3 = Double.toString(number);
 				total2 = Double.toString(number2);
-			//	System.out.printf("%d%n", total2.length());
 				char[] chars2 = new char[14-total2.length()];
 				Arrays.fill(chars2, ' ');
 				s8 = new String(chars2);
-				
-		/*		for(int j=0; j<(counter-getArrayItem()[i].getName().length()); j++){
-					//;
-					s6 = s6 + " ";
-				}*/
-				
 				s5 = s5 + "\n" + "|" + (i+1) + s7 + getArrayItem()[i].getName() + s6 + getArrayItem()[i].getQuantity() 
 						+  s8 + total2 + " " + EURO + "|";
 				s6 = "";
 			}
-			//s5 = s3 + "\n" + s2;
 			}
-		
-	//	System.out.println(getArrayItem()[0].getName().length());
-	//	System.out.println(getTotalItems());
 		System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n", s1, s2, s1, s5, s1, s11, s15, s1);
-
 	}
-
-	
-	
-	
-	
-	
-	
 }

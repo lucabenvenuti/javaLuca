@@ -48,7 +48,6 @@ public class ShoppingListTest {
 			
 			break;}
 		case '2': {
-					//System.out.println("Name: ");
 					System.out.printf("%s", ShoppingList.S22);
 					shoppingListHandler.removeItem(Input.readString());break;}
 		case '3': shoppingListHandler.clear();break;
