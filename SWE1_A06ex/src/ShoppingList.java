@@ -5,13 +5,13 @@ public class ShoppingList {
 	
 	public final static int MAXIMALNUMBEROFELEMENTS = 10;
 	
-	public static final String EURO = "\u20AC";
+	public final static String EURO = "\u20AC";
 	
-	public final static String S1 = "-----------------------------------------------------";
-	public final static String S2 = "|*********************INVOICE***********************|";
-	public final static String S3 = "|Nr  Product                Quantity           Price|";
-	public final static String S4 = "|                                                   |"; 
-	public final static String S9 = "|                          Sale (%):";
+	public final static String S1  = "-----------------------------------------------------";
+	public final static String S2  = "|*********************INVOICE***********************|";
+	public final static String S3  = "|Nr  Product                Quantity           Price|";
+	public final static String S4  = "|                                                   |"; 
+	public final static String S9  = "|                          Sale (%):";
 	public final static String S33 = "|                          SubTotal:";
 	
 	public final static String S01 = "======= Your Shopping List =======";
@@ -103,9 +103,9 @@ public class ShoppingList {
 	private double salesPercentage = 0.0;
 		
 	public double getSalesPercentage(){
-		if (salesPercentage<0.01){
+	//	if (salesPercentage<0.01){
 			calculateSalesPercentage();
-		}
+		//}
 		return salesPercentage;
 	}
 
