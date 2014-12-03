@@ -66,6 +66,15 @@ public class ShoppingList {
 		return s51;
 	}
 	
+	public String obtain2DecimalsStringOfTotalAfterSale(float price){
+		String total2;
+		double number2 =  Math.round(price * 100);
+		number2 = number2/100;
+		total2 = Double.toString(number2);
+		return total2;
+	}
+	
+	//
 ////////////////////////////////////////////////////////////////////////////////////////	
 	
 	private int shoppingIndex =0;
@@ -254,9 +263,7 @@ public class ShoppingList {
 				Arrays.fill(chars, ' ');
 				s6 = new String(chars);
 				
-				double number2 =  Math.round(getArrayItem()[i].getTotalPriceItem() * 100);
-				number2 = number2/100;
-				total2 = Double.toString(number2);
+				total2 = obtain2DecimalsStringOfTotalAfterSale(getArrayItem()[i].getTotalPriceItem());
 				char[] chars2 = new char[14-total2.length()];
 				Arrays.fill(chars2, ' ');
 				s8 = new String(chars2);
