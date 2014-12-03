@@ -27,6 +27,7 @@ public class ShoppingList {
 	public final static String S29 = "The total Amount to be paid is: ";
 	public final static String S30 = "Goodbye!"; 
 	public final static String S31 = "Invalid inputs"; 
+	public final static String S32 = " was not available in your Shopping List.";
 	
 	private Item[] arrayItem2 = new Item[MAXIMALNUMBEROFELEMENTS];
 	
@@ -207,6 +208,7 @@ public class ShoppingList {
 			
 		}
 	//	System.out.println(position);
+		String s31 = "";
 		if (willDelete){
 			if (position==0){
 				setSingleArrayItem(0,getArrayItem()[1]);
@@ -224,9 +226,11 @@ public class ShoppingList {
 			System.out.println(getTotalItems());
 			System.out.println("trota");
 			//getArrayItem()[getArrayItem().length]=new Item();*/
+		
+		s31 = ShoppingList.S25 + name+ ShoppingList.S28;
 		}
-		String s31 = ShoppingList.S25 + name+ ShoppingList.S28;
-		System.out.printf("%s%n", s31);
+		else {s31 = ShoppingList.S25 + name+ ShoppingList.S32;}
+			System.out.printf("%s%n", s31);
 		getTotalItems();
 	}
 
