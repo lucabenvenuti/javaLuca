@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 
 
@@ -6,11 +6,10 @@ public class SlotMachineCalc {
 	
 	private int score = 0;
 	
-	public char[] array;// = "";
+	public char[] array;
 	public int[] array2;
 	public char tempChar;
-	public boolean testEquals = false;
-	public boolean testStraight = false;
+	public boolean testEquals = false, testStraight = false;
 	
 	public int getScore() {
 		return score;

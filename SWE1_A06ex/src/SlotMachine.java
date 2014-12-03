@@ -1,4 +1,4 @@
-import java.util.*;
+//import java.util.*;
 
 
 public class SlotMachine {
@@ -21,10 +21,10 @@ public class SlotMachine {
 	public void printNOfWheels() {
 		System.out.printf("%d", nOfWheels);
 	}
-
+///////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
 		
-		int moneyAvailable = 100, moneySlot = 200;
+		int moneyAvailable = 100, moneySlot = INITIALMONEYSLOT;
 		boolean play = true, mustRePlay = false, poor = false;
 		SlotMachine newRunSlotMachine = new SlotMachine();
 		

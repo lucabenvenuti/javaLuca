@@ -22,13 +22,15 @@ public class Reel {
 			//System.out.println (reelIndex);
 			System.out.printf("%d%n", reelIndex);
 		}
+
+////////////////////////////////////////////////////////////////////////////////////		
+		public List listSpinned = new ArrayList(); //No idea what a raw type is
 		
-		public List listSpinned = new ArrayList();
-		
-		public List<String> getListSpinned() {
+		public List getListSpinned() {
 		    return listSpinned;
 		}
-		
+
+/////////////////////////////////////////////////////////////////////////////////////////		
 		private Random rndGen = new Random(System.nanoTime() + getReelIndex());
 		public int randomSpinning = rndGen.nextInt(SYMBOLS.length());
 		public char tempChar = 'a';
