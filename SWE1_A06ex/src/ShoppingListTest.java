@@ -34,7 +34,9 @@ public class ShoppingListTest {
 	        System.out.printf("%s", ShoppingList.S24);
 	        newItemTemp.setPrice(Input.readFloat());
 	        
-	        while (newItemTemp.getPrice()*newItemTemp.getQuantity()<0.1 || newItemTemp.getName().equals("")){
+	        while (newItemTemp.getPrice()*newItemTemp.getQuantity()<0.1 || 
+	        		newItemTemp.getName().equals("") || newItemTemp.getPrice()<0.1 ||
+	        		newItemTemp.getQuantity()<1){
 	        	System.out.printf("%s%n", ShoppingList.S31);
 		        System.out.printf("%s", ShoppingList.S22);
 		        newItemTemp.setName(Input.readString());
@@ -47,9 +49,14 @@ public class ShoppingListTest {
 	        newItemTemp = new Item();
 			
 			break;}
-		case '2': {
-					System.out.printf("%s", ShoppingList.S22);
-					shoppingListHandler.removeItem(Input.readString());break;}
+		case '2': { System.out.printf("%s", ShoppingList.S22);
+					String removeName = Input.readString();
+					while (removeName.equals("")){
+						System.out.printf("%s", ShoppingList.S22);
+						removeName = Input.readString();
+					}
+					shoppingListHandler.removeItem(removeName);
+					break;}
 		case '3': shoppingListHandler.clear();break;
 		case '4': shoppingListHandler.printTotalAfterSale();break;
 		case '5': shoppingListHandler.printInvoice(); break;
