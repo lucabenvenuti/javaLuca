@@ -22,7 +22,7 @@ public class ShoppingListTest {
 			
 			System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n%n%s", ShoppingList.S02, ShoppingList.S11, 
 					ShoppingList.S12,ShoppingList.S13,ShoppingList.S14,ShoppingList.S15,ShoppingList.S16,ShoppingList.S21);
-		char keyboardInput = Input.readChar();
+		char keyboardInput = Input.readChar();//
 		
 		switch (keyboardInput){
 		case '1': {
