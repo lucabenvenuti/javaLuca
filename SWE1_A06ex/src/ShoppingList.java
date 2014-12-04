@@ -216,7 +216,7 @@ public class ShoppingList {
 			setSingleArrayItem(total, new Item());
 		s31 = ShoppingList.S25 + name+ ShoppingList.S28;
 		}
-		else if (getArrayItem()[position].getQuantity()>1){getArrayItem()[position].setQuantity(getArrayItem()[position].getQuantity()-1);
+		else if (willDelete && getArrayItem()[position].getQuantity()>1){getArrayItem()[position].setQuantity(getArrayItem()[position].getQuantity()-1);
 			s31 = ShoppingList.S25 + name+ ShoppingList.S28;}
 		else {s31 = ShoppingList.S25 + name+ ShoppingList.S32;}
 			System.out.printf("%s%n", s31);
