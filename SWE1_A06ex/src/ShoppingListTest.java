@@ -16,7 +16,7 @@ public class ShoppingListTest {
 		shoppingListHandler.setShoppingIndex(shoppingList1.length); 
 		shoppingListHandler.exportArrayItem(shoppingList1);
 		
-		System.out.printf("%s%n%n", ShoppingList.S01);
+		System.out.printf("%s%n%n", ShoppingList.S01);//
 		
 		goCycle: while (go){
 			
