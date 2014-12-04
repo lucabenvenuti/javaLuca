@@ -210,10 +210,6 @@ public class ShoppingList {
 		getArrayItem()[position].getQuantity();
 		String s31 = "";
 		if (willDelete && getArrayItem()[position].getQuantity()==1){
-			//if (position==0){
-			//	setSingleArrayItem(0,getArrayItem()[1]);
-			//	setSingleArrayItem(1, new Item());
-			//}
 			for(int i=position; i<(total); i++){				
 			setSingleArrayItem(i,getArrayItem()[i+1]);
 				}
