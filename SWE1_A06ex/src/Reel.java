@@ -41,7 +41,7 @@ public class Reel {
 			for (int i=0; i < getReelIndex(); i++){
 				randomSpinning = rndGen.nextInt(SYMBOLS.length());
 				tempChar = SYMBOLS.charAt(randomSpinning);
-				// tempChar = 'A'; test input
+				// tempChar = 'R'; //test input
 				listSpinned.add(tempChar);
 				System.out.printf("%c", tempChar);
 				try {

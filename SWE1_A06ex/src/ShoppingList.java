@@ -198,18 +198,21 @@ public class ShoppingList {
 				break;
 			}
 		}
+		getArrayItem()[position].getQuantity();
 		String s31 = "";
-		if (willDelete){
-			if (position==0){
-				setSingleArrayItem(0,getArrayItem()[1]);
-				setSingleArrayItem(1, new Item());
-			}
+		if (willDelete && getArrayItem()[position].getQuantity()==1){
+			//if (position==0){
+			//	setSingleArrayItem(0,getArrayItem()[1]);
+			//	setSingleArrayItem(1, new Item());
+			//}
 			for(int i=position; i<(total); i++){				
 			setSingleArrayItem(i,getArrayItem()[i+1]);
 				}
 			setSingleArrayItem(total, new Item());
 		s31 = ShoppingList.S25 + name+ ShoppingList.S28;
 		}
+		else if (getArrayItem()[position].getQuantity()>1){getArrayItem()[position].setQuantity(getArrayItem()[position].getQuantity()-1);
+			s31 = ShoppingList.S25 + name+ ShoppingList.S28;}
 		else {s31 = ShoppingList.S25 + name+ ShoppingList.S32;}
 			System.out.printf("%s%n", s31);
 		getTotalItems();

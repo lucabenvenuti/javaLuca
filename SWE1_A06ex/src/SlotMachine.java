@@ -1,6 +1,3 @@
-//import java.util.*;
-
-
 public class SlotMachine {
 	
 	private int nOfWheels = 0;
@@ -37,30 +34,20 @@ public class SlotMachine {
 		}
 		
 		newRunSlotMachine.setNOfWheels(numberOfWheels);
+		String keyboardInput = "";
 		
 		while(play){
 		System.out.printf("Your Credit: %d \n", moneyAvailable); 
 		System.out.printf("Hit Enter to spin or type exit to terminate the program \n"); 
 		
-		char keyboardInput;
+		
 		if(!mustRePlay){
-			keyboardInput = Input.readCharSequence();
+			keyboardInput = Input.readString();
 			
-		}else {
-			keyboardInput = 'c';
-				}
+		}
 		mustRePlay = false;
-		int keyboardInputInt = (int) keyboardInput;
-	
-		if (keyboardInput=='e'){
-			while (keyboardInput !=10){
-				keyboardInputInt = keyboardInputInt + (int) keyboardInput;
-				keyboardInput = Input.readCharSequence();
-			}
-			if (keyboardInputInt==543){//stop playing(mustRePlay){//
+		if (keyboardInput.equals("exit")){
 				break;
-			}
-			else{}
 				}
 		else if (poor){
 			System.out.printf("%s%n", "Not enough credit. Please leave.");
