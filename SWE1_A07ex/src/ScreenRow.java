@@ -9,6 +9,8 @@ public class ScreenRow {
 	
 	private char[] rowLayoutCharArray;
 	
+	
+	
 	private int reservedSeats = 0;
 	private double totalPriceRow = 0.0;
 	
@@ -33,7 +35,9 @@ public class ScreenRow {
 	 */
 	public void setCategory(Category category) {
 		this.category = category;
-		setInitialRowLayoutCharArray(this.category);
+		if (getRowLayoutCharArray()[0]=='#'){}
+		else {
+		setInitialRowLayoutCharArray(this.category);}
 	}
 	
 /*	public void setCategory(Category category, int reservedSeats) {

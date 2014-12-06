@@ -20,7 +20,8 @@ public class Cinema {
 		
 	//	Category newCat = new Category('A');
 		boolean continuation = true;
-		Screen[] Screen1 = new Screen[2];
+		int maxScreen = 2;
+		Screen[] Screen1 = new Screen[maxScreen];
 		int seSc = 0; //selectedScreen;
 		int numberOfSeatToBook = 0;
 		char symbol = 'Q';
@@ -34,19 +35,23 @@ public class Cinema {
 			System.out.printf("%s%n",S01);
 			inputKey = Input.readString();
 			if (inputKey.equals("exit")){break;}
-			inputKeyboard = inputKey.toCharArray();
-			seSc = (int)inputKeyboard[0] - 49;
+			else {inputKeyboard = inputKey.toCharArray();
+				seSc = (int)inputKeyboard[0] - 49;
+				if (seSc<0 || seSc>(maxScreen-1) || inputKey.length()>1){
+					System.out.printf("%s%n",S09);
+					break;}
+			}
 	//		System.out.println(seSc);
 			
 			//seSc = Input.readInt()-1;
 			System.out.printf("%s%n",S02);
 			numberOfSeatToBook = Input.readInt();
 			System.out.printf("%s%n",S03);
-			
+			symbol = Input.readChar();
 			System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
-		
-			
+			Category tempCategory = new Category(symbol);
+			Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
 			
 			seSc = 0;
 			numberOfSeatToBook = 0;

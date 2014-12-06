@@ -19,6 +19,12 @@ public class Screen {
 		setNewScreenRow(category);	
 	}
 	
+	public Screen(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
+		this(category);
+		//setNewScreenRow();
+		boolean ok = this.newScreenRow[defineArrayPosition(category)].setBook(numberOfSeatToBook, positionOfSeatToBook);		
+	}
+	
 	public ScreenRow[] getNewScreenRow(){
 		return newScreenRow;
 	}
