@@ -2,10 +2,6 @@
 public class Screen {
 
 	private ScreenRow[] newScreenRow = new ScreenRow[3];
-	//private Category category;
-	
-
-//	public int test1= 33;
 
 	public Screen(){		
 		newScreenRow[0] = new ScreenRow(new Category('A'));
@@ -21,7 +17,6 @@ public class Screen {
 	
 	public Screen(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		this(category);
-		//setNewScreenRow();
 		boolean ok = this.newScreenRow[defineArrayPosition(category)].setBook(numberOfSeatToBook, positionOfSeatToBook);		
 	}
 	
@@ -30,7 +25,6 @@ public class Screen {
 	}
 	
 	public ScreenRow getNewScreenRow(Category category){
-		//System.out.println(defineArrayPosition(category));
 		return newScreenRow[defineArrayPosition(category)];
 	}
 	
@@ -40,9 +34,7 @@ public class Screen {
 	
 	public boolean setNewScreenRow(Category category, int numberOfSeatToBook, int positionOfSeatToBook){	
 		setNewScreenRow(category);
-		//boolean ok = this.newScreenRow[defineArrayPosition(category)].setBook(numberOfSeatToBook, positionOfSeatToBook);
 		boolean ok = this.newScreenRow[defineArrayPosition(category)].setCategory(category, numberOfSeatToBook, positionOfSeatToBook);
-		//System.out.println(ok);
 		return ok;
 	}
 	
@@ -55,18 +47,5 @@ public class Screen {
 		}
 		
 	}
-	
-	//newScreenRow[0].setCategory('A');
-	
-/*	public void setNewScreenRowCategory(Category category, int arrayPosition){
-		this.newScreenRow[arrayPosition].setCategory(category);
 		
-		
-	}*/
-	
-	
-	
-	
-	
-	
 }

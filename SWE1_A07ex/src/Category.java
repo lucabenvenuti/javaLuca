@@ -1,7 +1,6 @@
 
 public class Category {
 	
-	//private double price;
 	private char symbol;
 	private double price;
 	
@@ -46,46 +45,4 @@ public class Category {
 		}
 	}
 
-
-/*	public Category(double price){
-		this.setPrice(price);
-	}
-	
-	public Category(char symbol, double price){
-		this(symbol);
-		this.setPrice(price);
-	}
-
-	/**
-	 * @return the price
-	 */
-	/*	public double getPrice() {
-		return price;
-	}
-
-	/**
-	 * @param price the price to set
-	 */
-	/*	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	/**
-	 * @return the symbol
-	 */
-	/*	public char getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set
-	 */
-	/*	public void setSymbol(char symbol) {
-		this.symbol = symbol;
-	}*/
-	
-/*	public Category(double price, char symbol){
-		this(price);
-		this.symbol = symbol;
-	}*/
 }
