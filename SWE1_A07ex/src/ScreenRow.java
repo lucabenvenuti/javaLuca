@@ -32,19 +32,36 @@ public class ScreenRow {
 		}
 	}
 	
+	public void setCategory(Category category, int row) {
+		this.category = category;
+		if (!setInitialLayout){//}
+		//else {
+		setInitialRowLayoutCharArray(row);//this.category);
+		}
+	}
+	
 	public boolean setCategory(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		setCategory(category);
 		boolean ok = setBook(numberOfSeatToBook, positionOfSeatToBook);
+		makeBook(ok, numberOfSeatToBook);
+		return ok;
+	}
+	
+	public void makeBook(boolean ok, int numberOfSeatToBook){
 		if(ok){
 			this.reservedSeats = this.reservedSeats + numberOfSeatToBook;
 			setReservedSeatsSingleBooking(numberOfSeatToBook);
 			setTotalPriceRowSingleBooking(numberOfSeatToBook);
 			//setTotalPriceRow();
-		} //else {//wrong input
-		//	}
-		return ok;
+		}
 	}
 		
+	public boolean setCategory(Category category, int row, int numberOfSeatToBook, int positionOfSeatToBook){
+		setCategory(category, row);
+		boolean ok = setBook(numberOfSeatToBook, positionOfSeatToBook);
+		makeBook(ok, numberOfSeatToBook);
+		return ok;
+	}
 	
 	public boolean checkBook(int numberOfSeatToBook, int positionOfSeatToBook) {
 		boolean ok = false;
@@ -91,6 +108,16 @@ public class ScreenRow {
 		} else if(category.getSymbol()=='B'){
 			this.rowLayoutCharArray = removeElement(2);
 		} else if(category.getSymbol()=='C'){
+			this.rowLayoutCharArray = removeElement(4);
+		} else {this.rowLayoutCharArray = "error".toCharArray();}
+		this.setInitialLayout = true;
+	}
+	
+	public void setInitialRowLayoutCharArray(int row){ //(Category category) {
+		if(row==0){
+		} else if(row==1){
+			this.rowLayoutCharArray = removeElement(2);
+		} else if(row==2){
 			this.rowLayoutCharArray = removeElement(4);
 		} else {this.rowLayoutCharArray = "error".toCharArray();}
 		this.setInitialLayout = true;

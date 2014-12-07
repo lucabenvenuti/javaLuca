@@ -49,7 +49,7 @@ public class Screen {
 
 	public boolean setNewScreenRow(int rowNumber, int numberOfSeatToBook, int positionOfSeatToBook){
 	  //setNewScreenRow(rowNumber);
-	  boolean ok = this.newScreenRowArray[rowNumber].setCategory(setNewScreenRow(rowNumber), numberOfSeatToBook, positionOfSeatToBook);
+	  boolean ok = this.newScreenRowArray[rowNumber].setCategory(setNewScreenRow(rowNumber), rowNumber, numberOfSeatToBook, positionOfSeatToBook);
 	  return ok;
 	}
 		
