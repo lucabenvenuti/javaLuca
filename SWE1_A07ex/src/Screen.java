@@ -30,7 +30,7 @@ public class Screen {
 	}
 	
 	public ScreenRow getNewScreenRow(Category category){
-		System.out.println(defineArrayPosition(category));
+		//System.out.println(defineArrayPosition(category));
 		return newScreenRow[defineArrayPosition(category)];
 	}
 	
@@ -40,8 +40,9 @@ public class Screen {
 	
 	public void setNewScreenRow(Category category, int numberOfSeatToBook, int positionOfSeatToBook){	
 		setNewScreenRow(category);
-		boolean ok = this.newScreenRow[defineArrayPosition(category)].setBook(numberOfSeatToBook, positionOfSeatToBook);
-		
+		//boolean ok = this.newScreenRow[defineArrayPosition(category)].setBook(numberOfSeatToBook, positionOfSeatToBook);
+		this.newScreenRow[defineArrayPosition(category)].setCategory(category, numberOfSeatToBook, positionOfSeatToBook);
+		//System.out.println(ok);
 	}
 	
 	public int defineArrayPosition(Category category){

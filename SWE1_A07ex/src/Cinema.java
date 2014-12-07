@@ -67,6 +67,8 @@ public class Cinema {
 		//	Screen1[seSc].setNewScreenRow(tempCategory);
 			Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
 			System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString());
+			System.out.printf("%d%n",Screen1[seSc].getNewScreenRow(tempCategory).getReservedSeats());
+			System.out.printf("%.0f%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRow(), EURO);
 					
 					//.getCategory().getSymbol());
 			
