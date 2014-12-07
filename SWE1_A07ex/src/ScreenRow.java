@@ -48,9 +48,6 @@ public ScreenRow() {
 	
 	public boolean checkBook(int numberOfSeatToBook, int positionOfSeatToBook) {
 		boolean ok = false;
-		System.out.println(numberOfSeatToBook);
-		System.out.println(positionOfSeatToBook);
-		System.out.println(this.rowLayoutCharArray.length);
 		if ((numberOfSeatToBook + positionOfSeatToBook-1) > this.rowLayoutCharArray.length){
 			return ok;
 		}
@@ -91,7 +88,6 @@ public ScreenRow() {
 	
 	public void setInitialRowLayoutCharArray(Category category) {
 		if(category.getSymbol()=='A'){
-		//	this.rowLayoutCharArray = LAYOUTA.toCharArray();
 		} else if(category.getSymbol()=='B'){
 			this.rowLayoutCharArray = removeElement(2);
 		} else if(category.getSymbol()=='C'){
@@ -101,7 +97,6 @@ public ScreenRow() {
 	}
 	
 	public char[] removeElement(int element){
-		//char[] rowLayoutCharArray2 = LAYOUTA.toCharArray();
 	    char[] n = new char[rowLayoutCharArray.length - element];
 	    System.arraycopy(rowLayoutCharArray, 0, n, 0, rowLayoutCharArray.length - element );
 	    return n;

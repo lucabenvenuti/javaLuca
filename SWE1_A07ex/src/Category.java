@@ -9,8 +9,7 @@ public class Category {
 	public static final double PRICEC=33.0;
 	
 	public Category(char symbol){
-		this.symbol = symbol;
-		this.setPrice(symbol);
+		setSymbol(symbol);
 	}
 
 	/**
@@ -22,7 +21,7 @@ public class Category {
 
 	public void setSymbol(char symbol){
 		this.symbol = symbol;
-		this.setPrice(symbol);		
+		setPrice(symbol);		
 	}
 	
 	/**
@@ -32,15 +31,12 @@ public class Category {
 		return price;
 	}
 
-	/**
-	 * @param price the price to set
-	 */
 	public void setPrice(char symbol) {
 		switch(symbol){
-		case 'A': this.price= PRICEA;break;
-		case 'B': this.price= PRICEB;break;
-		case 'C': this.price= PRICEC;break;
-		default: this.price= 0.0;
+		case 'A': price= PRICEA;break;
+		case 'B': price= PRICEB;break;
+		case 'C': price= PRICEC;break;
+		default: price= 0.0;
 		}
 	}
 
