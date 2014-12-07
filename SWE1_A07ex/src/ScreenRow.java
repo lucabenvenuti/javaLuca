@@ -2,8 +2,8 @@
 public class ScreenRow {
 	
 	public final static String LAYOUTA = "###########";
-	public final static String LAYOUTB = "#########";
-	public final static String LAYOUTC = "#######";
+//	public final static String LAYOUTB = "#########";
+//	public final static String LAYOUTC = "#######";
 	
 	private Category category;
 	
