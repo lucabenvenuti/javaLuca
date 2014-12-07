@@ -5,6 +5,7 @@ public class Category {
 	private char symbol;
 	private double price;
 	
+	
 	public static final double priceA=24.0;
 	public static final double priceB=30.0;
 	public static final double priceC=33.0;

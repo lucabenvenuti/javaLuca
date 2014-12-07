@@ -95,9 +95,18 @@ public ScreenRow() {
 		return rowLayoutCharArray;
 	}
 	
-	public String getRowLayoutString(){ 
-		return String.valueOf(rowLayoutCharArray);
+	public String getRowLayoutString(boolean printX){ 
+		char[] cloneRowLayoutCharArray = rowLayoutCharArray;
+		if (printX){}
+		else {
+			for (int i = 0; i<cloneRowLayoutCharArray.length; i++ ){
+				if (cloneRowLayoutCharArray[i]=='X'){
+					cloneRowLayoutCharArray[i]=' ';
+				}
 			}
+		}	
+		return String.valueOf(cloneRowLayoutCharArray);
+	}
 	
 	public void setInitialRowLayoutCharArray(Category category) {
 	//	System.out.println(category.getSymbol());

@@ -1,6 +1,10 @@
+import java.util.Arrays;
+
 
 public class Cinema {
-
+	
+	public static final char[] symbolArray = {'A','B', 'C'};
+	
 	public final static String EURO = "\u20AC";
 	public final static String S01 = "Choose Screen 1 or 2 or type exit to terminate the program";
 	public final static String S02 = "How many seats?";
@@ -11,7 +15,7 @@ public class Cinema {
 	public final static String S07 = "Which Position?";
 	public final static String S08 = "Successfully completed booking. Please pay: ";
 	public final static String S09 = "Booking failed";	
-	public final static String S10 = "	[---------]";
+	public final static String S10 = "    [---------]";
 
 	
 	
@@ -31,7 +35,8 @@ public class Cinema {
 		int positionOfSeatToBook = 0;
 		String inputKey = "";
 		char [] inputKeyboard;
-		
+		Category tempCategory;// = new Category(symbol);
+	//	Category tempCategory2;
 	//	Screen Screen2 = new Screen();
 	//	Category tempCategory2 = new Category('B');
 	//	System.out.println(tempCategory2.getSymbol());
@@ -55,20 +60,41 @@ public class Cinema {
 					break;}
 			}
 	//		System.out.println(seSc);
+			System.out.printf("%s%n",S10);
+		//	tempCategory2 = new Category(symbol);
+			for (int i=0; i<symbolArray.length; i++){
+				symbol = symbolArray[i];
+				tempCategory = new Category(symbol);
+				char[] chars3 = new char[i];
+				Arrays.fill(chars3, ' ');
+				String s12 = new String(chars3);
+				System.out.printf("[%c]|%s%s%n",symbol, s12, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(false));
+			}
 			
+		/*	symbol = 'A';
+			tempCategory = new Category(symbol);
+			
+			symbol = 'B';
+			tempCategory = new Category(symbol);
+			System.out.printf("[%c]| %s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(false));
+			symbol = 'C';
+			tempCategory = new Category(symbol);
+			System.out.printf("[%c]|  %s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(false));
+			symbol = 'Q';*/
 			//seSc = Input.readInt()-1;
 			System.out.printf("%s%n",S02);
 			numberOfSeatToBook = Input.readInt();
 			System.out.printf("%s%n",S03);
 			symbol = Input.readChar();
+			tempCategory = new Category(symbol);
 			System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
-			Category tempCategory = new Category(symbol);
+			
 		//	Screen1[seSc].setNewScreenRow(tempCategory);
 			Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
-			System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString());
+			System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(true));
 			System.out.printf("%d%n",Screen1[seSc].getNewScreenRow(tempCategory).getReservedSeats());
-			System.out.printf("%.0f%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRow(), EURO);
+			System.out.printf("%.0f %s%n",Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRow(), EURO);
 					
 					//.getCategory().getSymbol());
 			
