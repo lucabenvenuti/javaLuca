@@ -8,15 +8,15 @@ public class Screen {
 	public int test1= 33;
 
 public Screen(){
-		Category tempCat = new Category('A');
+		//Category tempCat = ;
 		
-		newScreenRow[0] = new ScreenRow(tempCat);
+		newScreenRow[0] = new ScreenRow(new Category('A'));
 		newScreenRow[1] = new ScreenRow(new Category('B'));
 		newScreenRow[2] = new ScreenRow(new Category('C'));
 		
 	}
 	
-/*		public Screen(Category category){
+		public Screen(Category category){
 		this();
 		setNewScreenRow(category);	
 	}

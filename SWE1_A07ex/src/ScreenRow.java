@@ -95,7 +95,7 @@ public ScreenRow() {
 	}
 	
 	public void setInitialRowLayoutCharArray(Category category) {
-		System.out.println(category.getSymbol());
+	//	System.out.println(category.getSymbol());
 		if(category.getSymbol()=='A'){
 			this.rowLayoutCharArray = layoutA.toCharArray();
 		} else if(category.getSymbol()=='B'){
