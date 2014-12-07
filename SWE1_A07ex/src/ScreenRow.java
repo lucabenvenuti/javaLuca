@@ -48,15 +48,16 @@ public ScreenRow() {
 	
 
 	
-	public void setCategory(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
+	public boolean setCategory(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		setCategory(category);
 		boolean ok = setBook(numberOfSeatToBook, positionOfSeatToBook);
-		System.out.println(ok);
+	//	System.out.println(ok);
 		if(ok){
 			this.reservedSeats = this.reservedSeats + numberOfSeatToBook;
 			setTotalPriceRow();
 		} else {//wrong input
 			}
+		return ok;
 	}
 		
 	
