@@ -2,46 +2,46 @@
 public class ScreenRow {
 	
 	public final static String LAYOUTA = "###########";
-//	public final static String LAYOUTB = "#########";
-//	public final static String LAYOUTC = "#######";
-	
-	private Category category;
 	
 	private char[] rowLayoutCharArray = LAYOUTA.toCharArray();
 	
+	private Category category;
+	
 	private boolean setInitialLayout = false;
 	private int reservedSeats = 0;
+	private int reservedSeatsSingleBooking = 0;
 	private double totalPriceRow = 0.0;
+	private double totalPriceRowSingleBooking = 0.0;
+	
+	public ScreenRow() {
+	}
 	
 	public ScreenRow(Category category){
 		setCategory(category);
 	}
 	
-public ScreenRow() {
-	}
-
 	public Category getCategory() {
 		return category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
-		if (setInitialLayout){}
-		else {
-		setInitialRowLayoutCharArray(this.category);
+		if (!setInitialLayout){//}
+		//else {
+		setInitialRowLayoutCharArray();//this.category);
 		}
 	}
-	
-
 	
 	public boolean setCategory(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		setCategory(category);
 		boolean ok = setBook(numberOfSeatToBook, positionOfSeatToBook);
 		if(ok){
 			this.reservedSeats = this.reservedSeats + numberOfSeatToBook;
-			setTotalPriceRow();
-		} else {//wrong input
-			}
+			setReservedSeatsSingleBooking(numberOfSeatToBook);
+			setTotalPriceRowSingleBooking(numberOfSeatToBook);
+			//setTotalPriceRow();
+		} //else {//wrong input
+		//	}
 		return ok;
 	}
 		
@@ -86,7 +86,7 @@ public ScreenRow() {
 		return String.valueOf(cloneRowLayoutCharArray);
 	}
 	
-	public void setInitialRowLayoutCharArray(Category category) {
+	public void setInitialRowLayoutCharArray(){ //(Category category) {
 		if(category.getSymbol()=='A'){
 		} else if(category.getSymbol()=='B'){
 			this.rowLayoutCharArray = removeElement(2);
@@ -116,6 +116,22 @@ public ScreenRow() {
 
 	public void setTotalPriceRow() {
 		this.totalPriceRow = getReservedSeats()*getCategory().getPrice();
+	}
+
+	public int getReservedSeatsSingleBooking() {
+		return reservedSeatsSingleBooking;
+	}
+
+	public void setReservedSeatsSingleBooking(int reservedSeatsSingleBooking) {
+		this.reservedSeatsSingleBooking = reservedSeatsSingleBooking;
+	}
+
+	public double getTotalPriceRowSingleBooking() {
+		return totalPriceRowSingleBooking;
+	}
+
+	public void setTotalPriceRowSingleBooking(int numberOfSeatToBook) {
+		this.totalPriceRowSingleBooking = numberOfSeatToBook*getCategory().getPrice();
 	}
 	
 }

@@ -80,7 +80,8 @@ public class Cinema {
 			ok = Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
 			
 			if (ok) {
-			System.out.printf("%s%.0f %s%n%n",S08, Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRow(), EURO);
+			System.out.printf("%s%.0f %s%n%n",S08, Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRowSingleBooking(), EURO);
+			//Screen1[seSc].getNewScreenRow(tempCategory).setReservedSeats(0);
 			newCinema.printRow(true, Screen1, seSc);
 			} else{System.out.printf("%s%n",S09);}
 			
