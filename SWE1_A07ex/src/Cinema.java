@@ -41,6 +41,7 @@ public class Cinema {
 		int seSc = 0; //selectedScreen;
 		int numberOfSeatToBook = 0;
 		char symbol = 'Q';
+		int row = 0;
 		int positionOfSeatToBook = 0;
 		String inputKey = "";
 		char [] inputKeyboard;
@@ -67,9 +68,22 @@ public class Cinema {
 			
 			do {
 				System.out.printf("%s%n",S03);
-				symbol = Input.readChar();				
-			}while (symbol != 'A' && symbol != 'B' && symbol != 'C');
+				symbol = Input.readChar();		
+				row = (int) symbol;
+			//	System.out.println(row);
+			}while (row<49 || (row>(49+Screen1[seSc].MAXROWS) && row<65) || row>(65 + Screen1[seSc].MAXROWS));
 			
+		/*	do {
+				System.out.printf("%s%n",S03);
+				row = Input.readInt();				
+			}while (row<1 || row >Screen1[seSc].MAXROWS);*/
+			if (row>49+Screen1[seSc].MAXROWS){	
+				row = row -65;
+				symbol = SYMBOLARRAY[row];
+			}
+			else {row = row -49;
+				symbol = SYMBOLARRAY[row];}		
+					
 			tempCategory = new Category(symbol);
 			System.out.printf("[%c]|%s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(false));
 			
@@ -77,7 +91,10 @@ public class Cinema {
 			positionOfSeatToBook = Input.readInt();
 			}while (positionOfSeatToBook<1 || positionOfSeatToBook>MAXPLACES);
 					
-			ok = Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
+			//ok = Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
+			// I like more this one, but if I want to increase the number 
+			//of rows in future, and there are more than one with the same category, its more consistent.
+			ok = Screen1[seSc].setNewScreenRow(row, numberOfSeatToBook, positionOfSeatToBook);
 			
 			if (ok) {
 			System.out.printf("%s%.0f %s%n%n",S08, Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRowSingleBooking(), EURO);
