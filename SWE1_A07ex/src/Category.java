@@ -4,10 +4,9 @@ public class Category {
 	private char symbol;
 	private double price;
 	
-	
-	public static final double priceA=24.0;
-	public static final double priceB=30.0;
-	public static final double priceC=33.0;
+	public static final double PRICEA=24.0;
+	public static final double PRICEB=30.0;
+	public static final double PRICEC=33.0;
 	
 	public Category(char symbol){
 		this.symbol = symbol;
@@ -38,9 +37,9 @@ public class Category {
 	 */
 	public void setPrice(char symbol) {
 		switch(symbol){
-		case 'A': this.price= priceA;break;
-		case 'B': this.price= priceB;break;
-		case 'C': this.price= priceC;break;
+		case 'A': this.price= PRICEA;break;
+		case 'B': this.price= PRICEB;break;
+		case 'C': this.price= PRICEC;break;
 		default: this.price= 0.0;
 		}
 	}

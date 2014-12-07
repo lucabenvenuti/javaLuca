@@ -1,13 +1,13 @@
 
 public class ScreenRow {
 	
-	public final static String layoutA = "###########";
-	public final static String layoutB = "#########";
-	public final static String layoutC = "#######";
+	public final static String LAYOUTA = "###########";
+	public final static String LAYOUTB = "#########";
+	public final static String LAYOUTC = "#######";
 	
 	private Category category;
 	
-	private char[] rowLayoutCharArray = layoutA.toCharArray();
+	private char[] rowLayoutCharArray = LAYOUTA.toCharArray();
 	
 	private boolean setInitialLayout = false;
 	private int reservedSeats = 0;
@@ -48,11 +48,14 @@ public ScreenRow() {
 	
 	public boolean checkBook(int numberOfSeatToBook, int positionOfSeatToBook) {
 		boolean ok = false;
-		if ((numberOfSeatToBook + positionOfSeatToBook) > this.rowLayoutCharArray.length){
+		System.out.println(numberOfSeatToBook);
+		System.out.println(positionOfSeatToBook);
+		System.out.println(this.rowLayoutCharArray.length);
+		if ((numberOfSeatToBook + positionOfSeatToBook-1) > this.rowLayoutCharArray.length){
 			return ok;
 		}
 		for(int i=(positionOfSeatToBook-1); i<(positionOfSeatToBook-1+numberOfSeatToBook); i++){
-			if(this.rowLayoutCharArray[positionOfSeatToBook-1]== '#'){
+			if(this.rowLayoutCharArray[i]== '#'){
 			} else{return ok;}
 		}
 		ok = true;
@@ -88,7 +91,7 @@ public ScreenRow() {
 	
 	public void setInitialRowLayoutCharArray(Category category) {
 		if(category.getSymbol()=='A'){
-			this.rowLayoutCharArray = layoutA.toCharArray();
+		//	this.rowLayoutCharArray = LAYOUTA.toCharArray();
 		} else if(category.getSymbol()=='B'){
 			this.rowLayoutCharArray = removeElement(2);
 		} else if(category.getSymbol()=='C'){
@@ -98,9 +101,9 @@ public ScreenRow() {
 	}
 	
 	public char[] removeElement(int element){
-		char[] rowLayoutCharArray2 = layoutA.toCharArray();
-	    char[] n = new char[rowLayoutCharArray2.length - element];
-	    System.arraycopy(rowLayoutCharArray2, 0, n, 0, rowLayoutCharArray2.length - element );
+		//char[] rowLayoutCharArray2 = LAYOUTA.toCharArray();
+	    char[] n = new char[rowLayoutCharArray.length - element];
+	    System.arraycopy(rowLayoutCharArray, 0, n, 0, rowLayoutCharArray.length - element );
 	    return n;
 	}
 
