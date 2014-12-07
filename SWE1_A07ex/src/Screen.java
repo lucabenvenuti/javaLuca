@@ -5,11 +5,9 @@ public class Screen {
 	//private Category category;
 	
 
-	public int test1= 33;
+//	public int test1= 33;
 
-public Screen(){
-		//Category tempCat = ;
-		
+	public Screen(){		
 		newScreenRow[0] = new ScreenRow(new Category('A'));
 		newScreenRow[1] = new ScreenRow(new Category('B'));
 		newScreenRow[2] = new ScreenRow(new Category('C'));
@@ -32,6 +30,7 @@ public Screen(){
 	}
 	
 	public ScreenRow getNewScreenRow(Category category){
+		System.out.println(defineArrayPosition(category));
 		return newScreenRow[defineArrayPosition(category)];
 	}
 	

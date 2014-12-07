@@ -19,7 +19,7 @@ public class Cinema {
 		// TODO Auto-generated method stub
 		
 	//	Category newCat = new Category('A');
-		boolean continuation = false;
+		boolean continuation = true;
 		int maxScreen = 2;
 		Screen[] Screen1 = new Screen[maxScreen];
 		Screen1[0]= new Screen();
@@ -33,7 +33,7 @@ public class Cinema {
 		char [] inputKeyboard;
 		
 	//	Screen Screen2 = new Screen();
-		Category tempCategory2 = new Category('B');
+	//	Category tempCategory2 = new Category('B');
 	//	System.out.println(tempCategory2.getSymbol());
 	//	ScreenRow screenRow1 = new ScreenRow(tempCategory2);
 	//	screenRow1.setCategory(tempCategory2);
@@ -42,7 +42,7 @@ public class Cinema {
 	//	System.out.println(screenRow1.getRowLayoutCharArray());
 
 	//	Screen Screen2 = new Screen();
-		System.out.println(Screen1[seSc].getNewScreenRow(tempCategory2));
+//		System.out.println(Screen1[seSc].getNewScreenRow(tempCategory2));
 		
 		while (continuation){
 			System.out.printf("%s%n",S01);
@@ -64,9 +64,11 @@ public class Cinema {
 			System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
 			Category tempCategory = new Category(symbol);
-			Screen1[seSc].setNewScreenRow(tempCategory);
-		//	Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
-			System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).test);
+		//	Screen1[seSc].setNewScreenRow(tempCategory);
+			Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
+			System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString());
+					
+					//.getCategory().getSymbol());
 			
 			seSc = 0;
 			numberOfSeatToBook = 0;

@@ -9,7 +9,7 @@ public class ScreenRow {
 	
 	private char[] rowLayoutCharArray = layoutA.toCharArray();
 	
-	public String test = "1"; //String.valueOf(rowLayoutCharArray);
+//	public String test = "1"; //String.valueOf(rowLayoutCharArray);
 	
 	private boolean setInitialLayout = false;
 	private int reservedSeats = 0;
@@ -94,6 +94,10 @@ public ScreenRow() {
 		return rowLayoutCharArray;
 	}
 	
+	public String getRowLayoutString(){ 
+		return String.valueOf(rowLayoutCharArray);
+			}
+	
 	public void setInitialRowLayoutCharArray(Category category) {
 	//	System.out.println(category.getSymbol());
 		if(category.getSymbol()=='A'){
@@ -105,14 +109,14 @@ public ScreenRow() {
 		//	this.rowLayoutCharArray = layoutC.toCharArray();
 			this.rowLayoutCharArray = removeElement(4);
 		} else {this.rowLayoutCharArray = "error".toCharArray();}
+	//	System.out.println(this.rowLayoutCharArray);
 		this.setInitialLayout = true;
 	}
 	
 	public char[] removeElement(int element){
 		char[] rowLayoutCharArray2 = layoutA.toCharArray();
-	    char[] n = new char[rowLayoutCharArray2.length - 1];
-	    System.arraycopy(rowLayoutCharArray2, 0, n, 0, element );
-	    System.arraycopy(rowLayoutCharArray2, element+1, n, element, rowLayoutCharArray2.length - element-1);
+	    char[] n = new char[rowLayoutCharArray2.length - element];
+	    System.arraycopy(rowLayoutCharArray2, 0, n, 0, rowLayoutCharArray2.length - element );
 	    return n;
 	}
 
