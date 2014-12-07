@@ -11,8 +11,8 @@ public Screen(){
 		Category tempCat = new Category('A');
 		
 		newScreenRow[0] = new ScreenRow(tempCat);
-	//	newScreenRow[1] = new ScreenRow(new Category('B'));
-	//	newScreenRow[2] = new ScreenRow(new Category('C'));
+		newScreenRow[1] = new ScreenRow(new Category('B'));
+		newScreenRow[2] = new ScreenRow(new Category('C'));
 		
 	}
 	

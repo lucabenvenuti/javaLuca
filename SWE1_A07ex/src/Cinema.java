@@ -29,13 +29,16 @@ public class Cinema {
 		String inputKey = "";
 		char [] inputKeyboard;
 		
-		Screen Screen2 = new Screen();
-		Category tempCategory2 = new Category('A');
+	//	Screen Screen2 = new Screen();
+		Category tempCategory2 = new Category('B');
+		System.out.println(tempCategory2.getSymbol());
 		ScreenRow screenRow1 = new ScreenRow(tempCategory2);
+	//	screenRow1.setCategory(tempCategory2);
 	//	Screen1[0].getNewScreenRow()[0].setCategory(tempCategory2);
-	//	System.out.println(Screen2.test1);
+		System.out.println(screenRow1.getCategory().getSymbol());
+		System.out.println(screenRow1.getRowLayoutCharArray());
 
-//		Screen Screen2 = new Screen();
+		Screen Screen2 = new Screen();
 		
 		while (continuation){
 			System.out.printf("%s%n",S01);

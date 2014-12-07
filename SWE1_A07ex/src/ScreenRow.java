@@ -7,11 +7,11 @@ public class ScreenRow {
 	
 	private Category category;
 	
-	private char[] rowLayoutCharArray;
+	private char[] rowLayoutCharArray = layoutA.toCharArray();
 	
-	public String test = String.valueOf(rowLayoutCharArray);
+	public String test = "1"; //String.valueOf(rowLayoutCharArray);
 	
-	
+	private boolean setInitialLayout = false;
 	private int reservedSeats = 0;
 	private double totalPriceRow = 0.0;
 	
@@ -19,9 +19,13 @@ public class ScreenRow {
 		setCategory(category);
 	}
 	
-	public ScreenRow(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
-		setCategory(category, numberOfSeatToBook, positionOfSeatToBook);		
+public ScreenRow() {
+		// TODO Auto-generated constructor stub
 	}
+
+	/*	public ScreenRow(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
+		setCategory(category, numberOfSeatToBook, positionOfSeatToBook);		
+	}*/
 	
 
 	
@@ -34,9 +38,12 @@ public class ScreenRow {
 	 */
 	public void setCategory(Category category) {
 		this.category = category;
-		if (getRowLayoutCharArray()[0]=='#'){}
+	//	System.out.println(setInitialLayout);
+		if (setInitialLayout){}//(getRowLayoutCharArray()[0]=='#'){}
 		else {
-		setInitialRowLayoutCharArray(this.category);}
+		setInitialRowLayoutCharArray(this.category);
+		}
+	//	System.out.println(setInitialLayout);
 	}
 	
 
@@ -88,13 +95,25 @@ public class ScreenRow {
 	}
 	
 	public void setInitialRowLayoutCharArray(Category category) {
+		System.out.println(category.getSymbol());
 		if(category.getSymbol()=='A'){
 			this.rowLayoutCharArray = layoutA.toCharArray();
 		} else if(category.getSymbol()=='B'){
-			this.rowLayoutCharArray = layoutB.toCharArray();
+		//	this.rowLayoutCharArray = layoutB.toCharArray();
+			this.rowLayoutCharArray = removeElement(2);
 		} else if(category.getSymbol()=='C'){
-			this.rowLayoutCharArray = layoutC.toCharArray();
+		//	this.rowLayoutCharArray = layoutC.toCharArray();
+			this.rowLayoutCharArray = removeElement(4);
 		} else {this.rowLayoutCharArray = "error".toCharArray();}
+		this.setInitialLayout = true;
+	}
+	
+	public char[] removeElement(int element){
+		char[] rowLayoutCharArray2 = layoutA.toCharArray();
+	    char[] n = new char[rowLayoutCharArray2.length - 1];
+	    System.arraycopy(rowLayoutCharArray2, 0, n, 0, element );
+	    System.arraycopy(rowLayoutCharArray2, element+1, n, element, rowLayoutCharArray2.length - element-1);
+	    return n;
 	}
 
 	/**
