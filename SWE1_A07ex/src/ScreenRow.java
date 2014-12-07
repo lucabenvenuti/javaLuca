@@ -9,6 +9,7 @@ public class ScreenRow {
 	
 	private char[] rowLayoutCharArray;
 	
+	public String test = String.valueOf(rowLayoutCharArray);
 	
 	
 	private int reservedSeats = 0;
@@ -22,9 +23,7 @@ public class ScreenRow {
 		setCategory(category, numberOfSeatToBook, positionOfSeatToBook);		
 	}
 	
-/*	public ScreenRow(Category category, int reservedSeats){
-		setCategory(category, reservedSeats);
-	}*/
+
 	
 	public Category getCategory() {
 		return category;
@@ -40,11 +39,7 @@ public class ScreenRow {
 		setInitialRowLayoutCharArray(this.category);}
 	}
 	
-/*	public void setCategory(Category category, int reservedSeats) {
-		setCategory(category);
-		this.reservedSeats = reservedSeats;
-		setTotalPriceRow();
-	}*/
+
 	
 	public void setCategory(Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		setCategory(category);
@@ -57,7 +52,7 @@ public class ScreenRow {
 	}
 		
 	
-	public boolean setBook(int numberOfSeatToBook, int positionOfSeatToBook) {
+	public boolean checkBook(int numberOfSeatToBook, int positionOfSeatToBook) {
 		// TODO Auto-generated method stub
 		boolean ok = false;
 		if ((numberOfSeatToBook + positionOfSeatToBook) > this.rowLayoutCharArray.length){
@@ -66,13 +61,24 @@ public class ScreenRow {
 		//int a = this.rowLayoutCharArray.length;
 		for(int i=(positionOfSeatToBook-1); i<(positionOfSeatToBook-1+numberOfSeatToBook); i++){
 			if(this.rowLayoutCharArray[positionOfSeatToBook-1]== '#'){
-				this.rowLayoutCharArray[i]= 'X';
+			//	this.rowLayoutCharArray[i]= 'X';
 			} else{return ok;}
 		}
 		//this.rowLayoutCharArray[positionOfSeatToBook-1]= 'X';
 		ok = true;
 		return ok;
 	}
+	
+	public boolean setBook(int numberOfSeatToBook, int positionOfSeatToBook) {
+		boolean ok = checkBook(numberOfSeatToBook, positionOfSeatToBook);
+		if(ok){
+			for(int i=(positionOfSeatToBook-1); i<(positionOfSeatToBook-1+numberOfSeatToBook); i++){
+				this.rowLayoutCharArray[i]= 'X';
+			}
+		}
+		return ok;
+	}
+	
 
 	/**
 	 * @return the rowLayoutCharArray
@@ -127,6 +133,17 @@ public class ScreenRow {
 
 }
 
+
+
+
+/*	public void setCategory(Category category, int reservedSeats) {
+setCategory(category);
+this.reservedSeats = reservedSeats;
+setTotalPriceRow();
+}*/
+/*	public ScreenRow(Category category, int reservedSeats){
+setCategory(category, reservedSeats);
+}*/
 /*	public ScreenRow(Category category, String rowLayout){
 this(category);
 //String rowLayout2 = "*****";

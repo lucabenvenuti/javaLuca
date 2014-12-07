@@ -5,16 +5,18 @@ public class Screen {
 	//private Category category;
 	
 
+	public int test1= 33;
 
-
-	public Screen(){
-		newScreenRow[0] = new ScreenRow(new Category('A'));
-		newScreenRow[1] = new ScreenRow(new Category('B'));
-		newScreenRow[2] = new ScreenRow(new Category('C'));
+public Screen(){
+		Category tempCat = new Category('A');
+		
+		newScreenRow[0] = new ScreenRow(tempCat);
+	//	newScreenRow[1] = new ScreenRow(new Category('B'));
+	//	newScreenRow[2] = new ScreenRow(new Category('C'));
 		
 	}
 	
-	public Screen(Category category){
+/*		public Screen(Category category){
 		this();
 		setNewScreenRow(category);	
 	}
@@ -27,6 +29,10 @@ public class Screen {
 	
 	public ScreenRow[] getNewScreenRow(){
 		return newScreenRow;
+	}
+	
+	public ScreenRow getNewScreenRow(Category category){
+		return newScreenRow[defineArrayPosition(category)];
 	}
 	
 	public void setNewScreenRow(Category category){

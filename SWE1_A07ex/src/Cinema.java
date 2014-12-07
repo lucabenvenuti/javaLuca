@@ -19,7 +19,7 @@ public class Cinema {
 		// TODO Auto-generated method stub
 		
 	//	Category newCat = new Category('A');
-		boolean continuation = true;
+		boolean continuation = false;
 		int maxScreen = 2;
 		Screen[] Screen1 = new Screen[maxScreen];
 		int seSc = 0; //selectedScreen;
@@ -28,6 +28,12 @@ public class Cinema {
 		int positionOfSeatToBook = 0;
 		String inputKey = "";
 		char [] inputKeyboard;
+		
+		Screen Screen2 = new Screen();
+		Category tempCategory2 = new Category('A');
+		ScreenRow screenRow1 = new ScreenRow(tempCategory2);
+	//	Screen1[0].getNewScreenRow()[0].setCategory(tempCategory2);
+	//	System.out.println(Screen2.test1);
 
 //		Screen Screen2 = new Screen();
 		
@@ -51,7 +57,9 @@ public class Cinema {
 			System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
 			Category tempCategory = new Category(symbol);
-			Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
+		//	Screen1[seSc].setNewScreenRow(tempCategory);
+	//		Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
+	//		System.out.printf("%s%n",Screen1[seSc].getNewScreenRow(tempCategory).test);
 			
 			seSc = 0;
 			numberOfSeatToBook = 0;
