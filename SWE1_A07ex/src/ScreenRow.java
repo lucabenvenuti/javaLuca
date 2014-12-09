@@ -14,11 +14,12 @@ public class ScreenRow {
 	private double totalPriceRowSingleBooking = 0.0;
 	
 	public ScreenRow(char[] rowLayoutCharArray) {
-		this.rowLayoutCharArray = rowLayoutCharArray;
+		//this.rowLayoutCharArray = rowLayoutCharArray;
+		setRowLayoutCharArray(rowLayoutCharArray);
 	}
 	
 	public ScreenRow(char[] rowLayoutCharArray, Category category){
-		this.rowLayoutCharArray = rowLayoutCharArray;
+	//	this.rowLayoutCharArray = rowLayoutCharArray;
 		setCategory(rowLayoutCharArray, category);
 	}
 	
@@ -26,24 +27,22 @@ public class ScreenRow {
 		return category;
 	}
 
-	public void setCategory(char[] rowLayoutCharArray, Category category) {
-		this.category = category;
-		if (!setInitialLayout){//}
-		//else {
-			this.rowLayoutCharArray = rowLayoutCharArray;
-			this.setInitialLayout = true;
-	//		char[] 
-	//	setInitialRowLayoutCharArray();//this.category);
-		}
+	public char[] getRowLayoutCharArray() {
+		return rowLayoutCharArray;
 	}
 	
-/*	public void setCategory(char[] rowLayoutCharArray, Category category, int row) {
-		this.category = category;
-		if (!setInitialLayout){//}
-		//else {
-		setInitialRowLayoutCharArray(row);//this.category);
+	public void setRowLayoutCharArray(char[] rowLayoutCharArray) {
+		//return rowLayoutCharArray;
+		if (!setInitialLayout){
+			this.rowLayoutCharArray = rowLayoutCharArray;
+			this.setInitialLayout = true;
 		}
-	}*/
+		
+	}
+	public void setCategory(char[] rowLayoutCharArray, Category category) {
+		this.category = category;
+		setRowLayoutCharArray(rowLayoutCharArray);
+	}
 	
 	public boolean setCategory(char[] rowLayoutCharArray, Category category, int numberOfSeatToBook, int positionOfSeatToBook){
 		setCategory(rowLayoutCharArray, category);
@@ -57,16 +56,8 @@ public class ScreenRow {
 			this.reservedSeats = this.reservedSeats + numberOfSeatToBook;
 			setReservedSeatsSingleBooking(numberOfSeatToBook);
 			setTotalPriceRowSingleBooking(numberOfSeatToBook);
-			//setTotalPriceRow();
 		}
 	}
-		
-	/*public boolean setCategory(char[] rowLayoutCharArray, Category category, int row, int numberOfSeatToBook, int positionOfSeatToBook){
-		setCategory(rowLayoutCharArray, category);
-		boolean ok = setBook(numberOfSeatToBook, positionOfSeatToBook);
-		makeBook(ok, numberOfSeatToBook);
-		return ok;
-	}*/
 	
 	public boolean checkBook(int numberOfSeatToBook, int positionOfSeatToBook) {
 		boolean ok = false;
@@ -91,9 +82,7 @@ public class ScreenRow {
 		return ok;
 	}
 	
-	public char[] getRowLayoutCharArray() {
-		return rowLayoutCharArray;
-	}
+
 	
 	public String getRowLayoutString(boolean printX){ 
 		char[] cloneRowLayoutCharArray = rowLayoutCharArray;
@@ -107,27 +96,6 @@ public class ScreenRow {
 		}	
 		return String.valueOf(cloneRowLayoutCharArray);
 	}
-	
-/*	public void setInitialRowLayoutCharArray(){ //(Category category) {
-		if(category.getSymbol()=='A'){
-		} else if(category.getSymbol()=='B'){
-			this.rowLayoutCharArray = removeElement(2);
-		} else if(category.getSymbol()=='C'){
-			this.rowLayoutCharArray = removeElement(4);
-		} else {this.rowLayoutCharArray = "error".toCharArray();}
-		this.setInitialLayout = true;
-	}
-	
-	public void setInitialRowLayoutCharArray(int row){ //(Category category) {
-		if(row==0){
-		} else if(row==1){
-			this.rowLayoutCharArray = removeElement(2);
-		} else if(row==2){
-			this.rowLayoutCharArray = removeElement(4);
-		} else {this.rowLayoutCharArray = "error".toCharArray();}
-	//	this.rowLayoutCharArray
-		this.setInitialLayout = true;
-	}*/
 	
 	public char[] removeElement(int element){
 	    char[] n = new char[rowLayoutCharArray.length - element];

@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Cinema {
 	
-	public static final char[] SYMBOLARRAY = Screen.SYMBOLARRAY;
+	//public static final char[] SYMBOLARRAY = Screen.SYMBOLARRAY;
 	public static final int NOFSCREENS = 2;
 	public static final int MAXPLACES = 11;
 	
@@ -11,11 +11,8 @@ public class Cinema {
 	public final static String S01 = "Choose Screen 1 or 2 or type exit to terminate the program";
 	public final static String S02 = "How many seats?";
 	public final static String S03 = "Which Row (Note: Category/Row (A or 1)=";
-		//	+ "8 "
 	public final static String S04 = " \u20AC, (B or 2)=";
-		//	+ "10 "
 	public final static String S05 = " \u20AC or (C or 3)=";
-		//	+ "11"
 	public final static String S06 = " \u20AC)? ";
 	public final static String S07 = "Which Position?";
 	public final static String S08 = "Successfully completed booking. Please pay: ";
@@ -26,9 +23,9 @@ public class Cinema {
 	public void printRow(boolean printX, Screen[] Screen1, int seSc){
 		char symbol = 'Q';
 		Category tempCategory;
-		for (int i=0; i<SYMBOLARRAY.length; i++){
+		for (int i=0; i<Screen.SYMBOLARRAY.length; i++){
 	
-		symbol = SYMBOLARRAY[i];
+		symbol = Screen.SYMBOLARRAY[i];
 		tempCategory = new Category(symbol);
 		char[] chars3 = new char[i];
 		Arrays.fill(chars3, ' ');
@@ -44,13 +41,11 @@ public class Cinema {
 		char symbol = 'Q';
 		String inputKey = "", printPrice = "";
 		char [] inputKeyboard;
-		Category tempCategory;// = new Category(symbol);
-	//	Category tempCategoryPrint = new Category('A');
+		Category tempCategory;
 		Cinema newCinema = new Cinema();
 		Screen[] Screen1 = new Screen[NOFSCREENS];
 		for (int i =0; i<NOFSCREENS; i++){
 			Screen1[i] = new Screen(i);		}
-		
 		
 		while (continuation){
 			System.out.printf("%s%n",S01);
@@ -81,13 +76,12 @@ public class Cinema {
 				row = (int) symbol;
 			}while (row<49 || (row>(49+Screen.MAXROWS) && row<65) || row>(65 + Screen.MAXROWS));
 			
-		/*	do { System.out.printf("%s%n",S03); 	row = Input.readInt(); 	}while (row<1 || row >Screen1[seSc].MAXROWS);*/
 			if (row>49+Screen.MAXROWS){	
 				row = row -65;
-				symbol = SYMBOLARRAY[row];
+				symbol = Screen.SYMBOLARRAY[row];
 			}
 			else {row = row -49;
-				symbol = SYMBOLARRAY[row];}		
+				symbol = Screen.SYMBOLARRAY[row];}		
 					
 			tempCategory = new Category(symbol);
 			System.out.printf("[%c]|%s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(false));
@@ -97,16 +91,11 @@ public class Cinema {
 			positionOfSeatToBook = Input.readInt();
 			System.out.printf("%n");
 			}while (positionOfSeatToBook<1 || positionOfSeatToBook>MAXPLACES);
-					
-			//ok = Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
-			// I like more this one, but if I want to increase the number 
-			//of rows in future, and there are more than one with the same category, its more consistent.
+			
 			ok = Screen1[seSc].setNewScreenRow(seSc, row, numberOfSeatToBook, positionOfSeatToBook);
 			
-			if (ok) {
-				
+			if (ok) {				
 				System.out.printf("%s%.0f %s%n%n",S08, Screen1[seSc].getNewScreenRow(tempCategory).getTotalPriceRowSingleBooking(), EURO);
-				//Screen1[seSc].getNewScreenRow(tempCategory).setReservedSeats(0);
 				System.out.printf("%s%n",S10);
 				newCinema.printRow(true, Screen1, seSc);
 			} else{System.out.printf("%s%n%n",S09);}
@@ -115,9 +104,6 @@ public class Cinema {
 			numberOfSeatToBook = 0;
 			symbol = 'Q';
 			positionOfSeatToBook = 0;
-		//	System.out.printf("%n");
 		}
-
 	}
-
 }
