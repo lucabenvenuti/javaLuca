@@ -2,24 +2,32 @@
 public class Screen {
 
 	public final static int MAXROWS = 3;
-	public final static String LAYOUT1A = "##########";
-	public final static String LAYOUT1B = "####  ####";
-	public final static String LAYOUT1C = "#########";
-	public final static String LAYOUT2A = "###########";
-	public final static String LAYOUT2B = " ########";
-	public final static String LAYOUT2C = "  ######";	
+	public static String[][] LAYOUT = { {"##########", "####  ####","#########"}, {"###########", " ########", "  ######"	}};
+//	public final static String LAYOUT[0][0] = "##########"; //LAYOUT1A
+//	public final static String LAYOUT1B = "####  ####";
+//	public final static String LAYOUT1C = "#########";
+//	public final static String LAYOUT2A = "###########";
+//	public final static String LAYOUT2B = " ########";
+//	public final static String LAYOUT2C = "  ######";
+	public static final char[] SYMBOLARRAY = {'A','B', 'C'};
 	
 	private ScreenRow[] newScreenRowArray = new ScreenRow[MAXROWS];
 
 	public Screen(int screenNumber){		
-		newScreenRowArray[0] = new ScreenRow(new Category('A'));
-		newScreenRowArray[1] = new ScreenRow(new Category('B'));
-		newScreenRowArray[2] = new ScreenRow(new Category('C'));
+		for (int i= 0; i<MAXROWS; i++){
+			newScreenRowArray[i]=new ScreenRow(LAYOUT[screenNumber][i].toCharArray(), new Category(SYMBOLARRAY[i]));
+		}
+		
+		
+	//	newScreenRowArray[0] = new ScreenRow(LAYOUT1A.toCharArray(), new Category('A'));
+	//	newScreenRowArray[1] = new ScreenRow(new Category('B'));
+	//	newScreenRowArray[2] = new ScreenRow(new Category('C'));
 	}
 	
 	public Screen(int screenNumber, Category category){
 		this(screenNumber);
-		setNewScreenRow(category);	
+		//int a1 = defineArrayPosition(category);
+		setNewScreenRow(screenNumber, category);	
 	}
 	
 	public Screen(int screenNumber, Category category, int numberOfSeatToBook, int positionOfSeatToBook){
@@ -35,29 +43,35 @@ public class Screen {
 		return newScreenRowArray[defineArrayPosition(category)];
 	}
 	
-	public void setNewScreenRow(Category category){
-		this.newScreenRowArray[defineArrayPosition(category)].setCategory(category);
+	public void setNewScreenRow(int screenNumber, Category category){
+		//defineArrayPosition
+		this.newScreenRowArray[defineArrayPosition(category)].setCategory(LAYOUT[screenNumber][defineArrayPosition(category)].toCharArray(), category); //setCategory(char[] rowLayoutCharArray, Category category)
 	}
 	
-	public boolean setNewScreenRow(Category category, int numberOfSeatToBook, int positionOfSeatToBook){	
-		setNewScreenRow(category);
-		boolean ok = this.newScreenRowArray[defineArrayPosition(category)].setCategory(category, numberOfSeatToBook, positionOfSeatToBook);
+	public boolean setNewScreenRow(int screenNumber, Category category, int numberOfSeatToBook, int positionOfSeatToBook){	
+		setNewScreenRow(screenNumber, category);
+		boolean ok = this.newScreenRowArray[defineArrayPosition(category)].setCategory(
+				LAYOUT[screenNumber][defineArrayPosition(category)].toCharArray(), category, numberOfSeatToBook, positionOfSeatToBook);
+		//setCategory(char[] rowLayoutCharArray, Category category, int numberOfSeatToBook, int positionOfSeatToBook)
 		return ok;
 	}
 	
-	public Category setNewScreenRow(int rowNumber){
+	public Category setNewScreenRow(int screenNumber, int rowNumber){
 		Category category = new Category(defineCategory(rowNumber));
-		this.newScreenRowArray[rowNumber].setCategory(category);
+		this.newScreenRowArray[rowNumber].setCategory(LAYOUT[screenNumber][rowNumber].toCharArray(), category);
+		//setCategory(char[] rowLayoutCharArray, Category category)
 	//	System.out.println(this.newScreenRowArray[rowNumber].getCategory().getSymbol());
 	//	System.out.println(category.getSymbol());
 	//	System.out.println(rowNumber);
 		return category;
 	}
 
-	public boolean setNewScreenRow(int rowNumber, int numberOfSeatToBook, int positionOfSeatToBook){
+	public boolean setNewScreenRow(int screenNumber, int rowNumber, int numberOfSeatToBook, int positionOfSeatToBook){
 	//	System.out.println(rowNumber);
-	  boolean ok = this.newScreenRowArray[rowNumber].setCategory(setNewScreenRow(rowNumber), rowNumber, numberOfSeatToBook, positionOfSeatToBook);
+		Category category = new Category(defineCategory(rowNumber));
+	  boolean ok = this.newScreenRowArray[rowNumber].setCategory(LAYOUT[screenNumber][rowNumber].toCharArray(), category, numberOfSeatToBook, positionOfSeatToBook);
 	  return ok;
+	  //setCategory(char[] rowLayoutCharArray, Category category, int numberOfSeatToBook, int positionOfSeatToBook)
 	}
 		
 	public int defineArrayPosition(Category category){

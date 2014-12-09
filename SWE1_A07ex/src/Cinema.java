@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Cinema {
 	
-	public static final char[] SYMBOLARRAY = {'A','B', 'C'};
+	public static final char[] SYMBOLARRAY = Screen.SYMBOLARRAY;
 	public static final int NOFSCREENS = 2;
 	public static final int MAXPLACES = 11;
 	
@@ -32,7 +32,7 @@ public class Cinema {
 		tempCategory = new Category(symbol);
 		char[] chars3 = new char[i];
 		Arrays.fill(chars3, ' ');
-		String s12 = new String(chars3);
+		String s12 = "";//new String(chars3);
 		System.out.printf("[%c]|%s%s%n",symbol, s12, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(printX));
 	}   System.out.printf("%n");
 }
@@ -101,7 +101,7 @@ public class Cinema {
 			//ok = Screen1[seSc].setNewScreenRow(tempCategory, numberOfSeatToBook, positionOfSeatToBook);
 			// I like more this one, but if I want to increase the number 
 			//of rows in future, and there are more than one with the same category, its more consistent.
-			ok = Screen1[seSc].setNewScreenRow(row, numberOfSeatToBook, positionOfSeatToBook);
+			ok = Screen1[seSc].setNewScreenRow(seSc, row, numberOfSeatToBook, positionOfSeatToBook);
 			
 			if (ok) {
 				
@@ -109,7 +109,7 @@ public class Cinema {
 				//Screen1[seSc].getNewScreenRow(tempCategory).setReservedSeats(0);
 				System.out.printf("%s%n",S10);
 				newCinema.printRow(true, Screen1, seSc);
-			} else{System.out.printf("%s%n",S09);}
+			} else{System.out.printf("%s%n%n",S09);}
 			
 			seSc = 0;
 			numberOfSeatToBook = 0;
