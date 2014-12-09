@@ -1,8 +1,7 @@
-
 public class Screen {
 
 	public final static int MAXROWS = 3;
-	public static String[][] LAYOUT = { {"##########", "####  ####","#########"}, {"###########", " ########", "  ######"	}};
+	public final static String[][] LAYOUT = { {"##########", "####  ####","#########"}, {"###########", " ########", "  ######"	}};
 	public static final char[] SYMBOLARRAY = {'A','B', 'C'};
 	
 	private ScreenRow[] newScreenRowArray = new ScreenRow[MAXROWS];
@@ -71,5 +70,4 @@ public class Screen {
 			default:return '0';
 		}
 	}
-		
 }

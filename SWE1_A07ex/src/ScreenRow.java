@@ -91,12 +91,6 @@ public class ScreenRow {
 		}	
 		return String.valueOf(cloneRowLayoutCharArray);
 	}
-/*	
-	public char[] removeElement(int element){
-	    char[] n = new char[rowLayoutCharArray.length - element];
-	    System.arraycopy(rowLayoutCharArray, 0, n, 0, rowLayoutCharArray.length - element );
-	    return n;
-	}*/
 
 	public int getReservedSeats() {
 		return reservedSeats;

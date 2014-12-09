@@ -1,4 +1,3 @@
-
 public class Category {
 	
 	private char symbol;
@@ -12,9 +11,6 @@ public class Category {
 		setSymbol(symbol);
 	}
 
-	/**
-	 * @return the symbol
-	 */
 	public char getSymbol() {
 		return symbol;
 	}
@@ -24,9 +20,6 @@ public class Category {
 		setPrice(symbol);		
 	}
 	
-	/**
-	 * @return the price
-	 */
 	public double getPrice() {
 		return price;
 	}

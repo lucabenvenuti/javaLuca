@@ -1,9 +1,5 @@
-import java.util.Arrays;
-
-
 public class Cinema {
-	
-	//public static final char[] SYMBOLARRAY = Screen.SYMBOLARRAY;
+
 	public static final int NOFSCREENS = 2;
 	public static final int MAXPLACES = 11;
 	
@@ -18,19 +14,14 @@ public class Cinema {
 	public final static String S08 = "Successfully completed booking. Please pay: ";
 	public final static String S09 = "Booking failed";	
 	public final static String S10 = "    [---------]";
-
 	
 	public void printRow(boolean printX, Screen[] Screen1, int seSc){
 		char symbol = 'Q';
 		Category tempCategory;
-		for (int i=0; i<Screen.SYMBOLARRAY.length; i++){
-	
-		symbol = Screen.SYMBOLARRAY[i];
-		tempCategory = new Category(symbol);
-		char[] chars3 = new char[i];
-		Arrays.fill(chars3, ' ');
-		String s12 = "";//new String(chars3);
-		System.out.printf("[%c]|%s%s%n",symbol, s12, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(printX));
+		for (int i=0; i<Screen.SYMBOLARRAY.length; i++){	
+			symbol = Screen.SYMBOLARRAY[i];
+			tempCategory = new Category(symbol);
+			System.out.printf("[%c]|%s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).getRowLayoutString(printX));
 	}   System.out.printf("%n");
 }
 	
