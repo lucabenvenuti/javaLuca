@@ -10,7 +10,13 @@ public class Cinema {
 	public final static String EURO = "\u20AC";
 	public final static String S01 = "Choose Screen 1 or 2 or type exit to terminate the program";
 	public final static String S02 = "How many seats?";
-	public final static String S03 = "Which Row (Note: Category/Row (A or 1)=24 \u20AC, (B or 2)=30 \u20AC or (C or 3)=33 \u20AC)?";
+	public final static String S03 = "Which Row (Note: Category/Row (A or 1)=";
+		//	+ "8 "
+	public final static String S04 = " \u20AC, (B or 2)=";
+		//	+ "10 "
+	public final static String S05 = " \u20AC or (C or 3)=";
+		//	+ "11"
+	public final static String S06 = " \u20AC)?";
 	public final static String S07 = "Which Position?";
 	public final static String S08 = "Successfully completed booking. Please pay: ";
 	public final static String S09 = "Booking failed";	
@@ -36,9 +42,10 @@ public class Cinema {
 		int seSc = 0; //selectedScreen;
 		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0;
 		char symbol = 'Q';
-		String inputKey = "";
+		String inputKey = "", printPrice = "";
 		char [] inputKeyboard;
 		Category tempCategory;// = new Category(symbol);
+		Category tempCategoryPrint = new Category('A');
 		Cinema newCinema = new Cinema();
 		Screen[] Screen1 = new Screen[NOFSCREENS];
 		for (int i =0; i<NOFSCREENS; i++){
@@ -64,7 +71,18 @@ public class Cinema {
 			} while (numberOfSeatToBook<1 || numberOfSeatToBook>MAXPLACES);
 			
 			do {
-				System.out.printf("%s%n",S03);
+				printPrice = S03 + Integer.toString((int)(tempCategoryPrint.PRICEA*numberOfSeatToBook));
+				printPrice += S04 + Integer.toString((int)(tempCategoryPrint.PRICEB*numberOfSeatToBook));
+				printPrice += S05 + Integer.toString((int)(tempCategoryPrint.PRICEC*numberOfSeatToBook));
+				printPrice += S06;
+					//	(tempCategoryPrint.PRICEA)*numberOfSeatToBook);
+				System.out.printf("%s%n", printPrice);  //%.0f",S03, tempCategoryPrint.PRICEA*numberOfSeatToBook);
+			//	System.out.printf("%s%.0f",S04, tempCategoryPrint.PRICEB*numberOfSeatToBook);
+			//	System.out.printf("%s%.0f",S05, tempCategoryPrint.PRICEC*numberOfSeatToBook);
+			//	System.out.printf("%s%n",S06);
+				//System.out.printf("%s%0.f%s%0.f%s%0.f%n",S03, tempCategoryPrint.PRICEA, S04,
+				//		tempCategoryPrint.PRICEB, S05,tempCategoryPrint.PRICEC, S06);
+				//System.out.printf("%f%n",);
 				symbol = Input.readChar();		
 				row = (int) symbol;
 			//	System.out.println(row);

@@ -44,11 +44,15 @@ public class Screen {
 	//  call setNewScreenRow(category);
 		Category category = new Category(defineCategory(rowNumber));
 		this.newScreenRowArray[rowNumber].setCategory(category);
+		System.out.println(this.newScreenRowArray[rowNumber].getCategory().getSymbol());
+		System.out.println(category.getSymbol());
+		System.out.println(rowNumber);
 		return category;
 	}
 
 	public boolean setNewScreenRow(int rowNumber, int numberOfSeatToBook, int positionOfSeatToBook){
 	  //setNewScreenRow(rowNumber);
+		System.out.println(rowNumber);
 	  boolean ok = this.newScreenRowArray[rowNumber].setCategory(setNewScreenRow(rowNumber), rowNumber, numberOfSeatToBook, positionOfSeatToBook);
 	  return ok;
 	}
@@ -64,9 +68,9 @@ public class Screen {
 	
 	public char defineCategory(int rowNumber){
 		switch(rowNumber){
-			case 1: return 'A'; //break;
-			case 2: return 'B'; //break;
-			case 3: return 'C'; //break;
+			case 0: return 'A'; //break;
+			case 1: return 'B'; //break;
+			case 2: return 'C'; //break;
 			default:return '0';
 		}
 	}

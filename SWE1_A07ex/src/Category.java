@@ -4,9 +4,9 @@ public class Category {
 	private char symbol;
 	private double price;
 	
-	public static final double PRICEA=24.0;
-	public static final double PRICEB=30.0;
-	public static final double PRICEC=33.0;
+	public static final double PRICEA=8.0;
+	public static final double PRICEB=10.0;
+	public static final double PRICEC=11.0;
 	
 	public Category(char symbol){
 		setSymbol(symbol);

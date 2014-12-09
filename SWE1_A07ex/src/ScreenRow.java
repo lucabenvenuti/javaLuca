@@ -158,7 +158,9 @@ public class ScreenRow {
 	}
 
 	public void setTotalPriceRowSingleBooking(int numberOfSeatToBook) {
-		this.totalPriceRowSingleBooking = numberOfSeatToBook*getCategory().getPrice();
+	//	System.out.println(category.getSymbol());
+	//	System.out.println(numberOfSeatToBook*category.getPrice());
+		this.totalPriceRowSingleBooking = numberOfSeatToBook*category.getPrice();
 	}
 	
 }
