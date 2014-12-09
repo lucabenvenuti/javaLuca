@@ -14,31 +14,28 @@ public class ScreenRow {
 	private double totalPriceRowSingleBooking = 0.0;
 	
 	public ScreenRow(char[] rowLayoutCharArray) {
-		//this.rowLayoutCharArray = rowLayoutCharArray;
 		setRowLayoutCharArray(rowLayoutCharArray);
 	}
 	
 	public ScreenRow(char[] rowLayoutCharArray, Category category){
-	//	this.rowLayoutCharArray = rowLayoutCharArray;
 		setCategory(rowLayoutCharArray, category);
 	}
 	
-	public Category getCategory() {
-		return category;
-	}
-
 	public char[] getRowLayoutCharArray() {
 		return rowLayoutCharArray;
 	}
 	
 	public void setRowLayoutCharArray(char[] rowLayoutCharArray) {
-		//return rowLayoutCharArray;
 		if (!setInitialLayout){
 			this.rowLayoutCharArray = rowLayoutCharArray;
 			this.setInitialLayout = true;
 		}
-		
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	
 	public void setCategory(char[] rowLayoutCharArray, Category category) {
 		this.category = category;
 		setRowLayoutCharArray(rowLayoutCharArray);
@@ -82,8 +79,6 @@ public class ScreenRow {
 		return ok;
 	}
 	
-
-	
 	public String getRowLayoutString(boolean printX){ 
 		char[] cloneRowLayoutCharArray = rowLayoutCharArray;
 		if (printX){}
@@ -96,12 +91,12 @@ public class ScreenRow {
 		}	
 		return String.valueOf(cloneRowLayoutCharArray);
 	}
-	
+/*	
 	public char[] removeElement(int element){
 	    char[] n = new char[rowLayoutCharArray.length - element];
 	    System.arraycopy(rowLayoutCharArray, 0, n, 0, rowLayoutCharArray.length - element );
 	    return n;
-	}
+	}*/
 
 	public int getReservedSeats() {
 		return reservedSeats;
