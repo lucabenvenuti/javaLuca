@@ -73,62 +73,7 @@ public class DoublyLinkedPlaceList {
 			 setTail(node);
 			 
 		 }
-		
-		// TODO implement me
-	/*	//DoublyLinkedPlace q = new DoublyLinkedPlace()???);
-	//	System.out.println(getTail());
-		DoublyLinkedPlace p = getHead();
-		System.out.println(node.getPosition());
-		if (node.getPosition()+1>getSize()){
-			setSize(node.getPosition()+1);
-		}
-		
-		while (p != null && p.getPosition() < node.getPosition()) {
-			p = p.getNext();
-			
-		//	System.out.println(p);//.getPlace().getAvailability());
-		}
-		
-		if (p == getHead()) {
-		//	System.out.println("trota");
-			//head = node;
-			setHead(node);
-			node.setNext(p);
-			if (p != null){
-			p.setPrev(node);}
-		} else if (p == getTail()){
-		//	System.out.println("trota3");
-		//	System.out.println(node.getPosition());
-		//	if (p != null){
-				setTail(node);
-				for (int i =0; i<getSize(); i++){
-					if (p == null){
-						getHead().setNext(node);
-						break;
-					} else {
-						
-					}
-					
-				}
-				
-				
-				
-		//		System.out.println(getSize());
-			//	p.getPrev().setNext(node);
-		//		System.out.println(node);
-			//	node.setPrev(p.getPrev());
-		//	}
-		} 	else{
-		//	System.out.println("trota2");
-			if (p != null){
-		node.setNext(p.getPrev().getNext());
-		node.setPrev(p.getPrev());
-		p.getPrev().setNext(node);
-		p.setPrev(node);}
-		
-		}
-		//getTail()
-	//	p.setPrev(node);*/
+
 		
 	}
 	
