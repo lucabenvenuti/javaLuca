@@ -1,0 +1,62 @@
+/**
+ * DoublyLinkedPlaceList.java
+ *
+ * A {@link DoublyLinkedPlaceList} is a class which holds the head and tail of a
+ * {@link DoublyLinkedPlace} list.
+ * 
+ * Software Development I, 2014WS
+ * Institute for Pervasive Computing, JKU Linz
+ * 
+ * @author Michael Haslgrübler
+ * @author Welma Pereira
+ * @author Andreas Riener
+ * 
+ * @version 2014-12-09
+ */
+
+public class DoublyLinkedPlaceList {
+	private DoublyLinkedPlace head;
+	private DoublyLinkedPlace tail;
+	private int size;
+
+	public DoublyLinkedPlace getHead() {
+		return head;
+	}
+
+	public void setHead(DoublyLinkedPlace head) {
+		this.head = head;
+	}
+
+	public DoublyLinkedPlace getTail() {
+		return tail;
+	}
+
+	public void setTail(DoublyLinkedPlace tail) {
+		this.tail = tail;
+	}
+
+	/**
+	 * 
+	 * @return the size of the list
+	 */
+	public int length() {
+		return getSize();
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	/**
+	 * 
+	 * @param node
+	 *            a node to append to the list
+	 */
+	public void add(DoublyLinkedPlace node) {
+		// TODO implement me
+	}
+}
