@@ -42,11 +42,16 @@ public class ScreenRow {
 	//	System.out.println(doublyLinkedPlaceList.getHead().getNext());//.getPlace().getAvailability());
 	//	System.out.println("trota6");
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
-				null && linkedPlace.hasNext(); linkedPlace=linkedPlace.getNext()){
+				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position; linkedPlace=linkedPlace.getNext()){
 				//DO SOMETHING
 				//linkedPlace = i
 		//	System.out.println("trota5");
-			System.out.println(linkedPlace.getPlace().getAvailability());
+			//System.out.println(linkedPlace.getPosition());
+			if (linkedPlace.getPosition()==position-1){
+				if(linkedPlace.getPlace().getAvailability()==Place.EMPTY_SEAT){
+					return true;
+				}
+			System.out.println(linkedPlace.getPlace().getAvailability());}
 			
 				}
 

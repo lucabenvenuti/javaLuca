@@ -5,8 +5,8 @@ public class test {
 		// TODO Auto-generated method stub
 		
 	//	DoublyLinkedPlaceList DoublyLinkedPlaceListTest =  new DoublyLinkedPlaceList();
-		ScreenRow screenRow = new ScreenRow(new Category('A'), "#X#############X");
-	screenRow.isEmptySeat(5);
+		ScreenRow screenRow = new ScreenRow(new Category('A'), "#X##X##########X");
+		System.out.println(screenRow.isEmptySeat(5));
 	//	System.out.println(screenRow.getDoublyLinkedPlaceList().getSize()); //print();
 	/*	for (int i=0; i<20; i++){
 			Place newPlace = new Place((int)(Math.random()*20));
