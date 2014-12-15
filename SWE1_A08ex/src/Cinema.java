@@ -30,8 +30,15 @@ public class Cinema {
 	
 	public Cinema() {
 		
-		for (int i =0; i<NOFSCREENS; i++){
-			this.Screen1[i] = new Screen(i);		}
+
+		Category a = new Category('A');
+		Category b = new Category('B');
+		Category c = new Category('C');
+		Category d = new Category('D');
+	/*	one = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
+				"########"), new ScreenRow(c, "########"));
+		two = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
+				"########"), new ScreenRow(c, "########"));*/
 		
 	}
 	

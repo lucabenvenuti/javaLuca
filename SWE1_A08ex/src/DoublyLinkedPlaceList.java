@@ -58,5 +58,29 @@ public class DoublyLinkedPlaceList {
 	 */
 	public void add(DoublyLinkedPlace node) {
 		// TODO implement me
+		//DoublyLinkedPlace q = new DoublyLinkedPlace()???);
+		DoublyLinkedPlace p = head;
+		while (p != null && p.getPosition() < node.getPosition()) {
+			p = p.getNext();
+		//	System.out.println(p.getPosition());
+		}
+	//	System.out.println(p.getPosition());
+		if (p == head) {
+			head = node;
+			node.setNext(p);
+			if (p != null){
+			p.setPrev(node);}
+		}
+		else{
+			if (p != null){
+		node.setNext(p.getPrev().getNext());
+		node.setPrev(p.getPrev());
+		p.getPrev().setNext(node);
+		p.setPrev(node);}
+		
+		}
+		
+	//	p.setPrev(node);
+		
 	}
 }
