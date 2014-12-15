@@ -1,12 +1,12 @@
 public class Category {
 	
 	private char symbol;
-	private double price;
+	private int price;
 	
-	public static final double PRICEA=8.0;
-	public static final double PRICEB=10.0;
-	public static final double PRICEC=11.0;
-	public static final double PRICED=20.0;
+	public static final int PRICEA=8;
+	public static final int PRICEB=10;
+	public static final int PRICEC=11;
+	public static final int PRICED=20;
 	
 	public Category(char symbol){
 		setSymbol(symbol);
@@ -21,7 +21,7 @@ public class Category {
 		setPrice(symbol);		
 	}
 	
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
@@ -31,7 +31,7 @@ public class Category {
 		case 'B': price= PRICEB;break;
 		case 'C': price= PRICEC;break;
 		case 'D': price= PRICED;break;
-		default: price= 0.0;
+		default: price= 0;
 		}
 	}
 

@@ -3,7 +3,7 @@ public class Place {
 	
 	public static final char EMPTY_SEAT = '#';
 	public static final char TAKEN_SEAT = 'X';
-	public static final char OBSTACLE = ' ';
+	public static final char OBSTACLE = 'K';
 	
 	private char availability;
 
@@ -12,6 +12,9 @@ public class Place {
 		setAvailability(taken);
 	}
 
+	public Place(char taken){
+		setAvailability(taken);
+	}
 
 	public char getAvailability() {
 		return availability;
@@ -24,9 +27,18 @@ public class Place {
 		case 1: availability = EMPTY_SEAT;break;
 		default:  availability = OBSTACLE;
 		}
-		System.out.println(availability);
+	//	System.out.println(availability);
 		
 	}
 	
+	public void setAvailability(char taken) {
+		switch (taken){
+		case TAKEN_SEAT: availability = TAKEN_SEAT;break;
+		case EMPTY_SEAT: availability = EMPTY_SEAT;break;
+		default:  availability = OBSTACLE;
+		}
+	//	System.out.println(availability);
+		
+	}
 
 }
