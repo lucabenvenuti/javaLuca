@@ -28,8 +28,8 @@ public class Screen {
 		for ( DoublyLinkedPlaceList linkedPlaceList = singlyLinkedLinearListSeatRows.getHead(); 
 				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
-			System.out.println(linkedPlaceList.getRow());
-			System.out.println("trota6");
+		//	System.out.println(linkedPlaceList.getRow());
+		//	System.out.println("trota6");
 		//	System.out.println(i);
 			//i = i+1;
 			
@@ -45,8 +45,8 @@ public class Screen {
 					//System.out.println(linkedPlace.getPosition());
 					if (linkedPlace.getPosition()==position-1){
 						if(linkedPlace.getPlace().getAvailability()==Place.EMPTY_SEAT){
-							//return true;
-							System.out.println("trota5");
+							return true;
+						//	System.out.println("trota5");
 						}
 				//	System.out.println(linkedPlace.getPlace().getAvailability());
 					}
