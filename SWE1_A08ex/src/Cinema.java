@@ -69,7 +69,7 @@ public class Cinema {
 					System.out.printf("%s%n",S09);
 					break;}
 			}
-			System.out.printf("%s%n",S10);
+		//	System.out.printf("%s%n",S10);
 			
 			print(screen1[seSc]);
 			
@@ -115,7 +115,7 @@ public class Cinema {
 						{a = linkedPlaceList.getScreenRow().calcPrice(numberOfSeatToBook);}
 				}
 				System.out.printf("%s%d %s%n%n",S08, a, EURO);
-				System.out.printf("%s%n",S10);
+			//	System.out.printf("%s%n",S10);
 			//	printRow(true, screen1, seSc);
 			} else{System.out.printf("%s%n%n",S09);}
 			
@@ -136,11 +136,19 @@ public class Cinema {
 	
 	public void print(Screen screen){
 		StringBuffer printRow = new StringBuffer("");
+		printRow.append("    [");
+		//screen.singlyLinkedLinearListSeatRows.getHead().getScreenRow().getRowLayout().length();
+		for (int i=0; i<screen.singlyLinkedLinearListSeatRows.getHead().getScreenRow().getRowLayout().length()-2;i++)
+		{printRow.append("-");}
+		printRow.append("]\n");
 		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
 				linkedPlaceList != null;// && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
 //			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
+			printRow.append("[");
 			printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
+			printRow.append("]");
+			printRow.append("|");
 			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
 		//	System.out.println(linkedPlaceList.getScreenRow().getRowLayout());
 			printRow.append("\n");
