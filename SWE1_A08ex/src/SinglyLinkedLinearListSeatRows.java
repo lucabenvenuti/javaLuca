@@ -10,6 +10,15 @@ public class SinglyLinkedLinearListSeatRows {
 		return next;
 	}
 
+	public DoublyLinkedPlaceList getDoublyLinkedPlaceList() {
+		return doublyLinkedPlaceList;
+	}
+
+
+
+	public void setDoublyLinkedPlaceList(DoublyLinkedPlaceList doublyLinkedPlaceList) {
+		this.doublyLinkedPlaceList = doublyLinkedPlaceList;
+	}
 
 
 	public void setNext(DoublyLinkedPlaceList next) {
@@ -57,13 +66,15 @@ public class SinglyLinkedLinearListSeatRows {
 			 setTail(getHead());
 		 } else{
 			// System.out.println("trota2");
-			 getTail().setNext(doublyLinkedPlaceList);
-			 doublyLinkedPlaceList.setPrev(getTail());
-			 doublyLinkedPlaceList.setNext(null);
-			 setTail(doublyLinkedPlaceList);
+			 this.setNext(doublyLinkedPlaceList); ///setNext(doublyLinkedPlaceList);
+		//	 setPrev(getTail());
+			// this.setNext(null);
+			 this.setTail(doublyLinkedPlaceList);
 			 
 		 }
 	}
+
+	
 	
 	
 }

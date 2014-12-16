@@ -4,6 +4,7 @@ public class ScreenRow {
 
 	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	
+	
 	public DoublyLinkedPlaceList getDoublyLinkedPlaceList() {
 		return doublyLinkedPlaceList;
 	}
@@ -17,10 +18,13 @@ public class ScreenRow {
 			//System.out.println(rowLayout.charAt(i));
 			DoublyLinkedPlace newDoublyLinkedPlace = new DoublyLinkedPlace(newPlace, i);
 			doublyLinkedPlaceList.add(newDoublyLinkedPlace);
+			
+			
 		//	System.out.println("trota");
 		//	newDoublyLinkedPlace = null;
 		//	System.out.println(doublyLinkedPlaceList.getSize());
 			}
+
 		
 	}
 
