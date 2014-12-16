@@ -3,10 +3,26 @@ public class Category {
 	private char symbol;
 	private int price;
 	
-	public static final int PRICEA=8;
+	public Category(int price, char symbol) {
+		super();
+		this.price = price;
+		this.symbol = symbol;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public char getSymbol() {
+		return symbol;
+	}
+	
+/*	public static final int PRICEA=8;
 	public static final int PRICEB=10;
 	public static final int PRICEC=11;
 	public static final int PRICED=20;
+	
+	
 	
 	public Category(char symbol){
 		setSymbol(symbol);
@@ -33,6 +49,6 @@ public class Category {
 		case 'D': price= PRICED;break;
 		default: price= 0;
 		}
-	}
+	}*/
 
 }

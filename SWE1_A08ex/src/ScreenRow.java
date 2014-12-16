@@ -1,6 +1,7 @@
 
 public class ScreenRow {
 	private Category category;
+	private StringBuffer rowLayout;
 
 	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	
@@ -11,6 +12,7 @@ public class ScreenRow {
 
 	public ScreenRow(Category category, String rowLayout, int rowNumber) { //(){//
 		this.setCategory(category);
+		this.setRowLayout(new StringBuffer(rowLayout));
 		doublyLinkedPlaceList  =  new DoublyLinkedPlaceList(rowNumber);
 		for (int i=0; i<rowLayout.length(); i++){
 			//rowLayout.charAt(i);
@@ -70,6 +72,7 @@ public class ScreenRow {
 	private void bookSeat(DoublyLinkedPlace linkedPlace) {
 	//	layout[position] = TAKEN_SEAT;
 		linkedPlace.getPlace().setAvailability(Place.TAKEN_SEAT);
+		System.out.println(linkedPlace.getPlace().getAvailability());
 		System.out.println("OK");
 	}
 	
@@ -106,7 +109,21 @@ public class ScreenRow {
 				}
 			
 			}
+		
+	/*	for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
+				null && linkedPlace.hasNext();  linkedPlace=linkedPlace.getNext()){
+			
+		}*/
+		//linkedPlace.getPlace().getAvailability()
 		return true;
+	}
+
+	public StringBuffer getRowLayout() {
+		return rowLayout;
+	}
+
+	public void setRowLayout(StringBuffer rowLayout) {
+		this.rowLayout = rowLayout;
 	}
 	
 }

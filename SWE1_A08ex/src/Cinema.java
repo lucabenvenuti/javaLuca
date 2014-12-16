@@ -1,7 +1,7 @@
 public class Cinema {
 
-	public static final int NOFSCREENS = 2;
-	public static final int MAXPLACES = 11;
+	public static final int NOFSCREENS = 3;
+	public static final int MAXPLACES = 20;
 	
 	public final static String EURO = "\u20AC";
 	public final static String S01 = "Choose Screen 1 or 2 or type exit to terminate the program";
@@ -15,7 +15,7 @@ public class Cinema {
 	public final static String S09 = "Booking failed";	
 	public final static String S10 = "    [---------]";
 	
-	private Screen[] Screen1 = new Screen[NOFSCREENS];
+/*	private Screen[] Screen1 = new Screen[NOFSCREENS];
 	
 	public void printRow(boolean printX, Screen[] Screen1, int seSc){
 		char symbol = 'Q';
@@ -26,24 +26,52 @@ public class Cinema {
 			System.out.printf("[%c]|%s%n",symbol, Screen1[seSc].getNewScreenRow(tempCategory).
 					getRowLayoutString(printX));
 	}   System.out.printf("%n");
-}
+}*/
+	
+	public Category[] categoryArray= {new Category(8,'A'),new Category(10,'B'),
+			new Category(11, 'C'), new Category(20, 'D')};//new Category[4];
+	
+	//private Screen[] Screen1 = new Screen[NOFSCREENS];
+//	categoryArray[0];// = ;
+	/*	categoryArray[1] = ;
+	categoryArray[2] = ;*/
+//	categoryArray[3] = ;
+	
+	private Screen one;
+	private Screen two;
+	private Screen three;
+	
 	
 	public Cinema() {
 		
 
-		Category a = new Category('A');
-		Category b = new Category('B');
-		Category c = new Category('C');
-		Category d = new Category('D');
-	/*	one = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
-				"########"), new ScreenRow(c, "########"));
-		two = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
+		Category a = categoryArray[0];
+		Category b = categoryArray[1];
+		Category c = categoryArray[2];
+		Category d = categoryArray[3];
+		//ScreenRow screenRow1 = new ScreenRow(new Category(8, 'A'), "#X##X##########", 1);
+		one = new Screen(new ScreenRow(categoryArray[0], "##########",1), 
+						 new ScreenRow(categoryArray[1], "#### #### ",2), 
+						 new ScreenRow(categoryArray[2], "######### ",3), 
+						 new ScreenRow(categoryArray[2], "##########",4));
+		/*two = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
 				"########"), new ScreenRow(c, "########"));*/
+		two = new Screen(new ScreenRow(categoryArray[0], "###########",1), 
+						 new ScreenRow(categoryArray[1], " ########  ",2), 
+						 new ScreenRow(categoryArray[2], "  ######   ",3), 
+						 new ScreenRow(categoryArray[3], "    ##     ",4));
 		
+		three = new Screen( new ScreenRow(categoryArray[0], "####################",1), 
+							new ScreenRow(categoryArray[1], "####################",2), 
+							new ScreenRow(categoryArray[2], "####################",3), 
+							new ScreenRow(categoryArray[2], "####################",4), 
+							new ScreenRow(categoryArray[3], "   ##          ##   ",5));
 	}
 	
+	private Screen[] Screen1 = {one, two, three};
+	
 	public void run() {
-		boolean continuation = true, ok = false;
+	boolean continuation = true, ok = false;
 		int seSc = 0; //selectedScreen;
 		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0;
 		char symbol = 'Q';
@@ -63,7 +91,7 @@ public class Cinema {
 			}
 			System.out.printf("%s%n",S10);
 
-			printRow(false, Screen1, seSc);
+		/*	printRow(false, Screen1, seSc);
 			
 			do {System.out.printf("%s%n",S02);
 				numberOfSeatToBook = Input.readInt();	
@@ -110,7 +138,7 @@ public class Cinema {
 			numberOfSeatToBook = 0;
 			symbol = 'Q';
 			positionOfSeatToBook = 0;
-			
+			*/
 			
 			System.out.printf("%s%n",S01);
 			inputKey = Input.readString();
