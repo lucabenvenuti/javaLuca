@@ -6,10 +6,10 @@ public class Cinema {
 	public final static String EURO = "\u20AC";
 	public final static String S01 = "Choose Screen 1 or 2 or 3 or type exit to terminate the program";
 	public final static String S02 = "How many seats?";
-	public final static String S03 = "Which Row (Note: Category A =";
-	public final static String S04 = " \u20AC, B =";
-	public final static String S05 = " \u20AC or C =";
-	public final static String S11 = " \u20AC or D =";
+	public final static String S03 = "Which Row (Note: Category A = ";
+	public final static String S04 = " \u20AC, B = ";
+	public final static String S05 = " \u20AC or C = ";
+	public final static String S11 = " \u20AC or D = ";
 	public final static String S06 = " \u20AC)? ";
 	public final static String S07 = "Which Position?";
 	public final static String S08 = "Successfully completed booking. Please pay: ";
@@ -27,10 +27,10 @@ public class Cinema {
 	
 	public Cinema() {
 		
-		Category a = categoryArray[0];
+/*		Category a = categoryArray[0];
 		Category b = categoryArray[1];
 		Category c = categoryArray[2];
-		Category d = categoryArray[3];
+		Category d = categoryArray[3];*/
 		one = new Screen(new ScreenRow(categoryArray[0], "##########",1), 
 						 new ScreenRow(categoryArray[1], "#### #### ",2), 
 						 new ScreenRow(categoryArray[2], "######### ",3), 
@@ -57,7 +57,7 @@ public class Cinema {
 		char symbol = 'Q';
 		
 		char [] inputKeyboard;
-		Category tempCategory;
+//		Category tempCategory;
 		String inputKey = "", printPrice = "";
 		System.out.printf("%s%n",S01);
 		inputKey = Input.readString();
@@ -70,6 +70,8 @@ public class Cinema {
 					break;}
 			}
 			System.out.printf("%s%n",S10);
+			
+			print(screen1[seSc]);
 			
 		//	printRow(false, screen1, seSc);
 			
@@ -117,16 +119,32 @@ public class Cinema {
 			//	printRow(true, screen1, seSc);
 			} else{System.out.printf("%s%n%n",S09);}
 			
+			print(screen1[seSc]);
+			
 			seSc = 0;
 			numberOfSeatToBook = 0;
 			symbol = 'Q';
 			positionOfSeatToBook = 0;
 			
 			
+			
 			System.out.printf("%s%n",S01);
 			inputKey = Input.readString();
 		} //while(inputKey.equals("exit"));
 		
+	}
+	
+	public void print(Screen screen){
+		StringBuffer printRow = new StringBuffer("");
+		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
+				linkedPlaceList != null;// && linkedPlaceList.getRow()<=(row); 
+				linkedPlaceList = linkedPlaceList.getNext()){
+//			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
+			printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
+			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
+		//	System.out.println(linkedPlaceList.getScreenRow().getRowLayout());
+			printRow.append("\n");
+		}System.out.println(printRow);
 	}
 	
 	public static void main(String[] args) {
