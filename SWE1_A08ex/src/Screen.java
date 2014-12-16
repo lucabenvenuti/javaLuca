@@ -38,7 +38,7 @@ public class Screen {
 		for ( DoublyLinkedPlaceList linkedPlaceList = singlyLinkedLinearListSeatRows.getHead(); 
 				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
-			System.out.println(linkedPlaceList.getRow());
+	//		System.out.println(linkedPlaceList.getRow());
 			if (linkedPlaceList.getRow()==row){//-1){
 				return linkedPlaceList.getScreenRow().book(position, seats);
 				

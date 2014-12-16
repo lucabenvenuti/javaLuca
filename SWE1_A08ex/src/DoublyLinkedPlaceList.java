@@ -96,7 +96,7 @@ public class DoublyLinkedPlaceList {
 	public void print() {
 		DoublyLinkedPlace p = head;
 		while (p != null) {
-			System.out.println(p.getPlace().getAvailability());
+			//System.out.println(p.getPlace().getAvailability());
 		}
 		System.out.println("end of list.");
 	}

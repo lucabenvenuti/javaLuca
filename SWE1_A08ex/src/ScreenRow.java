@@ -1,7 +1,7 @@
 
 public class ScreenRow {
 	private Category category;
-	private StringBuffer rowLayout;
+	public StringBuffer rowLayout;
 
 	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	
@@ -72,7 +72,7 @@ public class ScreenRow {
 	private void bookSeat(DoublyLinkedPlace linkedPlace) {
 	//	layout[position] = TAKEN_SEAT;
 		linkedPlace.getPlace().setAvailability(Place.TAKEN_SEAT);
-		System.out.println(linkedPlace.getPlace().getAvailability());
+//		System.out.println(linkedPlace.getPlace().getAvailability());
 		System.out.println("OK");
 	}
 	
@@ -105,7 +105,9 @@ public class ScreenRow {
 			//System.out.println(position+i-1+30);
 			if (linkedPlace.getPosition()==position+i-1){
 				bookSeat(linkedPlace);i++;
-		//		System.out.println(linkedPlace.getPosition());
+				rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition(), 
+						String.valueOf(linkedPlace.getPlace().getAvailability()));
+				System.out.println(linkedPlace.getPosition());
 				}
 			
 			}
