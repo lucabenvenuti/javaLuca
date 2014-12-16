@@ -27,7 +27,6 @@ public class Place {
 		case 1: availability = EMPTY_SEAT;break;
 		default:  availability = OBSTACLE;
 		}
-	//	System.out.println(availability);
 		
 	}
 	
@@ -37,8 +36,5 @@ public class Place {
 		case EMPTY_SEAT: availability = EMPTY_SEAT;break;
 		default:  availability = OBSTACLE;
 		}
-	//	System.out.println(availability);
-		
 	}
-
 }

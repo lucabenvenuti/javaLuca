@@ -20,7 +20,6 @@ public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlace head;
 	private DoublyLinkedPlace tail;
 	private DoublyLinkedPlaceList next;
-//	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
 	private ScreenRow screenRow;
@@ -75,7 +74,6 @@ public class DoublyLinkedPlaceList {
 		node.setNext(null);
 		
 		 if (getHead() == null) { 
-			// System.out.println("trota1");
 			 if (getTail() != null){
 				 System.out.println("trotaculo");
 			 } 
@@ -83,7 +81,6 @@ public class DoublyLinkedPlaceList {
 			 setTail(getHead());
 			 size =1;
 		 } else{
-			// System.out.println("trota2");
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
 			 
@@ -98,7 +95,6 @@ public class DoublyLinkedPlaceList {
 	public void print() {
 		DoublyLinkedPlace p = head;
 		while (p != null) {
-			//System.out.println(p.getPlace().getAvailability());
 		}
 		System.out.println("end of list.");
 	}

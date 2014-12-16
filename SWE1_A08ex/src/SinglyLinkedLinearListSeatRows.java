@@ -51,35 +51,23 @@ public class SinglyLinkedLinearListSeatRows {
 	public void setTail(DoublyLinkedPlaceList tail) {
 		this.tail = tail;
 	}
-
-
-
-	
-	
-
 	
 	public void add(DoublyLinkedPlaceList doublyLinkedPlaceList){
-		//singleLinkedList, I add at the end
 		doublyLinkedPlaceList.setNext(null);
 		 if (getHead() == null) { 
-			// System.out.println("trota1");
 			 if (getTail() != null){
-				 System.out.println("trotaculo");
+				 System.out.println("ERROR");
 			 } 
 			 
 			 setHead(doublyLinkedPlaceList);
 			 setTail(getHead());
 			 size = 1;
 		 } else{
-			// System.out.println("trota2");
-			 getTail().setNext(doublyLinkedPlaceList); ///setNext(doublyLinkedPlaceList);
-		//	 setPrev(getTail());
-			// this.setNext(null);
+			 getTail().setNext(doublyLinkedPlaceList);
 			 setTail(doublyLinkedPlaceList);
 			 size = size + 1;
 			 
 		 }
-		// System.out.println("trota5");
 	}
 
 	public int getSize() {
@@ -90,7 +78,4 @@ public class SinglyLinkedLinearListSeatRows {
 		this.size = size;
 	}
 
-	
-	
-	
 }
