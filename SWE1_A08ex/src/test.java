@@ -13,7 +13,7 @@ public class test {
 		
 		Screen screen = new Screen(screenRow1, screenRow2, screenRow3);
 		//book(int row, int position, int seats) 
-		System.out.println(screen.book(3,4,1));
+		System.out.println(screen.book(3,1,3));
 		
 	//	System.out.println(screenRow.getDoublyLinkedPlaceList().getSize()); //print();
 	/*	for (int i=0; i<20; i++){

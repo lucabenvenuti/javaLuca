@@ -27,13 +27,13 @@ public class Screen {
 				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
 			System.out.println(linkedPlaceList.getRow());
-			if (linkedPlaceList.getRow()==row-1){
-				linkedPlaceList.getScreenRow().book(position, seats);
+			if (linkedPlaceList.getRow()==row){//-1){
+				return linkedPlaceList.getScreenRow().book(position, seats);
 				
 			}
 			
 		}
-		return true;
+		return false;
 	}
 
 	public boolean book(int row, int position, int seats, int trotaculo) {
