@@ -105,7 +105,7 @@ public class ScreenRow {
 			//System.out.println(position+i-1+30);
 			if (linkedPlace.getPosition()==position+i-1){
 				bookSeat(linkedPlace);i++;
-				rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition(), 
+				rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition()+1, 
 						String.valueOf(linkedPlace.getPlace().getAvailability()));
 				System.out.println(linkedPlace.getPosition());
 				}
