@@ -21,6 +21,10 @@ public class DoublyLinkedPlaceList {
 //	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
+	
+	public DoublyLinkedPlaceList(int row){
+		this.setRow(row);
+	}
 
 	public DoublyLinkedPlace getHead() {
 		return head;
@@ -89,19 +93,19 @@ public class DoublyLinkedPlaceList {
 		System.out.println("end of list.");
 	}
 
-	public int getRow() {
-		return row;
-	}
-
-	public void setRow(int row) {
-		this.row = row;
-	}
-
 	public DoublyLinkedPlaceList getNext() {
 		return next;
 	}
 
 	public void setNext(DoublyLinkedPlaceList next) {
 		this.next = next;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
 	}
 }

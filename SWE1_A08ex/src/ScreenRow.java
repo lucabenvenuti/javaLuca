@@ -9,9 +9,9 @@ public class ScreenRow {
 		return doublyLinkedPlaceList;
 	}
 
-	public ScreenRow(Category category, String rowLayout) { //(){//
+	public ScreenRow(Category category, String rowLayout, int rowNumber) { //(){//
 		this.setCategory(category);
-		doublyLinkedPlaceList  =  new DoublyLinkedPlaceList();
+		doublyLinkedPlaceList  =  new DoublyLinkedPlaceList(rowNumber);
 		for (int i=0; i<rowLayout.length(); i++){
 			//rowLayout.charAt(i);
 			Place newPlace = new Place(rowLayout.charAt(i));

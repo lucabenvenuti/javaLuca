@@ -22,24 +22,34 @@ public class Screen {
 
 	public boolean book(int row, int position, int seats) {
 		//return rows[row-1].book(position-1,seats);
-		
+	//	System.out.println(row+10);
+	//	System.out.println(singlyLinkedLinearListSeatRows.getHead().getRow());
+	//	int i =10;
 		for ( DoublyLinkedPlaceList linkedPlaceList = singlyLinkedLinearListSeatRows.getHead(); 
-				linkedPlaceList != null && linkedPlaceList.getRow()<row; 
+				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
+			System.out.println(linkedPlaceList.getRow());
+			System.out.println("trota6");
+		//	System.out.println(i);
+			//i = i+1;
+			
 			if (linkedPlaceList.getRow()==row-1){
+			//	System.out.println("trota5");
 				//if (linkedPlaceList..getPosition()==position-1){}
 				for ( DoublyLinkedPlace linkedPlace=linkedPlaceList.getHead(); linkedPlace !=
 						null && linkedPlace.hasNext() && linkedPlace.getPosition()< position; 
 						linkedPlace=linkedPlace.getNext()){
 						//DO SOMETHING
 						//linkedPlace = i
-				//	System.out.println("trota5");
+					
 					//System.out.println(linkedPlace.getPosition());
 					if (linkedPlace.getPosition()==position-1){
 						if(linkedPlace.getPlace().getAvailability()==Place.EMPTY_SEAT){
-							return true;
+							//return true;
+							System.out.println("trota5");
 						}
-					System.out.println(linkedPlace.getPlace().getAvailability());}
+				//	System.out.println(linkedPlace.getPlace().getAvailability());
+					}
 					
 						}	
 				

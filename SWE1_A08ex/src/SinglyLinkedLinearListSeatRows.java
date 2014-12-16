@@ -3,9 +3,10 @@ public class SinglyLinkedLinearListSeatRows {
 
 	private DoublyLinkedPlaceList doublyLinkedPlaceList;
 	
-	public DoublyLinkedPlaceList next=null;
-	public DoublyLinkedPlaceList head=null;
-	public DoublyLinkedPlaceList tail=null;
+	private DoublyLinkedPlaceList next=null;
+	private DoublyLinkedPlaceList head=null;
+	private DoublyLinkedPlaceList tail=null;
+	
 	public DoublyLinkedPlaceList getNext() {
 		return next;
 	}
@@ -74,6 +75,7 @@ public class SinglyLinkedLinearListSeatRows {
 			 setTail(doublyLinkedPlaceList);
 			 
 		 }
+		// System.out.println("trota5");
 	}
 
 	
