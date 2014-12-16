@@ -81,12 +81,14 @@ public class DoublyLinkedPlaceList {
 			 } 
 			 setHead(node);
 			 setTail(getHead());
+			 size =1;
 		 } else{
 			// System.out.println("trota2");
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
 			 
 			 setTail(node);
+			 size = size+1;
 			 
 		 }
 

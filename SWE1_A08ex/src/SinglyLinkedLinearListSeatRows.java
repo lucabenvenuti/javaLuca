@@ -6,6 +6,8 @@ public class SinglyLinkedLinearListSeatRows {
 	private DoublyLinkedPlaceList next=null;
 	private DoublyLinkedPlaceList head=null;
 	private DoublyLinkedPlaceList tail=null;
+	private int size;
+	
 	
 	public DoublyLinkedPlaceList getNext() {
 		return next;
@@ -67,15 +69,25 @@ public class SinglyLinkedLinearListSeatRows {
 			 
 			 setHead(doublyLinkedPlaceList);
 			 setTail(getHead());
+			 size = 1;
 		 } else{
 			// System.out.println("trota2");
 			 getTail().setNext(doublyLinkedPlaceList); ///setNext(doublyLinkedPlaceList);
 		//	 setPrev(getTail());
 			// this.setNext(null);
 			 setTail(doublyLinkedPlaceList);
+			 size = size + 1;
 			 
 		 }
 		// System.out.println("trota5");
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	

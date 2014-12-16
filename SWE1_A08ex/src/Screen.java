@@ -1,5 +1,5 @@
 public class Screen {
-	
+	public final static int MAXROWS = 5;
 	public SinglyLinkedLinearListSeatRows singlyLinkedLinearListSeatRows;
 	
 	public Screen(ScreenRow one, ScreenRow two, ScreenRow three) {
