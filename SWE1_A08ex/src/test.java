@@ -12,9 +12,9 @@ public class test {
 	//	System.out.println(screenRow1.book(7,3));
 		
 		Screen screen = new Screen(screenRow1, screenRow2, screenRow3);
+		//singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
 		//book(int row, int position, int seats) 
 		System.out.println(screen.book(3,1,3));
-		//singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
 		System.out.println(screen.singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
 		
 	//	System.out.println(screenRow.getDoublyLinkedPlaceList().getSize()); //print();
