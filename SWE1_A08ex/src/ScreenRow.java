@@ -24,8 +24,6 @@ public class ScreenRow {
 		//	newDoublyLinkedPlace = null;
 		//	System.out.println(doublyLinkedPlaceList.getSize());
 			}
-
-		
 	}
 
 	public Category getCategory() {

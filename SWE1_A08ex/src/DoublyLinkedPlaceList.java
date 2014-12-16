@@ -14,6 +14,8 @@
  * @version 2014-12-09
  */
 
+/// IS NOT DOUBLE LINKED NOWWWWW!!!!!!!!!!!!!!!!!!!!
+
 public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlace head;
 	private DoublyLinkedPlace tail;
@@ -21,9 +23,15 @@ public class DoublyLinkedPlaceList {
 //	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
+	private ScreenRow screenRow;
 	
 	public DoublyLinkedPlaceList(int row){
 		this.setRow(row);
+	}
+	
+	public DoublyLinkedPlaceList(int row, ScreenRow screenRow){
+		this.setRow(row);
+		this.setScreenRow(screenRow);
 	}
 
 	public DoublyLinkedPlace getHead() {
@@ -107,5 +115,13 @@ public class DoublyLinkedPlaceList {
 
 	public void setRow(int row) {
 		this.row = row;
+	}
+
+	public ScreenRow getScreenRow() {
+		return screenRow;
+	}
+
+	public void setScreenRow(ScreenRow screenRow) {
+		this.screenRow = screenRow;
 	}
 }

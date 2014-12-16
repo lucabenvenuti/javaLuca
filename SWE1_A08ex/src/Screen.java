@@ -19,8 +19,21 @@ public class Screen {
 		
 		
 	}
+	public boolean book(int row, int position, int seats){
+		for ( DoublyLinkedPlaceList linkedPlaceList = singlyLinkedLinearListSeatRows.getHead(); 
+				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
+				linkedPlaceList = linkedPlaceList.getNext()){
+			System.out.println(linkedPlaceList.getRow());
+			if (linkedPlaceList.getRow()==row-1){
+			//	linkedPlaceList.book(position, seats);
+				
+			}
+			
+		}
+		return true;
+	}
 
-	public boolean book(int row, int position, int seats) {
+	public boolean book(int row, int position, int seats, int trotaculo) {
 		//return rows[row-1].book(position-1,seats);
 	//	System.out.println(row+10);
 	//	System.out.println(singlyLinkedLinearListSeatRows.getHead().getRow());
@@ -52,12 +65,8 @@ public class Screen {
 					}
 					
 						}	
-				
-				
 			}
 		}
-		
-		
 		
 		return false;
 		
