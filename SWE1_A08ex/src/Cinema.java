@@ -96,11 +96,6 @@ public class Cinema {
 			}
 			System.out.printf("%s%n",S10);
 			
-			System.out.println(screen1[seSc].book(3,1,2));
-			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
-			System.out.println(screen1[2].singlyLinkedLinearListSeatRows.getSize());
-			//System.out.println(
-			System.out.println(screen1[2].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol());
 		//	printRow(false, screen1, seSc);
 			
 			do {System.out.printf("%s%n",S02);
@@ -123,21 +118,23 @@ public class Cinema {
 					printPrice += S11 + Integer.toString((int)(categoryArray[3].getPrice()*numberOfSeatToBook));
 				}
 				printPrice += S06;
-				System.out.printf("%s", printPrice);  
-				symbol = Input.readChar();	
-				row = (int) symbol;
-			}while (row<49 || (row>(49+Screen.MAXROWS) && row<65) || row>(65 + Screen.MAXROWS));
+				System.out.printf("%s", printPrice); 
+				row = Input.readInt();
+			//	symbol = Input.readChar();	
+			//	row = (int) symbol;
+			}while (row<1 || row >7);
+			//while (row<49 || (row>(49+Screen.MAXROWS) && row<65) || row>(65 + Screen.MAXROWS));
 			
 			/*	if (row>49+Screen.MAXROWS){	
 				row = row -65;
-				symbol = Screen.SYMBOLARRAY[row];
+				symbol = screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol();//Screen.SYMBOLARRAY[row];
 			}
 			else {row = row -49;
-				symbol = Screen.SYMBOLARRAY[row];}		
+				symbol = screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol();//Screen.SYMBOLARRAY[row];}		
 					
-			tempCategory = new Category(symbol);
+					tempCategory = new Category(symbol);
 			System.out.printf("[%c]|%s%n",symbol, screen1[seSc].getNewScreenRow(tempCategory).
-					getRowLayoutString(false));
+					getRowLayoutString(false));*/
 			System.out.printf("%n");
 			
 			do {System.out.printf("%s%n",S07);
@@ -145,13 +142,21 @@ public class Cinema {
 			System.out.printf("%n");
 			}while (positionOfSeatToBook<1 || positionOfSeatToBook>MAXPLACES);
 			
-			ok = screen1[seSc].setNewScreenRow(seSc, row, numberOfSeatToBook, positionOfSeatToBook);
+			//book(int row, int position, int seats) 
+			System.out.println(screen1[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook));
+			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
+			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getSize());
+			//System.out.println(
+			System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol());
+
+			
+	//		ok = screen1[seSc].setNewScreenRow(seSc, row, numberOfSeatToBook, positionOfSeatToBook);
 			
 			if (ok) {				
-				System.out.printf("%s%.0f %s%n%n",S08, screen1[seSc].getNewScreenRow(tempCategory).
+			/*	System.out.printf("%s%.0f %s%n%n",S08, screen1[seSc].getNewScreenRow(tempCategory).
 						getTotalPriceRowSingleBooking(), EURO);
 				System.out.printf("%s%n",S10);
-				printRow(true, screen1, seSc);
+				printRow(true, screen1, seSc);*/
 			} else{System.out.printf("%s%n%n",S09);}
 			
 			seSc = 0;
@@ -161,7 +166,7 @@ public class Cinema {
 			
 			
 			System.out.printf("%s%n",S01);
-			inputKey = Input.readString();*/
+			inputKey = Input.readString();
 		} //while(inputKey.equals("exit"));
 		
 	}
