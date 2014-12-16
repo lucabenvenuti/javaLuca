@@ -12,8 +12,11 @@ public class Screen {
 	//	for (int i=0; i<3; i++){
 	//		DoublyLinkedPlaceList newDoublyLinkedPlaceList = new DoublyLinkedPlaceList();
 			singlyLinkedLinearListSeatRows.add(one.getDoublyLinkedPlaceList());
+			singlyLinkedLinearListSeatRows.getTail().setScreenRow(one);
 			singlyLinkedLinearListSeatRows.add(two.getDoublyLinkedPlaceList());
+			singlyLinkedLinearListSeatRows.getTail().setScreenRow(two);
 			singlyLinkedLinearListSeatRows.add(three.getDoublyLinkedPlaceList());
+			singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
 			
 		//}
 		
@@ -25,7 +28,7 @@ public class Screen {
 				linkedPlaceList = linkedPlaceList.getNext()){
 			System.out.println(linkedPlaceList.getRow());
 			if (linkedPlaceList.getRow()==row-1){
-			//	linkedPlaceList.book(position, seats);
+				linkedPlaceList.getScreenRow().book(position, seats);
 				
 			}
 			
