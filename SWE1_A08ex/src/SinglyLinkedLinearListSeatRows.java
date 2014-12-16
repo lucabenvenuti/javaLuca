@@ -56,20 +56,22 @@ public class SinglyLinkedLinearListSeatRows {
 
 	
 	public void add(DoublyLinkedPlaceList doublyLinkedPlaceList){
-		
+		//singleLinkedList, I add at the end
+		doublyLinkedPlaceList.setNext(null);
 		 if (getHead() == null) { 
 			// System.out.println("trota1");
 			 if (getTail() != null){
 				 System.out.println("trotaculo");
 			 } 
+			 
 			 setHead(doublyLinkedPlaceList);
 			 setTail(getHead());
 		 } else{
 			// System.out.println("trota2");
-			 this.setNext(doublyLinkedPlaceList); ///setNext(doublyLinkedPlaceList);
+			 getTail().setNext(doublyLinkedPlaceList); ///setNext(doublyLinkedPlaceList);
 		//	 setPrev(getTail());
 			// this.setNext(null);
-			 this.setTail(doublyLinkedPlaceList);
+			 setTail(doublyLinkedPlaceList);
 			 
 		 }
 	}

@@ -60,6 +60,7 @@ public class DoublyLinkedPlaceList {
 	 *            a node to append to the list
 	 */
 	public void add(DoublyLinkedPlace node) {
+		node.setNext(null);
 		
 		 if (getHead() == null) { 
 			// System.out.println("trota1");
@@ -72,7 +73,7 @@ public class DoublyLinkedPlaceList {
 			// System.out.println("trota2");
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
-			 node.setNext(null);
+			 
 			 setTail(node);
 			 
 		 }
