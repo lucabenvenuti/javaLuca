@@ -16,27 +16,8 @@ public class Cinema {
 	public final static String S09 = "Booking failed";	
 	public final static String S10 = "    [---------]";
 	
-/*	private Screen[] screen1 = new Screen[NOFSCREENS];
-	
-	public void printRow(boolean printX, Screen[] screen1, int seSc){
-		char symbol = 'Q';
-		Category tempCategory;
-		for (int i=0; i<Screen.SYMBOLARRAY.length; i++){	
-			symbol = Screen.SYMBOLARRAY[i];
-			tempCategory = new Category(symbol);
-			System.out.printf("[%c]|%s%n",symbol, screen1[seSc].getNewScreenRow(tempCategory).
-					getRowLayoutString(printX));
-	}   System.out.printf("%n");
-}*/
-	
 	public Category[] categoryArray= {new Category(8,'A'),new Category(10,'B'),
 			new Category(11, 'C'), new Category(20, 'D')};//new Category[4];
-	
-	//private Screen[] screen1 = new Screen[NOFSCREENS];
-//	categoryArray[0];// = ;
-	/*	categoryArray[1] = ;
-	categoryArray[2] = ;*/
-//	categoryArray[3] = ;
 	
 	private Screen one;
 	private Screen two;
@@ -46,18 +27,14 @@ public class Cinema {
 	
 	public Cinema() {
 		
-
 		Category a = categoryArray[0];
 		Category b = categoryArray[1];
 		Category c = categoryArray[2];
 		Category d = categoryArray[3];
-		//ScreenRow screenRow1 = new ScreenRow(new Category(8, 'A'), "#X##X##########", 1);
 		one = new Screen(new ScreenRow(categoryArray[0], "##########",1), 
 						 new ScreenRow(categoryArray[1], "#### #### ",2), 
 						 new ScreenRow(categoryArray[2], "######### ",3), 
 						 new ScreenRow(categoryArray[2], "##########",4));
-		/*two = new Screen(new ScreenRow(a, "########"), new ScreenRow(b,
-				"########"), new ScreenRow(c, "########"));*/
 		two = new Screen(new ScreenRow(categoryArray[0], "###########",1), 
 						 new ScreenRow(categoryArray[1], " ########  ",2), 
 						 new ScreenRow(categoryArray[2], "  ######   ",3), 
@@ -70,10 +47,8 @@ public class Cinema {
 							new ScreenRow(categoryArray[3], "   ##          ##   ",5));
 		screen1[0] = one;
 		screen1[1] = two;
-		screen1[2] = three;//] = {one, two, three};
+		screen1[2] = three;
 	}
-	
-//	private Screen[] screen1 = {one, two, three};
 	
 	public void run() {
 	boolean continuation = true, ok = false;
@@ -103,8 +78,6 @@ public class Cinema {
 				System.out.printf("%n");
 			} while (numberOfSeatToBook<1 || numberOfSeatToBook>MAXPLACES);
 			
-		/*	*/
-			
 			do {
 				printPrice = S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook));
 				printPrice += S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook));
@@ -115,30 +88,13 @@ public class Cinema {
 				printPrice += S06;
 				System.out.printf("%s", printPrice); 
 				row = Input.readInt();
-			//	symbol = Input.readChar();	
-			//	row = (int) symbol;
 			}while (row<1 || row >7);
-			//while (row<49 || (row>(49+Screen.MAXROWS) && row<65) || row>(65 + Screen.MAXROWS));
-			
-			/*	if (row>49+Screen.MAXROWS){	
-				row = row -65;
-				symbol = screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol();//Screen.SYMBOLARRAY[row];
-			}
-			else {row = row -49;
-				symbol = screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getScreenRow().getCategory().getSymbol();//Screen.SYMBOLARRAY[row];}		
-					
-					tempCategory = new Category(symbol);
-			System.out.printf("[%c]|%s%n",symbol, screen1[seSc].getNewScreenRow(tempCategory).
-					getRowLayoutString(false));*/
 			System.out.printf("%n");
 			
 			do {System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
 			System.out.printf("%n");
 			}while (positionOfSeatToBook<1 || positionOfSeatToBook>MAXPLACES);
-			
-			//book(int row, int position, int seats) 
-		//	System.out.println(
 			ok = screen1[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook);//);
 		//	System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getHead().getNext().getNext().getScreenRow().getRowLayout());
 		//	System.out.println(screen1[seSc].singlyLinkedLinearListSeatRows.getSize());
@@ -174,18 +130,6 @@ public class Cinema {
 	}
 	
 	public static void main(String[] args) {
-
-	//	Cinema newCinema = new Cinema();
-	//	newCinema.run();
 		new Cinema().run();
-	/*	Screen[] screen1 = new Screen[NOFSCREENS];
-		for (int i =0; i<NOFSCREENS; i++){
-			screen1[i] = new Screen(i);		}*/
-		
-	//	while (continuation){
-
-			
-
-		//}
 	}
 }
