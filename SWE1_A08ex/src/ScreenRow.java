@@ -64,36 +64,17 @@ public class ScreenRow {
 			}
 		//DoublyLinkedPlace linkedPlace = doublyLinkedPlaceList.getTail();
 		if (position> (int)(Math.round(doublyLinkedPlaceList.getSize())/2) ){
-			DoublyLinkedPlace linkedPlaceEnd =doublyLinkedPlaceList.getTail();
-			i = seats;
-			position--;
-			for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
-					null&& linkedPlace.hasPrev()  && linkedPlace.getPosition()>position; //
-					linkedPlace=linkedPlace.getPrev()){
-				if (linkedPlace.getPosition()==position+seats){linkedPlaceEnd =linkedPlace;} 
-				if (linkedPlace.getPosition()==position+i){
-					if(!isEmptySeat(linkedPlace)){
-						System.out.println("ERROR2");
-						return false;
-					}else{
-						i--;	}
-				}//else{return false;}
-					}
-			i = seats;
-			for ( DoublyLinkedPlace linkedPlace=linkedPlaceEnd
-					//doublyLinkedPlaceList.getTail()
-					;linkedPlace !=
-					null && linkedPlace.hasPrev() && linkedPlace.getPosition()>position; //
-					linkedPlace=linkedPlace.getPrev()){
-				if (linkedPlace.getPosition()==position+i){
-					bookSeat(linkedPlace);i--;
-					rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition()+1, 
-							String.valueOf(linkedPlace.getPlace().getAvailability()));
-				}
-				}
-			
+			return bookBackward(position, seats, doublyLinkedPlaceList); 			
 		}
-		else{DoublyLinkedPlace linkedPlaceStart=doublyLinkedPlaceList.getHead();
+		else{
+			return bookForward(position, seats, doublyLinkedPlaceList); 	
+		}
+	}
+
+	private boolean bookForward(int position, int seats,
+			DoublyLinkedPlaceList doublyLinkedPlaceList2) {
+		int i =0;
+			DoublyLinkedPlace linkedPlaceStart=doublyLinkedPlaceList.getHead();
 		
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
 				null && linkedPlace.hasNext()  && linkedPlace.getPosition()< position+seats; //
@@ -105,7 +86,14 @@ public class ScreenRow {
 				}else{	i++;	}
 			}
 				}
-		i=0;
+		//i=0;
+		bookRightSeatForward(linkedPlaceStart, position, seats);
+		return true;
+	}
+
+	private void bookRightSeatForward(DoublyLinkedPlace linkedPlaceStart,
+			int position, int seats) {
+		int i = 0;
 		for ( DoublyLinkedPlace linkedPlace=linkedPlaceStart
 				//doublyLinkedPlaceList.getHead()
 				; linkedPlace !=
@@ -117,8 +105,45 @@ public class ScreenRow {
 						String.valueOf(linkedPlace.getPlace().getAvailability()));
 				}
 			}
-		}
+		
+	}
+
+	private boolean bookBackward(int position, int seats,
+			DoublyLinkedPlaceList doublyLinkedPlaceList2) {
+		int i =0;
+		DoublyLinkedPlace linkedPlaceEnd =doublyLinkedPlaceList.getTail();
+		i = seats;
+		position--;
+		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
+				null&& linkedPlace.hasPrev()  && linkedPlace.getPosition()>position; //
+				linkedPlace=linkedPlace.getPrev()){
+			if (linkedPlace.getPosition()==position+seats){linkedPlaceEnd =linkedPlace;} 
+			if (linkedPlace.getPosition()==position+i){
+				if(!isEmptySeat(linkedPlace)){
+					System.out.println("ERROR2");
+					return false;
+				}else{
+					i--;	}
+			}//else{return false;}
+				}
+		bookRightSeatBackward(linkedPlaceEnd, position, seats);
 		return true;
+	}
+
+	private void bookRightSeatBackward(DoublyLinkedPlace linkedPlaceEnd,
+			int position, int seats) {
+		int i = seats;
+		for ( DoublyLinkedPlace linkedPlace=linkedPlaceEnd
+				//doublyLinkedPlaceList.getTail()
+				;linkedPlace !=
+				null && linkedPlace.hasPrev() && linkedPlace.getPosition()>position; //
+				linkedPlace=linkedPlace.getPrev()){
+			if (linkedPlace.getPosition()==position+i){
+				bookSeat(linkedPlace);i--;
+				rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition()+1, 
+						String.valueOf(linkedPlace.getPlace().getAvailability()));
+			}
+			}		
 	}
 
 	public StringBuffer getRowLayout() {
