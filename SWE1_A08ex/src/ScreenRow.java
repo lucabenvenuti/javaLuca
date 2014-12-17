@@ -83,7 +83,7 @@ public class ScreenRow {
 			for ( DoublyLinkedPlace linkedPlace=linkedPlaceEnd
 					//doublyLinkedPlaceList.getTail()
 					;linkedPlace !=
-					null && linkedPlace.getPosition()>position; //&& linkedPlace.hasPrev() 
+					null && linkedPlace.hasPrev() && linkedPlace.getPosition()>position; //
 					linkedPlace=linkedPlace.getPrev()){
 				if (linkedPlace.getPosition()==position+i){
 					bookSeat(linkedPlace);i--;
@@ -96,7 +96,7 @@ public class ScreenRow {
 		else{DoublyLinkedPlace linkedPlaceStart=doublyLinkedPlaceList.getHead();
 		
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
-				null && linkedPlace.getPosition()< position+seats; //&& linkedPlace.hasNext() 
+				null && linkedPlace.hasNext()  && linkedPlace.getPosition()< position+seats; //
 				linkedPlace=linkedPlace.getNext()){
 			if (linkedPlace.getPosition()==position){linkedPlaceStart =linkedPlace;} 
 			if (linkedPlace.getPosition()==position+i){
@@ -109,7 +109,7 @@ public class ScreenRow {
 		for ( DoublyLinkedPlace linkedPlace=linkedPlaceStart
 				//doublyLinkedPlaceList.getHead()
 				; linkedPlace !=
-				null && linkedPlace.getPosition()< position+seats; //&& linkedPlace.hasNext() 
+				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position+seats; //
 				linkedPlace=linkedPlace.getNext()){
 			if (linkedPlace.getPosition()==position+i){
 				bookSeat(linkedPlace);i++;
