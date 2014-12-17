@@ -53,10 +53,12 @@ public class Cinema {
 		char symbol = 'Q';
 		
 		char [] inputKeyboard;
-		String inputKey = "", printPrice = "";
+		String inputKey = "";
+		
 		System.out.printf("%s%n",S01);
 		inputKey = Input.readString();
 		while (continuation){ //do {
+			StringBuffer printPrice = new StringBuffer("");
 			if (inputKey.equals("exit")){break;}
 			else {inputKeyboard = inputKey.toCharArray();
 				seSc = (int)inputKeyboard[0] - 49;
@@ -65,25 +67,29 @@ public class Cinema {
 					break;}
 			}
 			
-			print(screen1[seSc]);
+			printScreen(screen1[seSc]);
 			
-			do {System.out.printf("%s%n",S02);
+			do {System.out.printf("%n%s%n",S02);
 				numberOfSeatToBook = Input.readInt();	
 				System.out.printf("%n");
 			} while (numberOfSeatToBook<1 || numberOfSeatToBook>MAXPLACES);
 			
 			do {
-				printPrice = S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook));
-				printPrice += S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook));
-				printPrice += S05 + Integer.toString((int)(categoryArray[2].getPrice()*numberOfSeatToBook));
-				if(screen1[seSc].singlyLinkedLinearListSeatRows.getSize()>3){
-					printPrice += S11 + Integer.toString((int)(categoryArray[3].getPrice()*numberOfSeatToBook));
+				//;
+				printPrice.append (S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook)));
+				printPrice.append (S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook)));
+				printPrice.append (S05 + Integer.toString((int)(categoryArray[2].getPrice()*numberOfSeatToBook)));
+				if(screen1[seSc].singlyLinkedLinearListSeatRows.getTail().getScreenRow().getCategory().getSymbol()=='D'
+					//	screen1[seSc].singlyLinkedLinearListSeatRows.getSize()>3
+						){
+					printPrice.append (S11 + Integer.toString((int)(categoryArray[3].getPrice()*numberOfSeatToBook)));
 				}
-				printPrice += S06;
+				printPrice.append (S06);
 				System.out.printf("%s", printPrice); 
 				row = Input.readInt();
 			}while (row<1 || row >7);
-			System.out.printf("%n");
+			//System.out.printf("%n");
+			printRow(screen1[seSc], row);
 			
 			do {System.out.printf("%s%n",S07);
 			positionOfSeatToBook = Input.readInt();
@@ -100,7 +106,7 @@ public class Cinema {
 				System.out.printf("%s%d %s%n%n",S08, a, EURO);
 			} else{System.out.printf("%s%n%n",S09);}
 			
-			print(screen1[seSc]);
+			printScreen(screen1[seSc]);
 			
 			seSc = 0;
 			numberOfSeatToBook = 0;
@@ -115,7 +121,23 @@ public class Cinema {
 		
 	}
 	
-	public void print(Screen screen){
+	public void printRow(Screen screen, int row){
+		StringBuffer printRow = new StringBuffer("");
+		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
+				linkedPlaceList != null;
+				linkedPlaceList = linkedPlaceList.getNext()){
+			if (linkedPlaceList.getRow()==row){
+			printRow.append("[");
+			printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
+			printRow.append("]");
+			printRow.append("|");
+			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
+			printRow.append("\n");
+			break;}
+		}System.out.printf("%s%n",printRow);
+	}
+	
+	public void printScreen(Screen screen){
 		StringBuffer printRow = new StringBuffer("");
 		printRow.append("    [");
 		for (int i=0; i<screen.singlyLinkedLinearListSeatRows.getHead().getScreenRow().getRowLayout().length()-2;i++)
@@ -130,7 +152,7 @@ public class Cinema {
 			printRow.append("|");
 			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
 			printRow.append("\n");
-		}System.out.printf("%s",printRow);
+		}System.out.printf("%s%n",printRow);
 	}
 	
 	public static void main(String[] args) {
