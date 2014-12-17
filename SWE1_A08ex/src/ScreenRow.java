@@ -34,6 +34,7 @@ public class ScreenRow {
 	}
 	
 	public boolean isEmptySeat(int position) {
+
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
 				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position; 
 				linkedPlace=linkedPlace.getNext()){
@@ -48,7 +49,8 @@ public class ScreenRow {
 	}
 	
 	public boolean isEmptySeat(DoublyLinkedPlace linkedPlace) {
-	
+		System.out.println("trota3");
+
 		return linkedPlace.getPlace().getAvailability()==Place.EMPTY_SEAT;
 	}
 	
@@ -58,19 +60,62 @@ public class ScreenRow {
 	
 	public boolean book(int position, int seats) {
 		int i =0;
+		/*System.out.println("trota1");
+		System.out.println(doublyLinkedPlaceList.getSize());
+		System.out.println(position);
+		System.out.println("trota2");*/
+		if(position+seats-1>doublyLinkedPlaceList.getSize()){
+			//System.out.println("trota2");
+			return false;
+			}
+/*		System.out.println(doublyLinkedPlaceList.getSize());
+		if (position> (int)(Math.round(doublyLinkedPlaceList.getSize())/2) ){
+			i = seats;
+			System.out.println("trota3");
+			for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
+					null && linkedPlace.hasPrev() && linkedPlace.getPosition()>position-1;
+					linkedPlace=linkedPlace.getPrev()){
+				
+				if (linkedPlace.getPosition()==position+i-1){
+					if(!isEmptySeat(linkedPlace)){
+					//	System.out.println("trota3");
+						return false;
+					}else{	//System.out.println("trota6");
+						i--;	}
+				}else{return false;}
+					}
+			i = seats;
+			for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
+					null && linkedPlace.hasPrev() && linkedPlace.getPosition()>position-1;
+					linkedPlace=linkedPlace.getPrev()){
+				if (linkedPlace.getPosition()==position+i-1){
+					bookSeat(linkedPlace);i--;
+					rowLayout.replace(linkedPlace.getPosition(), linkedPlace.getPosition()+1, 
+							String.valueOf(linkedPlace.getPlace().getAvailability()));
+				}
+				}
+			
+		}
+		else{*/
+		
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
-				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position-1+seats; 
+				null && linkedPlace.getPosition()< position-1+seats; //&& linkedPlace.hasNext() 
 				linkedPlace=linkedPlace.getNext()){
+			System.out.println("trota3");
+			System.out.println(linkedPlace.getPosition());
 			if (linkedPlace.getPosition()==position+i-1){
 				if(!isEmptySeat(linkedPlace)){
+					System.out.println(!isEmptySeat(linkedPlace));
+					
 					return false;
 				}else{	i++;	}
 			}
-			
+		//	else{System.out.println("trota4");
+		//		return false;}
 				}
 		i=0;
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
-				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position-1+seats; 
+				null && linkedPlace.getPosition()< position-1+seats; //&& linkedPlace.hasNext() 
 				linkedPlace=linkedPlace.getNext()){
 			if (linkedPlace.getPosition()==position+i-1){
 				bookSeat(linkedPlace);i++;
@@ -78,6 +123,7 @@ public class ScreenRow {
 						String.valueOf(linkedPlace.getPlace().getAvailability()));
 				}
 			}
+	//	}
 		return true;
 	}
 

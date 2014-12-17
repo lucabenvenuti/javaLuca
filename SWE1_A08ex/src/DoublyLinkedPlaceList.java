@@ -15,6 +15,7 @@
  */
 
 /// IS NOT DOUBLE LINKED NOWWWWW!!!!!!!!!!!!!!!!!!!!
+//IT IS BITCH!  , SEE SETPREV, LINE 86
 
 public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlace head;
