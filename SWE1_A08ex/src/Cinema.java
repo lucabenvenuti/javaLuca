@@ -121,18 +121,23 @@ public class Cinema {
 		
 	}
 	
+	public StringBuffer printString(DoublyLinkedPlaceList linkedPlaceList, StringBuffer printRow){
+	printRow.append("[");
+	printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
+	printRow.append("]");
+	printRow.append("|");
+	printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
+	printRow.append("\n");
+	return printRow;
+	}
+	
 	public void printRow(Screen screen, int row){
 		StringBuffer printRow = new StringBuffer("");
 		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
 				linkedPlaceList != null;
 				linkedPlaceList = linkedPlaceList.getNext()){
 			if (linkedPlaceList.getRow()==row){
-			printRow.append("[");
-			printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
-			printRow.append("]");
-			printRow.append("|");
-			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
-			printRow.append("\n");
+				printString(linkedPlaceList, printRow);
 			break;}
 		}System.out.printf("%s%n",printRow);
 	}
@@ -146,12 +151,7 @@ public class Cinema {
 		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
 				linkedPlaceList != null;
 				linkedPlaceList = linkedPlaceList.getNext()){
-			printRow.append("[");
-			printRow.append(String.valueOf(linkedPlaceList.getScreenRow().getCategory().getSymbol()));
-			printRow.append("]");
-			printRow.append("|");
-			printRow.append(linkedPlaceList.getScreenRow().getRowLayout());
-			printRow.append("\n");
+				printString(linkedPlaceList, printRow);
 		}System.out.printf("%s%n",printRow);
 	}
 	
