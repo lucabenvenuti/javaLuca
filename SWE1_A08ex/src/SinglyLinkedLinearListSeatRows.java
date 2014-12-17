@@ -63,6 +63,7 @@ public class SinglyLinkedLinearListSeatRows {
 			 setTail(getHead());
 			 size = 1;
 		 } else{
+			 doublyLinkedPlaceList.setPrev(getTail());
 			 getTail().setNext(doublyLinkedPlaceList);
 			 setTail(doublyLinkedPlaceList);
 			 size = size + 1;

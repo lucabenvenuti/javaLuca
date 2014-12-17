@@ -30,7 +30,7 @@ public class Screen {
 				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
 				linkedPlaceList = linkedPlaceList.getNext()){
 			if (linkedPlaceList.getRow()==row){//-1){
-				return linkedPlaceList.getScreenRow().book(position, seats);
+				return linkedPlaceList.getScreenRow().book(position-1, seats);
 			}
 		}
 		return false;

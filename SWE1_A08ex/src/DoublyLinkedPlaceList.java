@@ -16,11 +16,13 @@
 
 /// IS NOT DOUBLE LINKED NOWWWWW!!!!!!!!!!!!!!!!!!!!
 //IT IS BITCH!  , SEE SETPREV, LINE 86
+//IT IS NOT DOUBLE BITCH
 
 public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlace head;
 	private DoublyLinkedPlace tail;
 	private DoublyLinkedPlaceList next;
+	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
 	private ScreenRow screenRow;
@@ -76,7 +78,7 @@ public class DoublyLinkedPlaceList {
 		
 		 if (getHead() == null) { 
 			 if (getTail() != null){
-				 System.out.println("trotaculo");
+				 System.out.println("ERROR");
 			 } 
 			 setHead(node);
 			 setTail(getHead());
@@ -122,5 +124,13 @@ public class DoublyLinkedPlaceList {
 
 	public void setScreenRow(ScreenRow screenRow) {
 		this.screenRow = screenRow;
+	}
+
+	public DoublyLinkedPlaceList getPrev() {
+		return prev;
+	}
+
+	public void setPrev(DoublyLinkedPlaceList prev) {
+		this.prev = prev;
 	}
 }
