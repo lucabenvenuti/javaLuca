@@ -62,13 +62,15 @@ public class ScreenRow {
 			System.out.println("ERROR1");
 			return false;
 			}
+		//DoublyLinkedPlace linkedPlace = doublyLinkedPlaceList.getTail();
 		if (position> (int)(Math.round(doublyLinkedPlaceList.getSize())/2) ){
+			DoublyLinkedPlace linkedPlaceEnd =doublyLinkedPlaceList.getTail();
 			i = seats;
 			position--;
 			for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
 					null&& linkedPlace.hasPrev()  && linkedPlace.getPosition()>position; //
 					linkedPlace=linkedPlace.getPrev()){
-				
+				if (linkedPlace.getPosition()==position+seats){linkedPlaceEnd =linkedPlace;} 
 				if (linkedPlace.getPosition()==position+i){
 					if(!isEmptySeat(linkedPlace)){
 						System.out.println("ERROR2");
@@ -78,7 +80,9 @@ public class ScreenRow {
 				}//else{return false;}
 					}
 			i = seats;
-			for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getTail();linkedPlace !=
+			for ( DoublyLinkedPlace linkedPlace=linkedPlaceEnd
+					//doublyLinkedPlaceList.getTail()
+					;linkedPlace !=
 					null && linkedPlace.getPosition()>position; //&& linkedPlace.hasPrev() 
 					linkedPlace=linkedPlace.getPrev()){
 				if (linkedPlace.getPosition()==position+i){
@@ -89,11 +93,12 @@ public class ScreenRow {
 				}
 			
 		}
-		else{
+		else{DoublyLinkedPlace linkedPlaceStart=doublyLinkedPlaceList.getHead();
 		
 		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
 				null && linkedPlace.getPosition()< position+seats; //&& linkedPlace.hasNext() 
 				linkedPlace=linkedPlace.getNext()){
+			if (linkedPlace.getPosition()==position){linkedPlaceStart =linkedPlace;} 
 			if (linkedPlace.getPosition()==position+i){
 				if(!isEmptySeat(linkedPlace)){
 					return false;
@@ -101,7 +106,9 @@ public class ScreenRow {
 			}
 				}
 		i=0;
-		for ( DoublyLinkedPlace linkedPlace=doublyLinkedPlaceList.getHead(); linkedPlace !=
+		for ( DoublyLinkedPlace linkedPlace=linkedPlaceStart
+				//doublyLinkedPlaceList.getHead()
+				; linkedPlace !=
 				null && linkedPlace.getPosition()< position+seats; //&& linkedPlace.hasNext() 
 				linkedPlace=linkedPlace.getNext()){
 			if (linkedPlace.getPosition()==position+i){
