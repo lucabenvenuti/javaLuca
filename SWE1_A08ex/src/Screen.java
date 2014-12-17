@@ -2,14 +2,20 @@ public class Screen {
 	public final static int MAXROWS = 5;
 	public SinglyLinkedLinearListSeatRows singlyLinkedLinearListSeatRows;
 	
-	public Screen(ScreenRow one, ScreenRow two, ScreenRow three) {
+	public Screen(ScreenRow one) {
 		singlyLinkedLinearListSeatRows = new SinglyLinkedLinearListSeatRows();
-			singlyLinkedLinearListSeatRows.add(one.getDoublyLinkedPlaceList());
-			singlyLinkedLinearListSeatRows.getTail().setScreenRow(one);
-			singlyLinkedLinearListSeatRows.add(two.getDoublyLinkedPlaceList());
-			singlyLinkedLinearListSeatRows.getTail().setScreenRow(two);
-			singlyLinkedLinearListSeatRows.add(three.getDoublyLinkedPlaceList());
-			singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
+		singlyLinkedLinearListSeatRows.add(one.getDoublyLinkedPlaceList());
+		singlyLinkedLinearListSeatRows.getTail().setScreenRow(one);
+	}
+	public Screen(ScreenRow one	, ScreenRow two){
+		this(one);
+		singlyLinkedLinearListSeatRows.add(two.getDoublyLinkedPlaceList());
+		singlyLinkedLinearListSeatRows.getTail().setScreenRow(two);
+	}
+	public Screen(ScreenRow one	, ScreenRow two	, ScreenRow three){
+		this(one, two);
+		singlyLinkedLinearListSeatRows.add(three.getDoublyLinkedPlaceList());
+		singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
 	}
 
 	public Screen(ScreenRow one, ScreenRow two, ScreenRow three, ScreenRow four) {

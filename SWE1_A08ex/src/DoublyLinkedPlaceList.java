@@ -14,10 +14,6 @@
  * @version 2014-12-09
  */
 
-/// IS NOT DOUBLE LINKED NOWWWWW!!!!!!!!!!!!!!!!!!!!
-//IT IS BITCH!  , SEE SETPREV, LINE 86
-//IT IS NOT DOUBLE BITCH
-
 public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlace head;
 	private DoublyLinkedPlace tail;
@@ -78,7 +74,7 @@ public class DoublyLinkedPlaceList {
 		
 		 if (getHead() == null) { 
 			 if (getTail() != null){
-				 System.out.println("ERROR");
+				 System.out.printf("%s%n","error");
 			 } 
 			 setHead(node);
 			 setTail(getHead());
@@ -86,20 +82,16 @@ public class DoublyLinkedPlaceList {
 		 } else{
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
-			 
 			 setTail(node);
 			 size = size+1;
-			 
 		 }
-
-		
 	}
 	
 	public void print() {
 		DoublyLinkedPlace p = head;
 		while (p != null) {
 		}
-		System.out.println("end of list.");
+		System.out.printf("%s%n","end of list.");
 	}
 
 	public DoublyLinkedPlaceList getNext() {

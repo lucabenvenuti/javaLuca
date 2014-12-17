@@ -56,7 +56,7 @@ public class SinglyLinkedLinearListSeatRows {
 		doublyLinkedPlaceList.setNext(null);
 		 if (getHead() == null) { 
 			 if (getTail() != null){
-				 System.out.println("ERROR");
+				 System.out.printf("%s%n","error");
 			 } 
 			 
 			 setHead(doublyLinkedPlaceList);
