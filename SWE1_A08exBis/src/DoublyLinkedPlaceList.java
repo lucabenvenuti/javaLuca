@@ -21,16 +21,16 @@ public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
-	private ScreenRow screenRow;
+//	private ScreenRow screenRow;
 	
 	public DoublyLinkedPlaceList(int row){
 		this.setRow(row);
 	}
 	
-	public DoublyLinkedPlaceList(int row, ScreenRow screenRow){
+/*	public DoublyLinkedPlaceList(int row, ScreenRow screenRow){
 		this.setRow(row);
 		this.setScreenRow(screenRow);
-	}
+	}*/
 
 	public DoublyLinkedPlace getHead() {
 		return head;
@@ -110,13 +110,13 @@ public class DoublyLinkedPlaceList {
 		this.row = row;
 	}
 
-	public ScreenRow getScreenRow() {
+/*	public ScreenRow getScreenRow() {
 		return screenRow;
 	}
 
 	public void setScreenRow(ScreenRow screenRow) {
 		this.screenRow = screenRow;
-	}
+	}*/
 
 	public DoublyLinkedPlaceList getPrev() {
 		return prev;

@@ -2,10 +2,41 @@
 public class ScreenRow {
 	private Category category;
 	public StringBuffer rowLayout;
+	
+	private DoublyLinkedPlaceList head;
+	private DoublyLinkedPlaceList tail;
+	private ScreenRow next;
+//	private ScreenRow screenRow;
+	private ScreenRow prev;
+	private int size;
+	private int row;
+//	private ScreenRow screenRow;
+
+	public void add(DoublyLinkedPlaceList node){
+		node.setNext(null);
+		 if (getHead() == null) { 
+			 if (getTail() != null){
+				 System.out.printf("%s%n","error");
+			 } 
+			 
+			 setHead(node);
+			 setTail(getHead());
+			 size = 1;
+		 } else{
+			// doublyLinkedPlaceList.setPrev(getTail());
+			 getTail().setNext(node);
+			 node.setPrev(getTail());
+			 setTail(node);
+			 size = size + 1;
+			 
+		 }
+	}
 
 	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	
-	
+	public ScreenRow(){
+		
+	}
 	public DoublyLinkedPlaceList getDoublyLinkedPlaceList() {
 		return doublyLinkedPlaceList;
 	}
@@ -17,6 +48,7 @@ public class ScreenRow {
 		for (int i=0; i<rowLayout.length(); i++){
 			Place newPlace = new Place(rowLayout.charAt(i));
 			DoublyLinkedPlace newDoublyLinkedPlace = new DoublyLinkedPlace(newPlace, i);
+			//doublyLinkedPlaceList  =  new DoublyLinkedPlaceList(rowNumber);
 			doublyLinkedPlaceList.add(newDoublyLinkedPlace);
 			}
 	}
@@ -139,5 +171,61 @@ public class ScreenRow {
 	public void setRowLayout(StringBuffer rowLayout) {
 		this.rowLayout = rowLayout;
 	}
+
+	public ScreenRow getNext() {
+		return next;
+	}
+
+	public void setNext(ScreenRow next) {
+		this.next = next;
+	}
+
+	public DoublyLinkedPlaceList getHead() {
+		return head;
+	}
+
+	public void setHead(DoublyLinkedPlaceList head) {
+		this.head = head;
+	}
+
+	public DoublyLinkedPlaceList getTail() {
+		return tail;
+	}
+
+	public void setTail(DoublyLinkedPlaceList tail) {
+		this.tail = tail;
+	}
+
+	public ScreenRow getPrev() {
+		return prev;
+	}
+
+	public void setPrev(ScreenRow prev) {
+		this.prev = prev;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+/*	public ScreenRow getFirst() {
+		return first;
+	}
+
+	public void setFirst(ScreenRow first) {
+		this.first = first;
+	}*/
 	
 }
