@@ -16,7 +16,7 @@ public class Cinema {
 	public final static String S09 = "Booking failed";	
 	
 	public Category[] categoryArray= {new Category(8,'A'),new Category(10,'B'),
-			new Category(11, 'C'), new Category(20, 'D')};//new Category[4];
+			new Category(11, 'C'), new Category(20, 'D')};
 	
 	private Screen one;
 	private Screen two;
@@ -85,12 +85,6 @@ public class Cinema {
 				a = screenRow.calcPrice(numberOfSeatToBook);
 			}
 		}
-	/*	for ( DoublyLinkedPlaceList linkedPlaceList = head; 
-				linkedPlaceList != null;
-				linkedPlaceList = linkedPlaceList.getNext()){
-			if(linkedPlaceList.getRow()==row)
-				{a = linkedPlaceList.getScreenRow().calcPrice(numberOfSeatToBook);}
-		}*/
 		System.out.printf("%s%d %s%n%n",S08, a, EURO);
 	}
 
@@ -147,13 +141,6 @@ public class Cinema {
 				printString(screenRow, printRow);
 			}
 		}
-	/*	for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
-				linkedPlaceList != null;
-				linkedPlaceList = linkedPlaceList.getNext()){
-			if (linkedPlaceList.getRow()==row){
-				printString(linkedPlaceList, printRow);
-			break;}
-		}*/
 		System.out.printf("%s%n",printRow);
 	}
 	
@@ -167,12 +154,6 @@ public class Cinema {
 				screenRow = screenRow.getNext()){
 			printString(screenRow, printRow);
 		}
-
-/*		for ( DoublyLinkedPlaceList linkedPlaceList = screen.singlyLinkedLinearListSeatRows.getHead(); 
-				linkedPlaceList != null;
-				linkedPlaceList = linkedPlaceList.getNext()){
-				printString(linkedPlaceList, printRow);
-		}*/
 		System.out.printf("%s%n",printRow);
 	}
 	

@@ -1,7 +1,5 @@
 public class Screen {
 	public final static int MAXROWS = 5;
-//	public SinglyLinkedLinearListSeatRows singlyLinkedLinearListSeatRows;
-//	private ScreenRow screenRow;
 	private ScreenRow head;
 	private ScreenRow tail;
 	private int size;
@@ -9,11 +7,6 @@ public class Screen {
 	public void add(ScreenRow node){
 		node.setNext(null);
 		node.setRow(node.getDoublyLinkedPlaceList().getRow());
-				//getRowLayout());
-		//node.setRowLayout(node.getRow());
-	//	System.out.println(node.getDoublyLinkedPlaceList().getRow());
-	//	node.setCategory(node.getCategory());
-		
 		 if (getHead() == null) { 
 			 if (getTail() != null){
 				 System.out.printf("%s%n","error");
@@ -23,7 +16,6 @@ public class Screen {
 			 setTail(getHead());
 			 size = 1;
 		 } else{
-			// doublyLinkedPlaceList.setPrev(getTail());
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
 			 setTail(node);
@@ -33,68 +25,38 @@ public class Screen {
 	}
 	
 	public Screen(ScreenRow one) {
-	/*	singlyLinkedLinearListSeatRows = new SinglyLinkedLinearListSeatRows();
-		singlyLinkedLinearListSeatRows.add(one.getDoublyLinkedPlaceList());
-		singlyLinkedLinearListSeatRows.getTail().setScreenRow(one);*/
-	//	ScreenRow screenRow  =  new ScreenRow();//(one.getCategory(), one.getRowLayout().toString(), one.getRow());
-		//screenRow.add(one.getDoublyLinkedPlaceList());
-	//	doublyLinkedPlaceList.add(newDoublyLinkedPlace);
-	//	head = one;
-	//	tail = one;
 		add(one);
-
 	}
 	public Screen(ScreenRow one	, ScreenRow two){
 		this(one);
-	//	singlyLinkedLinearListSeatRows.add(two.getDoublyLinkedPlaceList());
-	//	singlyLinkedLinearListSeatRows.getTail().setScreenRow(two);
-		//one.setNext(two);
-		//two.setPrev(one);
 		add(two);
-//		getTail().setRowLayout(two.getRowLayout());
-//		getTail().setRow(two.getRow());
-//		getTail().setCategory(two.getCategory());
 	}
 	public Screen(ScreenRow one	, ScreenRow two	, ScreenRow three){
 		this(one, two);
-	//	singlyLinkedLinearListSeatRows.add(three.getDoublyLinkedPlaceList());
-	//	singlyLinkedLinearListSeatRows.getTail().setScreenRow(three);
 		add(three);
 	}
 
 	public Screen(ScreenRow one, ScreenRow two, ScreenRow three, ScreenRow four) {
 		this(one, two, three);
-		//		singlyLinkedLinearListSeatRows.add(four.getDoublyLinkedPlaceList());
-		//		singlyLinkedLinearListSeatRows.getTail().setScreenRow(four);
 		add(four);
 		}
 	
 	public Screen(ScreenRow one, ScreenRow two, ScreenRow three, ScreenRow four, ScreenRow five) {
 		this(one, two, three, four);
-	//	singlyLinkedLinearListSeatRows.add(five.getDoublyLinkedPlaceList());
-	//	singlyLinkedLinearListSeatRows.getTail().setScreenRow(five);
 		add(five);
 	}
 	
 	
 	public boolean book(int row, int position, int seats){
-		System.out.println("trota");
 		for(ScreenRow screenRow = head; screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
-			System.out.println(screenRow.getRow());
 			if(screenRow.getRow()==row){
 				
 				return screenRow.book(position-1, seats);
 			}
 		}
 		
-		/*for ( DoublyLinkedPlaceList linkedPlaceList = head.getHead(); 
-				linkedPlaceList != null && linkedPlaceList.getRow()<=(row); 
-				linkedPlaceList = linkedPlaceList.getNext()){
-			if (linkedPlaceList.getRow()==row){//-1){
-				return linkedPlaceList.getScreenRow().book(position-1, seats);
-			}
-		}*/
+
 		return false;
 	}
 	public ScreenRow getHead() {

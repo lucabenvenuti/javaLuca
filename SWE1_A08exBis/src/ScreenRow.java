@@ -6,11 +6,9 @@ public class ScreenRow {
 	private DoublyLinkedPlaceList head;
 	private DoublyLinkedPlaceList tail;
 	private ScreenRow next;
-//	private ScreenRow screenRow;
 	private ScreenRow prev;
 	private int size;
 	private int row;
-//	private ScreenRow screenRow;
 
 	public void add(DoublyLinkedPlaceList node){
 		node.setNext(null);
@@ -23,7 +21,6 @@ public class ScreenRow {
 			 setTail(getHead());
 			 size = 1;
 		 } else{
-			// doublyLinkedPlaceList.setPrev(getTail());
 			 getTail().setNext(node);
 			 node.setPrev(getTail());
 			 setTail(node);
@@ -48,7 +45,6 @@ public class ScreenRow {
 		for (int i=0; i<rowLayout.length(); i++){
 			Place newPlace = new Place(rowLayout.charAt(i));
 			DoublyLinkedPlace newDoublyLinkedPlace = new DoublyLinkedPlace(newPlace, i);
-			//doublyLinkedPlaceList  =  new DoublyLinkedPlaceList(rowNumber);
 			doublyLinkedPlaceList.add(newDoublyLinkedPlace);
 			}
 	}
@@ -87,7 +83,6 @@ public class ScreenRow {
 		}
 	
 	public boolean book(int position, int seats) {
-	//	System.out.println(doublyLinkedPlaceList.getSize());
 		if(position+seats>doublyLinkedPlaceList.getSize()){
 			return false;
 			}
@@ -218,16 +213,7 @@ public class ScreenRow {
 	}
 
 	public void setRow(int row) {
-		//System.out.println(row);
 		this.row = row;
 	}
-
-/*	public ScreenRow getFirst() {
-		return first;
-	}
-
-	public void setFirst(ScreenRow first) {
-		this.first = first;
-	}*/
 	
 }
