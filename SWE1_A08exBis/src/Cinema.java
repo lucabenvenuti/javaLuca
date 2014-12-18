@@ -1,3 +1,16 @@
+/**
+ * Cinema.java
+ *
+ * A {@link ScreenRow} is a class which holds the layout 
+ * of a cinema, and it interacts with the user
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-18
+ */
 public class Cinema {
 
 	public static final int NOFSCREENS = 3;

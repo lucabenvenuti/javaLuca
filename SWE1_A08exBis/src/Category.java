@@ -1,3 +1,16 @@
+/**
+ * Category.java
+ *
+ * A {@link Category} is a class which holds the symbol and the price
+ * of a ScreenRow
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-18
+ */
 public class Category {
 
 	private char symbol;

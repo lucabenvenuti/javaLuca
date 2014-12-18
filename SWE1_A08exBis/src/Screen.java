@@ -1,3 +1,16 @@
+/**
+ * Screen.java
+ *
+ * A {@link Screen} is a class which holds the head and tail of a
+ * {@link ScreenRow} list, and it does booking at a screen level
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-18
+ */
 public class Screen {
 	/**
 	 * for now a screen can have a maximum of 5 rows

@@ -5,9 +5,11 @@
  * place/seat within a list. It also stores the position within the list and the
  * seat itself.
  * 
- * Software Development I, 2014WS Institute for Pervasive Computing, JKU Linz
+ * Software Development I, 2014WS 
+ * JKU Linz
  * 
  * @author Michael Haslgrübler
+ * @author Luca Benvenuti
  * @version 2014-12-09
  */
 

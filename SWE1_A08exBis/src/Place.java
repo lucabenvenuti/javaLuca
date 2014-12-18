@@ -1,4 +1,16 @@
-
+/**
+ * Place.java
+ *
+ * A {@link Place} is a class which holds the availability of a Place
+ * of a ScreenRow
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-18
+ */
 public class Place {
 
 	/**

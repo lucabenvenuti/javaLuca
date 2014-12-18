@@ -5,13 +5,14 @@
  * {@link DoublyLinkedPlace} list.
  * 
  * Software Development I, 2014WS
- * Institute for Pervasive Computing, JKU Linz
+ * JKU Linz
  * 
  * @author Michael Haslgrübler
  * @author Welma Pereira
  * @author Andreas Riener
+ * @author Luca Benvenuti
  * 
- * @version 2014-12-09
+ * @version 2014-12-18
  */
 
 public class DoublyLinkedPlaceList {

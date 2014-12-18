@@ -1,10 +1,24 @@
-
+/**
+ * ScreenRow.java
+ *
+ * A {@link ScreenRow} is a class which holds the head and tail of a
+ * {@link DoublyLinkedPlaceList} list, and it does booking 
+ * checks and actual booking at a row level
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-18
+ */
 public class ScreenRow {
 	private Category category;
 	public StringBuffer rowLayout;
 
 	private DoublyLinkedPlaceList head;
 	private DoublyLinkedPlaceList tail;
+	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	private ScreenRow next;
 	private ScreenRow prev;
 	private int size;
@@ -32,8 +46,6 @@ public class ScreenRow {
 
 		}
 	}
-
-	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 
 	/**
 	 * @return
