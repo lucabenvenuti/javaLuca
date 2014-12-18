@@ -87,6 +87,7 @@ public class ScreenRow {
 		}
 	
 	public boolean book(int position, int seats) {
+	//	System.out.println(doublyLinkedPlaceList.getSize());
 		if(position+seats>doublyLinkedPlaceList.getSize()){
 			return false;
 			}
@@ -217,6 +218,7 @@ public class ScreenRow {
 	}
 
 	public void setRow(int row) {
+		//System.out.println(row);
 		this.row = row;
 	}
 

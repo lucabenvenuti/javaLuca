@@ -67,7 +67,7 @@ public class Cinema {
 			printRow(screen1[seSc], row);
 			positionOfSeatToBook = positionOfSeatToBookRead();
 			if (screen1[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook)) {	
-				printPrice(screen1[seSc].singlyLinkedLinearListSeatRows.getHead(), row, numberOfSeatToBook);		
+				printPrice(screen1[seSc], row, numberOfSeatToBook);		
 			} else{System.out.printf("%s%n%n",S09);}
 			
 			printScreen(screen1[seSc]);
@@ -76,15 +76,21 @@ public class Cinema {
 		} 	
 	}
 	
-	private void printPrice(DoublyLinkedPlaceList head, int row,
+	private void printPrice(Screen screen, int row,
 			int numberOfSeatToBook) {
 		int a =0;
-		for ( DoublyLinkedPlaceList linkedPlaceList = head; 
+		for(ScreenRow screenRow = screen.getHead(); screenRow != null && screenRow.getRow()<=(row);
+				screenRow = screenRow.getNext()){
+			if(screenRow.getRow()==row){
+				a = screenRow.calcPrice(numberOfSeatToBook);
+			}
+		}
+	/*	for ( DoublyLinkedPlaceList linkedPlaceList = head; 
 				linkedPlaceList != null;
 				linkedPlaceList = linkedPlaceList.getNext()){
 			if(linkedPlaceList.getRow()==row)
 				{a = linkedPlaceList.getScreenRow().calcPrice(numberOfSeatToBook);}
-		}
+		}*/
 		System.out.printf("%s%d %s%n%n",S08, a, EURO);
 	}
 
@@ -124,13 +130,13 @@ public class Cinema {
 	}
 
 	public StringBuffer printString(ScreenRow screenRow, StringBuffer printRow){
-	printRow.append("[");
-	printRow.append(String.valueOf(screenRow.getCategory().getSymbol()));
-	printRow.append("]");
-	printRow.append("|");
-	printRow.append(screenRow.getRowLayout());
-	printRow.append("\n");
-	return printRow;
+		printRow.append("[");
+		printRow.append(String.valueOf(screenRow.getCategory().getSymbol()));
+		printRow.append("]");
+		printRow.append("|");
+		printRow.append(screenRow.getRowLayout());
+		printRow.append("\n");
+		return printRow;
 	}
 	
 	public void printRow(Screen screen, int row){
@@ -154,7 +160,7 @@ public class Cinema {
 	public void printScreen(Screen screen){
 		StringBuffer printRow = new StringBuffer("");
 		printRow.append("    [");
-		for (int i=0; i<screen.singlyLinkedLinearListSeatRows.getHead().getScreenRow().getRowLayout().length()-2;i++)
+		for (int i=0; i<screen.getHead().getRowLayout().length()-2;i++)
 		{printRow.append("-");}
 		printRow.append("]\n");
 		for(ScreenRow screenRow = screen.getHead(); screenRow != null ;

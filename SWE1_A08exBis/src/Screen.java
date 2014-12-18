@@ -8,6 +8,12 @@ public class Screen {
 	
 	public void add(ScreenRow node){
 		node.setNext(null);
+		node.setRow(node.getDoublyLinkedPlaceList().getRow());
+				//getRowLayout());
+		//node.setRowLayout(node.getRow());
+	//	System.out.println(node.getDoublyLinkedPlaceList().getRow());
+	//	node.setCategory(node.getCategory());
+		
 		 if (getHead() == null) { 
 			 if (getTail() != null){
 				 System.out.printf("%s%n","error");
@@ -36,7 +42,7 @@ public class Screen {
 	//	head = one;
 	//	tail = one;
 		add(one);
-		
+
 	}
 	public Screen(ScreenRow one	, ScreenRow two){
 		this(one);
@@ -45,6 +51,9 @@ public class Screen {
 		//one.setNext(two);
 		//two.setPrev(one);
 		add(two);
+//		getTail().setRowLayout(two.getRowLayout());
+//		getTail().setRow(two.getRow());
+//		getTail().setCategory(two.getCategory());
 	}
 	public Screen(ScreenRow one	, ScreenRow two	, ScreenRow three){
 		this(one, two);
@@ -69,9 +78,12 @@ public class Screen {
 	
 	
 	public boolean book(int row, int position, int seats){
+		System.out.println("trota");
 		for(ScreenRow screenRow = head; screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
+			System.out.println(screenRow.getRow());
 			if(screenRow.getRow()==row){
+				
 				return screenRow.book(position-1, seats);
 			}
 		}
