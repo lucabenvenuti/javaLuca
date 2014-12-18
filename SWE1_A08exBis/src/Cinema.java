@@ -2,7 +2,7 @@
  * Cinema.java
  *
  * A {@link ScreenRow} is a class which holds the layout 
- * of a cinema, and it interacts with the user
+ * of a cinema, and interacts with the user
  * 
  * Software Development I, 2014WS
  * JKU Linz
@@ -144,8 +144,8 @@ public class Cinema {
 	 */
 	private int rowRead(int seSc, int numberOfSeatToBook) {
 		int row=0;
-		StringBuffer printPrice = new StringBuffer("");
-		do {
+		
+		do {StringBuffer printPrice = new StringBuffer("");
 			printPrice.append (S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook)));
 			printPrice.append (S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook)));
 			printPrice.append (S05 + Integer.toString((int)(categoryArray[2].getPrice()*numberOfSeatToBook)));
