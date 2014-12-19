@@ -19,6 +19,7 @@ public class Screen {
 	private ScreenRow head;
 	private ScreenRow tail;
 	private int size;
+	public int rowCounter = 0;
 
 	/**
 	 * @param node
@@ -26,7 +27,7 @@ public class Screen {
 	 */
 	public void add(ScreenRow node){
 		node.setNext(null);
-		node.setRow(node.getDoublyLinkedPlaceList().getRow());
+	//	node.setRow(node.getDoublyLinkedPlaceList().getRow());
 		if (getHead() == null) { 
 			if (getTail() != null){
 				System.out.printf("%s%n","error");
@@ -35,11 +36,15 @@ public class Screen {
 			setHead(node);
 			setTail(getHead());
 			size = 1;
+			rowCounter = 1;
+			node.setRow(1);
 		} else{
 			getTail().setNext(node);
-			node.setPrev(getTail());
+	//		node.setPrev(getTail());
 			setTail(node);
 			size = size + 1;
+			rowCounter++;
+			node.setRow(rowCounter);
 
 		}
 	}
