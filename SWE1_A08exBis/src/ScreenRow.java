@@ -16,36 +16,10 @@ public class ScreenRow {
 	private Category category;
 	public StringBuffer rowLayout;
 
-//	private DoublyLinkedPlaceList head;
-//	private DoublyLinkedPlaceList tail;
 	private DoublyLinkedPlaceList doublyLinkedPlaceList; //must be initialized
 	private ScreenRow next;
-//	private ScreenRow prev;
 	private int size;
 	private int row;
-
-	/**
-	 * @param node
-	 *            a DoublyLinkedPlaceList node to append to the list
-	 */
-/*	public void add(DoublyLinkedPlaceList node){
-		node.setNext(null);
-		if (getHead() == null) { 
-			if (getTail() != null){
-				System.out.printf("%s%n","error");
-			} 
-
-			setHead(node);
-			setTail(getHead());
-			size = 1;
-		} else{
-			getTail().setNext(node);
-			node.setPrev(getTail());
-			setTail(node);
-			size = size + 1;
-
-		}
-	}*/
 
 	/**
 	 * @return
@@ -265,48 +239,6 @@ public class ScreenRow {
 	public void setNext(ScreenRow next) {
 		this.next = next;
 	}
-
-	/**
-	 * @return
-	 */
-/*	public DoublyLinkedPlaceList getHead() {
-		return head;
-	}
-
-	/**
-	 * @param head
-	 */
-	/*	public void setHead(DoublyLinkedPlaceList head) {
-		this.head = head;
-	}
-
-	/**
-	 * @return
-	 */
-	/*	public DoublyLinkedPlaceList getTail() {
-		return tail;
-	}
-
-	/**
-	 * @param tail
-	 */
-	/*	public void setTail(DoublyLinkedPlaceList tail) {
-		this.tail = tail;
-	}
-
-	/**
-	 * @return
-	 */
-	/*	public ScreenRow getPrev() {
-		return prev;
-	}
-
-	/**
-	 * @param prev
-	 */
-	/*	public void setPrev(ScreenRow prev) {
-		this.prev = prev;
-	}*/
 
 	/**
 	 * @return
