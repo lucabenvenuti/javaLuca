@@ -19,6 +19,8 @@ public class Screen {
 	private ScreenRow head;
 	private ScreenRow tail;
 	private int size;
+	private Movie movie;
+	private String screeningTime;
 
 	/**
 	 * @param node
@@ -92,10 +94,12 @@ public class Screen {
 	}
 
 	
-	/*public Screen(Screen screen, Movie movie, int screeningTime){
-		this(screen.)
+	public Screen(Screen screen, Movie movie, String screeningTime){
+		this.setHead(screen.getHead());
+		setMovie(movie);
+		setScreeningTime(screeningTime);
 		
-	}*/
+	}
 
 	public Screen(ScreenRow one, Movie movie, String screeningTime){
 		
@@ -142,5 +146,21 @@ public class Screen {
 	 */
 	public void setTail(ScreenRow tail) {
 		this.tail = tail;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public String getScreeningTime() {
+		return screeningTime;
+	}
+
+	public void setScreeningTime(String screeningTime) {
+		this.screeningTime = screeningTime;
 	}
 }
