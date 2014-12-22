@@ -17,16 +17,21 @@ abstract class AbstractMovie implements Movie {
 		
 	}
 	
-	public AbstractMovie(Screen[] screens, String screeningTime, int length){
+	public AbstractMovie(Screen[] screens, int length){
 		this(screens);
 		setLength(length);
-		setScreeningTime(screeningTime);
+	//	setScreeningTime(screeningTime);String screeningTime, String screeningTime, screeningTime, 
 		setPriceSurcharge();
 	}
 	
-	public AbstractMovie(Screen[] screens, String screeningTime, int length, String name){
-		this(screens, screeningTime, length);
+	public AbstractMovie(Screen[] screens, int length, String name){
+		this(screens, length);
 		setName(name);
+	}
+	
+	public AbstractMovie(Screen[] screens, int length, String name, String screeningTime){
+		this(screens, length, name);
+		setScreeningTime(screeningTime);
 	}
 	
 	public int priceSurcharge(){

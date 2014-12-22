@@ -12,24 +12,29 @@ class SpecialMovie implements Movie {
 		
 	}
 	
-	//public Screen(Screen screen, Movie movie, String screeningTime);
+	//public Screen(Screen screen, Movie movie, String screeningTime);String screeningTime, 
 	
-	public SpecialMovie(Screen[] screens, String screeningTime, int priceSurcharge){
+	public SpecialMovie(Screen[] screens, int priceSurcharge){
 		this(screens);
-		setScreeningTime(screeningTime);
+		//setScreeningTime(screeningTime);
 		//setLength(length);
 		setPriceSurcharge(priceSurcharge);
 	}
 	
 /*	public SpecialMovie(Screen[] screens, int length, String name){
 		this(screens, length);
-		setName(name);
+		setName(name);screeningTime, String screeningTime, 
 	}*/
 	
-	public SpecialMovie(Screen[] screens, String screeningTime, int length, String name, int priceSurcharge){
-		this(screens, screeningTime, priceSurcharge);
+	public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
+		this(screens, priceSurcharge);
 		setLength(length);
 		setName(name);
+	}
+	
+	public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name, String screeningTime){
+		this(screens, priceSurcharge, length, name);
+		setScreeningTime(screeningTime);
 	}
 	
 	public int priceSurcharge(){
@@ -77,12 +82,18 @@ class SpecialMovie implements Movie {
 		return "[SS]";
 	}
 
+//	@Override
+
+
+/*	public String getScreeningTime() {
+		return screeningTime;
+	}*/
 	public String getScreeningTime() {
+		// TODO Auto-generated method stub
 		return screeningTime;
 	}
 
 	public void setScreeningTime(String screeningTime) {
 		this.screeningTime = screeningTime;
 	}
-	
 }

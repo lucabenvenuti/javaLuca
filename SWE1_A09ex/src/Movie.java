@@ -7,4 +7,5 @@ interface Movie {
 	String getQualifier();
 	void setScreens(Screen[] screens);
 	Screen[] getScreens();
+	String getScreeningTime();
 }

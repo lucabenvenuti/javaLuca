@@ -1,16 +1,19 @@
 
 class ThreeDMovie extends AbstractMovie {
 	
-	public ThreeDMovie(Screen[] screens, String screeningTime, int length,
-			String name) {
-		super(screens, screeningTime, length, name);
+
+
+
+
+	public ThreeDMovie(Screen[] screens, int length, String name) {
+		super(screens, length, name);
 		// TODO Auto-generated constructor stub
 	}
 
 
 
-	public ThreeDMovie(Screen[] screens, String screeningTime, int length) {
-		super(screens, screeningTime, length);
+	public ThreeDMovie(Screen[] screens, int length) {
+		super(screens, length);
 		// TODO Auto-generated constructor stub
 	}
 

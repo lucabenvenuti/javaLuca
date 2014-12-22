@@ -43,6 +43,13 @@ public class Cinema {
 	private Screen one;
 	private Screen two;
 	private Screen three;
+	private Movie first;
+	private Movie second;
+	private Movie third;
+	private Movie fourth;
+	private Movie fifth;
+	private Movie sixth;	
+	
 	private Screen[] screen1 = new Screen[3];
 
 	/**
@@ -54,6 +61,8 @@ public class Cinema {
 				new ScreenRow(categoryArray[1], "#### #### ",2), 
 				new ScreenRow(categoryArray[2], "######### ",3), 
 				new ScreenRow(categoryArray[2], "##########",4));
+		
+		
 		two = new Screen(new ScreenRow(categoryArray[0], "###########",1), 
 				new ScreenRow(categoryArray[1], " ########  ",2), 
 				new ScreenRow(categoryArray[2], "  ######   ",3), 
@@ -67,11 +76,15 @@ public class Cinema {
 		screen1[0] = one;
 		screen1[1] = two;
 		screen1[2] = three;
+		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
+		first = new SpecialMovie(screen1, 10, 120, "20:30" );
+		
 		
 		
 	}
 	
-	private Movie movie1;
+//	private Movie movie1;
+	//public Screen(Screen screen, Movie movie, String screeningTime)
 	
 
 
@@ -122,7 +135,7 @@ public class Cinema {
 		for(ScreenRow screenRow = screen.getHead(); screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
 			if(screenRow.getRow()==row){
-				a = screenRow.calcPrice(numberOfSeatToBook);
+				a = (screenRow.calcPrice(numberOfSeatToBook)+screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 			}
 		}
 		System.out.printf("%s%d %s%n%n",S08, a, EURO);
