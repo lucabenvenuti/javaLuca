@@ -1,37 +1,38 @@
 
-abstract class AbstractMovie implements Movie {
-//class Circle implements GeometricFigure
-	
-	//Cinema.NOFSCREENS
-	
-	//abstract method getQualifier from superclass
-	
+class SpecialMovie implements Movie {
+
 	Screen[] screens = new Screen[Cinema.NOFSCREENS];
 	private int length;
 	private int priceSurcharge;
 	private String name;
 	
-	public AbstractMovie(Screen[] screens){
+	public SpecialMovie(Screen[] screens){
 		setScreens(screens);
 		
 	}
 	
-	public AbstractMovie(Screen[] screens, int length){
+	public SpecialMovie(Screen[] screens, int priceSurcharge){
 		this(screens);
-		setLength(length);
-		setPriceSurcharge();
+		//setLength(length);
+		setPriceSurcharge(priceSurcharge);
 	}
 	
-	public AbstractMovie(Screen[] screens, int length, String name){
+/*	public SpecialMovie(Screen[] screens, int length, String name){
 		this(screens, length);
+		setName(name);
+	}*/
+	
+	public SpecialMovie(Screen[] screens, int length, String name, int priceSurcharge){
+		this(screens, priceSurcharge);
+		setLength(length);
 		setName(name);
 	}
 	
 	public int priceSurcharge(){
-		if (length()>120){
+	/*	if (length()>120){
 			return 1;
-		}else {return 0;}
-		
+		}else {return 0;}*/
+		return priceSurcharge;
 	}
 	
 	
@@ -60,12 +61,16 @@ abstract class AbstractMovie implements Movie {
 		return priceSurcharge;
 	}
 
-	public void setPriceSurcharge() {
-		this.priceSurcharge = priceSurcharge();
+	public void setPriceSurcharge(int priceSurcharge) {
+		this.priceSurcharge = priceSurcharge;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getQualifier(){
+		return "[SS]";
 	}
 	
 }
