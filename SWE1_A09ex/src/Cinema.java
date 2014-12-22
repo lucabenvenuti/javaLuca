@@ -43,14 +43,16 @@ public class Cinema {
 	private Screen one;
 	private Screen two;
 	private Screen three;
-	private Movie first;
-	private Movie second;
-	private Movie third;
-	private Movie fourth;
-	private Movie fifth;
-	private Movie sixth;	
+	
+	private Movie alpha;
+	private Movie beta;
+	private Movie gamma;
 	
 	private Screen[] screen1 = new Screen[3];
+	
+	private Screen[] screenFilm1= new Screen[1];
+	private Screen[] screenFilm2= new Screen[3];
+	private Screen[] screenFilm3= new Screen[2];
 
 	/**
 	 * I populate the cinema and the screen array
@@ -73,11 +75,45 @@ public class Cinema {
 				new ScreenRow(categoryArray[2], "####################",3), 
 				new ScreenRow(categoryArray[2], "####################",4), 
 				new ScreenRow(categoryArray[3], "   ##          ##   ",5));
+
+		
+		//		first = new Screen(one,)
 		screen1[0] = one;
 		screen1[1] = two;
 		screen1[2] = three;
+		
+		screenFilm1[0] = one;
+		
+		alpha = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
+	//	screenFilm1[0] = new Screen(one, alpha, "20:30");
+		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
+		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
+		
+		screenFilm2[0] = one;
+		screenFilm2[1] = two;
+		screenFilm2[2] = three;
+		
+		beta = new TwoDMovie(screenFilm2, 97, "Magic in the Moonlight");
+		Screen[] screenFilmSecond =  {new Screen(one, beta, "Sunday 8PM"),
+				new Screen(two, beta, "Sunday 8PM"),
+				new Screen(three, beta, "Sunday 6PM")};
+		beta = new TwoDMovie(screenFilmSecond, beta.length(), beta.getName());
+		
+		screenFilm3[0] = one;
+		screenFilm3[1] = two;
+		
+		gamma = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
+		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6PM"),
+				new Screen(two, gamma, "Saturday 7PM")};
+		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
+		
+		
+	//	screenFilm1[0] = new Screen(one,);
+		
 		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
-		first = new SpecialMovie(screen1, 10, 120, "20:30" );
+//		first = new SpecialMovie(screen1, 10, 120, "20:30" );
+		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name)
+		//public Screen(Screen screen, Movie movie, String screeningTime){
 		
 		
 		
