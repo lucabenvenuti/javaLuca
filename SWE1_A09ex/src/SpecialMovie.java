@@ -5,14 +5,18 @@ class SpecialMovie implements Movie {
 	private int length;
 	private int priceSurcharge;
 	private String name;
+	private String screeningTime;
 	
 	public SpecialMovie(Screen[] screens){
 		setScreens(screens);
 		
 	}
 	
-	public SpecialMovie(Screen[] screens, int priceSurcharge){
+	//public Screen(Screen screen, Movie movie, String screeningTime);
+	
+	public SpecialMovie(Screen[] screens, String screeningTime, int priceSurcharge){
 		this(screens);
+		setScreeningTime(screeningTime);
 		//setLength(length);
 		setPriceSurcharge(priceSurcharge);
 	}
@@ -22,8 +26,8 @@ class SpecialMovie implements Movie {
 		setName(name);
 	}*/
 	
-	public SpecialMovie(Screen[] screens, int length, String name, int priceSurcharge){
-		this(screens, priceSurcharge);
+	public SpecialMovie(Screen[] screens, String screeningTime, int length, String name, int priceSurcharge){
+		this(screens, screeningTime, priceSurcharge);
 		setLength(length);
 		setName(name);
 	}
@@ -71,6 +75,14 @@ class SpecialMovie implements Movie {
 	
 	public String getQualifier(){
 		return "[SS]";
+	}
+
+	public String getScreeningTime() {
+		return screeningTime;
+	}
+
+	public void setScreeningTime(String screeningTime) {
+		this.screeningTime = screeningTime;
 	}
 	
 }

@@ -10,20 +10,22 @@ abstract class AbstractMovie implements Movie {
 	private int length;
 	private int priceSurcharge;
 	private String name;
+	private String screeningTime;
 	
 	public AbstractMovie(Screen[] screens){
 		setScreens(screens);
 		
 	}
 	
-	public AbstractMovie(Screen[] screens, int length){
+	public AbstractMovie(Screen[] screens, String screeningTime, int length){
 		this(screens);
 		setLength(length);
+		setScreeningTime(screeningTime);
 		setPriceSurcharge();
 	}
 	
-	public AbstractMovie(Screen[] screens, int length, String name){
-		this(screens, length);
+	public AbstractMovie(Screen[] screens, String screeningTime, int length, String name){
+		this(screens, screeningTime, length);
 		setName(name);
 	}
 	
@@ -66,6 +68,14 @@ abstract class AbstractMovie implements Movie {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getScreeningTime() {
+		return screeningTime;
+	}
+
+	public void setScreeningTime(String screeningTime) {
+		this.screeningTime = screeningTime;
 	}
 	
 }

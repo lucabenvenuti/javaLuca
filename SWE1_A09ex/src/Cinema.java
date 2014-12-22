@@ -67,7 +67,13 @@ public class Cinema {
 		screen1[0] = one;
 		screen1[1] = two;
 		screen1[2] = three;
+		
+		
 	}
+	
+	private Movie movie1;
+	
+
 
 	/**
 	 * main run of the code

@@ -97,6 +97,10 @@ public class Screen {
 		
 	}*/
 
+	public Screen(ScreenRow one, Movie movie, String screeningTime){
+		
+	} 
+	
 	/**
 	 * @param row
 	 * @param position
