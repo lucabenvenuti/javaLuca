@@ -31,6 +31,7 @@ public class Cinema {
 	public final static String S07 = "Which Position?";
 	public final static String S08 = "Successfully completed booking. Please pay: ";
 	public final static String S09 = "Booking failed";	
+	public final static String S10 = "Movie selection:";
 
 	/**
 	 * the categories are fixed, both symbols and prices
@@ -140,6 +141,7 @@ public class Cinema {
 		String inputKey = "";
 
 		System.out.printf("%s%n",S01);
+		printMovie();
 		inputKey = Input.readString();
 		while (continuation){
 
@@ -151,7 +153,7 @@ public class Cinema {
 				break;}
 			}
 			
-			
+
 			
 			printScreen(screen1[seSc]);
 			numberOfSeatToBook = numberOfSeatToBookRead();
@@ -164,8 +166,26 @@ public class Cinema {
 
 			printScreen(screen1[seSc]);
 			System.out.printf("%s%n",S01);
+			printMovie();
 			inputKey = Input.readString();
 		} 	
+	}
+
+	private void printMovie(){//(Movie[] movie1) {
+		// TODO Auto-generated method stub
+		StringBuffer moviePrint = new StringBuffer("");
+		moviePrint.append(S10);
+		moviePrint.append(System.getProperty("line.separator"));
+		for (int i=0; i< movie1.length; i++){
+			moviePrint.append(Integer.toString(i+1));
+			//1)
+			moviePrint.append(") ");
+			moviePrint.append(movie1[i].getName());
+			moviePrint.append(" ");
+			moviePrint.append(movie1[i].getQualifier());
+			moviePrint.append(System.getProperty("line.separator"));
+		}
+		System.out.printf("%s%n",moviePrint);
 	}
 
 	/**
