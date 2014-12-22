@@ -7,5 +7,9 @@ interface Movie {
 	String getQualifier();
 	void setScreens(Screen[] screens);
 	Screen[] getScreens();
+//<<<<<<< HEAD
 	//String getScreeningTime();
+//=======
+//	String[] getScreeningTime();
+//>>>>>>> branch 'master' of https://github.com/lucabenvenuti/javaLuca.git
 }

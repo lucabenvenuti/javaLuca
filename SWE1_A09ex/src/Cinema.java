@@ -48,6 +48,7 @@ public class Cinema {
 	private Movie alpha;
 	private Movie beta;
 	private Movie gamma;
+	private Movie[] movie1 = new Movie[3];
 	
 	private Screen[] screen1 = new Screen[3];
 	
@@ -107,6 +108,10 @@ public class Cinema {
 		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6PM"),
 				new Screen(two, gamma, "Saturday 7PM")};
 		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
+		
+		movie1[0] = alpha;
+		movie1[1] = beta;
+		movie1[2] = gamma;
 		
 		int a = gamma.getScreens().length;
 	//	screenFilm1[0] = new Screen(one,);
