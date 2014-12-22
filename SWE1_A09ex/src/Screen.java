@@ -18,6 +18,7 @@ public class Screen {
 	public final static int MAXROWS = 5;
 	private ScreenRow head;
 	private ScreenRow tail;
+	
 	private int size;
 	private Movie movie;
 	private String screeningTime;
@@ -95,15 +96,14 @@ public class Screen {
 
 	
 	public Screen(Screen screen, Movie movie, String screeningTime){
-		this.setHead(screen.getHead());
+		for ( ScreenRow screenRow = screen.getHead(); screenRow!=
+				null; screenRow = screenRow.getNext()){
+			add(screenRow);
+		}	
 		setMovie(movie);
-		setScreeningTime(screeningTime);
-		
+		setScreeningTime(screeningTime);	
 	}
 
-	public Screen(ScreenRow one, Movie movie, String screeningTime){
-		
-	} 
 	
 	/**
 	 * @param row

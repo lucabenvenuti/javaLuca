@@ -155,7 +155,7 @@ public class ScreenRow {
 			int position, int seats) {
 		int i = 0;
 		for ( DoublyLinkedPlace linkedPlace=linkedPlaceStart; linkedPlace !=
-				null  && linkedPlace.getPosition()< position+seats; //&& linkedPlace.hasNext()
+				null && linkedPlace.hasNext() && linkedPlace.getPosition()< position+seats; //
 				linkedPlace=linkedPlace.getNext()){
 			if (linkedPlace.getPosition()==position+i){
 				bookSeat(linkedPlace);i++;

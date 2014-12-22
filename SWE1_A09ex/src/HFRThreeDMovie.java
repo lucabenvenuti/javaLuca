@@ -1,12 +1,14 @@
 
 class HFRThreeDMovie extends ThreeDMovie{
 	
-	public HFRThreeDMovie(Screen[] screens, int length, String name) {
-		super(screens, length, name);
+
+	public HFRThreeDMovie(Screen[] screens, String screeningTime, int length,
+			String name) {
+		super(screens, screeningTime, length, name);
 		// TODO Auto-generated constructor stub
 	}
-	public HFRThreeDMovie(Screen[] screens, int length) {
-		super(screens, length);
+	public HFRThreeDMovie(Screen[] screens, String screeningTime, int length) {
+		super(screens, screeningTime, length);
 		// TODO Auto-generated constructor stub
 	}
 	public HFRThreeDMovie(Screen[] screens) {
