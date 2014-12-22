@@ -5,7 +5,7 @@ class SpecialMovie implements Movie {
 	private int length;
 	private int priceSurcharge;
 	private String name;
-	private String screeningTime;
+//	private String screeningTime;
 	
 	public SpecialMovie(Screen[] screens){
 		setScreens(screens);
@@ -32,10 +32,10 @@ class SpecialMovie implements Movie {
 		setName(name);
 	}
 	
-	public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name, String screeningTime){
+/*	public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name, String screeningTime){
 		this(screens, priceSurcharge, length, name);
 		setScreeningTime(screeningTime);
-	}
+	}*/
 	
 	public int priceSurcharge(){
 	/*	if (length()>120){
@@ -88,12 +88,12 @@ class SpecialMovie implements Movie {
 /*	public String getScreeningTime() {
 		return screeningTime;
 	}*/
-	public String getScreeningTime() {
+/*	public String getScreeningTime() {
 		// TODO Auto-generated method stub
 		return screeningTime;
 	}
 
 	public void setScreeningTime(String screeningTime) {
 		this.screeningTime = screeningTime;
-	}
+	}*/
 }
