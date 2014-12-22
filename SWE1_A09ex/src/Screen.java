@@ -91,6 +91,11 @@ public class Screen {
 		add(five);
 	}
 
+	
+	/*public Screen(Screen screen, Movie movie, int screeningTime){
+		this(screen.)
+		
+	}*/
 
 	/**
 	 * @param row
