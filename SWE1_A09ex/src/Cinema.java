@@ -14,13 +14,14 @@
 public class Cinema {
 
 	public static final int NOFSCREENS = 3;
+	public static final int NOFMOVIES = 3;
 	public static final int MAXPLACES = 20;
 
 	/**
 	 * defined strings for output
 	 */
 	public final static String EURO = "\u20AC";
-	public final static String S01 = "Choose Screen 1 or 2 or 3 or type exit to terminate the program";
+	public final static String S01 = "Choose Movie 1 or 2 or 3 or type exit to terminate the program";
 	public final static String S02 = "How many seats?";
 	public final static String S03 = "Which Row (Note: Category A = ";
 	public final static String S04 = " \u20AC, B = ";
@@ -107,7 +108,7 @@ public class Cinema {
 				new Screen(two, gamma, "Saturday 7PM")};
 		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
 		
-		
+		int a = gamma.getScreens().length;
 	//	screenFilm1[0] = new Screen(one,);
 		
 		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
@@ -129,7 +130,7 @@ public class Cinema {
 	 */
 	public void run() {
 		boolean continuation = true; 
-		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0, seSc = 0;
+		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0, seSc = 0, seMo = 0; //selected Movie
 		char [] inputKeyboard;
 		String inputKey = "";
 
@@ -139,11 +140,14 @@ public class Cinema {
 
 			if (inputKey.equals("exit")){break;}
 			else {inputKeyboard = inputKey.toCharArray();
-			seSc = (int)inputKeyboard[0] - 49;
-			if (seSc<0 || seSc>(NOFSCREENS-1) || inputKey.length()>1){
+			seMo = (int)inputKeyboard[0] - 49;
+			if (seMo<0 || seMo>(NOFMOVIES-1) || inputKey.length()>1){
 				System.out.printf("%s%n",S09);
 				break;}
 			}
+			
+			
+			
 			printScreen(screen1[seSc]);
 			numberOfSeatToBook = numberOfSeatToBookRead();
 			row = rowRead(seSc, numberOfSeatToBook);			
