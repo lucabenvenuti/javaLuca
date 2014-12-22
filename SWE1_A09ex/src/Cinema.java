@@ -49,7 +49,7 @@ public class Cinema {
 	private Movie alpha;
 	private Movie beta;
 	private Movie gamma;
-	private Movie[] movie1 = new Movie[3];
+	private Movie[] movie1 = new Movie[1];
 	
 	private Screen[] screen1 = new Screen[3];
 	
@@ -92,7 +92,7 @@ public class Cinema {
 		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
 		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
 		
-		screenFilm2[0] = one;
+/*		screenFilm2[0] = one;
 		screenFilm2[1] = two;
 		screenFilm2[2] = three;
 		
@@ -108,13 +108,13 @@ public class Cinema {
 		gamma = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
 		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6PM"),
 				new Screen(two, gamma, "Saturday 7PM")};
-		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
+		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());*/
 		
 		movie1[0] = alpha;
-		movie1[1] = beta;
-		movie1[2] = gamma;
+/*		movie1[1] = beta;
+		movie1[2] = gamma;*/
 		
-		int a = gamma.getScreens().length;
+//		int a = gamma.getScreens().length;
 	//	screenFilm1[0] = new Screen(one,);
 		
 		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
@@ -140,8 +140,9 @@ public class Cinema {
 		char [] inputKeyboard;
 		String inputKey = "";
 
-		System.out.printf("%s%n",S01);
+
 		printMovie();
+		System.out.printf("%s%n",S01);
 		inputKey = Input.readString();
 		while (continuation){
 
@@ -155,7 +156,7 @@ public class Cinema {
 			
 
 			
-			printScreen(screen1[seSc]);
+			printScreen(one);//movie1[0].getScreens()[0]);
 			numberOfSeatToBook = numberOfSeatToBookRead();
 			row = rowRead(seSc, numberOfSeatToBook);			
 			printRow(screen1[seSc], row);
@@ -185,7 +186,7 @@ public class Cinema {
 			moviePrint.append(movie1[i].getQualifier());
 			moviePrint.append(System.getProperty("line.separator"));
 		}
-		System.out.printf("%s%n",moviePrint);
+		System.out.printf("%s",moviePrint);
 	}
 
 	/**

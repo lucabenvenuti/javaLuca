@@ -30,6 +30,7 @@ public class Screen {
 	public void add(ScreenRow node){
 		node.setNext(null);
 		node.setRow(node.getDoublyLinkedPlaceList().getRow());
+	//	System.out.println("trota1");
 		if (getHead() == null) { 
 			if (getTail() != null){
 				System.out.printf("%s%n","error");
@@ -96,9 +97,10 @@ public class Screen {
 
 	
 	public Screen(Screen screen, Movie movie, String screeningTime){
-		for ( ScreenRow screenRow = screen.getHead(); screenRow!=
-				null; screenRow = screenRow.getNext()){
+		for ( ScreenRow screenRow = screen.getHead(); screenRow.hasNext(); 
+				screenRow = screenRow.getNext()){
 			add(screenRow);
+			System.out.println("trota");
 		}	
 		setMovie(movie);
 		setScreeningTime(screeningTime);	

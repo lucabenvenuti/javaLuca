@@ -335,5 +335,9 @@ public class ScreenRow {
 	public void setRow(int row) {
 		this.row = row;
 	}
+	
+	public boolean hasNext() {
+		return next != null;
+	}
 
 }
