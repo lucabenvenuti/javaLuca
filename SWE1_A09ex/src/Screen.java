@@ -97,11 +97,12 @@ public class Screen {
 
 	
 	public Screen(Screen screen, Movie movie, String screeningTime){
-		for ( ScreenRow screenRow = screen.getHead(); screenRow.hasNext(); 
-				screenRow = screenRow.getNext()){
-			add(screenRow);
-			System.out.println("trota");
-		}	
+	//clone constructor
+			this.head=screen.getHead(); 
+			this.tail=screen.getTail(); 
+			this.size=screen.size;
+		//	} 
+		
 		setMovie(movie);
 		setScreeningTime(screeningTime);	
 	}
@@ -165,4 +166,20 @@ public class Screen {
 	public void setScreeningTime(String screeningTime) {
 		this.screeningTime = screeningTime;
 	}
+	
+/*	Screen copyScreen (Screen screen){
+		  Screen f = new Screen(screen.getHead());
+		  //for all properties in FOo
+		  f.setMovie(screen.getMovie());
+		  f.setTail(getTail());
+		  f.setScreeningTime(getScreeningTime());
+		  return f;
+		}*/
+	
+/*	private Screen dummy;
+
+	  public Screen(Screen another) {
+	    this.dummy = another.dummy; // you can access  
+	  }*/
+	
 }
