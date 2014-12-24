@@ -49,7 +49,7 @@ public class Cinema {
 	private Movie alpha;
 	private Movie beta;
 	private Movie gamma;
-	private Movie[] movie1 = new Movie[1];
+	private Movie[] movie1 = new Movie[3];
 	
 	private Screen[] screen1 = new Screen[3];
 	
@@ -92,7 +92,7 @@ public class Cinema {
 		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
 		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
 		
-/*		screenFilm2[0] = one;
+		screenFilm2[0] = one;
 		screenFilm2[1] = two;
 		screenFilm2[2] = three;
 		
@@ -108,11 +108,11 @@ public class Cinema {
 		gamma = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
 		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6PM"),
 				new Screen(two, gamma, "Saturday 7PM")};
-		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());*/
+		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
 		
 		movie1[0] = alpha;
-/*		movie1[1] = beta;
-		movie1[2] = gamma;*/
+		movie1[1] = beta;
+		movie1[2] = gamma;
 		
 //		int a = gamma.getScreens().length;
 	//	screenFilm1[0] = new Screen(one,);
@@ -154,18 +154,26 @@ public class Cinema {
 				break;}
 			}
 			
-
 			
-			printScreen(one);//movie1[0].getScreens()[0]);
+
+	//		int a = movie1[seMo].getScreens().length;
+			for (int i = 0; i<movie1[seMo].getScreens().length; i++){
+				printScreen(movie1[seMo].getScreens()[i]);
+			}
+			
+			System.out.println("screen number");
+			seSc = Input.readInt() -1;
+			//one);//;
 			numberOfSeatToBook = numberOfSeatToBookRead();
-			row = rowRead(seSc, numberOfSeatToBook);			
-			printRow(screen1[seSc], row);
+			row = rowRead(seSc, numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
+			printRow(movie1[seMo].getScreens()[seSc], row);
 			positionOfSeatToBook = positionOfSeatToBookRead();
-			if (screen1[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook)) {	
-				printPrice(screen1[seSc], row, numberOfSeatToBook);		
+			//System.out.println(screen.getMovie().priceSurcharge()*numberOfSeatToBook);
+			if (movie1[seMo].getScreens()[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook)) {	
+				printPrice(movie1[seMo].getScreens()[seSc], row, numberOfSeatToBook);		
 			} else{System.out.printf("%s%n%n",S09);}
 
-			printScreen(screen1[seSc]);
+			printScreen(movie1[seMo].getScreens()[seSc]);
 			System.out.printf("%s%n",S01);
 			printMovie();
 			inputKey = Input.readString();
@@ -201,6 +209,7 @@ public class Cinema {
 		for(ScreenRow screenRow = screen.getHead(); screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
 			if(screenRow.getRow()==row){
+			//	System.out.println(screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 				a = (screenRow.calcPrice(numberOfSeatToBook)+screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 			}
 		}
@@ -227,15 +236,34 @@ public class Cinema {
 	 * @return
 	 * requires user input to get the row, it also prints the row to let the user see which places are free
 	 */
-	private int rowRead(int seSc, int numberOfSeatToBook) {
+	public int rowRead(int seSc, int numberOfSeatToBook) {
 		int row=0;
 		
 		do {StringBuffer printPrice = new StringBuffer("");
 			printPrice.append (S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook)));
+			
 			printPrice.append (S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook)));
 			printPrice.append (S05 + Integer.toString((int)(categoryArray[2].getPrice()*numberOfSeatToBook)));
 			if(screen1[seSc].getTail().getCategory().getSymbol()=='D'){
 				printPrice.append (S11 + Integer.toString((int)(categoryArray[3].getPrice()*numberOfSeatToBook)));
+			}
+			printPrice.append (S06);
+			System.out.printf("%s", printPrice); 
+			row = Input.readInt();
+		}while (row<1 || row >Screen.MAXROWS);
+		return row;
+	}
+	
+	public int rowRead(int seSc, int numberOfSeatToBook, int surcharge) {
+		int row=0;
+		
+		do {StringBuffer printPrice = new StringBuffer("");
+			printPrice.append (S03 + Integer.toString((int)((categoryArray[0].getPrice()+surcharge)*numberOfSeatToBook)));
+			
+			printPrice.append (S04 + Integer.toString((int)((categoryArray[1].getPrice()+surcharge)*numberOfSeatToBook)));
+			printPrice.append (S05 + Integer.toString((int)((categoryArray[2].getPrice()+surcharge)*numberOfSeatToBook)));
+			if(screen1[seSc].getTail().getCategory().getSymbol()=='D'){
+				printPrice.append (S11 + Integer.toString((int)((categoryArray[3].getPrice()+surcharge)*numberOfSeatToBook)));
 			}
 			printPrice.append (S06);
 			System.out.printf("%s", printPrice); 
