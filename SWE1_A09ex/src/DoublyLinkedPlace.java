@@ -14,7 +14,7 @@
  */
 
 
-public class DoublyLinkedPlace {
+public class DoublyLinkedPlace  implements Cloneable{
 	private DoublyLinkedPlace next;
 	private DoublyLinkedPlace prev;
 	private Place place;
