@@ -118,8 +118,10 @@ public class Screen {
 	
 	public Screen(Screen screen, Movie movie, String screeningTime){
 	//clone constructor
-			this.head=new ScreenRow(screen.head); 
-			this.tail=new ScreenRow(screen.tail); 
+			//this.head=new ScreenRow(screen.head); 
+			//this.tail=new ScreenRow(screen.tail); 
+			this.head=screen.head; 
+			this.tail=screen.tail; 
 			this.size=screen.size;
 		
 		//	} 
