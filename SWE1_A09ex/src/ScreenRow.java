@@ -27,11 +27,11 @@ public class ScreenRow {
 	public ScreenRow(ScreenRow oldScreenRow) {
 		this.next = oldScreenRow.next;
 		this.prev = oldScreenRow.prev;
-		this.head = new DoublyLinkedPlaceList(oldScreenRow.head);
-		this.tail = new DoublyLinkedPlaceList(oldScreenRow.tail);
+		this.head = DoublyLinkedPlaceList.copy(oldScreenRow.head);
+		this.tail = DoublyLinkedPlaceList.copy(oldScreenRow.tail);
 		this.size = oldScreenRow.size;
 		this.row = oldScreenRow.row;
-		this.doublyLinkedPlaceList = new DoublyLinkedPlaceList(oldScreenRow.doublyLinkedPlaceList);
+		this.doublyLinkedPlaceList = DoublyLinkedPlaceList.copy(oldScreenRow.doublyLinkedPlaceList);
 	}
 	public static ScreenRow copy(ScreenRow screenRow) {
         return new ScreenRow(screenRow);

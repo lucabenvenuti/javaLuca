@@ -28,11 +28,23 @@ public class DoublyLinkedPlaceList {
     this.name = oldDepartment.name;
 }*/
 	
+	/*	this.firstNode = firstNode1;
+	// so basically I am chaining elements from "copy" to firstNode1 and then making "this" = to firstNode1. 
+
+	SortedLinkedSetNode currentNode = copy.firstNode;
+
+	while (currentNode.next !=null) {  
+	    firstNode1.add(currentNode.next.value);
+	    this.firstNode = firstNode1;
+	    currentNode = currentNode.next;
+	 }*/
+	
 	public DoublyLinkedPlaceList(DoublyLinkedPlaceList oldDoublyLinkedPlaceList) {
-		this.next = oldDoublyLinkedPlaceList.next;
-		this.prev = oldDoublyLinkedPlaceList.prev;
+
 		this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
 		this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
+		this.next = oldDoublyLinkedPlaceList.next;
+		this.prev = oldDoublyLinkedPlaceList.prev;
 		this.size = oldDoublyLinkedPlaceList.size;
 		this.row = oldDoublyLinkedPlaceList.row;
 		
