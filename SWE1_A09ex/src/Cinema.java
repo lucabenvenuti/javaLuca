@@ -32,6 +32,7 @@ public class Cinema {
 	public final static String S08 = "Successfully completed booking. Please pay: ";
 	public final static String S09 = "Booking failed";	
 	public final static String S10 = "Movie selection:";
+	public final static String S12 = "Choose screen:";
 
 	/**
 	 * the categories are fixed, both symbols and prices
@@ -97,17 +98,17 @@ public class Cinema {
 		screenFilm2[2] = three;
 		
 		beta = new TwoDMovie(screenFilm2, 97, "Magic in the Moonlight");
-		Screen[] screenFilmSecond =  {new Screen(one, beta, "Sunday 8PM"),
-				new Screen(two, beta, "Sunday 8PM"),
-				new Screen(three, beta, "Sunday 6PM")};
+		Screen[] screenFilmSecond =  {new Screen(one, beta, "Sunday 8:00PM"),
+				new Screen(two, beta, "Sunday 8:00PM"),
+				new Screen(three, beta, "Sunday 6:00PM")};
 		beta = new TwoDMovie(screenFilmSecond, beta.length(), beta.getName());
 		
 		screenFilm3[0] = one;
 		screenFilm3[1] = two;
 		
 		gamma = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
-		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6PM"),
-				new Screen(two, gamma, "Saturday 7PM")};
+		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6:00PM"),
+				new Screen(two, gamma, "Saturday 7:00PM")};
 		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
 		
 		movie1[0] = alpha;
@@ -144,6 +145,7 @@ public class Cinema {
 		printMovie();
 		System.out.printf("%s%n",S01);
 		inputKey = Input.readString();
+		System.out.printf("%n");
 		while (continuation){
 
 			if (inputKey.equals("exit")){break;}
@@ -154,16 +156,8 @@ public class Cinema {
 				break;}
 			}
 			
+			seSc = seScRead(movie1[seMo]);
 			
-
-	//		int a = movie1[seMo].getScreens().length;
-			for (int i = 0; i<movie1[seMo].getScreens().length; i++){
-				printScreen(movie1[seMo].getScreens()[i]);
-			}
-			
-			System.out.println("screen number");
-			seSc = Input.readInt() -1;
-			//one);//;
 			numberOfSeatToBook = numberOfSeatToBookRead();
 			row = rowRead(seSc, numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
 			printRow(movie1[seMo].getScreens()[seSc], row);
@@ -178,6 +172,27 @@ public class Cinema {
 			printMovie();
 			inputKey = Input.readString();
 		} 	
+	}
+
+	private int seScRead(Movie movie) {
+		//		int a = movie1[seMo].getScreens().length;
+		int a= 0, seSc =0;
+		for (int i = 0; i<movie.getScreens().length; i++){
+			System.out.printf("Screen %d) %n", i+1);
+		//	System.out.printf("    %s%n",movie.getScreens()[i].getScreeningTime());
+		//	System.out.println(i+1);
+			printScreen(movie.getScreens()[i]);
+			a++;
+		}
+		do {
+			//System.out.printf("%s%n",S07);
+	//	System.out.println("screen number");
+		System.out.printf("%s%n",S12);
+		seSc = Input.readInt() -1;
+		}while (seSc<0 || seSc >a);
+		
+		return seSc;
+		//one);//;
 	}
 
 	private void printMovie(){//(Movie[] movie1) {
@@ -323,6 +338,7 @@ public class Cinema {
 	 */
 	public void printScreen(Screen screen){
 		StringBuffer printRow = new StringBuffer("");
+		System.out.printf("    %s%n",screen.getScreeningTime());
 		printRow.append("    [");
 		for (int i=0; i<screen.getHead().getRowLayout().length()-2;i++)
 		{printRow.append("-");}
