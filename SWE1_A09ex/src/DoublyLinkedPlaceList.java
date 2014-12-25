@@ -22,6 +22,26 @@ public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
+	
+	/*	public Department(Department oldDepartment) {
+    this.id = oldDepartment.id;
+    this.name = oldDepartment.name;
+}*/
+	
+	public DoublyLinkedPlaceList(DoublyLinkedPlaceList oldDoublyLinkedPlaceList) {
+		this.next = oldDoublyLinkedPlaceList.next;
+		this.prev = oldDoublyLinkedPlaceList.prev;
+		this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
+		this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
+		this.size = oldDoublyLinkedPlaceList.size;
+		this.row = oldDoublyLinkedPlaceList.row;
+		
+	}
+	
+	public static DoublyLinkedPlaceList copy(DoublyLinkedPlaceList doublyLinkedPlaceList) {
+        return new DoublyLinkedPlaceList(doublyLinkedPlaceList);
+    }
+	
 
 	/**
 	 * @param row

@@ -20,6 +20,21 @@ public class DoublyLinkedPlace {
 	private Place place;
 	private int position;
 
+
+	
+	//copy constructor
+	public DoublyLinkedPlace(DoublyLinkedPlace oldDoublyLinkedPlace) {
+		this.next = oldDoublyLinkedPlace.next;
+		this.prev = oldDoublyLinkedPlace.prev;
+		this.place = new Place(oldDoublyLinkedPlace.place);
+		this.position = oldDoublyLinkedPlace.position;
+		
+	}
+	
+	public DoublyLinkedPlace copy(DoublyLinkedPlace doublyLinkedPlace) {
+        return new DoublyLinkedPlace(doublyLinkedPlace);
+    }
+	
 	/**
 	 * @param place
 	 * @param position

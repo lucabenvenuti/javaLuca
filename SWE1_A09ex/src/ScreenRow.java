@@ -24,6 +24,20 @@ public class ScreenRow {
 	private int size;
 	private int row;
 
+	public ScreenRow(ScreenRow oldScreenRow) {
+		this.next = oldScreenRow.next;
+		this.prev = oldScreenRow.prev;
+		this.head = new DoublyLinkedPlaceList(oldScreenRow.head);
+		this.tail = new DoublyLinkedPlaceList(oldScreenRow.tail);
+		this.size = oldScreenRow.size;
+		this.row = oldScreenRow.row;
+		this.doublyLinkedPlaceList = new DoublyLinkedPlaceList(oldScreenRow.doublyLinkedPlaceList);
+	}
+	public static ScreenRow copy(ScreenRow screenRow) {
+        return new ScreenRow(screenRow);
+    }
+	
+	
 	/**
 	 * @param node
 	 *            a DoublyLinkedPlaceList node to append to the list

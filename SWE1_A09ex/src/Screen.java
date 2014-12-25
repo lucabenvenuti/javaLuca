@@ -18,11 +18,21 @@ public class Screen {
 	public final static int MAXROWS = 5;
 	private ScreenRow head;
 	private ScreenRow tail;
-	
-	private int size;
+	//private Screen screen;
+
+
 	private Movie movie;
 	private String screeningTime;
 
+	private int size;
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
 	/**
 	 * @param node
 	 *            a ScreenRow node to append to the list
@@ -95,13 +105,36 @@ public class Screen {
 		add(five);
 	}
 
+	/*public Screen (ScreenRow head, ScreenRow tail, int size){
+		setHead(head);
+		setTail(tail);
+		setSize(size);
+		
+	}
+	
+	  public Screen newInstance(Screen aGalaxy) {
+		    return new Screen(aGalaxy.getHead(), aGalaxy.getTail(), aGalaxy.getSize());
+		  }*/
 	
 	public Screen(Screen screen, Movie movie, String screeningTime){
 	//clone constructor
-			this.head=screen.getHead(); 
-			this.tail=screen.getTail(); 
+			this.head=new ScreenRow(screen.head); 
+			this.tail=new ScreenRow(screen.tail); 
 			this.size=screen.size;
+		
 		//	} 
+		//Screen a = newInstance(screen);
+		//setHead(a.getHead()); 
+		//setTail(a.getTail()); 
+		//setSize(a.getSize());
+		
+	/*	public Employee(Employee oldEmployee) {
+	        this.id = oldEmployee.id;
+	        this.name = oldEmployee.name;
+	        this.department = new Department(oldEmployee.department);    //deep cloning
+	    }*/
+		
+	//	this.screen = new Screen(scr)
 		
 		setMovie(movie);
 		setScreeningTime(screeningTime);	

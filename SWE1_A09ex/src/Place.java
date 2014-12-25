@@ -22,7 +22,9 @@ public class Place {
 
 	private char availability;
 
-
+	public Place(Place oldPlace) {
+		this.availability = oldPlace.availability;		
+	}
 	/**
 	 * @param taken
 	 */
