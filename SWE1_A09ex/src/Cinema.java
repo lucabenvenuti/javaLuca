@@ -41,21 +41,14 @@ public class Cinema {
 			new Category(11, 'C'), new Category(20, 'D')};
 
 	/**
-	 * I create an array with 3 screens
+	 * I create an array with 3 movie and one array of screens for each movie
 	 */
-	private Screen one;
-	private ScreenRow a,b;
-	private Screen two;
-	private Screen three;
-	private Screen fifty;
+	private Screen one, two, three;
 	
-	private Movie alpha;
-	private Movie beta;
-	private Movie gamma;
+	private Movie alpha, beta, gamma;
 	private Movie[] movie1 = new Movie[3];
 	
-	private Screen[] screen1 = new Screen[3];
-	
+//	private Screen[] screen1 = new Screen[3];
 	private Screen[] screenFilm1= new Screen[1];
 	private Screen[] screenFilm2= new Screen[3];
 	private Screen[] screenFilm3= new Screen[2];
@@ -82,13 +75,9 @@ public class Cinema {
 				new ScreenRow(categoryArray[2], "####################",4), 
 				new ScreenRow(categoryArray[3], "   ##          ##   ",5));
 
-	//	a = new ScreenRow(one.getTail());
-	//	b = new ScreenRow(a);
-		
-		//		first = new Screen(one,)
-		screen1[0] = one;
+	/*	screen1[0] = one;
 		screen1[1] = two;
-		screen1[2] = three;
+		screen1[2] = three;*/
 		
 		screenFilm1[0] = one;
 		
@@ -118,33 +107,14 @@ public class Cinema {
 		movie1[0] = alpha;
 		movie1[1] = beta;
 		movie1[2] = gamma;
-		
-//		int a = gamma.getScreens().length;
-	//	screenFilm1[0] = new Screen(one,);
-		
-		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name){
-//		first = new SpecialMovie(screen1, 10, 120, "20:30" );
-		//public SpecialMovie(Screen[] screens, int priceSurcharge, int length, String name)
-		//public Screen(Screen screen, Movie movie, String screeningTime){
-		
-		
-		
-	}
 	
-//	private Movie movie1;
-	//public Screen(Screen screen, Movie movie, String screeningTime)
-	
-
-
-	public Screen getOne() {
-		return one;
+		
 	}
 
 	/**
 	 * main run of the code
 	 */
 	public void run() {
-	//	System.out.println(alpha.getScreens()[0].getHead().getRow());
 		boolean continuation = true; 
 		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0, seSc = 0, seMo = 0; //selected Movie
 		char [] inputKeyboard;
@@ -168,7 +138,7 @@ public class Cinema {
 			seSc = seScRead(movie1[seMo]);
 			
 			numberOfSeatToBook = numberOfSeatToBookRead();
-			row = rowRead(seSc, numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
+			row = rowRead(movie1[seMo].getScreens()[seSc],seSc, numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
 			printRow(movie1[seMo].getScreens()[seSc], row);
 			positionOfSeatToBook = positionOfSeatToBookRead();
 			//System.out.println(screen.getMovie().priceSurcharge()*numberOfSeatToBook);
@@ -183,7 +153,7 @@ public class Cinema {
 		} 	
 	}
 
-	public Screen getFifty() {
+/*	public Screen getFifty() {
 		return fifty;
 	}
 
@@ -193,7 +163,7 @@ public class Cinema {
 
 	public ScreenRow getB() {
 		return b;
-	}
+	}*/
 
 	private int seScRead(Movie movie) {
 		//		int a = movie1[seMo].getScreens().length;
@@ -272,7 +242,7 @@ public class Cinema {
 	 * @return
 	 * requires user input to get the row, it also prints the row to let the user see which places are free
 	 */
-	public int rowRead(int seSc, int numberOfSeatToBook) {
+/*	public int rowRead(int seSc, int numberOfSeatToBook) {
 		int row=0;
 		
 		do {StringBuffer printPrice = new StringBuffer("");
@@ -288,9 +258,9 @@ public class Cinema {
 			row = Input.readInt();
 		}while (row<1 || row >Screen.MAXROWS);
 		return row;
-	}
+	}*/
 	
-	public int rowRead(int seSc, int numberOfSeatToBook, int surcharge) {
+	public int rowRead(Screen screen, int seSc, int numberOfSeatToBook, int surcharge) {
 		int row=0;
 		
 		do {StringBuffer printPrice = new StringBuffer("");
@@ -298,7 +268,7 @@ public class Cinema {
 			
 			printPrice.append (S04 + Integer.toString((int)((categoryArray[1].getPrice()+surcharge)*numberOfSeatToBook)));
 			printPrice.append (S05 + Integer.toString((int)((categoryArray[2].getPrice()+surcharge)*numberOfSeatToBook)));
-			if(screen1[seSc].getTail().getCategory().getSymbol()=='D'){
+			if(screen.getTail().getCategory().getSymbol()=='D'){
 				printPrice.append (S11 + Integer.toString((int)((categoryArray[3].getPrice()+surcharge)*numberOfSeatToBook)));
 			}
 			printPrice.append (S06);
