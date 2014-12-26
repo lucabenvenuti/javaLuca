@@ -9,7 +9,7 @@
  * 
  * @author Luca Benvenuti
  * 
- * @version 2014-12-18
+ * @version 2014-12-26
  */
 public class Screen {
 	/**
@@ -18,21 +18,10 @@ public class Screen {
 	public final static int MAXROWS = 5;
 	private ScreenRow head;
 	private ScreenRow tail;
-	//private Screen screen;
-
-
 	private Movie movie;
 	private String screeningTime;
-
 	private int size;
-	public int getSize() {
-		return size;
-	}
 
-	public void setSize(int size) {
-		this.size = size;
-	}
-	
 	/**
 	 * @param node
 	 *            a ScreenRow node to append to the list
@@ -40,7 +29,6 @@ public class Screen {
 	public void add(ScreenRow node){
 		node.setNext(null);
 		node.setRow(node.getDoublyLinkedPlaceList().getRow());
-	//	System.out.println("trota1");
 		if (getHead() == null) { 
 			if (getTail() != null){
 				System.out.printf("%s%n","error");
@@ -105,55 +93,26 @@ public class Screen {
 		add(five);
 	}
 
-	/*public Screen (ScreenRow head, ScreenRow tail, int size){
-		setHead(head);
-		setTail(tail);
-		setSize(size);
-		
-	}
-	
-	  public Screen newInstance(Screen aGalaxy) {
-		    return new Screen(aGalaxy.getHead(), aGalaxy.getTail(), aGalaxy.getSize());
-		  }*/
-	
+	/**
+	 * @param screen
+	 * @param movie
+	 * @param screeningTime
+	 * deep copy constructor for the Screen class
+	 */
 	public Screen(Screen screen, Movie movie, String screeningTime){
-	//clone constructor
-		
+
 		for ( ScreenRow screenRow=screen.getHead(); 
 				screenRow != 	null ; 
 				screenRow=screenRow.getNext()){
 			add(new ScreenRow (screenRow))		;	
-		//	System.out.println("trota");
 		}
-		
-		//	this.head=screen.head; 
-		//	this.tail=screen.tail; 
-		//	System.out.println(this.head);
-		//	System.out.println(this.tail);
-			//this.head=ScreenRow.copy(screen.head); 
-			//this.tail=ScreenRow.copy(screen.tail); 
-			this.size=screen.size;
-		
-		//	} 
-		//Screen a = newInstance(screen);
-		//setHead(a.getHead()); 
-		//setTail(a.getTail()); 
-		//setSize(a.getSize());
-		
-	/*	public Employee(Employee oldEmployee) {
-	        this.id = oldEmployee.id;
-	        this.name = oldEmployee.name;
-	        this.department = new Department(oldEmployee.department);    //deep cloning
-	    }*/
-		
-	//	this.screen = new Screen(scr)
-		
+
+		this.size=screen.size;
 		setMovie(movie);
-	//	System.out.println(movie.length());
 		setScreeningTime(screeningTime);	
 	}
 
-	
+
 	/**
 	 * @param row
 	 * @param position
@@ -197,35 +156,46 @@ public class Screen {
 		this.tail = tail;
 	}
 
+	/**
+	 * @return
+	 */
 	public Movie getMovie() {
 		return movie;
 	}
 
+	/**
+	 * @param movie
+	 */
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getScreeningTime() {
 		return screeningTime;
 	}
 
+	/**
+	 * @param screeningTime
+	 */
 	public void setScreeningTime(String screeningTime) {
 		this.screeningTime = screeningTime;
 	}
-	
-/*	Screen copyScreen (Screen screen){
-		  Screen f = new Screen(screen.getHead());
-		  //for all properties in FOo
-		  f.setMovie(screen.getMovie());
-		  f.setTail(getTail());
-		  f.setScreeningTime(getScreeningTime());
-		  return f;
-		}*/
-	
-/*	private Screen dummy;
 
-	  public Screen(Screen another) {
-	    this.dummy = another.dummy; // you can access  
-	  }*/
-	
+	/**
+	 * @return
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 }

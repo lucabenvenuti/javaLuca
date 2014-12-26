@@ -10,7 +10,7 @@
  * 
  * @author Luca Benvenuti
  * 
- * @version 2014-12-18
+ * @version 2014-12-26
  */
 public class ScreenRow {
 	private Category category;
@@ -23,11 +23,13 @@ public class ScreenRow {
 	private ScreenRow prev;
 	private int size;
 	private int row;
-	
-	
 
+	/**
+	 * @param oldScreenRow
+	 * deep copy constructor for the ScreenRow class
+	 */
 	public ScreenRow(ScreenRow oldScreenRow) {
-		
+
 		for ( DoublyLinkedPlaceList linkedPlaceList=oldScreenRow.getHead(); 
 				linkedPlaceList != 	null ; 
 				linkedPlaceList=linkedPlaceList.getNext()){
@@ -35,21 +37,11 @@ public class ScreenRow {
 		}
 		this.rowLayout = new StringBuffer (oldScreenRow.getRowLayout());
 		this.category = new Category(oldScreenRow.category.getPrice(),oldScreenRow.category.getSymbol());
-	//	this.next = oldScreenRow.next;
-	//	this.prev = oldScreenRow.prev;
-	//	this.head = DoublyLinkedPlaceList.copy(oldScreenRow.head);
-	//	this.tail = DoublyLinkedPlaceList.copy(oldScreenRow.tail);
-	//	this.head = oldScreenRow.head;
-	//	this.tail = oldScreenRow.tail;
 		this.size = oldScreenRow.size;
 		this.row = oldScreenRow.row;
 		this.doublyLinkedPlaceList = new DoublyLinkedPlaceList (oldScreenRow.doublyLinkedPlaceList);
 	}
-/*	public static ScreenRow copy(ScreenRow screenRow) {
-        return new ScreenRow(screenRow);
-    }*/
-	
-	
+
 	/**
 	 * @param node
 	 *            a DoublyLinkedPlaceList node to append to the list
@@ -361,7 +353,10 @@ public class ScreenRow {
 	public void setRow(int row) {
 		this.row = row;
 	}
-	
+
+	/**
+	 * @return
+	 */
 	public boolean hasNext() {
 		return next != null;
 	}

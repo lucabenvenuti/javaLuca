@@ -7,12 +7,12 @@
  * Software Development I, 2014WS
  * JKU Linz
  * 
- * @author Michael Haslgrübler
+ * @author Michael Haslgrubler
  * @author Welma Pereira
  * @author Andreas Riener
  * @author Luca Benvenuti
  * 
- * @version 2014-12-18
+ * @version 2014-12-26
  */
 
 public class DoublyLinkedPlaceList {
@@ -22,46 +22,23 @@ public class DoublyLinkedPlaceList {
 	private DoublyLinkedPlaceList prev;
 	private int size;
 	private int row;
-	
-	/*	public Department(Department oldDepartment) {
-    this.id = oldDepartment.id;
-    this.name = oldDepartment.name;
-}*/
-	
-	/*	this.firstNode = firstNode1;
-	// so basically I am chaining elements from "copy" to firstNode1 and then making "this" = to firstNode1. 
 
-	SortedLinkedSetNode currentNode = copy.firstNode;
 
-	while (currentNode.next !=null) {  
-	    firstNode1.add(currentNode.next.value);
-	    this.firstNode = firstNode1;
-	    currentNode = currentNode.next;
-	 }*/
-	
+	/**
+	 * @param oldDoublyLinkedPlaceList
+	 * deep copy constructor
+	 */
 	public DoublyLinkedPlaceList(DoublyLinkedPlaceList oldDoublyLinkedPlaceList) {
-		
+
 		for ( DoublyLinkedPlace linkedPlace=oldDoublyLinkedPlaceList.getHead(); 
 				linkedPlace != 	null ; 
 				linkedPlace=linkedPlace.getNext()){
 			add(new DoublyLinkedPlace(linkedPlace))		;	
 		}
-
-	//	this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
-	//	this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
-	//	this.head = oldDoublyLinkedPlaceList.head;
-	//	this.tail = oldDoublyLinkedPlaceList.tail;
-//		this.next = oldDoublyLinkedPlaceList.next;
-	//	this.prev = oldDoublyLinkedPlaceList.prev;
 		this.size = oldDoublyLinkedPlaceList.size;
 		this.row = oldDoublyLinkedPlaceList.row;
-		
+
 	}
-	
-/*	public static DoublyLinkedPlaceList copy(DoublyLinkedPlaceList doublyLinkedPlaceList) {
-        return new DoublyLinkedPlaceList(doublyLinkedPlaceList);
-    }*/
-	
 
 	/**
 	 * @param row

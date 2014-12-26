@@ -1,7 +1,8 @@
 /**
  * Cinema.java
  *
- * A {@link ScreenRow} is a class which holds the layout 
+ * A {@link ScreenRow} is a class which holds 
+ * the movies and the layout 
  * of a cinema, and interacts with the user
  * 
  * Software Development I, 2014WS
@@ -9,7 +10,7 @@
  * 
  * @author Luca Benvenuti
  * 
- * @version 2014-12-18
+ * @version 2014-12-26
  */
 public class Cinema {
 
@@ -138,10 +139,9 @@ public class Cinema {
 			seSc = seScRead(movie1[seMo]);
 			
 			numberOfSeatToBook = numberOfSeatToBookRead();
-			row = rowRead(movie1[seMo].getScreens()[seSc],seSc, numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
+			row = rowRead(movie1[seMo].getScreens()[seSc], numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
 			printRow(movie1[seMo].getScreens()[seSc], row);
 			positionOfSeatToBook = positionOfSeatToBookRead();
-			//System.out.println(screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 			if (movie1[seMo].getScreens()[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook)) {	
 				printPrice(movie1[seMo].getScreens()[seSc], row, numberOfSeatToBook);		
 			} else{System.out.printf("%s%n%n",S09);}
@@ -153,47 +153,35 @@ public class Cinema {
 		} 	
 	}
 
-/*	public Screen getFifty() {
-		return fifty;
-	}
-
-	public ScreenRow getA() {
-		return a;
-	}
-
-	public ScreenRow getB() {
-		return b;
-	}*/
-
+	/**
+	 * @param movie
+	 * @return 	
+	 * 			asks which movie and shows the screens of the movie
+	 */
 	private int seScRead(Movie movie) {
-		//		int a = movie1[seMo].getScreens().length;
 		int a= 0, seSc =0;
 		for (int i = 0; i<movie.getScreens().length; i++){
 			System.out.printf("Screen %d) %n", i+1);
-		//	System.out.printf("    %s%n",movie.getScreens()[i].getScreeningTime());
-		//	System.out.println(i+1);
 			printScreen(movie.getScreens()[i]);
 			a++;
 		}
 		do {
-			//System.out.printf("%s%n",S07);
-	//	System.out.println("screen number");
 		System.out.printf("%s%n",S12);
 		seSc = Input.readInt() -1;
 		}while (seSc<0 || seSc >a);
 		
 		return seSc;
-		//one);//;
 	}
 
-	private void printMovie(){//(Movie[] movie1) {
-		// TODO Auto-generated method stub
+	/**
+	 * it prints the movie properties
+	 */
+	private void printMovie(){
 		StringBuffer moviePrint = new StringBuffer("");
 		moviePrint.append(S10);
 		moviePrint.append(System.getProperty("line.separator"));
 		for (int i=0; i< movie1.length; i++){
 			moviePrint.append(Integer.toString(i+1));
-			//1)
 			moviePrint.append(") ");
 			moviePrint.append(movie1[i].getName());
 			moviePrint.append(" ");
@@ -215,7 +203,6 @@ public class Cinema {
 		for(ScreenRow screenRow = screen.getHead(); screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
 			if(screenRow.getRow()==row){
-			//	System.out.println(screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 				a = (screenRow.calcPrice(numberOfSeatToBook)+screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 			}
 		}
@@ -237,30 +224,12 @@ public class Cinema {
 	}
 
 	/**
-	 * @param seSc
+	 * @param screen
 	 * @param numberOfSeatToBook
 	 * @return
 	 * requires user input to get the row, it also prints the row to let the user see which places are free
 	 */
-/*	public int rowRead(int seSc, int numberOfSeatToBook) {
-		int row=0;
-		
-		do {StringBuffer printPrice = new StringBuffer("");
-			printPrice.append (S03 + Integer.toString((int)(categoryArray[0].getPrice()*numberOfSeatToBook)));
-			
-			printPrice.append (S04 + Integer.toString((int)(categoryArray[1].getPrice()*numberOfSeatToBook)));
-			printPrice.append (S05 + Integer.toString((int)(categoryArray[2].getPrice()*numberOfSeatToBook)));
-			if(screen1[seSc].getTail().getCategory().getSymbol()=='D'){
-				printPrice.append (S11 + Integer.toString((int)(categoryArray[3].getPrice()*numberOfSeatToBook)));
-			}
-			printPrice.append (S06);
-			System.out.printf("%s", printPrice); 
-			row = Input.readInt();
-		}while (row<1 || row >Screen.MAXROWS);
-		return row;
-	}*/
-	
-	public int rowRead(Screen screen, int seSc, int numberOfSeatToBook, int surcharge) {
+	public int rowRead(Screen screen, int numberOfSeatToBook, int surcharge) {
 		int row=0;
 		
 		do {StringBuffer printPrice = new StringBuffer("");

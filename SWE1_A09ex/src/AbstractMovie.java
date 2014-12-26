@@ -4,6 +4,7 @@
  * A {@link AbstractMovie} is a class which implements a
  * {@link Movie} class, storing length, priceSurcharge and
  * name, together with some chained constructors
+ * (further implementations are necessary)
  * 
  * Software Development I, 2014WS
  * JKU Linz
@@ -13,12 +14,12 @@
  * @version 2014-12-26
  */
 abstract class AbstractMovie implements Movie {
-	
+
 	Screen[] screens = new Screen[Cinema.NOFSCREENS];
 	private int length;
 	private int priceSurcharge;
 	private String name;
-	
+
 	/**
 	 * @param screens
 	 * Constructor to give screens to a movie
@@ -26,7 +27,7 @@ abstract class AbstractMovie implements Movie {
 	public AbstractMovie(Screen[] screens){
 		setScreens(screens);
 	}
-	
+
 	/**
 	 * @param screens
 	 * @param length
@@ -37,7 +38,7 @@ abstract class AbstractMovie implements Movie {
 		setLength(length); 
 		setPriceSurcharge();
 	}
-	
+
 	/**
 	 * @param screens
 	 * @param length
@@ -58,7 +59,7 @@ abstract class AbstractMovie implements Movie {
 			return 1;
 		}else {return 0;}	
 	}
-	
+
 	/**
 	 * @see Movie#getName()
 	 * @return String name
@@ -66,7 +67,7 @@ abstract class AbstractMovie implements Movie {
 	public String getName(){
 		return name;
 	}
-	
+
 	/**
 	 * @see Movie#length()
 	 * @return int length
@@ -82,7 +83,7 @@ abstract class AbstractMovie implements Movie {
 	public void setScreens(Screen[] screens){
 		this.screens=screens;
 	}
-	
+
 	/**
 	 * @see Movie#getScreens()
 	 * @return screens
@@ -120,5 +121,5 @@ abstract class AbstractMovie implements Movie {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

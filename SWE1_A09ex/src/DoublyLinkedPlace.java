@@ -8,9 +8,9 @@
  * Software Development I, 2014WS 
  * JKU Linz
  * 
- * @author Michael Haslgrübler
+ * @author Michael Haslgrubler
  * @author Luca Benvenuti
- * @version 2014-12-09
+ * @version 2014-12-26
  */
 
 
@@ -20,26 +20,22 @@ public class DoublyLinkedPlace {
 	private Place place;
 	private int position;
 
-
-	
-	//copy constructor
+	/**
+	 * @param oldDoublyLinkedPlace
+	 * deep copy constructor
+	 */
 	public DoublyLinkedPlace(DoublyLinkedPlace oldDoublyLinkedPlace) {
 		if (oldDoublyLinkedPlace.next != null){
-		this.next = new DoublyLinkedPlace(oldDoublyLinkedPlace.next.getPlace(),
-				oldDoublyLinkedPlace.next.getPosition()) ;}
+			this.next = new DoublyLinkedPlace(oldDoublyLinkedPlace.next.getPlace(),
+					oldDoublyLinkedPlace.next.getPosition()) ;}
 		if (oldDoublyLinkedPlace.prev != null){
-		this.prev = new DoublyLinkedPlace(oldDoublyLinkedPlace.prev.getPlace(),
-				oldDoublyLinkedPlace.prev.getPosition()) ;}
-		//this.prev = oldDoublyLinkedPlace.prev;
+			this.prev = new DoublyLinkedPlace(oldDoublyLinkedPlace.prev.getPlace(),
+					oldDoublyLinkedPlace.prev.getPosition()) ;}
 		this.place = new Place(oldDoublyLinkedPlace.place);
 		this.position = oldDoublyLinkedPlace.position; 
-		
+
 	}
-	
-	/*public DoublyLinkedPlace copy(DoublyLinkedPlace doublyLinkedPlace) {
-        return new DoublyLinkedPlace(doublyLinkedPlace);
-    }*/
-	
+
 	/**
 	 * @param place
 	 * @param position

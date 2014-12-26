@@ -9,7 +9,7 @@
  * 
  * @author Luca Benvenuti
  * 
- * @version 2014-12-18
+ * @version 2014-12-26
  */
 public class Place {
 
@@ -22,6 +22,10 @@ public class Place {
 
 	private char availability;
 
+	/**
+	 * @param oldPlace
+	 * shallow copy constructor of a Place class
+	 */
 	public Place(Place oldPlace) {
 		this.availability = oldPlace.availability;		
 	}
