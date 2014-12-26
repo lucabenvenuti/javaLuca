@@ -149,6 +149,7 @@ public class Screen {
 	//	this.screen = new Screen(scr)
 		
 		setMovie(movie);
+	//	System.out.println(movie.length());
 		setScreeningTime(screeningTime);	
 	}
 

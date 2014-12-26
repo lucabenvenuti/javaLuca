@@ -84,7 +84,6 @@ public class Cinema {
 
 	//	a = new ScreenRow(one.getTail());
 	//	b = new ScreenRow(a);
-		fifty = new Screen(one, alpha, "Saturday 8:15PM");
 		
 		//		first = new Screen(one,)
 		screen1[0] = one;
@@ -95,7 +94,7 @@ public class Cinema {
 		
 		alpha = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
 	//	screenFilm1[0] = new Screen(one, alpha, "20:30");
-		Screen[] screenFilmFirst =  {fifty};
+		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
 		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
 		
 		screenFilm2[0] = one;
@@ -145,7 +144,7 @@ public class Cinema {
 	 * main run of the code
 	 */
 	public void run() {
-		System.out.println(alpha.getScreens()[0].getMovie());
+	//	System.out.println(alpha.getScreens()[0].getHead().getRow());
 		boolean continuation = true; 
 		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0, seSc = 0, seMo = 0; //selected Movie
 		char [] inputKeyboard;
