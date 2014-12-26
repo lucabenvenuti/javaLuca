@@ -41,8 +41,10 @@ public class DoublyLinkedPlaceList {
 	
 	public DoublyLinkedPlaceList(DoublyLinkedPlaceList oldDoublyLinkedPlaceList) {
 
-		this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
-		this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
+	//	this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
+	//	this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
+		this.head = oldDoublyLinkedPlaceList.head;
+		this.tail = oldDoublyLinkedPlaceList.tail;
 		this.next = oldDoublyLinkedPlaceList.next;
 		this.prev = oldDoublyLinkedPlaceList.prev;
 		this.size = oldDoublyLinkedPlaceList.size;
@@ -50,9 +52,9 @@ public class DoublyLinkedPlaceList {
 		
 	}
 	
-	public static DoublyLinkedPlaceList copy(DoublyLinkedPlaceList doublyLinkedPlaceList) {
+/*	public static DoublyLinkedPlaceList copy(DoublyLinkedPlaceList doublyLinkedPlaceList) {
         return new DoublyLinkedPlaceList(doublyLinkedPlaceList);
-    }
+    }*/
 	
 
 	/**
