@@ -124,16 +124,6 @@ public class DoublyLinkedPlaceList {
 	}
 
 	/**
-	 * print the list of DoublyLinkedPlace
-	 */
-	public void print() {
-		DoublyLinkedPlace p = head;
-		while (p != null) {
-		}
-		System.out.printf("%s%n","end of list.");
-	}
-
-	/**
 	 * @return
 	 */
 	public DoublyLinkedPlaceList getNext() {

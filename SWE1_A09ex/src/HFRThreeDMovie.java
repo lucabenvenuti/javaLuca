@@ -14,8 +14,6 @@
  */
 class HFRThreeDMovie extends ThreeDMovie{
 
-
-
 	/**
 	 * @param screens
 	 * @param length

@@ -127,10 +127,9 @@ public class Screen {
 				return screenRow.book(position-1, seats);
 			}
 		}
-
-
 		return false;
 	}
+	
 	/**
 	 * @return
 	 */

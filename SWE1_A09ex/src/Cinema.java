@@ -48,8 +48,6 @@ public class Cinema {
 	
 	private Movie alpha, beta, gamma;
 	private Movie[] movie1 = new Movie[3];
-	
-//	private Screen[] screen1 = new Screen[3];
 	private Screen[] screenFilm1= new Screen[1];
 	private Screen[] screenFilm2= new Screen[3];
 	private Screen[] screenFilm3= new Screen[2];
@@ -76,14 +74,9 @@ public class Cinema {
 				new ScreenRow(categoryArray[2], "####################",4), 
 				new ScreenRow(categoryArray[3], "   ##          ##   ",5));
 
-	/*	screen1[0] = one;
-		screen1[1] = two;
-		screen1[2] = three;*/
-		
 		screenFilm1[0] = one;
 		
 		alpha = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
-	//	screenFilm1[0] = new Screen(one, alpha, "20:30");
 		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
 		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
 		
@@ -137,6 +130,7 @@ public class Cinema {
 			}
 			
 			seSc = seScRead(movie1[seMo]);
+			printScreen(movie1[seMo].getScreens()[seSc]);
 			
 			numberOfSeatToBook = numberOfSeatToBookRead();
 			row = rowRead(movie1[seMo].getScreens()[seSc], numberOfSeatToBook, movie1[seMo].getScreens()[seSc].getMovie().priceSurcharge());			
