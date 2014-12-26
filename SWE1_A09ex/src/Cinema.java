@@ -152,7 +152,7 @@ public class Cinema {
 	 * @return 	
 	 * 			asks which movie and shows the screens of the movie
 	 */
-	private int seScRead(Movie movie) {
+	public int seScRead(Movie movie) {
 		int a= 0, seSc =0;
 		for (int i = 0; i<movie.getScreens().length; i++){
 			System.out.printf("Screen %d) %n", i+1);
@@ -162,7 +162,7 @@ public class Cinema {
 		do {
 		System.out.printf("%s%n",S12);
 		seSc = Input.readInt() -1;
-		}while (seSc<0 || seSc >a);
+		}while (seSc<0 || seSc >=a);
 		
 		return seSc;
 	}
@@ -170,7 +170,7 @@ public class Cinema {
 	/**
 	 * it prints the movie properties
 	 */
-	private void printMovie(){
+	public void printMovie(){
 		StringBuffer moviePrint = new StringBuffer("");
 		moviePrint.append(S10);
 		moviePrint.append(System.getProperty("line.separator"));
@@ -191,16 +191,16 @@ public class Cinema {
 	 * @param numberOfSeatToBook
 	 * here the price of the reserved seats is printed
 	 */
-	private void printPrice(Screen screen, int row,
+	public void printPrice(Screen screen, int row,
 			int numberOfSeatToBook) {
-		int a =0;
+		int printPrice =0;
 		for(ScreenRow screenRow = screen.getHead(); screenRow != null && screenRow.getRow()<=(row);
 				screenRow = screenRow.getNext()){
 			if(screenRow.getRow()==row){
-				a = (screenRow.calcPrice(numberOfSeatToBook)+screen.getMovie().priceSurcharge()*numberOfSeatToBook);
+				printPrice = (screenRow.calcPrice(numberOfSeatToBook)+screen.getMovie().priceSurcharge()*numberOfSeatToBook);
 			}
 		}
-		System.out.printf("%s%d %s%n%n",S08, a, EURO);
+		System.out.printf("%s%d %s%n%n",S08, printPrice, EURO);
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class Cinema {
 	 * positionOfSeatToBook
 	 * requires user input to get the initial position
 	 */
-	private int positionOfSeatToBookRead() {
+	public int positionOfSeatToBookRead() {
 		int positionOfSeatToBook = 0;
 		do {System.out.printf("%s%n",S07);
 		positionOfSeatToBook = Input.readInt();
@@ -245,7 +245,7 @@ public class Cinema {
 	 * @return
 	 * requires user input to get the number of seats to be booked
 	 */
-	private int numberOfSeatToBookRead() {
+	public int numberOfSeatToBookRead() {
 		int numberOfSeatToBook = 0;
 		do {System.out.printf("%n%s%n",S02);
 		numberOfSeatToBook = Input.readInt();	
