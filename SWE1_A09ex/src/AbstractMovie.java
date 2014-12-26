@@ -1,86 +1,124 @@
-
+/**
+ * AbstractMovie.java
+ *
+ * A {@link AbstractMovie} is a class which implements a
+ * {@link Movie} class, storing length, priceSurcharge and
+ * name, together with some chained constructors
+ * 
+ * Software Development I, 2014WS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @version 2014-12-26
+ */
 abstract class AbstractMovie implements Movie {
-//class Circle implements GeometricFigure
-	
-	//Cinema.NOFSCREENS
-	
-	//abstract method getQualifier from superclass
 	
 	Screen[] screens = new Screen[Cinema.NOFSCREENS];
 	private int length;
 	private int priceSurcharge;
 	private String name;
-//	private String screeningTime;
 	
+	/**
+	 * @param screens
+	 * Constructor to give screens to a movie
+	 */
 	public AbstractMovie(Screen[] screens){
 		setScreens(screens);
-		
 	}
 	
+	/**
+	 * @param screens
+	 * @param length
+	 * Constructor to give screens and length to a movie
+	 */
 	public AbstractMovie(Screen[] screens, int length){
 		this(screens);
-		setLength(length);
-	//	setScreeningTime(screeningTime);String screeningTime, String screeningTime, screeningTime, 
+		setLength(length); 
 		setPriceSurcharge();
 	}
 	
+	/**
+	 * @param screens
+	 * @param length
+	 * @param name
+	 * Constructor to give screens and length and a name to a movie
+	 */
 	public AbstractMovie(Screen[] screens, int length, String name){
 		this(screens, length);
 		setName(name);
 	}
-	
-/*	public AbstractMovie(Screen[] screens, int length, String name, String screeningTime){
-		this(screens, length, name);
-		setScreeningTime(screeningTime);
-	}*/
-	
+
+	/**
+	 * @see Movie#priceSurcharge()
+	 * generic implementation
+	 */
 	public int priceSurcharge(){
 		if (length()>120){
 			return 1;
-		}else {return 0;}
-		
+		}else {return 0;}	
 	}
 	
-	
+	/**
+	 * @see Movie#getName()
+	 * @return String name
+	 */
 	public String getName(){
 		return name;
 	}
 	
+	/**
+	 * @see Movie#length()
+	 * @return int length
+	 */
 	public int length(){
 		return length;
 	}
 
-
+	/**
+	 * @see Movie#setScreens(Screen[])
+	 * @param screens
+	 */
 	public void setScreens(Screen[] screens){
 		this.screens=screens;
 	}
+	
+	/**
+	 * @see Movie#getScreens()
+	 * @return screens
+	 */
 	public Screen[] getScreens(){
 		return screens;
 	}
 
 
+	/**
+	 * @param length
+	 */
 	public void setLength(int length) {
 		this.length = length;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getPriceSurcharge() {
 		return priceSurcharge;
 	}
 
+	/**
+	 * call priceSurcharge()
+	 */
 	public void setPriceSurcharge() {
 		this.priceSurcharge = priceSurcharge();
 	}
 
+	/**
+	 * @see Movie#setName(java.lang.String)
+	 * @param String name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-/*	public String getScreeningTime() {
-		return screeningTime;
-	}
-
-	public void setScreeningTime(String screeningTime) {
-		this.screeningTime = screeningTime;
-	}*/
 	
 }
