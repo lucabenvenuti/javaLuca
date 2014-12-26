@@ -40,13 +40,19 @@ public class DoublyLinkedPlaceList {
 	 }*/
 	
 	public DoublyLinkedPlaceList(DoublyLinkedPlaceList oldDoublyLinkedPlaceList) {
+		
+		for ( DoublyLinkedPlace linkedPlace=oldDoublyLinkedPlaceList.getHead(); 
+				linkedPlace != 	null ; 
+				linkedPlace=linkedPlace.getNext()){
+			add(new DoublyLinkedPlace(linkedPlace))		;	
+		}
 
 	//	this.head = oldDoublyLinkedPlaceList.head.copy(oldDoublyLinkedPlaceList.head);
 	//	this.tail = oldDoublyLinkedPlaceList.tail.copy(oldDoublyLinkedPlaceList.tail);
-		this.head = oldDoublyLinkedPlaceList.head;
-		this.tail = oldDoublyLinkedPlaceList.tail;
-		this.next = oldDoublyLinkedPlaceList.next;
-		this.prev = oldDoublyLinkedPlaceList.prev;
+	//	this.head = oldDoublyLinkedPlaceList.head;
+	//	this.tail = oldDoublyLinkedPlaceList.tail;
+//		this.next = oldDoublyLinkedPlaceList.next;
+	//	this.prev = oldDoublyLinkedPlaceList.prev;
 		this.size = oldDoublyLinkedPlaceList.size;
 		this.row = oldDoublyLinkedPlaceList.row;
 		

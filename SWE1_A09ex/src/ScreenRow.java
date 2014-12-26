@@ -31,7 +31,7 @@ public class ScreenRow {
 		for ( DoublyLinkedPlaceList linkedPlaceList=oldScreenRow.getHead(); 
 				linkedPlaceList != 	null ; 
 				linkedPlaceList=linkedPlaceList.getNext()){
-			add(linkedPlaceList)		;	
+			add(new DoublyLinkedPlaceList(linkedPlaceList))		;	
 		}
 		this.rowLayout = new StringBuffer (oldScreenRow.getRowLayout());
 		this.category = new Category(oldScreenRow.category.getPrice(),oldScreenRow.category.getSymbol());
@@ -43,7 +43,7 @@ public class ScreenRow {
 	//	this.tail = oldScreenRow.tail;
 		this.size = oldScreenRow.size;
 		this.row = oldScreenRow.row;
-		this.doublyLinkedPlaceList = oldScreenRow.doublyLinkedPlaceList;
+		this.doublyLinkedPlaceList = new DoublyLinkedPlaceList (oldScreenRow.doublyLinkedPlaceList);
 	}
 /*	public static ScreenRow copy(ScreenRow screenRow) {
         return new ScreenRow(screenRow);

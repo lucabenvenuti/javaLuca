@@ -24,16 +24,21 @@ public class DoublyLinkedPlace {
 	
 	//copy constructor
 	public DoublyLinkedPlace(DoublyLinkedPlace oldDoublyLinkedPlace) {
-		this.next = oldDoublyLinkedPlace.next;
-		this.prev = oldDoublyLinkedPlace.prev;
+		if (oldDoublyLinkedPlace.next != null){
+		this.next = new DoublyLinkedPlace(oldDoublyLinkedPlace.next.getPlace(),
+				oldDoublyLinkedPlace.next.getPosition()) ;}
+		if (oldDoublyLinkedPlace.prev != null){
+		this.prev = new DoublyLinkedPlace(oldDoublyLinkedPlace.prev.getPlace(),
+				oldDoublyLinkedPlace.prev.getPosition()) ;}
+		//this.prev = oldDoublyLinkedPlace.prev;
 		this.place = new Place(oldDoublyLinkedPlace.place);
-		this.position = oldDoublyLinkedPlace.position;
+		this.position = oldDoublyLinkedPlace.position; 
 		
 	}
 	
-	public DoublyLinkedPlace copy(DoublyLinkedPlace doublyLinkedPlace) {
+	/*public DoublyLinkedPlace copy(DoublyLinkedPlace doublyLinkedPlace) {
         return new DoublyLinkedPlace(doublyLinkedPlace);
-    }
+    }*/
 	
 	/**
 	 * @param place
