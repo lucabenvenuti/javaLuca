@@ -44,8 +44,10 @@ public class Cinema {
 	 * I create an array with 3 screens
 	 */
 	private Screen one;
+	private ScreenRow a,b;
 	private Screen two;
 	private Screen three;
+	private Screen fifty;
 	
 	private Movie alpha;
 	private Movie beta;
@@ -80,6 +82,9 @@ public class Cinema {
 				new ScreenRow(categoryArray[2], "####################",4), 
 				new ScreenRow(categoryArray[3], "   ##          ##   ",5));
 
+	//	a = new ScreenRow(one.getTail());
+	//	b = new ScreenRow(a);
+		fifty = new Screen(one, alpha, "Saturday 8:15PM");
 		
 		//		first = new Screen(one,)
 		screen1[0] = one;
@@ -90,7 +95,7 @@ public class Cinema {
 		
 		alpha = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
 	//	screenFilm1[0] = new Screen(one, alpha, "20:30");
-		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
+		Screen[] screenFilmFirst =  {fifty};
 		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
 		
 		screenFilm2[0] = one;
@@ -132,10 +137,15 @@ public class Cinema {
 	
 
 
+	public Screen getOne() {
+		return one;
+	}
+
 	/**
 	 * main run of the code
 	 */
 	public void run() {
+		System.out.println(alpha.getScreens()[0].getMovie());
 		boolean continuation = true; 
 		int numberOfSeatToBook = 0, row = 0, positionOfSeatToBook = 0, seSc = 0, seMo = 0; //selected Movie
 		char [] inputKeyboard;
@@ -172,6 +182,18 @@ public class Cinema {
 			printMovie();
 			inputKey = Input.readString();
 		} 	
+	}
+
+	public Screen getFifty() {
+		return fifty;
+	}
+
+	public ScreenRow getA() {
+		return a;
+	}
+
+	public ScreenRow getB() {
+		return b;
 	}
 
 	private int seScRead(Movie movie) {
@@ -330,6 +352,10 @@ public class Cinema {
 			}
 		}
 		System.out.printf("%s%n",printRow);
+	}
+	public void printRow(ScreenRow screenRow){
+		StringBuffer printRow = new StringBuffer("");
+		printString(screenRow, printRow);
 	}
 
 	/**

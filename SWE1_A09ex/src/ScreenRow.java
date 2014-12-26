@@ -23,14 +23,24 @@ public class ScreenRow {
 	private ScreenRow prev;
 	private int size;
 	private int row;
+	
+	
 
 	public ScreenRow(ScreenRow oldScreenRow) {
-		this.next = oldScreenRow.next;
-		this.prev = oldScreenRow.prev;
+		
+		for ( DoublyLinkedPlaceList linkedPlaceList=oldScreenRow.getHead(); 
+				linkedPlaceList != 	null ; 
+				linkedPlaceList=linkedPlaceList.getNext()){
+			add(linkedPlaceList)		;	
+		}
+		this.rowLayout = new StringBuffer (oldScreenRow.getRowLayout());
+		this.category = new Category(oldScreenRow.category.getPrice(),oldScreenRow.category.getSymbol());
+	//	this.next = oldScreenRow.next;
+	//	this.prev = oldScreenRow.prev;
 	//	this.head = DoublyLinkedPlaceList.copy(oldScreenRow.head);
 	//	this.tail = DoublyLinkedPlaceList.copy(oldScreenRow.tail);
-		this.head = oldScreenRow.head;
-		this.tail = oldScreenRow.tail;
+	//	this.head = oldScreenRow.head;
+	//	this.tail = oldScreenRow.tail;
 		this.size = oldScreenRow.size;
 		this.row = oldScreenRow.row;
 		this.doublyLinkedPlaceList = oldScreenRow.doublyLinkedPlaceList;
