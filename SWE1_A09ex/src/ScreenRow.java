@@ -12,7 +12,7 @@
  * 
  * @version 2014-12-18
  */
-public class ScreenRow {
+public class ScreenRow implements Cloneable{
 	private Category category;
 	public StringBuffer rowLayout;
 
@@ -339,5 +339,8 @@ public class ScreenRow {
 	public boolean hasNext() {
 		return next != null;
 	}
-
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+	    return super.clone();
+	}
 }

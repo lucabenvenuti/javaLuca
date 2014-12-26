@@ -8,13 +8,13 @@
  * Software Development I, 2014WS 
  * JKU Linz
  * 
- * @author Michael Haslgrübler
+ * @author Michael Haslgruber
  * @author Luca Benvenuti
  * @version 2014-12-09
  */
 
 
-public class DoublyLinkedPlace  implements Cloneable{
+public class DoublyLinkedPlace {// implements Cloneable{
 	private DoublyLinkedPlace next;
 	private DoublyLinkedPlace prev;
 	private Place place;

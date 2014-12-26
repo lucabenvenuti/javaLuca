@@ -11,7 +11,7 @@
  * 
  * @version 2014-12-18
  */
-public class Screen {
+public class Screen  implements Cloneable {
 	/**
 	 * for now a screen can have a maximum of 5 rows
 	 */
@@ -106,6 +106,18 @@ public class Screen {
 		setMovie(movie);
 		setScreeningTime(screeningTime);	
 	}
+	
+	//Modified clone() method in Employee class
+//	@Override
+/*	protected Object clone() throws CloneNotSupportedException {
+	    Screen cloned = (Screen)super.clone();
+	    //cloned.setDepartment((Department)cloned.getDepartment().clone());
+	    cloned.setHead((ScreenRow)cloned.getHead().clone());
+	    cloned.setTail((ScreenRow)cloned.getTail().clone());
+	//    		getHead());
+	 //   cloned.setTail(getTail());
+	    return cloned;
+	}*/
 
 	
 	/**
