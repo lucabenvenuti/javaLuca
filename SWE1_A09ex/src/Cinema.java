@@ -133,9 +133,10 @@ public class Cinema {
 			positionOfSeatToBook = positionOfSeatToBookRead();
 			if (movie1[seMo].getScreens()[seSc].book(row,positionOfSeatToBook,numberOfSeatToBook)) {	
 				printPrice(movie1[seMo].getScreens()[seSc], row, numberOfSeatToBook);		
+				printScreen(movie1[seMo].getScreens()[seSc]);
 			} else{System.out.printf("%s%n%n",S09);}
 
-			printScreen(movie1[seMo].getScreens()[seSc]);
+			
 			System.out.printf("%s%n",S01);
 			printMovie();
 			inputKey = Input.readString();
