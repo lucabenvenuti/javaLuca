@@ -55,18 +55,21 @@ public class Cinema {
 	 */
 	public Cinema() {
 
-		one = new Screen(new ScreenRow(categoryArray[0], "##########",1), 
+		one = new Screen(
+				new ScreenRow(categoryArray[0], "##########",1), 
 				new ScreenRow(categoryArray[1], "#### #### ",2), 
 				new ScreenRow(categoryArray[2], "######### ",3), 
 				new ScreenRow(categoryArray[2], "##########",4));
 		
 		
-		two = new Screen(new ScreenRow(categoryArray[0], "###########",1), 
+		two = new Screen(
+				new ScreenRow(categoryArray[0], "###########",1), 
 				new ScreenRow(categoryArray[1], " ########  ",2), 
 				new ScreenRow(categoryArray[2], "  ######   ",3), 
 				new ScreenRow(categoryArray[3], "    ##     ",4));
 
-		three = new Screen( new ScreenRow(categoryArray[0], "####################",1), 
+		three = new Screen( 
+				new ScreenRow(categoryArray[0], "####################",1), 
 				new ScreenRow(categoryArray[1], "####################",2), 
 				new ScreenRow(categoryArray[2], "####################",3), 
 				new ScreenRow(categoryArray[2], "####################",4), 
