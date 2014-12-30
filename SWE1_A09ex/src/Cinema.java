@@ -45,8 +45,6 @@ public class Cinema {
 	 * I create an array with 3 movie and one array of screens for each movie
 	 */
 	private Screen one, two, three;
-	
-	private Movie alpha, beta, gamma;
 	private Movie[] movie1 = new Movie[3];
 	private Screen[] screenFilm1= new Screen[1];
 	private Screen[] screenFilm2= new Screen[3];
@@ -76,33 +74,27 @@ public class Cinema {
 
 		screenFilm1[0] = one;
 		
-		alpha = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
-		Screen[] screenFilmFirst =  {new Screen(one, alpha, "Saturday 8:15PM")};
-		alpha = new HFRThreeDMovie(screenFilmFirst, alpha.length(), alpha.getName());
+		movie1[0] = new HFRThreeDMovie(screenFilm1, 144, "The Hobbit: The Battle of the Five Armies" );
+		Screen[] screenFilmFirst =  {new Screen(one, movie1[0], "Saturday 8:15PM")};
+		movie1[0].setScreens(screenFilmFirst);
 		
 		screenFilm2[0] = one;
 		screenFilm2[1] = two;
 		screenFilm2[2] = three;
 		
-		beta = new TwoDMovie(screenFilm2, 97, "Magic in the Moonlight");
-		Screen[] screenFilmSecond =  {new Screen(one, beta, "Sunday 8:00PM"),
-				new Screen(two, beta, "Sunday 8:00PM"),
-				new Screen(three, beta, "Sunday 6:00PM")};
-		beta = new TwoDMovie(screenFilmSecond, beta.length(), beta.getName());
+		movie1[1] = new TwoDMovie(screenFilm2, 97, "Magic in the Moonlight");
+		Screen[] screenFilmSecond =  {new Screen(one, movie1[1], "Sunday 8:00PM"),
+				new Screen(two, movie1[1], "Sunday 8:00PM"),
+				new Screen(three, movie1[1], "Sunday 6:00PM")};
+		movie1[1].setScreens(screenFilmSecond);
 		
 		screenFilm3[0] = one;
 		screenFilm3[1] = two;
 		
-		gamma = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
-		Screen[] screenFilmThird = {new Screen(one, gamma, "Saturday 6:00PM"),
-				new Screen(two, gamma, "Saturday 7:00PM")};
-		gamma = new SpecialMovie(screenFilmThird, gamma.priceSurcharge(), gamma.length(), gamma.getName());
-		
-		movie1[0] = alpha;
-		movie1[1] = beta;
-		movie1[2] = gamma;
-	
-		
+		movie1[2] = new SpecialMovie(screenFilm3, 10,  107, "The Zero Theorem with Christoph Waltz");
+		Screen[] screenFilmThird = {new Screen(one, movie1[2], "Saturday 6:00PM"),
+				new Screen(two, movie1[2], "Saturday 7:00PM")};
+		movie1[2].setScreens(screenFilmThird);		
 	}
 
 	/**
