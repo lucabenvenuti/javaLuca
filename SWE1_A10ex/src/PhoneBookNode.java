@@ -60,26 +60,39 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	//		root = new BinaryTreeNode(x);
 		} else {
 			// otherwise insert recursively
-			insert(new PhoneBookNode(elem));
+			insert(new PhoneBookNode(elem), this.children);
 		}
 		return true;
-	}
-	private void insert(PhoneBookNode phoneBookNode) {
+	}*/
+	
+	public SortedSet<PhoneBookNode> insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
 	//	Iterator it = getChildren().iterator();
 	//	while (it.hasNext()) {
 		
 //			}
+		int compare = compareTo(phoneBookNode);
+		if (compare != 0){
+		treeSet.add(phoneBookNode);
+		System.out.println("trota");
+		return  phoneBookNode.getChildren();
+		}
+		else {return  getChildren();}
 		
-		this.children.add(phoneBookNode);
-		
-	}*/
+	}
 
 	public boolean insert(String name, String telephoneNumber) {
-
+		SortedSet<PhoneBookNode> treeSet = this.children;
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
+			//insert(elem);
+			treeSet = insert(new PhoneBookNode(elem), treeSet);
+	//		Iterator it = getChildren().iterator();
+	//		getChildren().add(new PhoneBookNode(elem));
 			
-			Iterator it = getChildren().iterator();
+		}
+			//
+			
+	/*		
 			PhoneBookNode phoneBookNode = null;
 			boolean isANewNode = true;
 			while (it.hasNext()) {
@@ -93,27 +106,16 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 				}
 			if (isANewNode){
 				getChildren().add(new PhoneBookNode(elem));
+				System.out.println("trota");
 			}
 		//	System.out.println(this.code+2);
 			if (this.code == '\0'){getChildren().add(new PhoneBookNode(elem));
-			it = getChildren().iterator();}
+			System.out.println("trota2");}
 			else{it = phoneBookNode.getChildren().iterator();}
 		//	
-			while (it.hasNext()) {
-				phoneBookNode = (PhoneBookNode) it.next();
-				System.out.println(phoneBookNode.code);
-				int compare = compareTo(phoneBookNode); 
-				if (compare == 0){
-					isANewNode = false;
-					break;
-				}
-				}
-			if (isANewNode){
-				getChildren().add(new PhoneBookNode(elem));
-			}
 			
 			
-		}
+		
 		//	System.out.println(insert(elem));
 		//	getChildren().first().insert(elem);
 			
