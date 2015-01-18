@@ -65,7 +65,8 @@ public class PhoneBook {
 				System.out.println();
 				break;
 			}
-			case 'q':
+			//case 'q':
+			default:
 				quit = true;
 				break;
 			}

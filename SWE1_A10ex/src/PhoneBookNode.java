@@ -53,9 +53,28 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
-		// TODO: implement me
+
+		for (char elem : name.toCharArray()) {
+			System.out.println(elem);
+			
+			}
+		
 		return false;
 	}
+	
+	// private recursive insert method
+/*		private void insert(BinaryTreeNode node, BinaryTreeNode x) {
+			if (node.left == null) {
+				// empty spot to the left, insert here
+				node.left = x;
+			} else if (node.right == null) {
+				// empty spot to the right, insert here
+				node.right = x;
+			} else {
+				// continue in left sub-tree
+				insert(node.left, x);
+			}
+		}*/
 
 	public PhoneBookNode search(String name) {
 		// TODO: implement me
