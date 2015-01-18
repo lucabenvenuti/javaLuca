@@ -53,7 +53,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
-	public boolean insert(char elem) {
+/*	public boolean insert(char elem) {
 		if (elem == '\0'){ return false;
 	//	if (root == null) {
 			// special case: tree is empty, create new root node
@@ -72,24 +72,53 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		
 		this.children.add(phoneBookNode);
 		
-	}
+	}*/
 
 	public boolean insert(String name, String telephoneNumber) {
 
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
-			getChildren().add(new PhoneBookNode(elem));
+			
 			Iterator it = getChildren().iterator();
+			PhoneBookNode phoneBookNode = null;
+			boolean isANewNode = true;
 			while (it.hasNext()) {
-				PhoneBookNode phoneBookNode = (PhoneBookNode) it.next();
+				phoneBookNode = (PhoneBookNode) it.next();
 				System.out.println(phoneBookNode.code);
+				int compare = compareTo(phoneBookNode); 
+				if (compare == 0){
+					isANewNode = false;
+					break;
 				}
-
+				}
+			if (isANewNode){
+				getChildren().add(new PhoneBookNode(elem));
+			}
+		//	System.out.println(this.code+2);
+			if (this.code == '\0'){getChildren().add(new PhoneBookNode(elem));
+			it = getChildren().iterator();}
+			else{it = phoneBookNode.getChildren().iterator();}
+		//	
+			while (it.hasNext()) {
+				phoneBookNode = (PhoneBookNode) it.next();
+				System.out.println(phoneBookNode.code);
+				int compare = compareTo(phoneBookNode); 
+				if (compare == 0){
+					isANewNode = false;
+					break;
+				}
+				}
+			if (isANewNode){
+				getChildren().add(new PhoneBookNode(elem));
+			}
+			
+			
+		}
 		//	System.out.println(insert(elem));
 		//	getChildren().first().insert(elem);
 			
 		/*	PhoneBookNode phoneBookNode = new PhoneBookNode(elem);
-			int compare = compareTo(phoneBookNode); 
+			
 			
 			if (compare == 0)
 				//return false; // x is already in the tree, return false
@@ -106,7 +135,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 				
 		//	this.code = elem;
 		//	this.children.add(new PhoneBookNode(elem));
-			}
+			
 		
 		return false;
 	}
