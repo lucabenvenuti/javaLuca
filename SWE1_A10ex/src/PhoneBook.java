@@ -8,7 +8,7 @@
  * Software Development I, 2014WS 
  * Institute for Pervasive Computing, JKU Linz
  * 
- * @author Michael Haslgrübler
+ * @author Michael Haslgruebler
  * @author Andreas Riener
  * @version 2014-12-23
  */

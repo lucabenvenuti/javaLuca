@@ -1,5 +1,7 @@
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.Iterator;
+
 
 /**
  * PhoneBookNode.java
@@ -11,7 +13,7 @@ import java.util.TreeSet;
  * Software Development I, 2014WS 
  * Institute for Pervasive Computing, JKU Linz
  * 
- * @author Michael Haslgrübler
+ * @author Michael Haslgruebler
  * @author Andreas Riener
  * @version 2014-12-23
  */
@@ -51,12 +53,59 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
+	public boolean insert(char elem) {
+		if (elem == '\0'){ return false;
+	//	if (root == null) {
+			// special case: tree is empty, create new root node
+	//		root = new BinaryTreeNode(x);
+		} else {
+			// otherwise insert recursively
+			insert(new PhoneBookNode(elem));
+		}
+		return true;
+	}
+	private void insert(PhoneBookNode phoneBookNode) {
+	//	Iterator it = getChildren().iterator();
+	//	while (it.hasNext()) {
+		
+//			}
+		
+		this.children.add(phoneBookNode);
+		
+	}
 
 	public boolean insert(String name, String telephoneNumber) {
 
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
+			getChildren().add(new PhoneBookNode(elem));
+			Iterator it = getChildren().iterator();
+			while (it.hasNext()) {
+				PhoneBookNode phoneBookNode = (PhoneBookNode) it.next();
+				System.out.println(phoneBookNode.code);
+				}
+
+		//	System.out.println(insert(elem));
+		//	getChildren().first().insert(elem);
 			
+		/*	PhoneBookNode phoneBookNode = new PhoneBookNode(elem);
+			int compare = compareTo(phoneBookNode); 
+			
+			if (compare == 0)
+				//return false; // x is already in the tree, return false
+		//	else if (compare > 0) {
+				// node value is greater than x
+			//	if (node.left == null) {
+					// empty spot to the left, insert here
+		//			node.left = x;
+		//			return true;
+		//		} else {
+					// continue in left sub-tree
+		//			node = node.left;
+		//		}*/
+				
+		//	this.code = elem;
+		//	this.children.add(new PhoneBookNode(elem));
 			}
 		
 		return false;
@@ -74,7 +123,34 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 				// continue in left sub-tree
 				insert(node.left, x);
 			}
-		}*/
+		}
+		Iterator it = getChildren().iterator();
+			while (it.hasNext()) {
+			
+				}
+		
+		Iterator it = set.iterator();
+28
+        while (it.hasNext()) {
+29
+            // Get employee name and age
+30
+            Employee epm = (Employee) it.next();
+31
+            System.out.println("Employee " + epm.getName() + ", his age: " + epm.getAge());
+32
+        }
+
+			int compare = node.content.compareTo(x);
+			if (compare == 0)
+				break;             // matching node found
+			else if (compare > 0)  // node value is greater than x
+				node = node.left;  // continue in left sub-tree
+			else                   // node value is lower than x
+				node = node.right; // continue in right sub-tree
+		*
+		*
+		*/
 
 	public PhoneBookNode search(String name) {
 		// TODO: implement me
