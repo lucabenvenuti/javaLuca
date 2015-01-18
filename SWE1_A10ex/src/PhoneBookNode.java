@@ -53,23 +53,11 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
-/*	public boolean insert(char elem) {
-		if (elem == '\0'){ return false;
-	//	if (root == null) {
-			// special case: tree is empty, create new root node
-	//		root = new BinaryTreeNode(x);
-		} else {
-			// otherwise insert recursively
-			insert(new PhoneBookNode(elem), this.children);
-		}
-		return true;
-	}*/
 	
 	public SortedSet<PhoneBookNode> insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
-	//	Iterator it = getChildren().iterator();
-	//	while (it.hasNext()) {
-		
-//			}
+		if (!treeSet.isEmpty()){
+			this.code = treeSet.first().code;
+		}
 		int compare = compareTo(phoneBookNode);
 		if (compare != 0){
 		treeSet.add(phoneBookNode);
@@ -81,107 +69,16 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
+	//	System.out.println(this.code);
 		SortedSet<PhoneBookNode> treeSet = this.children;
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
-			//insert(elem);
 			treeSet = insert(new PhoneBookNode(elem), treeSet);
-	//		Iterator it = getChildren().iterator();
-	//		getChildren().add(new PhoneBookNode(elem));
-			
+
 		}
-			//
-			
-	/*		
-			PhoneBookNode phoneBookNode = null;
-			boolean isANewNode = true;
-			while (it.hasNext()) {
-				phoneBookNode = (PhoneBookNode) it.next();
-				System.out.println(phoneBookNode.code);
-				int compare = compareTo(phoneBookNode); 
-				if (compare == 0){
-					isANewNode = false;
-					break;
-				}
-				}
-			if (isANewNode){
-				getChildren().add(new PhoneBookNode(elem));
-				System.out.println("trota");
-			}
-		//	System.out.println(this.code+2);
-			if (this.code == '\0'){getChildren().add(new PhoneBookNode(elem));
-			System.out.println("trota2");}
-			else{it = phoneBookNode.getChildren().iterator();}
-		//	
-			
-			
-		
-		//	System.out.println(insert(elem));
-		//	getChildren().first().insert(elem);
-			
-		/*	PhoneBookNode phoneBookNode = new PhoneBookNode(elem);
-			
-			
-			if (compare == 0)
-				//return false; // x is already in the tree, return false
-		//	else if (compare > 0) {
-				// node value is greater than x
-			//	if (node.left == null) {
-					// empty spot to the left, insert here
-		//			node.left = x;
-		//			return true;
-		//		} else {
-					// continue in left sub-tree
-		//			node = node.left;
-		//		}*/
-				
-		//	this.code = elem;
-		//	this.children.add(new PhoneBookNode(elem));
-			
 		
 		return false;
 	}
-	
-	// private recursive insert method
-/*		private void insert(BinaryTreeNode node, BinaryTreeNode x) {
-			if (node.left == null) {
-				// empty spot to the left, insert here
-				node.left = x;
-			} else if (node.right == null) {
-				// empty spot to the right, insert here
-				node.right = x;
-			} else {
-				// continue in left sub-tree
-				insert(node.left, x);
-			}
-		}
-		Iterator it = getChildren().iterator();
-			while (it.hasNext()) {
-			
-				}
-		
-		Iterator it = set.iterator();
-28
-        while (it.hasNext()) {
-29
-            // Get employee name and age
-30
-            Employee epm = (Employee) it.next();
-31
-            System.out.println("Employee " + epm.getName() + ", his age: " + epm.getAge());
-32
-        }
-
-			int compare = node.content.compareTo(x);
-			if (compare == 0)
-				break;             // matching node found
-			else if (compare > 0)  // node value is greater than x
-				node = node.left;  // continue in left sub-tree
-			else                   // node value is lower than x
-				node = node.right; // continue in right sub-tree
-		*
-		*
-		*/
 
 	public PhoneBookNode search(String name) {
 		// TODO: implement me
