@@ -54,7 +54,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		this.telephoneNumber = telephoneNumber;
 	}
 	
-	public SortedSet<PhoneBookNode> insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
+	public PhoneBookNode insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
 		boolean check = true;
 		if (!treeSet.isEmpty()){
 			check = false;
@@ -76,9 +76,9 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		if (check){
 			treeSet.add(phoneBookNode);
 			System.out.println("trota");
-			return  phoneBookNode.getChildren();
+			return  phoneBookNode;
 		}
-		else {return  getChildren();}
+		else {return  this;}
 		
 	}
 
@@ -86,12 +86,15 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	//	System.out.println(this.code);
 		SortedSet<PhoneBookNode> treeSet = this.children;
 		char elem2 = '?';
+		PhoneBookNode phoneBookNode = null;
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
-			treeSet = insert(new PhoneBookNode(elem), treeSet);
+			phoneBookNode = insert(new PhoneBookNode(elem), treeSet);
+			treeSet = phoneBookNode.getChildren();
 			elem2 = elem;
 		}
-		insertNumber(this.children, telephoneNumber, elem2);
+		phoneBookNode.telephoneNumber = telephoneNumber;
+	//	insertNumber(this.children, telephoneNumber, elem2);
 		
 		return false;
 	}
