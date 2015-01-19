@@ -57,7 +57,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		name = name.toUpperCase();
 	//	System.out.println(getChildren().size());
 		if(name.length()==0){
-			System.out.println("supertrota4");
+		//	System.out.println("supertrota4");
 			return false;}
 		boolean check = false;
 		PhoneBookNode phoneBookNode2 = null;
@@ -65,20 +65,20 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		PhoneBookNode phoneBookNode = new PhoneBookNode(checkChar);
 		
 		if (!getChildren().isEmpty()){
-			System.out.println("trota3");
+		//	System.out.println("trota3");
 			check = false;
 			Iterator<PhoneBookNode> it = getChildren().iterator();
 			while (it.hasNext()) {	
 				phoneBookNode2 = (PhoneBookNode) it.next();
 				if (phoneBookNode2.code == checkChar){
-					System.out.println("trota4");
+				//	System.out.println("trota4");
  					check = true;
  					break;}
 			}
 		}
 		
 		if (!check){
-			System.out.println("trota1");
+		//	System.out.println("trota1");
 			getChildren().add(phoneBookNode);
 			if(name.length()==1 && phoneBookNode.getTelephoneNumber()==null){
 				phoneBookNode.setTelephoneNumber(telephoneNumber);
@@ -91,7 +91,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 			return phoneBookNode.insert(name.substring(1), telephoneNumber);
 			
 		}else{
-			System.out.println("trota2");
+		//	System.out.println("trota2");
 			return phoneBookNode2.insert(name.substring(1), telephoneNumber);
 		//	this.children = phoneBookNode2.getChildren();
 			
@@ -130,13 +130,14 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		
 		Iterator<PhoneBookNode> it = getChildren().iterator();
 		while (it.hasNext()) {	
-			
-			
+			PhoneBookNode phoneBookNode2 = (PhoneBookNode) it.next();
+			prefix +=  prefix + Character.toString(phoneBookNode2.code);
+			phoneBookNode2.printPhoneBook(prefix);
 		}
-		if (left != null) left.printInorder(); else System.out.print("*");
+		/*if (left != null) left.printInorder(); else System.out.print("*");
 		System.out.print(" " + content + " ");
 		if (right != null) right.printInorder(); else System.out.print("*");
-		System.out.print(")");
+		System.out.print(")");*/
 		return null;
 	}
 
