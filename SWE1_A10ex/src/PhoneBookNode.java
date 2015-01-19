@@ -1,7 +1,5 @@
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.Iterator;
-
 
 /**
  * PhoneBookNode.java
@@ -13,7 +11,7 @@ import java.util.Iterator;
  * Software Development I, 2014WS 
  * Institute for Pervasive Computing, JKU Linz
  * 
- * @author Michael Haslgruebler
+ * @author Michael Haslgrübler
  * @author Andreas Riener
  * @version 2014-12-23
  */
@@ -53,60 +51,9 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
-	
-	public int insert(char[] nameCharArray, SortedSet<PhoneBookNode> treeSet, int i) {
-		System.out.println(treeSet.stream());
-		if (i<nameCharArray.length){
-			char elem2 = nameCharArray[i];
-		
-			PhoneBookNode phoneBookNode = new PhoneBookNode(elem2);
-		
-		boolean check = true;
-		if (!treeSet.isEmpty()){
-	
-			check = false;
-			Iterator<PhoneBookNode> it = treeSet.iterator();
-				
-			while (it.hasNext()) {
-			
-				PhoneBookNode phoneBookNode2 = it.next();
-				int compare = compareTo(phoneBookNode2);
-			
-				if (compare != 0){
-					check = true;
-					}
-				}
-		}
-		if (check){
-			this.code = phoneBookNode.code;
-			treeSet.add(phoneBookNode);
-			System.out.println("insert code ok");
-			this.children = phoneBookNode.getChildren();
-			if (i==nameCharArray.length-1){
-				phoneBookNode.telephoneNumber = telephoneNumber;}
-			return insert(nameCharArray, this.children, i+1);
-		}
-		else {
-			return insert(nameCharArray, treeSet, i);
-		}
-		
-		}
-		return 1000;
-	}
 
 	public boolean insert(String name, String telephoneNumber) {
-	
-		SortedSet<PhoneBookNode> treeSet = this.children;
-		char[] nameCharArray = name.toCharArray();
-		int a = insert(nameCharArray, treeSet, 0);
-		
-	/*	for (char elem : name.toCharArray()) {
-			System.out.println(elem);
-			phoneBookNode = insert(new PhoneBookNode(elem), treeSet);
-			treeSet = phoneBookNode.getChildren();
-			elem2 = elem;
-		}*/
-		
+		// TODO: implement me
 		return false;
 	}
 

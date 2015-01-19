@@ -8,7 +8,7 @@
  * Software Development I, 2014WS 
  * Institute for Pervasive Computing, JKU Linz
  * 
- * @author Michael Haslgruebler
+ * @author Michael Haslgrübler
  * @author Andreas Riener
  * @version 2014-12-23
  */
@@ -65,8 +65,7 @@ public class PhoneBook {
 				System.out.println();
 				break;
 			}
-			//case 'q':
-			default:
+			case 'q':
 				quit = true;
 				break;
 			}
