@@ -54,16 +54,23 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		this.telephoneNumber = telephoneNumber;
 	}
 	
-	public PhoneBookNode insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
+	public int insert(char[] nameCharArray, SortedSet<PhoneBookNode> treeSet, int i) {
+		if (i<nameCharArray.length){
+			char elem2 = nameCharArray[i];
+		//	System.out.println(elem2);
+			PhoneBookNode phoneBookNode = new PhoneBookNode(elem2);
 		boolean check = true;
 		if (!treeSet.isEmpty()){
+		//	System.out.println("trota3");
 			check = false;
 			Iterator it = treeSet.iterator();
 			
 			while (it.hasNext()) {
 			//	System.out.println("trota3");
 				PhoneBookNode phoneBookNode2 = (PhoneBookNode) it.next();
-				this.code = phoneBookNode2.code;
+				System.out.println(phoneBookNode2);
+				//this.code = phoneBookNode2.code;
+				System.out.println(phoneBookNode.code);
 				int compare = compareTo(phoneBookNode);
 			//	System.out.println(compare);
 				if (compare != 0){
@@ -73,27 +80,46 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 				}
 			//this.code = treeSet.first().code;
 		}
+		//else{System.out.println("trota6");}
 		if (check){
+			this.code = phoneBookNode.code;
+		//	System.out.println(this.code);
 			treeSet.add(phoneBookNode);
-			System.out.println("trota");
-			return  phoneBookNode;
+		//	System.out.println("trota");
+			this.children = phoneBookNode.getChildren();
+		//	System.out.println(this.children);
+			//return  i-1;
+			if (i==nameCharArray.length-1){
+				phoneBookNode.telephoneNumber = telephoneNumber;}
+			return insert(nameCharArray, treeSet, i+1);
 		}
-		else {return  this;}
+		else {//return  i;
+			return insert(nameCharArray, treeSet, i);
+		}
 		
+		
+		}
+		return 1000;
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
 	//	System.out.println(this.code);
+		
+	//	System.out.println(this);
 		SortedSet<PhoneBookNode> treeSet = this.children;
-		char elem2 = '?';
-		PhoneBookNode phoneBookNode = null;
-		for (char elem : name.toCharArray()) {
+	//	System.out.println(treeSet);
+	//	char elem2 = '?';
+	//	PhoneBookNode phoneBookNode = null;
+		char[] nameCharArray = name.toCharArray();
+		int a = insert(nameCharArray, treeSet, 0);
+		
+	/*	for (char elem : name.toCharArray()) {
 			System.out.println(elem);
 			phoneBookNode = insert(new PhoneBookNode(elem), treeSet);
 			treeSet = phoneBookNode.getChildren();
 			elem2 = elem;
-		}
-		phoneBookNode.telephoneNumber = telephoneNumber;
+		}*/
+		
 	//	insertNumber(this.children, telephoneNumber, elem2);
 		
 		return false;
