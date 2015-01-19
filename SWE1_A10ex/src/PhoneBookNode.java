@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -53,8 +54,50 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
-		// TODO: implement me
-		return false;
+		System.out.println(getChildren().size());
+		if(name.length()==0){return false;}
+		boolean check = false;
+		PhoneBookNode phoneBookNode2 = null;
+		char checkChar = name.charAt(0);
+		PhoneBookNode phoneBookNode = new PhoneBookNode(checkChar);
+		
+		if (!getChildren().isEmpty()){
+			System.out.println("trota3");
+			check = false;
+			Iterator<PhoneBookNode> it = getChildren().iterator();
+			while (it.hasNext()) {
+				
+				phoneBookNode2 = (PhoneBookNode) it.next();
+				/*String s = "" + this.code + phoneBookNode2.code;
+				System.out.println(s);
+				s = "";*/
+			//	setCode(phoneBookNode2.code);
+			//	int compare = compareTo(phoneBookNode);
+				if (phoneBookNode2.code == checkChar){
+				//	System.out.println("trota1");
+ 					check = true;
+ 					break;}
+			}
+		}
+		
+		if (!check){
+			System.out.println("trota1");
+		//	System.out.println(getChildren().size());
+			getChildren().add(phoneBookNode);
+		//	System.out.println(getChildren().first().code);
+		//	System.out.println(phoneBookNode.code);
+			this.children = phoneBookNode.getChildren();			
+			
+		}else{
+			System.out.println("trota2");
+			this.children = phoneBookNode2.getChildren();
+			
+			
+		}
+		
+		return insert(name.substring(1), telephoneNumber);
+		
+	//	
 	}
 
 	public PhoneBookNode search(String name) {
