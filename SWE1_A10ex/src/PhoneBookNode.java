@@ -53,6 +53,16 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
+		name = name.toUpperCase();
+		char checkChar = name.charAt(0);
+		PhoneBookNode phoneBookNode2 = null;
+		for (PhoneBookNode n:getChildren()){
+			if(n.getCode()==checkChar){
+				phoneBookNode2=n;
+				break;
+			}
+		}
+		
 		// TODO: implement me
 		return false;
 	}
