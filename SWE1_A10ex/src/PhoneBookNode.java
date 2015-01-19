@@ -55,9 +55,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 
 	public boolean insert(String name, String telephoneNumber) {
 		name = name.toUpperCase();
-	//	System.out.println(getChildren().size());
 		if(name.length()==0){
-		//	System.out.println("supertrota4");
 			return false;}
 		boolean check = false;
 		PhoneBookNode phoneBookNode2 = null;
@@ -65,42 +63,31 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		PhoneBookNode phoneBookNode = new PhoneBookNode(checkChar);
 		
 		if (!getChildren().isEmpty()){
-		//	System.out.println("trota3");
 			check = false;
 			Iterator<PhoneBookNode> it = getChildren().iterator();
 			while (it.hasNext()) {	
 				phoneBookNode2 = (PhoneBookNode) it.next();
 				if (phoneBookNode2.code == checkChar){
-				//	System.out.println("trota4");
  					check = true;
  					break;}
 			}
 		}
 		
 		if (!check){
-		//	System.out.println("trota1");
 			getChildren().add(phoneBookNode);
 			if(name.length()==1 && phoneBookNode.getTelephoneNumber()==null){
 				phoneBookNode.setTelephoneNumber(telephoneNumber);
 				return true;
 			}
 			else if(name.length()==1 && phoneBookNode.getTelephoneNumber()!=null){
-				System.out.println("trotaCuloFx");
+				System.out.println("already available telephonenumber");
 				return false;
 			}
 			return phoneBookNode.insert(name.substring(1), telephoneNumber);
 			
 		}else{
-		//	System.out.println("trota2");
 			return phoneBookNode2.insert(name.substring(1), telephoneNumber);
-		//	this.children = phoneBookNode2.getChildren();
-			
-			
 		}
-		
-	//	return insert(name.substring(1), telephoneNumber);
-		
-	//	
 	}
 
 	public PhoneBookNode search(String name) {
@@ -126,36 +113,19 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	 *         with this node
 	 */
 	public String printPhoneBook(String prefix) {
-	//	prefix = "(";
-		//System.out.print("(");
 		String a = "";
 		if (!getChildren().isEmpty()){
 		Iterator<PhoneBookNode> it = getChildren().iterator();
-		//System.out.println(getChildren().size());
 		PhoneBookNode phoneBookNode2 = null;
 		while (it.hasNext()) {	
 			phoneBookNode2 = (PhoneBookNode) it.next();
-		//	System.out.println(phoneBookNode2.getChildren().size());
-			//System.out.println(phoneBookNode2.code);
-		//	prefix = ;
-			//return phoneBookNode2.printPhoneBook(prefix);
 			a = Character.toString(phoneBookNode2.code);
 			prefix += phoneBookNode2.printPhoneBook(a);
-			
 		}
-		
-	/*	it = phoneBookNode2.getChildren().iterator();
-		while (it.hasNext()) {	
-			phoneBookNode2 = (PhoneBookNode) it.next();
-			System.out.println(phoneBookNode2.code);
-			prefix += phoneBookNode2.code;
-		}*/
-		//return printPhoneBook(prefix);
 		}
 		else 
 		{	prefix += getTelephoneNumber();
 			prefix += "\n";
-			//prefix += Character.toString(getCode());
 			}
 		return prefix;
 	}
