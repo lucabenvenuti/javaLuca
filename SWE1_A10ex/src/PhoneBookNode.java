@@ -128,6 +128,7 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public String printPhoneBook(String prefix) {
 	//	prefix = "(";
 		//System.out.print("(");
+		String a = "";
 		if (!getChildren().isEmpty()){
 		Iterator<PhoneBookNode> it = getChildren().iterator();
 		//System.out.println(getChildren().size());
@@ -138,7 +139,8 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 			//System.out.println(phoneBookNode2.code);
 		//	prefix = ;
 			//return phoneBookNode2.printPhoneBook(prefix);
-			prefix += phoneBookNode2.printPhoneBook(Character.toString(phoneBookNode2.code));
+			a = Character.toString(phoneBookNode2.code);
+			prefix += phoneBookNode2.printPhoneBook(a);
 			
 		}
 		
@@ -151,8 +153,10 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		//return printPhoneBook(prefix);
 		}
 		else 
-			prefix += getTelephoneNumber();
+		{	prefix += getTelephoneNumber();
 			prefix += "\n";
+			//prefix += Character.toString(getCode());
+			}
 		return prefix;
 	}
 		
