@@ -126,20 +126,37 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	 *         with this node
 	 */
 	public String printPhoneBook(String prefix) {
-		System.out.print("(");
-		
+	//	prefix = "(";
+		//System.out.print("(");
+		if (!getChildren().isEmpty()){
 		Iterator<PhoneBookNode> it = getChildren().iterator();
+		//System.out.println(getChildren().size());
+		PhoneBookNode phoneBookNode2 = null;
 		while (it.hasNext()) {	
-			PhoneBookNode phoneBookNode2 = (PhoneBookNode) it.next();
-			prefix +=  prefix + Character.toString(phoneBookNode2.code);
-			phoneBookNode2.printPhoneBook(prefix);
+			phoneBookNode2 = (PhoneBookNode) it.next();
+		//	System.out.println(phoneBookNode2.getChildren().size());
+			//System.out.println(phoneBookNode2.code);
+		//	prefix = ;
+			//return phoneBookNode2.printPhoneBook(prefix);
+			prefix += phoneBookNode2.printPhoneBook(Character.toString(phoneBookNode2.code));
+			
 		}
-		/*if (left != null) left.printInorder(); else System.out.print("*");
-		System.out.print(" " + content + " ");
-		if (right != null) right.printInorder(); else System.out.print("*");
-		System.out.print(")");*/
-		return null;
+		
+	/*	it = phoneBookNode2.getChildren().iterator();
+		while (it.hasNext()) {	
+			phoneBookNode2 = (PhoneBookNode) it.next();
+			System.out.println(phoneBookNode2.code);
+			prefix += phoneBookNode2.code;
+		}*/
+		//return printPhoneBook(prefix);
+		}
+		else 
+			prefix += getTelephoneNumber();
+			prefix += "\n";
+		return prefix;
 	}
+		
+
 
 	@Override
 	public int compareTo(PhoneBookNode o) {
