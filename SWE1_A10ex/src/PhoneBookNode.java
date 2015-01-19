@@ -55,14 +55,28 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 	
 	public SortedSet<PhoneBookNode> insert(PhoneBookNode phoneBookNode, SortedSet<PhoneBookNode> treeSet) {
+		boolean check = true;
 		if (!treeSet.isEmpty()){
-			this.code = treeSet.first().code;
+			check = false;
+			Iterator it = treeSet.iterator();
+			
+			while (it.hasNext()) {
+			//	System.out.println("trota3");
+				PhoneBookNode phoneBookNode2 = (PhoneBookNode) it.next();
+				this.code = phoneBookNode2.code;
+				int compare = compareTo(phoneBookNode);
+			//	System.out.println(compare);
+				if (compare != 0){
+					check = true;
+				//	System.out.println("trota2");
+					}
+				}
+			//this.code = treeSet.first().code;
 		}
-		int compare = compareTo(phoneBookNode);
-		if (compare != 0){
-		treeSet.add(phoneBookNode);
-		System.out.println("trota");
-		return  phoneBookNode.getChildren();
+		if (check){
+			treeSet.add(phoneBookNode);
+			System.out.println("trota");
+			return  phoneBookNode.getChildren();
 		}
 		else {return  getChildren();}
 		
@@ -71,15 +85,35 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	public boolean insert(String name, String telephoneNumber) {
 	//	System.out.println(this.code);
 		SortedSet<PhoneBookNode> treeSet = this.children;
+		char elem2 = '?';
 		for (char elem : name.toCharArray()) {
 			System.out.println(elem);
 			treeSet = insert(new PhoneBookNode(elem), treeSet);
-
+			elem2 = elem;
 		}
+		insertNumber(this.children, telephoneNumber, elem2);
 		
 		return false;
 	}
 
+	/*public void insertNumber(SortedSet<PhoneBookNode> treeSet, String telephoneNumber, char elem2)	{
+	//	SortedSet<PhoneBookNode> treeSet = this.children;
+		Iterator it = treeSet.iterator();
+		while (it.hasNext()) {
+			
+				System.out.println("trota3");
+				PhoneBookNode phoneBookNode2 = (PhoneBookNode) it.next();
+				this.code = phoneBookNode2.code;
+				int compare = compareTo(new PhoneBookNode(elem2));
+			//	System.out.println(compare);
+				if (compare == 0){
+					if (!treeSet.isEmpty()){}
+					setTelephoneNumber(telephoneNumber);
+					System.out.println("trota6");
+					}
+				}
+	}
+*/
 	public PhoneBookNode search(String name) {
 		// TODO: implement me
 		return null;
