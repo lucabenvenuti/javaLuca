@@ -122,7 +122,9 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		while (it.hasNext()) {	
 			phoneBookNode2 = (PhoneBookNode) it.next();
 			//a = Character.toString(phoneBookNode2.code);
+			//System.out.println(phoneBookNode2);
 			newPrefix.append(phoneBookNode2.printPhoneBook(Character.toString(phoneBookNode2.code)));
+			//newPrefix.append(phoneBookNode2.toString());
 		}
 		}
 		else 
@@ -130,8 +132,6 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 			newPrefix.append("\n");
 			}
 		return new String(newPrefix);
-		
-		//test
 	}
 		
 
