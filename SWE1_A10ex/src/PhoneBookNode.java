@@ -113,25 +113,25 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	 *         with this node
 	 */
 	public String printPhoneBook(String prefix) {
-		StringBuffer newPrefix = new StringBuffer(prefix);
+		StringBuilder newPrefix = new StringBuilder(prefix);
 		
 		//String a = prefix;
-		if (!getChildren().isEmpty()){
-		Iterator<PhoneBookNode> it = getChildren().iterator();
-		PhoneBookNode phoneBookNode2 = null;
-		while (it.hasNext()) {	
-			phoneBookNode2 = (PhoneBookNode) it.next();
-			//a = Character.toString(phoneBookNode2.code);
-			//System.out.println(phoneBookNode2);
-			newPrefix.append(phoneBookNode2.printPhoneBook(Character.toString(phoneBookNode2.code)));
-			//newPrefix.append(phoneBookNode2.toString());
-		}
-		}
-		else 
-		{	newPrefix.append(getTelephoneNumber());
+		if (getChildren().isEmpty()){
+			newPrefix.append(getTelephoneNumber());
 			newPrefix.append("\n");
+				}
+		else {	Iterator<PhoneBookNode> it = getChildren().iterator();
+			PhoneBookNode phoneBookNode2 = null;
+			while (it.hasNext()) {	
+				phoneBookNode2 = (PhoneBookNode) it.next();
+				//a = Character.toString(phoneBookNode2.code);
+				
+				newPrefix.append(phoneBookNode2.printPhoneBook(Character.toString(phoneBookNode2.code)));
+				//newPrefix.append(phoneBookNode2.printPhoneBook();
+				//newPrefix.append(phoneBookNode2.toString());
 			}
-		return new String(newPrefix);
+		}
+		return newPrefix.toString();
 	}
 		
 
