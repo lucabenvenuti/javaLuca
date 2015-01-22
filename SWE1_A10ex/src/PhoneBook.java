@@ -51,11 +51,12 @@ public class PhoneBook {
 				System.out.println("Please enter name of the contact");
 				String name = Input.readString();
 				PhoneBookNode node = root.search(name);
+				name = name.toUpperCase();
 				if (node == null) {
 					System.out.println("Your phonebook is empty, or the entry is not found");
 				} else {
 					System.out.println("The following contacts have been found:");
-					//TODO: implement me
+					System.out.println(node.printPhoneBook(name));
 				}
 				System.out.println();
 				break;

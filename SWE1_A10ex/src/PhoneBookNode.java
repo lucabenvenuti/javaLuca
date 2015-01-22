@@ -91,7 +91,16 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public PhoneBookNode search(String name) {
-		// TODO: implement me
+		if (name.length() == 0) {
+            return this;
+        }
+
+        char childCode = name.toUpperCase().charAt(0);
+        for (PhoneBookNode child : children) {
+            if (child.getCode() == childCode) {
+                return child.search(name.substring(1));
+            }
+        }
 		return null;
 	}
 
