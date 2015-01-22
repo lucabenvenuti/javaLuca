@@ -54,7 +54,6 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 	}
 
 	public boolean insert(String name, String telephoneNumber) {
-		name = name.toUpperCase();
 		if(name.length()==0){
 			return false;}
 		boolean check = false;
@@ -95,12 +94,17 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
             return this;
         }
 
-        char childCode = name.toUpperCase().charAt(0);
-        for (PhoneBookNode child : children) {
-            if (child.getCode() == childCode) {
+        char childCode = name.charAt(0);        
+        
+        Iterator<PhoneBookNode> it = getChildren().iterator();
+		PhoneBookNode child = null;
+		while (it.hasNext()) {	
+			child = (PhoneBookNode) it.next();				
+			if (child.getCode() == childCode) {
                 return child.search(name.substring(1));
             }
-        }
+		}
+               
 		return null;
 	}
 
@@ -127,18 +131,15 @@ public class PhoneBookNode implements Comparable<PhoneBookNode> {
 		//String a = prefix;
 		if (getChildren().isEmpty()){
 			newPrefix.append(prefix);
+			newPrefix.append("\t");
 			newPrefix.append(getTelephoneNumber());
 			newPrefix.append("\n");
 				}
 		else {	Iterator<PhoneBookNode> it = getChildren().iterator();
 			PhoneBookNode phoneBookNode2 = null;
 			while (it.hasNext()) {	
-				phoneBookNode2 = (PhoneBookNode) it.next();
-				//a = Character.toString(phoneBookNode2.code);
-				
+				phoneBookNode2 = (PhoneBookNode) it.next();				
 				newPrefix.append(phoneBookNode2.printPhoneBook(prefix+(phoneBookNode2.code)));
-				//newPrefix.append(phoneBookNode2.printPhoneBook();
-				//newPrefix.append(phoneBookNode2.toString());
 			}
 		}
 		return newPrefix.toString();

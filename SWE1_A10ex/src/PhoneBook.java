@@ -40,18 +40,18 @@ public class PhoneBook {
 			switch (control) {
 			case 'i': {
 				System.out.println("Please enter the name of your new contact");
-				String name = Input.readString();
+				String name = Input.readString().toUpperCase();
 				System.out.println("Please enter the telephone number");
-				String number = Input.readString();
+				String number = Input.readString().toUpperCase();
 				root.insert(name, number);
 				System.out.println();
 				break;
 			}
 			case 's': {
 				System.out.println("Please enter name of the contact");
-				String name = Input.readString();
+				String name = Input.readString().toUpperCase();
 				PhoneBookNode node = root.search(name);
-				name = name.toUpperCase();
+				//name = name.toUpperCase();
 				if (node == null) {
 					System.out.println("Your phonebook is empty, or the entry is not found");
 				} else {
