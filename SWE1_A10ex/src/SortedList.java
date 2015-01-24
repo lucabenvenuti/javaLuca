@@ -5,7 +5,7 @@
  * author: 2007-10-1 Michael Matscheko
  * last change: 2012-12-06 Michael Matscheko */
 
-public class SortedList extends List {
+public class SortedList extends ListOld {
 
 	public SortedList() {
 		super();

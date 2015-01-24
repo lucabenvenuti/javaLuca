@@ -1,24 +1,20 @@
-/* Fibonacci.java
- * Software Development 1.11 Recursion
- * Institute for Pervasive Computing, JKU Linz, Austria
- * http://www.pervasive.jku.at
- * author: 2007-10-1 Michael Matscheko
- * last change: 2012-12-05 Michael Matscheko */
+//package at.jku.pervasive.swe14.UE12.fibonacci;
 
-// Compute Fibonacci-Number
 public class Fibonacci {
-
-	static int fib(int n) {
-		if (n<1)
-			return 0;
-		else if (n < 3)
+	
+	public static long fib(int a)
+	{
+		if (a == 1)
 			return 1;
-		else
-			return fib(n - 1) + fib(n - 2);
+
+		else if (a == 2)
+		return 1;
+
+		else 
+			return fib(a-1) + fib(a-2);
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(fib(3));
+	public static void main (String[] args) {
+		System.out.println((fib(10)));
 	}
-
 }

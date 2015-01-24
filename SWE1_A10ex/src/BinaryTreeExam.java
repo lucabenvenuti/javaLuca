@@ -2,7 +2,7 @@
 public class BinaryTreeExam {
 	
 	
-	public int countIntRange(int min, int max){
+/*	public int countIntRange(int min, int max){
 		//int a =0;
 		
 		
@@ -15,9 +15,9 @@ public class BinaryTreeExam {
 		}*/
 		
 		
-		
+	/*	
 		return countIntRange(root, min, max);
-	}
+	}*/
 	
 	private int countIntRange(TreeNode node, int min, int max){
 		//int a =0;
