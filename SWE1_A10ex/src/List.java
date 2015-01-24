@@ -21,7 +21,6 @@ class List {
 			}
 			else
 				prev=n;
-			// if (n != null)  -> if not required; n still points to an element
 			n = n.next;
 		}
 	}
@@ -34,10 +33,8 @@ class List {
 
 		tail.next = head;
 		for (int i = 0; i < n; i ++) {
-			//tail.next = head;
 			head      = head.next;
 			tail      = tail.next;
-			//tail.next = null;
 		}
 		tail.next = null;
 	}

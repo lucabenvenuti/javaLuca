@@ -20,8 +20,6 @@ public class NumberList {
 			prev.next = q;
 		}
 	}
-	// continued on next slide...
-	// continuing from previous slide...
 
 	// counts the number of occurrences of the given number
 	public int getFrequency(int num) {

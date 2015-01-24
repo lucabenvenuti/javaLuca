@@ -18,53 +18,39 @@ public class TubeAssembling {
 	boolean possible2(int length, int l1, int l2, int l3){
 		if (possibleSingle(length, l1) || possibleSingle(length, l2) || possibleSingle(length, l3))
 			return true;
-		else return false;
-		
-	}
+		else return false;	}
 
 	boolean possibleSingle(int length, int lBis){
 		if(length==0){
 			return true;
 		} else if (length>0){
 			return possibleSingle(length-lBis,lBis);
-		} else {return false;}
-		
-	}
+		} else {return false;}}
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//TubeAssembling newTubeAssembling = new TubeAssembling();
-	//	System.out.println(newTubeAssembling.possible(120,11,9,7));
+		TubeAssembling newTubeAssembling = new TubeAssembling();
+		System.out.println(newTubeAssembling.possible(120,11,9,7));
 	//	System.out.println(newTubeAssembling.possible2(120,11,9,7));
 		
-		StringBuilder one = new StringBuilder("react");
-		StringBuilder two = new StringBuilder("crate");
+		String one = new String("react");
+		String two = new String("crate");
 	//	one.replace(2,3, "");
-		//System.out.println(isAnagram(one,two));
+		System.out.println(isAnagram(one,two));
 		int value = 100; String strVal = "trota"; 
 		strVal += String.valueOf(value);
 		System.out.println(strVal);
 		
 	}
 
-	private static boolean isAnagram(StringBuilder one, StringBuilder two) {
-		//System.out.println(one.length());
+	private static boolean isAnagram(String one, String two) {
 		boolean check = false;
 		if (one.length() != two.length()) return false;
 		else if (one.length()==0) return true;
-		else {
-			
-			
-			for (int i=0; i<one.length(); i++){
-				
+		else {for (int i=0; i<one.length(); i++){
 				if (one.charAt(0)==two.charAt(i)){
-					check = isAnagram(new StringBuilder(one.substring(1)), two.replace(i, i+1,""));
-					break;
-				}
-			}
-			return check;
-		}
-	}
-
-}
+					check = isAnagram(one.substring(1), (new StringBuilder(two)).replace(i, i+1,"").toString());
+					break;}
+			} return check;
+		}}}

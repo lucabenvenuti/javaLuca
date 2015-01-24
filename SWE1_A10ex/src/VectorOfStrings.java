@@ -18,9 +18,6 @@ public class VectorOfStrings {
 		System.out.print("Middle line: ");
 		System.out.println((String) lines.elementAt(lines.size()/ 2));
 
-		// continued on next slide...
-		// continued from previous slide
-
 		// Print the lines in reverse order
 		System.out.println("Lines in reverse order:");
 		for (int i = lines.size() - 1; i >= 0; i--) {
