@@ -13,9 +13,24 @@ public class Anagram {
 		System.out.print ("The words are ");
 		if (!isAnagram(s1, s2))
 			System.out.print("NOT ");
+		if (!isAnagram2(s1, s2))
+			System.out.print("NOT ");
 		System.out.print("anagrams.");
 	} // end main
-
+	
+	private static boolean isAnagram2(String one, String two) {
+		//boolean check = false;
+		if (one.length() != two.length()) return false;
+		else if (one.length()==0 && two.length()==0) return true;
+		else {StringBuilder three = new StringBuilder(two);
+			for (int i=0; i<one.length(); i++){
+				if (one.charAt(0)==three.charAt(i)){
+					return isAnagram(one.substring(1), three.replace(i, i+1,"").toString());
+				//	break;
+					}
+			} return false;
+		}}
+	
 	static boolean isAnagram (String s1, String s2) {
 		boolean isAnagram = false;
 
