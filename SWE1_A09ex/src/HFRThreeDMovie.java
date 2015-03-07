@@ -22,6 +22,7 @@ class HFRThreeDMovie extends ThreeDMovie{
 	 */
 	public HFRThreeDMovie(Screen[] screens, int length, String name) {
 		super(screens, length, name);
+		setName("troa");
 	}
 	/**
 	 * @param screens
