@@ -16,8 +16,8 @@ public final class Person {
 	 * @param lastName
 	 * @param address
 	 */
-	private Person(int id, String firstName, String lastName, String address) {
-		super();
+	Person(int id, String firstName, String lastName, String address) {
+		//super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
