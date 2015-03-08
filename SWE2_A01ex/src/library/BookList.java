@@ -3,7 +3,7 @@ package library;
 final class BookList {
 	
 	private BookNode head;
-	private static final int NUM_BOOKS = 400;
+	//private static final int NUM_BOOKS = 400;
 
 	/**
 	 * @param head
