@@ -17,7 +17,6 @@ public final class Person {
 	 * @param address
 	 */
 	Person(int id, String firstName, String lastName, String address) {
-		//super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

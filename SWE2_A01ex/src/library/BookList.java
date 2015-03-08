@@ -24,16 +24,14 @@ final class BookList {
 			while (curr != null){
 				pred = curr;
 			curr = curr.getNext();
-		} // while
+		} 
 			BookNode node = new BookNode(new Book(pred.getBook().getId()+1, name, location));
 			pred.setNext(node);
-			//node.setNext(curr);
 			return node;
 		}
 	}	
 		
 	BookNode[] lookup(String name){
-		//str1.toLowerCase().contains(str2.toLowerCase())
 		BookNode node = head;
 		
 		int i=0;
@@ -73,7 +71,6 @@ final class BookList {
 	}
 	
 	BookNode[] overdue(){
-		//str1.toLowerCase().contains(str2.toLowerCase())
 		BookNode node = head;
 		
 		int i=0;
@@ -97,14 +94,7 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
-	/*	public BookNode[] lookup(Person person) {
-	// TODO Auto-generated method stub
-	return null;
-}*/
-	
-	
 	BookNode[] onePersonBorrowedList(int idPerson){
-		//str1.toLowerCase().contains(str2.toLowerCase())
 		BookNode node = head;
 		
 		int i=0;
@@ -188,9 +178,6 @@ final class BookList {
 	
 	boolean givebackBook(int idBook){
 		BookNode bookNode = lookup(idBook);
-	/*	if (bookNodeLookupList.length !=1 )
-		{return false;}
-		BookNode bookNode = bookNodeLookupList[0];*/
 		bookNode.getBook().setLended(false);
 		bookNode.getBook().setCal(10000);
 		return true;		
@@ -213,11 +200,4 @@ final class BookList {
 	}
 
 
-
-
-	
-	
-	
-	
-	
 }

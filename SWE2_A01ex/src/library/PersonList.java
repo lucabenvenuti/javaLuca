@@ -7,7 +7,6 @@ package library;
 final class PersonList {
 
 	private PersonNode head;
-	//private static final int NUM_BOOKS = 400;
 
 	/**
 	 * @param head
@@ -19,7 +18,6 @@ final class PersonList {
 	PersonNode insertPerson(String firstName, String lastName, String address) {
 		if (this.head == null){
 			head = new PersonNode(new Person(0, firstName, lastName, address));
-			//Person(int id, String firstName, String lastName, String address)
 		return head;}
 		else {
 			PersonNode pred = null;
@@ -27,16 +25,14 @@ final class PersonList {
 			while (curr != null){
 				pred = curr;
 			curr = curr.getNext();
-		} // while
+		}
 			PersonNode node = new PersonNode(new Person(pred.getPerson().getId()+1, firstName, lastName, address));
 			pred.setNext(node);
-			//node.setNext(curr);
 			return node;
 		}
 	}	
 		
 	PersonNode lookup(int id){
-		//str1.toLowerCase().contains(str2.toLowerCase())
 		PersonNode node = head;
 		
 		int i=0;
@@ -47,17 +43,6 @@ final class PersonList {
 			node = node.getNext();
 		}
 		return null;
-	/*	PersonNode[] personNodeLookupList = new PersonNode[i];
-		i=0;
-		node = head;
-		while (node != null){
-			if (node.getPerson().getId()==id){
-				personNodeLookupList[i]=node;
-			}
-			node = node.getNext();
-		}
-		
-		return personNodeLookupList;*/
 	}
 		
 	PersonNode firstPerson() {

@@ -2,33 +2,21 @@ package library;
 
 public final class Library {
 
-	private final BookList bookList;// = new BookList(); 
-	private final PersonList personList;// = new PersonList(); 
-	private BookNode currentBookNode;
-	private PersonNode currentPersonNode;
+	private final BookList bookList;
+	private final PersonList personList;
 	
 	public Library() {
 		bookList = new BookList(); 
 		personList = new PersonList(); 
-		currentBookNode = null; 
-		currentPersonNode = null; 
 	} 
 	
 	public void insertBook(String name, String location) {
-		
 		bookList.insertBook(name, location);
-		//current = list.insertEntry(new Entry(name, areaCode, number)); 
-		//index.updateFirstOfChar(current); 
 	}
 
 	public void insertPerson(String firstName, String lastName, String address) {
-		
 		personList.insertPerson(firstName, lastName, address);
-		//current = list.insertEntry(new Entry(name, areaCode, number)); 
-		//index.updateFirstOfChar(current); 
-	}
-//	PersonNode insertEntry(String firstName, String lastName, String address)
-	
+	}	
 	
 	public boolean containsBook(String name) {
 		return bookList.lookup(name) != null; 
@@ -65,8 +53,5 @@ public final class Library {
 	public BookNode[] overdue(){
 		return bookList.overdue();
 	}
-	//BookNode[] overdue()
-	
-	//lendBook(Person person, String title)
 	
 }

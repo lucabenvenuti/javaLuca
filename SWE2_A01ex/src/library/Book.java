@@ -80,7 +80,6 @@ public final class Book {
 	}
 	
 	public void extendCal(int days) {
-		//this.cal = Calendar.getInstance();
 		this.cal.add(Calendar.DATE,days);
 	}
 
