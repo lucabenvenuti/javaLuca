@@ -39,6 +39,7 @@ final class BookList {
 			if (node.getBook().getTitle().toLowerCase().contains(name.toLowerCase())){
 				i++;
 			}
+			node = node.getNext();
 		}
 		
 		BookNode[] bookNodeLookupList = new BookNode[i];
@@ -48,6 +49,7 @@ final class BookList {
 			if (node.getBook().getTitle().toLowerCase().contains(name.toLowerCase())){
 				bookNodeLookupList[i]=node;
 			}
+			node = node.getNext();
 		}
 		
 		return bookNodeLookupList;
@@ -81,4 +83,37 @@ final class BookList {
 	boolean isEmpty() {
 		return head == null; 
 	}
+	
+	boolean lendBook(Person person, String title){
+		BookNode[] BookNodeLookupList = lookup(title);
+		if (BookNodeLookupList.length !=1 )
+		{return false;}
+		BookNode bookNode = BookNodeLookupList[0];
+		
+		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
+			return false;
+		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
+			bookNode.getBook().extendCal(7);
+			return true;
+		} else {
+		bookNode.getBook().setLended(true);
+		bookNode.getBook().setLender(person);
+		bookNode.getBook().setCal(14);
+		return true;}
+	}
+	
+	boolean givebackBook(String title){
+		BookNode[] BookNodeLookupList = lookup(title);
+		if (BookNodeLookupList.length !=1 )
+		{return false;}
+		BookNode bookNode = BookNodeLookupList[0];
+		bookNode.getBook().setLended(false);
+		bookNode.getBook().setCal(10000);
+		return true;		
+	}
+	
+	
+	
+	
+	
 }

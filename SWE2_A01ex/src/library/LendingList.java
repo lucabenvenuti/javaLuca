@@ -15,11 +15,16 @@ final class LendingList {
 	 * @param person
 	 * @param next
 	 */
-	LendingList(LendingNode head, Person person, LendingList next) {
-		this.head = head;
+	LendingList(Person person, LendingList next) {
+		this.head = null;
 		this.person = person;
 		this.next = next;
 	}
+	
+	LendingNode insertLending(String name) {
+		return insertLending(new Entry(name, areaCode, number)); 
+	}
+	
 	/**
 	 * @return the head
 	 */

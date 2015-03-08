@@ -1,5 +1,7 @@
 package library;
 
+import java.util.Calendar;
+
 public final class Book {
 
 	private final int id;
@@ -7,6 +9,12 @@ public final class Book {
 	private final String title;
 	
 	private final String location;
+	
+	private boolean lended;
+	
+	private Person lender;
+	
+	private Calendar cal;
 
 	/**
 	 * @param id
@@ -17,6 +25,10 @@ public final class Book {
 		this.id = id;
 		this.title = title;
 		this.location = location;
+		this.setLended(false);
+		this.setLender(null);
+		this.cal = Calendar.getInstance();
+		this.cal.add(Calendar.DATE,10000);
 	}
 
 	/**
@@ -38,6 +50,38 @@ public final class Book {
 	 */
 	public String getLocation() {
 		return location;
+	}
+
+	public boolean isLended() {
+		return lended;
+	}
+
+	public boolean setLended(boolean lended) {
+		this.lended = lended;
+		return true;
+	}
+
+	public Person getLender() {
+		return lender;
+	}
+
+	public boolean setLender(Person lender) {
+		this.lender = lender;
+		return true;
+	}
+
+	public Calendar getCal() {
+		return cal;
+	}
+
+	public void setCal(int days) {
+		this.cal = Calendar.getInstance();
+		this.cal.add(Calendar.DATE,days);
+	}
+	
+	public void extendCal(int days) {
+		//this.cal = Calendar.getInstance();
+		this.cal.add(Calendar.DATE,days);
 	}
 
 	/** (non-Javadoc)
@@ -80,5 +124,6 @@ public final class Book {
 			return false;
 		return true;
 	}
+
 	
 }
