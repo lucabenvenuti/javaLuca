@@ -1,5 +1,7 @@
 package library;
 
+import java.util.Calendar;
+
 final class BookList {
 	
 	private BookNode head;
@@ -54,7 +56,58 @@ final class BookList {
 		
 		return bookNodeLookupList;
 	}
+	
+	BookNode[] overdue(){
+		//str1.toLowerCase().contains(str2.toLowerCase())
+		BookNode node = head;
 		
+		int i=0;
+		while (node != null){
+			if (node.getBook().getCal().before(Calendar.getInstance())){
+				i++;
+			}
+			node = node.getNext();
+		}
+		
+		BookNode[] bookNodeLookupList = new BookNode[i];
+		i=0;
+		node = head;
+		while (node != null){
+			if (node.getBook().getCal().before(Calendar.getInstance())){
+				bookNodeLookupList[i]=node;
+			}
+			node = node.getNext();
+		}
+		
+		return bookNodeLookupList;
+	}
+	
+	BookNode[] onePersonBorrowedList(int id){
+		//str1.toLowerCase().contains(str2.toLowerCase())
+		BookNode node = head;
+		
+		int i=0;
+		while (node != null){
+			if (node.getBook().getLender().getId()==id){
+				i++;
+			}
+			node = node.getNext();
+		}
+		
+		BookNode[] bookNodeLookupList = new BookNode[i];
+		i=0;
+		node = head;
+		while (node != null){
+			if (node.getBook().getLender().getId()==id){
+				bookNodeLookupList[i]=node;
+			}
+			node = node.getNext();
+		}
+		
+		return bookNodeLookupList;
+	}
+	
+	
 	BookNode firstBook() {
 		return head; 
 	} // firstBook
