@@ -48,6 +48,7 @@ final class BookList {
 		while (node != null){
 			if (node.getBook().getTitle().toLowerCase().contains(name.toLowerCase())){
 				bookNodeLookupList[i]=node;
+				i++;
 			}
 			node = node.getNext();
 		}
@@ -55,12 +56,33 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
-
+	BookNode[] getBookArray(){
+		BookNode node = head;
+		
+		int i=0;
+		while (node != null){
+			
+				i++;
+				
+			node = node.getNext();
+		}
+		
+		BookNode[] bookNodeLookupList = new BookNode[i];
+		i=0;
+		node = head;
+		while (node != null){
+			
+				bookNodeLookupList[i]=node;
+				i++;
+			node = node.getNext();
+		}
+		
+		return bookNodeLookupList;
+	}
 	
 	BookNode lookup(int idBook) {
 		BookNode node = head;
 		
-		int i=0;
 		while (node != null){
 			if (node.getBook().getId()==idBook){
 				return node;
@@ -87,6 +109,7 @@ final class BookList {
 		while (node != null){
 			if (node.getBook().getCal().before(Calendar.getInstance())){
 				bookNodeLookupList[i]=node;
+				i++;
 			}
 			node = node.getNext();
 		}
@@ -111,6 +134,7 @@ final class BookList {
 		while (node != null){
 			if (node.getBook().getLender().getId()==idPerson){
 				bookNodeLookupList[i]=node;
+				i++;
 			}
 			node = node.getNext();
 		}

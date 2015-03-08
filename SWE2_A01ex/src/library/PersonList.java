@@ -35,7 +35,6 @@ final class PersonList {
 	PersonNode lookup(int id){
 		PersonNode node = head;
 		
-		int i=0;
 		while (node != null){
 			if (node.getPerson().getId()==id){
 				return node;
@@ -45,6 +44,30 @@ final class PersonList {
 		return null;
 	}
 		
+	PersonNode[] getPersonArray(){
+		PersonNode node = head;
+		
+		int i=0;
+		while (node != null){
+			
+				i++;
+			
+			node = node.getNext();
+		}
+		
+		PersonNode[] personNodeLookupList = new PersonNode[i];
+		i=0;
+		node = head;
+		while (node != null){
+			
+				personNodeLookupList[i]=node;
+			i++;
+			node = node.getNext();
+		}
+		
+		return personNodeLookupList;
+	}
+	
 	PersonNode firstPerson() {
 		return head; 
 	} // firstPerson

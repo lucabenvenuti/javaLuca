@@ -1,6 +1,6 @@
 package library;
 
-final class PersonNode {
+public final class PersonNode {
 	
 	private Person person;
 	private PersonNode next;
@@ -20,7 +20,7 @@ final class PersonNode {
 	/**
 	 * @return the person
 	 */
-	Person getPerson() {
+	public Person getPerson() {
 		return person;
 	}
 	/**

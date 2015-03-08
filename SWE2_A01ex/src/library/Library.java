@@ -54,4 +54,12 @@ public final class Library {
 		return bookList.overdue();
 	}
 	
+	public PersonNode[] getPersonArray(){
+		return personList.getPersonArray();
+	}
+	
+	public BookNode[] getBookArray(){
+		return bookList.getBookArray();
+	}
+	
 }

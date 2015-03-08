@@ -4,6 +4,7 @@ import library.BookNode;
 import library.Library;
 import library.Book;
 import library.Person;
+import library.PersonNode;
 import inout.In;
 import inout.Out;
 
@@ -82,12 +83,28 @@ public class LibraryApplication {
 		        printBookArray(lucaLibrary.getBookNodePersonArray(id));
 		        break;        
 	      case 'f': // insert new entry
-		        Out.print("   Please write the person's ID and a book's ID to lend: ");
+		        Out.print("   Please write the person's ID and the book's ID to lend: ");
 		        int idPerson = In.readInt();
 		        int idBook = In.readInt();
 		        Out.print(lucaLibrary.lendBook(idPerson, idBook));
 		        break;     
-
+	      case 'g': // insert new entry
+		        Out.print("   Please write a book's ID to give it back: ");
+		        idBook = In.readInt();
+		        Out.print(lucaLibrary.givebackBook(idBook));
+		        break;   
+	      case 'h': // insert new entry
+		        Out.print("   show all books by ID number: ");
+		        printBookArray(lucaLibrary.getBookArray());
+		        break;  
+	      case 'i': // insert new entry
+		        Out.print("   show all users by ID number: ");
+		        printPersonArray(lucaLibrary.getPersonArray());
+		        break;  
+	      case 'l': // insert new entry
+		        Out.print("   List of all overdued books: ");
+		        printBookArray(lucaLibrary.overdue());
+		        break;  
 	      }
 	      op = readOperation();
 	    }
@@ -134,15 +151,18 @@ public class LibraryApplication {
     }
   } // writeEntry
   
- /* public boolean test1(BookNode[] b){
-	  b[0].
-	  return false;
-  }*/
-  
   public static void printBookArray(BookNode[] b) {
-	//  b[i].
+
 	  	for(int i=0; i<b.length;i++){
+	  		System.out.println(i);
 	  		printBook(b[i].getBook());
+	  		
+	  	}
+	  } // writeEntry
+  
+  public static void printPersonArray(PersonNode[] p) {
+	  	for(int i=0; i<p.length;i++){
+	  		printPerson(p[i].getPerson());
 	  	}
 	  } // writeEntry
   
