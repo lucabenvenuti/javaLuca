@@ -16,7 +16,7 @@ final class PersonList {
 		this.head = null;
 	}
 
-	PersonNode insertEntry(String firstName, String lastName, String address) {
+	PersonNode insertPerson(String firstName, String lastName, String address) {
 		if (this.head == null){
 			head = new PersonNode(new Person(0, firstName, lastName, address));
 			//Person(int id, String firstName, String lastName, String address)
@@ -35,19 +35,19 @@ final class PersonList {
 		}
 	}	
 		
-	PersonNode[] lookup(int id){
+	PersonNode lookup(int id){
 		//str1.toLowerCase().contains(str2.toLowerCase())
 		PersonNode node = head;
 		
 		int i=0;
 		while (node != null){
 			if (node.getPerson().getId()==id){
-				i++;
+				return node;
 			}
 			node = node.getNext();
 		}
-		
-		PersonNode[] personNodeLookupList = new PersonNode[i];
+		return null;
+	/*	PersonNode[] personNodeLookupList = new PersonNode[i];
 		i=0;
 		node = head;
 		while (node != null){
@@ -57,7 +57,7 @@ final class PersonList {
 			node = node.getNext();
 		}
 		
-		return personNodeLookupList;
+		return personNodeLookupList;*/
 	}
 		
 	PersonNode firstPerson() {

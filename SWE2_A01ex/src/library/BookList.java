@@ -14,7 +14,7 @@ final class BookList {
 		this.head = null;
 	}
 
-	BookNode insertEntry(String name, String location) {
+	BookNode insertBook(String name, String location) {
 		if (this.head == null){
 			head = new BookNode(new Book(0, name, location));
 		return head;}
@@ -57,6 +57,21 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
+
+	
+	BookNode lookup(int idBook) {
+		BookNode node = head;
+		
+		int i=0;
+		while (node != null){
+			if (node.getBook().getId()==idBook){
+				return node;
+			}
+			node = node.getNext();
+		}
+		return null;
+	}
+	
 	BookNode[] overdue(){
 		//str1.toLowerCase().contains(str2.toLowerCase())
 		BookNode node = head;
@@ -82,13 +97,19 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
-	BookNode[] onePersonBorrowedList(int id){
+	/*	public BookNode[] lookup(Person person) {
+	// TODO Auto-generated method stub
+	return null;
+}*/
+	
+	
+	BookNode[] onePersonBorrowedList(int idPerson){
 		//str1.toLowerCase().contains(str2.toLowerCase())
 		BookNode node = head;
 		
 		int i=0;
 		while (node != null){
-			if (node.getBook().getLender().getId()==id){
+			if (node.getBook().getLender().getId()==idPerson){
 				i++;
 			}
 			node = node.getNext();
@@ -98,7 +119,7 @@ final class BookList {
 		i=0;
 		node = head;
 		while (node != null){
-			if (node.getBook().getLender().getId()==id){
+			if (node.getBook().getLender().getId()==idPerson){
 				bookNodeLookupList[i]=node;
 			}
 			node = node.getNext();
@@ -138,10 +159,10 @@ final class BookList {
 	}
 	
 	boolean lendBook(Person person, String title){
-		BookNode[] BookNodeLookupList = lookup(title);
-		if (BookNodeLookupList.length !=1 )
+		BookNode[] bookNodeLookupList = lookup(title);
+		if (bookNodeLookupList.length !=1 )
 		{return false;}
-		BookNode bookNode = BookNodeLookupList[0];
+		BookNode bookNode = bookNodeLookupList[0];
 		
 		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
@@ -156,14 +177,44 @@ final class BookList {
 	}
 	
 	boolean givebackBook(String title){
-		BookNode[] BookNodeLookupList = lookup(title);
-		if (BookNodeLookupList.length !=1 )
+		BookNode[] bookNodeLookupList = lookup(title);
+		if (bookNodeLookupList.length !=1 )
 		{return false;}
-		BookNode bookNode = BookNodeLookupList[0];
+		BookNode bookNode = bookNodeLookupList[0];
 		bookNode.getBook().setLended(false);
 		bookNode.getBook().setCal(10000);
 		return true;		
 	}
+	
+	boolean givebackBook(int idBook){
+		BookNode bookNode = lookup(idBook);
+	/*	if (bookNodeLookupList.length !=1 )
+		{return false;}
+		BookNode bookNode = bookNodeLookupList[0];*/
+		bookNode.getBook().setLended(false);
+		bookNode.getBook().setCal(10000);
+		return true;		
+	}
+
+	boolean lendBook(Person person, int idBook) {
+		BookNode bookNode = lookup(idBook);
+
+		
+		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
+			return false;
+		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
+			bookNode.getBook().extendCal(7);
+			return true;
+		} else {
+		bookNode.getBook().setLended(true);
+		bookNode.getBook().setLender(person);
+		bookNode.getBook().setCal(14);
+		return true;}
+	}
+
+
+
+
 	
 	
 	
