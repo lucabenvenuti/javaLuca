@@ -124,5 +124,18 @@ public final class Book {
 		return true;
 	}
 
+	/** (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", "
+				+ (title != null ? "title=" + title + ", " : "")
+				+ (location != null ? "location=" + location + ", " : "")
+				+ "lended=" + lended + ", "
+				+ (lender != null ? "lender=" + lender + ", " : "")
+				+ (cal != null ? "cal=" + cal : "") + "]";
+	}
+
 	
 }

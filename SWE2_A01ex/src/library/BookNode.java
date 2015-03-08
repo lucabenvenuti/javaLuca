@@ -1,6 +1,6 @@
 package library;
 
-final class BookNode {
+public final class BookNode {
 	
 	private Book book;
 	private BookNode next;
@@ -20,7 +20,7 @@ final class BookNode {
 	/**
 	 * @return the book
 	 */
-	Book getBook() {
+	public Book getBook() {
 		return book;
 	}
 	/**
