@@ -199,7 +199,7 @@ public class LibraryApplication {
 
   
   private static void printBookArray(BookNode[] b) {
-	//  Out.println("\n");
+	  Out.println("");
 	  	for(int i=0; i<b.length;i++){
 	  		//System.out.println(i);
 	  		printBook(b[i].getBook());
@@ -208,7 +208,7 @@ public class LibraryApplication {
 	  } // writeEntry
   
   private static void printPersonArray(PersonNode[] p) {
-	 // 
+	  Out.println("");
 	  	for(int i=0; i<p.length;i++){
 	  		printPerson(p[i].getPerson());
 	  	}

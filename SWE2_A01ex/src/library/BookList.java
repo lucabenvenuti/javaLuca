@@ -93,7 +93,7 @@ final class BookList {
 	}
 	
 	BookNode[] overdue(){
-		BookNode node = head;
+		BookNode node = this.head;
 		
 		int i=0;
 		while (node != null){
@@ -118,23 +118,26 @@ final class BookList {
 	}
 	
 	BookNode[] onePersonBorrowedList(int idPerson){
-		BookNode node = head;
-		
+		BookNode node = this.head;
+	//	System.out.println("test");
+	//	System.out.println(node.getBook().toString());
 		int i=0;
+	//	System.out.println(i);
 		while (node != null){
-			System.out.println(node.getBook().getLender().getId());
-			if (node.getBook().getLender().getId()==idPerson){
+
+			if (node.getBook().isLended() && node.getBook().getLender().getId()==idPerson){
 				
 				i++;
 			}
 			node = node.getNext();
+		//	System.out.println(i);
 		}
-		
+		//
 		BookNode[] bookNodeLookupList = new BookNode[i];
 		i=0;
 		node = head;
 		while (node != null){
-			if (node.getBook().getLender().getId()==idPerson){
+			if (node.getBook().isLended() && node.getBook().getLender().getId()==idPerson){
 				bookNodeLookupList[i]=node;
 				i++;
 			}

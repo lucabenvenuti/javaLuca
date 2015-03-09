@@ -32,7 +32,7 @@ public final class BookNode {
 	/**
 	 * @return the next
 	 */
-	BookNode getNext() {
+	public BookNode getNext() {
 		return next;
 	}
 	/**
