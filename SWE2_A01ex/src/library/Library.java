@@ -10,12 +10,12 @@ public final class Library {
 		personList = new PersonList(); 
 	} 
 	
-	public void insertBook(String name, String location) {
-		bookList.insertBook(name, location);
+	public BookNode insertBook(String name, String location) {
+		return bookList.insertBook(name, location);
 	}
 
-	public void insertPerson(String firstName, String lastName, String address) {
-		personList.insertPerson(firstName, lastName, address);
+	public PersonNode insertPerson(String firstName, String lastName, String address) {
+		return personList.insertPerson(firstName, lastName, address);
 	}	
 	
 	public boolean containsBook(String name) {

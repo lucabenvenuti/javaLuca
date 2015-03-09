@@ -15,6 +15,8 @@ public final class Book {
 	private Person lender;
 	
 	private Calendar cal;
+	
+	protected final int LIBRARY_TERMINATION = 10000;
 
 	/**
 	 * @param id
@@ -28,35 +30,35 @@ public final class Book {
 		this.setLended(false);
 		this.setLender(null);
 		this.cal = Calendar.getInstance();
-		this.cal.add(Calendar.DATE,10000);
+		this.cal.add(Calendar.DATE,LIBRARY_TERMINATION);
 	}
 
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	int getId() {
 		return id;
 	}
 
 	/**
 	 * @return the title
 	 */
-	public String getTitle() {
+	String getTitle() {
 		return title;
 	}
 
 	/**
 	 * @return the location
 	 */
-	public String getLocation() {
+	String getLocation() {
 		return location;
 	}
 
-	public boolean isLended() {
+	boolean isLended() {
 		return lended;
 	}
 
-	public boolean setLended(boolean lended) {
+	boolean setLended(boolean lended) {
 		this.lended = lended;
 		return true;
 	}
@@ -65,21 +67,21 @@ public final class Book {
 		return lender;
 	}
 
-	public boolean setLender(Person lender) {
+	boolean setLender(Person lender) {
 		this.lender = lender;
 		return true;
 	}
 
-	public Calendar getCal() {
+	Calendar getCal() {
 		return cal;
 	}
 
-	public void setCal(int days) {
+	void setCal(int days) {
 		this.cal = Calendar.getInstance();
 		this.cal.add(Calendar.DATE,days);
 	}
 	
-	public void extendCal(int days) {
+	void extendCal(int days) {
 		this.cal.add(Calendar.DATE,days);
 	}
 

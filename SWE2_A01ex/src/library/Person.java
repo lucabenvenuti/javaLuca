@@ -27,15 +27,15 @@ public final class Person {
 		return id;
 	}
 
-	public String getFirstName() {
+	String getFirstName() {
 		return firstName;
 	}
 
-	public String getLastName() {
+	String getLastName() {
 		return lastName;
 	}
 
-	public String getAddress() {
+	String getAddress() {
 		return address;
 	}
 

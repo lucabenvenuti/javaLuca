@@ -122,7 +122,9 @@ final class BookList {
 		
 		int i=0;
 		while (node != null){
+			System.out.println(node.getBook().getLender().getId());
 			if (node.getBook().getLender().getId()==idPerson){
+				
 				i++;
 			}
 			node = node.getNext();
@@ -220,8 +222,8 @@ final class BookList {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
 		bookNode.getBook().setCal(14);
-		System.out.println(bookNode.getBook().toString());
-		System.out.println(person.toString());
+		//System.out.println(bookNode.getBook().toString());
+		//System.out.println(person.toString());
 		return true;}
 	}
 
