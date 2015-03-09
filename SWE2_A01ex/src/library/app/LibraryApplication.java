@@ -32,9 +32,9 @@ public class LibraryApplication {
 	  lucaLibrary.insertPerson("Jane","Doe", "Linzerstrasse 30, Freidstadt");
 	  
 	    // Put out operations
-	    Out.println("Telefonbuch ");
+	    Out.println("Library ");
 	    Out.println("=========== ");
-	    Out.println("Folgende Operationen stehen zur Verfügung: ");
+	    Out.println("Please select the desidered function: ");
 	    Out.println("  a - insert book ");
 	    Out.println("  b - insert user ");
 	    Out.println("  c - check book availability ");
@@ -45,17 +45,19 @@ public class LibraryApplication {
 	    Out.println("  h - show all books by ID number ");
 	    Out.println("  i - show all users by ID number ");
 	    Out.println("  l - show all overdued books ");
-	    Out.println("  q - quit: Programm verlassen");
+	    Out.println("  n - ask if a book is lended ");
+	    Out.println("  q - quit: Program quit ");
 
 	    // Read operation code and perform operation
 	    char op = readOperation();
 	    while (op != 'q') {
 	      switch (op) {
 	      case 'a': // insert new entry
-	        Out.print("   Please write the title: ");
-	        String name = In.readWord();
-	        Out.print("   Please write the location: ");
-	        String location = In.readWord();
+	        Out.print("   Please write the title into apexes (\"\"): ");
+	        String name = In.readString();
+	      //  Out.print(name);
+	        Out.print("   Please write the location into apexes (\"\"): ");
+	        String location = In.readString();
 	        lucaLibrary.insertBook(name, location);
 	        break;
 	      case 'b': // insert new entry
@@ -63,18 +65,18 @@ public class LibraryApplication {
 		        String firstName = In.readWord();
 		        Out.print("   Please write the last name: ");
 		        String lastName = In.readWord();
-		        Out.print("   Please write the address: ");
-		        String address = In.readWord();
+		        Out.print("   Please write the address into apexes (\"\"): ");
+		        String address = In.readString();
 		        lucaLibrary.insertPerson(firstName, lastName, address);
 		        break;    
 	      case 'c': // insert new entry
-		        Out.print("   Please write the title to check availability: ");
-		        name = In.readWord();
+		        Out.print("   Please write the title into apexes (\"\") the title to check existance: ");
+		        name = In.readString();
 		        Out.print(lucaLibrary.containsBook(name));
 		        break;    
 	      case 'd': // insert new entry
-		        Out.print("   Please write the title to show all compatible books: ");
-		        name = In.readWord();
+		        Out.print("   Please write the title into apexes (\"\") to show all compatible books: ");
+		        name = In.readString();
 		        printBookArray(lucaLibrary.getBookNodeTitleArray(name));
 		        break;    
 	      case 'e': // insert new entry
@@ -83,8 +85,9 @@ public class LibraryApplication {
 		        printBookArray(lucaLibrary.getBookNodePersonArray(id));
 		        break;        
 	      case 'f': // insert new entry
-		        Out.print("   Please write the person's ID and the book's ID to lend: ");
+		        Out.print("   Please write the person's ID to lend: ");
 		        int idPerson = In.readInt();
+		        Out.print("   Please write the book's ID to lend: ");
 		        int idBook = In.readInt();
 		        Out.print(lucaLibrary.lendBook(idPerson, idBook));
 		        break;     
@@ -105,6 +108,11 @@ public class LibraryApplication {
 		        Out.print("   List of all overdued books: ");
 		        printBookArray(lucaLibrary.overdue());
 		        break;  
+	      case 'n': // insert new entry
+		        Out.print("   Please write the book's ID to check availability: ");
+		        idBook = In.readInt();
+		        Out.print(lucaLibrary.available(idBook));
+		        break;  
 	      }
 	      op = readOperation();
 	    }
@@ -112,7 +120,7 @@ public class LibraryApplication {
 	    
 
 	    Out.println();
-	    Out.println("Ciao! Auf ein Wiedersehen freut sich Dein Telefonbuch!");
+	    Out.println("Ciao! Leave the library program!");
 	  
   }// main
 
@@ -123,15 +131,15 @@ public class LibraryApplication {
    */
   private static char readOperation() {
     Out.println();
-    Out.print("Bitte Operation auswaehlen: (a,b,c,d,e,f,g,h,i, l, q): ");
+    Out.print("Please select the operation: (a,b,c,d,e,f,g,h,i,l,n,q): ");
 
     char op = In.readChar();
     while (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e'
-    		&& op != 'f' && op != 'g' && op != 'h' && op != 'i' && op != 'l'
+    		&& op != 'f' && op != 'g' && op != 'h' && op != 'i' && op != 'l' && op != 'n'
             && op != 'q') {
       // wrong operation code, repeat input of operation code
       Out.println();
-      Out.print("   Falsche Eingabe! Bitte Eingabe wiederholen: (a,b,c,d,e,f,g,h,i,l, q): ");
+      Out.print("   Wrong input! Please select the operation once more: (a,b,c,d,e,f,g,h,i,l,n,q): ");
       op = In.readChar();
     }
     return op;
@@ -144,6 +152,7 @@ public class LibraryApplication {
    *          the entry
    */
   private static void printBook(Book b) {
+	  
     if (b != null) {
       Out.println("--> " + b.toString());
     } else {
@@ -152,15 +161,16 @@ public class LibraryApplication {
   } // writeEntry
   
   public static void printBookArray(BookNode[] b) {
-
+	  Out.println("\n");
 	  	for(int i=0; i<b.length;i++){
-	  		System.out.println(i);
+	  		//System.out.println(i);
 	  		printBook(b[i].getBook());
 	  		
 	  	}
 	  } // writeEntry
   
   public static void printPersonArray(PersonNode[] p) {
+	  Out.println("\n");
 	  	for(int i=0; i<p.length;i++){
 	  		printPerson(p[i].getPerson());
 	  	}

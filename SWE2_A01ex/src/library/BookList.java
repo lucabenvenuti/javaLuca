@@ -220,7 +220,14 @@ final class BookList {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
 		bookNode.getBook().setCal(14);
+		System.out.println(bookNode.getBook().toString());
+		System.out.println(person.toString());
 		return true;}
+	}
+
+	boolean available(int idBook) {
+		BookNode bookNode = lookup(idBook);
+		return bookNode.getBook().isLended();
 	}
 
 

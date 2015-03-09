@@ -61,5 +61,9 @@ public final class Library {
 	public BookNode[] getBookArray(){
 		return bookList.getBookArray();
 	}
+
+	public boolean available(int idBook) {
+		return bookList.available(idBook);
+	}
 	
 }

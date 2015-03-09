@@ -134,7 +134,7 @@ public final class Book {
 				+ (location != null ? "location=" + location + ", " : "")
 				+ "lended=" + lended + ", "
 				+ (lender != null ? "lender=" + lender + ", " : "")
-				+ (cal != null ? "cal=" + cal : "") + "]";
+				+ (cal != null ? "cal=" + cal.getTime(): "") + "]";
 	}
 
 	
