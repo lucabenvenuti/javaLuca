@@ -45,9 +45,17 @@ public final class Library {
 	 * @return the PersonNode where the Person is inserted
 	 */
 	public PersonNode insertPerson(String firstName, String lastName, String address) {
+		
+		if (personList.isFirstLastName(firstName,lastName)){
+			PersonNode personNode = getPersonNode(firstName,lastName);
+			personNode.getPerson().setAddress(address);
+			return personNode;
+		}
 		return personList.insertPerson(firstName, lastName, address);
 	}	
 	
+
+
 	/**
 	 * Check if a book is inside the BookList
 	 * @param name
@@ -82,6 +90,10 @@ public final class Library {
 	 */
 	public PersonNode getPersonNode(int id){
 		return personList.lookup(id);		
+	}
+	
+	private PersonNode getPersonNode(String firstName, String lastName) {
+		return personList.lookup(firstName, lastName);
 	}
 	
 	/**

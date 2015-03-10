@@ -19,7 +19,7 @@ public final class Person {
 	private final String firstName;
 	private final String lastName;
 	
-	private final String address;
+	private String address;
 	
 	/**
 	 * @param id
@@ -61,6 +61,14 @@ public final class Person {
 	String getAddress() {
 		return address;
 	}
+	
+	/**
+	 * @param address
+	 */
+	void setAddress(String address) {
+		this.address = address;
+	}
+
 
 	/** (non-Javadoc)
 	 * @see java.lang.Object#toString()

@@ -62,6 +62,33 @@ final class PersonList {
 		return null;
 	}
 		
+	boolean isFirstLastName(String firstName, String lastName){
+		PersonNode node = head;
+		while (node != null){
+			if (node.getPerson().getFirstName().equals(firstName) 
+					&& node.getPerson().getLastName().equals(lastName)){
+				return true;
+			}
+			
+			node = node.getNext();
+		}
+		return false;
+	}
+	
+	public PersonNode lookup(String firstName, String lastName) {
+		PersonNode node = head;
+		while (node != null){
+			if (node.getPerson().getFirstName().equals(firstName) 
+					&& node.getPerson().getLastName().equals(lastName)){
+				return node;
+			}
+			
+			node = node.getNext();
+		}
+		return null;
+	}
+	
+	
 	/**
 	 * @return all the PersonNode objects stored in this list as PersonNode array
 	 */
@@ -123,6 +150,7 @@ final class PersonList {
 	boolean isEmpty() {
 		return head == null; 
 	}
-	
+
+
 	
 }

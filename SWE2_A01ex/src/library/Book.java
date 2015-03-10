@@ -6,7 +6,7 @@ import java.util.Calendar;
  * Book.java
  *
  * A {@link Book} is a class which 
- * store book and eventually lending information
+ * stores book and eventually lending information
  * 
  * Software Development II, 2015SS
  * JKU Linz
