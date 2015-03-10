@@ -10,7 +10,15 @@ import inout.Out;
 
 
 /**
- * Implements the main application for the phone book with the user dialog
+ LibraryApplication.java
+ *
+ * A {@link LibraryApplication} which implements the main
+ * application for the library with the user dialog.
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
  */
 public class LibraryApplication {
 
@@ -42,13 +50,7 @@ public class LibraryApplication {
       String s09 = "  i - show all users by ID number ";
       String s10 = "  l - show all overdued books ";
       String s11 = "  n - ask if a book is lended ";
-/*   	  String s02 =
-      String s02 =			
-      String s02 =
-      String s02 =	
-      String s02 =
-      String s02 =	*/
-	    // Put out operations
+
 	    Out.println("Library ");
 	    Out.println("=========== ");
 	    Out.println("Please select the desidered function: ");
@@ -69,17 +71,16 @@ public class LibraryApplication {
 	    char op = readOperation();
 	    while (op != 'q') {
 	      switch (op) {
-	      case 'a': // insert new entry
+	      case 'a': // insert new book
 	    	Out.println(s01);
 	        Out.print("   Please write the title into apexes (\"\"): ");
 	        String name = In.readString();
-	      //  Out.print(name);
 	        Out.print("   Please write the location into apexes (\"\"): ");
 	        String location = In.readString();
 	        Out.println("   Successfully inserted book: ");
 	        printBookNode(lucaLibrary.insertBook(name, location));
 	        break;
-	      case 'b': // insert new entry
+	      case 'b': // insert new user
 	    	    Out.println(s02);
 		        Out.print("   Please write the first name: ");
 		        String firstName = In.readWord();
@@ -90,27 +91,27 @@ public class LibraryApplication {
 		        Out.println("   Successfully inserted person: ");
 		        printPersonNode(lucaLibrary.insertPerson(firstName, lastName, address));
 		        break;    
-	      case 'c': // insert new entry
+	      case 'c': // check book existence
 	    	    Out.println(s03);
-		        Out.print("   Please write the title into apexes (\"\") the title to check existance: ");
+		        Out.print("   Please write the title into apexes (\"\") the title to check existence: ");
 		        name = In.readString();
-		        printBookAvailability(name, lucaLibrary.containsBook(name));
+		        printBookExistence(name, lucaLibrary.containsBook(name));
 		        break;    
-	      case 'd': // insert new entry
+	      case 'd': // given a keyword, show all books with it in the title
 	    	    Out.println(s04);
 		        Out.print("   Please write the title into apexes (\"\") to show all compatible books: ");
 		        name = In.readString();
 		        Out.println("   The compatible books with the keyword \"" + name + "\" are: ");
 		        printBookArray(lucaLibrary.getBookNodeTitleArray(name));
 		        break;    
-	      case 'e': // insert new entry
+	      case 'e': // show all lendings of one person
 	    	    Out.println(s05);
 		        Out.print("   Please write the person's ID to show all his/her lending: ");
 		        int id = In.readInt();
 		        Out.println("   The books borrowed by user \"" + id + "\" are: ");
 		        printBookArray(lucaLibrary.getBookNodePersonArray(id));
 		        break;        
-	      case 'f': // insert new entry
+	      case 'f': // lend a book
 	    	    Out.println(s06);
 		        Out.print("   Please write the person's ID to lend: ");
 		        int idPerson = In.readInt();
@@ -122,7 +123,7 @@ public class LibraryApplication {
 		        	case 2: Out.println("   The lending have been granted for " + Book.DAYS_FIRST_LOAN + " days. "); break;
 		        }
 		        break;     
-	      case 'g': // insert new entry
+	      case 'g': // give a book back
 	    	    Out.println(s07);
 		        Out.print("   Please write a book's ID to give it back: ");
 		        idBook = In.readInt();
@@ -132,22 +133,22 @@ public class LibraryApplication {
 		        	Out.println("   The restitution has failed. Try again. ");
 		        }
 		        break;   
-	      case 'h': // insert new entry
+	      case 'h': // show all books by ID number
 	    	    Out.println(s08);
 		        Out.print("   show all books by ID number: ");
 		        printBookArray(lucaLibrary.getBookArray());
 		        break;  
-	      case 'i': // insert new entry
+	      case 'i': // show all users by ID number
 	    	    Out.println(s09);
 		        Out.print("   show all users by ID number: ");
 		        printPersonArray(lucaLibrary.getPersonArray());
 		        break;  
-	      case 'l': // insert new entry
+	      case 'l': // show all overdued books
 	    	    Out.println(s10);
 		        Out.print("   List of all overdued books: ");
 		        printBookArray(lucaLibrary.overdue());
 		        break;  
-	      case 'n': // insert new entry
+	      case 'n': // ask if a book is lended
 	    	    Out.println(s11);
 		        Out.print("   Please write the book's ID to check availability: ");
 		        idBook = In.readInt();
@@ -159,14 +160,10 @@ public class LibraryApplication {
 	      }
 	      op = readOperation();
 	    }
-
-	    
-
 	    Out.println();
 	    Out.println("Ciao! Leave the library program!");
 	  
   }// main
-
 
 
 /**
@@ -191,10 +188,10 @@ public class LibraryApplication {
   } // readOperation
 
   /**
-   * Print out the entry.
+   * Print out the book.
    * 
-   * @param e
-   *          the entry
+   * @param b
+   *          the Book
    */
   private static void printBook(Book b) {
     if (b != null) {
@@ -204,24 +201,35 @@ public class LibraryApplication {
     }
   } // writeEntry
   
-  private static void printBookNode(BookNode insertBook) {
-	  printBook(insertBook.getBook());	
+  /**
+   * Print out the bookNode.
+   * 
+   * @param bookNode
+   */
+  private static void printBookNode(BookNode bookNode) {
+	  printBook(bookNode.getBook());	
 	}
 
   
+  /**
+   * Print out the BookNode objects array.
+   * @param b
+   */
   private static void printBookArray(BookNode[] b) {
 	  Out.println("");
 	  if (b==null || b.length==0){
 		  Out.println("   There are no books with the requested query.");
 	  }else{
-		//  Out.println(b.length);
 	  	for(int i=0; i<b.length;i++){
-	  	//	Out.println(i);
 	  		printBook(b[i].getBook());
-	  		
-	  	}Out.println("");}
-	  } // writeEntry
+	  		}
+	  	Out.println("");}
+	  } 
   
+   /**
+    * Print out the PersonNode objects array.
+    * @param p
+  	*/
   private static void printPersonArray(PersonNode[] p) {
 	  Out.println("");
 	  if (p==null || p.length==0){
@@ -233,6 +241,12 @@ public class LibraryApplication {
 	  	Out.println("");}
 	  } // writeEntry
   
+  
+  /**
+   * Print out the Person p.
+   * 
+   * @param p
+   */
   private static void printPerson(Person p) {
 	    if (p != null) {
 	      Out.println("--> " + p.toString());
@@ -240,12 +254,23 @@ public class LibraryApplication {
 	      Out.println("--> " + "--");
 	    }
 	  } // writeEntry
-  
-  private static void printPersonNode(PersonNode insertPerson) {
-	  printPerson(insertPerson.getPerson());	
+
+  /**
+   * Print out the PersonNode p.
+   * 
+   * @param personNode
+   */  
+  private static void printPersonNode(PersonNode personNode) {
+	  printPerson(personNode.getPerson());	
   }
   
-  private static void printBookAvailability(String name, boolean containsBook) {
+  /**
+   * Print out the existence of a book.
+   * 
+   * @param name
+   * @param containsBook
+   */
+  private static void printBookExistence(String name, boolean containsBook) {
 	  if (containsBook){
 		  Out.println("The book \"" + name + "\" exists.");
 	  } else {

@@ -1,8 +1,15 @@
 package library;
 
 /**
- * @author luca
- * BookNode class to store an object book and the next BookNode object
+ * BookNode.java
+ *
+ * A {@link BookNode} is a class which 
+ * store an object {@link Book} and the next {@link BookNode} object
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
  */
 public final class BookNode {
 	

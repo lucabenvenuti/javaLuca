@@ -1,5 +1,16 @@
 package library;
 
+/**
+ * Person.java
+ *
+ * A {@link Person} is a class which 
+ * store a person information.
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public final class Person {
 
 	

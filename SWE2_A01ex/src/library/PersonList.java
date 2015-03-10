@@ -1,8 +1,16 @@
 package library;
 
 /**
- * @author luca
- * PersonList or BorrowersList or UsersList 
+ * PersonList.java
+ *
+ * A {@link PersonList} is a class which 
+ * store an head object {@link PersonNode} of a list, 
+ * and allows a series of operation
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
  */
 final class PersonList {
 

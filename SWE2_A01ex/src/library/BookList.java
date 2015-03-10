@@ -3,8 +3,16 @@ package library;
 import java.util.Calendar;
 
 /**
- * @author luca
- * BookList class stores the head of a BookNode list, and allows a series of operation
+ * BookList.java
+ *
+ * A {@link BookList} is a class which 
+ * store an head object {@link BookNode} of a list, 
+ * and allows a series of operation
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
  */
 final class BookList {
 	
@@ -285,10 +293,8 @@ final class BookList {
 	}
 
 	/**
-	 * DEPRECATED: please use 
-	 * "boolean available(BookNode bookNode)"
 	 * @param idBook
-	 * @return, given a BookNode object with a Book object with ID equal to idBook, 
+	 * @return given a BookNode object with a Book object with ID equal to idBook, 
 	 * 0 if it does not exist, 
 	 * 1 if it is lended,
 	 * 2 if it is not lended.

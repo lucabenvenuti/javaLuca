@@ -3,8 +3,15 @@ package library;
 import java.util.Calendar;
 
 /**
- * @author luca
- * Book class to store book and eventually lending information
+ * Book.java
+ *
+ * A {@link Book} is a class which 
+ * store book and eventually lending information
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
  */
 public final class Book {
 
