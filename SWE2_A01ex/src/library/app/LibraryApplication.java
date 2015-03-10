@@ -116,13 +116,21 @@ public class LibraryApplication {
 		        int idPerson = In.readInt();
 		        Out.print("   Please write the book's ID to lend: ");
 		        int idBook = In.readInt();
-		        Out.print(lucaLibrary.lendBook(idPerson, idBook));
+		        switch(lucaLibrary.lendBook(idPerson, idBook)){
+		        	case 0: Out.println("   Lending failed. ");; break;
+		        	case 1: Out.println("   The lending have been extended for " + Book.DAYS_EXTENDED_LOAN + " more days. "); break;
+		        	case 2: Out.println("   The lending have been granted for " + Book.DAYS_FIRST_LOAN + " days. "); break;
+		        }
 		        break;     
 	      case 'g': // insert new entry
 	    	    Out.println(s07);
 		        Out.print("   Please write a book's ID to give it back: ");
 		        idBook = In.readInt();
-		        Out.print(lucaLibrary.givebackBook(idBook));
+		        if(lucaLibrary.givebackBook(idBook)){
+		        	Out.println("   The book has been successfully given back. ");
+		        } else {
+		        	Out.println("   The restitution has failed. Try again. ");
+		        }
 		        break;   
 	      case 'h': // insert new entry
 	    	    Out.println(s08);
@@ -200,19 +208,26 @@ public class LibraryApplication {
   
   private static void printBookArray(BookNode[] b) {
 	  Out.println("");
+	  if (b==null || b.length==0){
+		  System.out.println("   There are no books with the requested query.");
+	  }else{
+		  System.out.println(b.length);
 	  	for(int i=0; i<b.length;i++){
 	  	//	System.out.println(i);
 	  		printBook(b[i].getBook());
 	  		
-	  	}Out.println("");
+	  	}Out.println("");}
 	  } // writeEntry
   
   private static void printPersonArray(PersonNode[] p) {
 	  Out.println("");
+	  if (p==null || p.length==0){
+		  System.out.println("   There are no persons with the requested query.");
+	  }else{
 	  	for(int i=0; i<p.length;i++){
 	  		printPerson(p[i].getPerson());
 	  	}
-	  	Out.println("");
+	  	Out.println("");}
 	  } // writeEntry
   
   private static void printPerson(Person p) {

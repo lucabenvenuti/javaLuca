@@ -17,6 +17,8 @@ public final class Book {
 	private Calendar cal;
 	
 	protected final static int LIBRARY_TERMINATION = 10000;
+	public final static int DAYS_FIRST_LOAN = 14; //test -14
+	public final static int DAYS_EXTENDED_LOAN = 7;
 
 	/**
 	 * @param id

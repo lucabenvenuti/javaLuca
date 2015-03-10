@@ -23,7 +23,7 @@ public final class Library {
 	}
 	
 	public BookNode[] getBookNodeTitleArray(String title) {
-		return bookList.lookup(title); 
+		return (bookList.lookup(title)==null? null:bookList.lookup(title)); 
 	}
 	
 	public BookNode[] getBookNodePersonArray(int idPerson) {
@@ -38,8 +38,10 @@ public final class Library {
 		return bookList.lendBook(getPersonNode(idPerson).getPerson(), title);
 	}
 	
-	public boolean lendBook(int idPerson, int idBook){
-		return bookList.lendBook(getPersonNode(idPerson).getPerson(), idBook);
+	public int lendBook(int idPerson, int idBook){
+		PersonNode personNode  = getPersonNode(idPerson);
+		if(personNode==null){return 0;}else{
+		return bookList.lendBook(personNode.getPerson(), idBook);}
 	}
 	
 	public boolean givebackBook(String title){

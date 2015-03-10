@@ -5,8 +5,7 @@ import java.util.Calendar;
 final class BookList {
 	
 	private BookNode head;
-	protected final static int DAYS_FIRST_LOAN = 14; //test -14
-	protected final static int DAYS_EXTENDED_LOAN = 7;
+
 
 	/**
 	 * @param head
@@ -185,12 +184,12 @@ final class BookList {
 		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
 		} else if (available(bookNode) && bookNode.getBook().getLender().getId()==person.getId()){
-			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
+			bookNode.getBook().extendCal(Book.DAYS_EXTENDED_LOAN);
 			return true;
 		} else {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
-		bookNode.getBook().setCal(DAYS_FIRST_LOAN);
+		bookNode.getBook().setCal(Book.DAYS_FIRST_LOAN);
 		return true;}
 	}
 	
@@ -211,20 +210,22 @@ final class BookList {
 		return true;		
 	}
 
-	boolean lendBook(Person person, int idBook) {
+	int lendBook(Person person, int idBook) {
 		BookNode bookNode = lookup(idBook);
-
+		if (bookNode==null){
+			System.out.println("trotaculo");
+			return 0;}
 		
 		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){
-			return false;
+			return 0;
 		} else if (available(bookNode) && bookNode.getBook().getLender().getId()==person.getId()){
-			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
-			return true;
+			bookNode.getBook().extendCal(Book.DAYS_EXTENDED_LOAN);
+			return 1;
 		} else {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
-		bookNode.getBook().setCal(DAYS_FIRST_LOAN);
-		return true;}
+		bookNode.getBook().setCal(Book.DAYS_FIRST_LOAN);
+		return 2;}
 	}
 
 	boolean available(int idBook) {
