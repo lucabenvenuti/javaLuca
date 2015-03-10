@@ -33,7 +33,7 @@ public class LibraryApplication {
 	  
 	  String s01 = "  a - insert book ";
 	  String s02 = "  b - insert user ";
-	  String s03 = "  c - check book availability ";
+	  String s03 = "  c - check book existence ";
 	  String s04 = "  d - given a keyword, show all books with it in the title ";
       String s05 = "  e - show all lendings of one person ";		
       String s06 = "  f - lend a book ";
@@ -201,7 +201,7 @@ public class LibraryApplication {
   private static void printBookArray(BookNode[] b) {
 	  Out.println("");
 	  	for(int i=0; i<b.length;i++){
-	  		//System.out.println(i);
+	  	//	System.out.println(i);
 	  		printBook(b[i].getBook());
 	  		
 	  	}Out.println("");
@@ -229,9 +229,9 @@ public class LibraryApplication {
   
   private static void printBookAvailability(String name, boolean containsBook) {
 	  if (containsBook){
-		  Out.println("The book \"" + name + "\" is available.");
+		  Out.println("The book \"" + name + "\" exists.");
 	  } else {
-		  Out.println("The book \"" + name + "\" is not available.");
+		  Out.println("The book \"" + name + "\" never belonged to the library.");
 	  }
 	}
   

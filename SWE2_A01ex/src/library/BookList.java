@@ -43,6 +43,9 @@ final class BookList {
 			node = node.getNext();
 		}
 		
+		if (i==0) return null;
+		
+		//System.out.println(i);
 		BookNode[] bookNodeLookupList = new BookNode[i];
 		i=0;
 		node = head;
@@ -179,9 +182,9 @@ final class BookList {
 		{return false;}
 		BookNode bookNode = bookNodeLookupList[0];
 		
-		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
+		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
-		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
+		} else if (available(bookNode) && bookNode.getBook().getLender().getId()==person.getId()){
 			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
 			return true;
 		} else {
@@ -212,9 +215,9 @@ final class BookList {
 		BookNode bookNode = lookup(idBook);
 
 		
-		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
+		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
-		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
+		} else if (available(bookNode) && bookNode.getBook().getLender().getId()==person.getId()){
 			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
 			return true;
 		} else {
@@ -226,8 +229,12 @@ final class BookList {
 
 	boolean available(int idBook) {
 		BookNode bookNode = lookup(idBook);
-		return bookNode.getBook().isLended();
+		return available(bookNode);
 	}
 
+	boolean available(BookNode bookNode) {
+		//BookNode bookNode = lookup(idBook);
+		return bookNode.getBook().isLended();
+	}
 
 }
