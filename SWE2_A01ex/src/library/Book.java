@@ -16,7 +16,7 @@ public final class Book {
 	
 	private Calendar cal;
 	
-	protected final int LIBRARY_TERMINATION = 10000;
+	protected final static int LIBRARY_TERMINATION = 10000;
 
 	/**
 	 * @param id
@@ -63,7 +63,7 @@ public final class Book {
 		return true;
 	}
 
-	public Person getLender() {
+	Person getLender() {
 		return lender;
 	}
 

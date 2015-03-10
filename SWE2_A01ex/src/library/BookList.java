@@ -5,7 +5,8 @@ import java.util.Calendar;
 final class BookList {
 	
 	private BookNode head;
-	//private static final int NUM_BOOKS = 400;
+	protected final static int DAYS_FIRST_LOAN = 14; //test -14
+	protected final static int DAYS_EXTENDED_LOAN = 7;
 
 	/**
 	 * @param head
@@ -119,10 +120,7 @@ final class BookList {
 	
 	BookNode[] onePersonBorrowedList(int idPerson){
 		BookNode node = this.head;
-	//	System.out.println("test");
-	//	System.out.println(node.getBook().toString());
 		int i=0;
-	//	System.out.println(i);
 		while (node != null){
 
 			if (node.getBook().isLended() && node.getBook().getLender().getId()==idPerson){
@@ -130,9 +128,7 @@ final class BookList {
 				i++;
 			}
 			node = node.getNext();
-		//	System.out.println(i);
 		}
-		//
 		BookNode[] bookNodeLookupList = new BookNode[i];
 		i=0;
 		node = head;
@@ -186,12 +182,12 @@ final class BookList {
 		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
 		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
-			bookNode.getBook().extendCal(7);
+			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
 			return true;
 		} else {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
-		bookNode.getBook().setCal(14);
+		bookNode.getBook().setCal(DAYS_FIRST_LOAN);
 		return true;}
 	}
 	
@@ -201,14 +197,14 @@ final class BookList {
 		{return false;}
 		BookNode bookNode = bookNodeLookupList[0];
 		bookNode.getBook().setLended(false);
-		bookNode.getBook().setCal(10000);
+		bookNode.getBook().setCal(Book.LIBRARY_TERMINATION);
 		return true;		
 	}
 	
 	boolean givebackBook(int idBook){
 		BookNode bookNode = lookup(idBook);
 		bookNode.getBook().setLended(false);
-		bookNode.getBook().setCal(10000);
+		bookNode.getBook().setCal(Book.LIBRARY_TERMINATION);
 		return true;		
 	}
 
@@ -219,14 +215,12 @@ final class BookList {
 		if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()!=person.getId()){
 			return false;
 		} else if (bookNode.getBook().isLended() && bookNode.getBook().getLender().getId()==person.getId()){
-			bookNode.getBook().extendCal(7);
+			bookNode.getBook().extendCal(DAYS_EXTENDED_LOAN);
 			return true;
 		} else {
 		bookNode.getBook().setLended(true);
 		bookNode.getBook().setLender(person);
-		bookNode.getBook().setCal(14);
-		//System.out.println(bookNode.getBook().toString());
-		//System.out.println(person.toString());
+		bookNode.getBook().setCal(DAYS_FIRST_LOAN);
 		return true;}
 	}
 
