@@ -205,7 +205,7 @@ final class BookList {
 	
 	boolean givebackBook(int idBook){
 		BookNode bookNode = lookup(idBook);
-		if (bookNode==null) {
+		if (bookNode==null || bookNode.getBook().isLended()==false) {
 			return false;
 		} else {
 		bookNode.getBook().setLended(false);
@@ -232,9 +232,10 @@ final class BookList {
 		return 2;}
 	}
 
-	boolean available(int idBook) {
+	int available(int idBook) {
 		BookNode bookNode = lookup(idBook);
-		return available(bookNode);
+		if (bookNode==null){return 0;}
+		else {return available(bookNode)?1:2;}
 	}
 
 	boolean available(BookNode bookNode) {

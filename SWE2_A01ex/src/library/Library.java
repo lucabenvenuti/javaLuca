@@ -66,7 +66,7 @@ public final class Library {
 		return bookList.getBookArray();
 	}
 
-	public boolean available(int idBook) {
+	public int available(int idBook) {
 		return bookList.available(idBook);
 	}
 	

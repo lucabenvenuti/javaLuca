@@ -151,11 +151,10 @@ public class LibraryApplication {
 	    	    Out.println(s11);
 		        Out.print("   Please write the book's ID to check availability: ");
 		        idBook = In.readInt();
-		        if(lucaLibrary.available(idBook)){
-		        	Out.print("   The book is lended. ");
-		        }else{
-		        	Out.print("   The book is not lended. ");
-		        }
+		        switch(lucaLibrary.available(idBook)){
+		        case 0: Out.print("   The book does not exist. "); break;
+		        case 1: Out.print("   The book is lended. ");break;
+		        case 2: Out.print("   The book is not lended. ");break;}
 		        break;  
 	      }
 	      op = readOperation();
