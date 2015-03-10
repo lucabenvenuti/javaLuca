@@ -205,15 +205,19 @@ final class BookList {
 	
 	boolean givebackBook(int idBook){
 		BookNode bookNode = lookup(idBook);
+		if (bookNode==null) {
+			return false;
+		} else {
 		bookNode.getBook().setLended(false);
+		bookNode.getBook().setLender(null);
 		bookNode.getBook().setCal(Book.LIBRARY_TERMINATION);
-		return true;		
+		return true;}		
 	}
 
 	int lendBook(Person person, int idBook) {
 		BookNode bookNode = lookup(idBook);
 		if (bookNode==null){
-			System.out.println("trotaculo");
+			//System.out.println("trotaculo");
 			return 0;}
 		
 		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){

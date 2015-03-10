@@ -151,7 +151,11 @@ public class LibraryApplication {
 	    	    Out.println(s11);
 		        Out.print("   Please write the book's ID to check availability: ");
 		        idBook = In.readInt();
-		        Out.print(lucaLibrary.available(idBook));
+		        if(lucaLibrary.available(idBook)){
+		        	Out.print("   The book is lended. ");
+		        }else{
+		        	Out.print("   The book is not lended. ");
+		        }
 		        break;  
 	      }
 	      op = readOperation();
@@ -209,11 +213,11 @@ public class LibraryApplication {
   private static void printBookArray(BookNode[] b) {
 	  Out.println("");
 	  if (b==null || b.length==0){
-		  System.out.println("   There are no books with the requested query.");
+		  Out.println("   There are no books with the requested query.");
 	  }else{
-		  System.out.println(b.length);
+		//  Out.println(b.length);
 	  	for(int i=0; i<b.length;i++){
-	  	//	System.out.println(i);
+	  	//	Out.println(i);
 	  		printBook(b[i].getBook());
 	  		
 	  	}Out.println("");}
@@ -222,7 +226,7 @@ public class LibraryApplication {
   private static void printPersonArray(PersonNode[] p) {
 	  Out.println("");
 	  if (p==null || p.length==0){
-		  System.out.println("   There are no persons with the requested query.");
+		  Out.println("   There are no persons with the requested query.");
 	  }else{
 	  	for(int i=0; i<p.length;i++){
 	  		printPerson(p[i].getPerson());

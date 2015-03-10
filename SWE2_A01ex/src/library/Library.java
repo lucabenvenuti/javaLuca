@@ -40,7 +40,9 @@ public final class Library {
 	
 	public int lendBook(int idPerson, int idBook){
 		PersonNode personNode  = getPersonNode(idPerson);
-		if(personNode==null){return 0;}else{
+		if(personNode==null){
+			return 0;
+		}else{
 		return bookList.lendBook(personNode.getPerson(), idBook);}
 	}
 	
