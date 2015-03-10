@@ -13,6 +13,9 @@ public final class PersonNode {
 		this.setNext(next);
 	}
 	
+	/**
+	 * @param person
+	 */
 	PersonNode(Person person){
 		this(person, null);
 	}

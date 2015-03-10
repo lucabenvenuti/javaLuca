@@ -2,6 +2,10 @@ package library;
 
 import java.util.Calendar;
 
+/**
+ * @author luca
+ * Book class to store book and eventually lending information
+ */
 public final class Book {
 
 	private final int id;
@@ -16,9 +20,13 @@ public final class Book {
 	
 	private Calendar cal;
 	
+	/**
+	 * days when the library will be closed forever, first loan duration and extended loan duration
+	 */
 	protected final static int LIBRARY_TERMINATION = 10000;
 	public final static int DAYS_FIRST_LOAN = 14; //test -14
 	public final static int DAYS_EXTENDED_LOAN = 7;
+
 
 	/**
 	 * @param id
@@ -56,33 +64,56 @@ public final class Book {
 		return location;
 	}
 
+	/**
+	 * @return true if a book is lended, false otherwise
+	 */
 	boolean isLended() {
 		return lended;
 	}
 
+	/**
+	 * @param lended
+	 * @return true if the status has been changed correctly
+	 */
 	boolean setLended(boolean lended) {
 		this.lended = lended;
 		return true;
 	}
 
+	/**
+	 * @return lender as Person object
+	 */
 	Person getLender() {
 		return lender;
 	}
 
+	/**
+	 * @param lender
+	 * @return true if the information has been changed correctly
+	 */
 	boolean setLender(Person lender) {
 		this.lender = lender;
 		return true;
 	}
 
+	/**
+	 * @return cal object
+	 */
 	Calendar getCal() {
 		return cal;
 	}
 
+	/**
+	 * @param days, set up the expiration date of the lending in days from today
+	 */
 	void setCal(int days) {
 		this.cal = Calendar.getInstance();
 		this.cal.add(Calendar.DATE,days);
 	}
 	
+	/**
+	 * @param days, extend the expiration date of the lending in days from the initial expiration day
+	 */
 	void extendCal(int days) {
 		this.cal.add(Calendar.DATE,days);
 	}
@@ -140,6 +171,5 @@ public final class Book {
 				+ (lender != null ? "lender=" + lender + ", " : "")
 				+ (cal != null ? "cal=" + cal.getTime(): "") + "]";
 	}
-
 	
 }

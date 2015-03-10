@@ -15,6 +15,12 @@ final class PersonList {
 		this.head = null;
 	}
 
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param address
+	 * @return the created PersonNode object
+	 */
 	PersonNode insertPerson(String firstName, String lastName, String address) {
 		if (this.head == null){
 			head = new PersonNode(new Person(0, firstName, lastName, address));
@@ -32,6 +38,10 @@ final class PersonList {
 		}
 	}	
 		
+	/**
+	 * @param id
+	 * @return the PersonNode with a Person object with the same ID as id
+	 */
 	PersonNode lookup(int id){
 		PersonNode node = head;
 		
@@ -44,6 +54,9 @@ final class PersonList {
 		return null;
 	}
 		
+	/**
+	 * @return all the PersonNode objects stored in this list as PersonNode array
+	 */
 	PersonNode[] getPersonArray(){
 		PersonNode node = head;
 		
@@ -68,10 +81,16 @@ final class PersonList {
 		return personNodeLookupList;
 	}
 	
+	/**
+	 * @return the head = first element in the list
+	 */
 	PersonNode firstPerson() {
 		return head; 
 	} // firstPerson
 	
+	/**
+	 * @return the head = first element in the list
+	 */
 	PersonNode getHead() {
 		return head; 
 	} // firstEntry

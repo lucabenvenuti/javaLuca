@@ -2,10 +2,13 @@ package library;
 
 import java.util.Calendar;
 
+/**
+ * @author luca
+ * BookList class stores the head of a BookNode list, and allows a series of operation
+ */
 final class BookList {
 	
 	private BookNode head;
-
 
 	/**
 	 * @param head
@@ -14,6 +17,11 @@ final class BookList {
 		this.head = null;
 	}
 
+	/**
+	 * @param name
+	 * @param location
+	 * @return the created BookNode object
+	 */
 	BookNode insertBook(String name, String location) {
 		if (this.head == null){
 			head = new BookNode(new Book(0, name, location));
@@ -31,6 +39,10 @@ final class BookList {
 		}
 	}	
 		
+	/**
+	 * @param name
+	 * @return the BookNode objects array which Books have titles coincide with name
+	 */
 	BookNode[] lookup(String name){
 		BookNode node = head;
 		
@@ -44,7 +56,6 @@ final class BookList {
 		
 		if (i==0) return null;
 		
-		//System.out.println(i);
 		BookNode[] bookNodeLookupList = new BookNode[i];
 		i=0;
 		node = head;
@@ -55,10 +66,12 @@ final class BookList {
 			}
 			node = node.getNext();
 		}
-		
 		return bookNodeLookupList;
 	}
 	
+	/**
+	 * @return all the BookNode objects stored in this list as BookNode array
+	 */
 	BookNode[] getBookArray(){
 		BookNode node = head;
 		
@@ -83,6 +96,10 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
+	/**
+	 * @param idBook
+	 * @return the BookNode with the Book object thas has an ID coincident with idBook
+	 */
 	BookNode lookup(int idBook) {
 		BookNode node = head;
 		
@@ -95,6 +112,9 @@ final class BookList {
 		return null;
 	}
 	
+	/**
+	 * @return the BookNode objects array which Books have restitution dates later than today
+	 */
 	BookNode[] overdue(){
 		BookNode node = this.head;
 		
@@ -120,6 +140,11 @@ final class BookList {
 		return bookNodeLookupList;
 	}
 	
+	/**
+	 * @param idPerson
+	 * @return a BookNode objects array which Books have been borrowed by a Person object with the same ID
+	 * as idPerson
+	 */
 	BookNode[] onePersonBorrowedList(int idPerson){
 		BookNode node = this.head;
 		int i=0;
@@ -146,13 +171,19 @@ final class BookList {
 	}
 	
 	
+	/**
+	 * @return firstBook = head of the list
+	 */
 	BookNode firstBook() {
 		return head; 
-	} // firstBook
+	}
 	
+	/**
+	 * @return head = firstBook of the list
+	 */
 	BookNode getHead() {
 		return head; 
-	} // firstEntry
+	} 
 	
 	
 	/** 
@@ -175,6 +206,13 @@ final class BookList {
 		return head == null; 
 	}
 	
+	/**
+	 * DEPRECATED: please use 
+	 * "int lendBook(Person person, int idBook)"
+	 * @param person
+	 * @param title
+	 * @return true if a book is correctly lended, false otherwise
+	 */
 	boolean lendBook(Person person, String title){
 		BookNode[] bookNodeLookupList = lookup(title);
 		if (bookNodeLookupList.length !=1 )
@@ -193,6 +231,12 @@ final class BookList {
 		return true;}
 	}
 	
+	/**
+	 * DEPRECATED: please use 
+	 * "boolean givebackBook(int idBook)"
+	 * @param title
+	 * @return true if a book is correctly given back, false otherwise
+	 */
 	boolean givebackBook(String title){
 		BookNode[] bookNodeLookupList = lookup(title);
 		if (bookNodeLookupList.length !=1 )
@@ -203,6 +247,10 @@ final class BookList {
 		return true;		
 	}
 	
+	/**
+	 * @param idBook
+	 * @return true if a book is correctly given back, false otherwise
+	 */
 	boolean givebackBook(int idBook){
 		BookNode bookNode = lookup(idBook);
 		if (bookNode==null || bookNode.getBook().isLended()==false) {
@@ -214,10 +262,14 @@ final class BookList {
 		return true;}		
 	}
 
+	/**
+	 * @param person
+	 * @param idBook
+	 * @return 2 if a book is correctly lended, 1 if a loan is extended, 0 otherwise
+	 */
 	int lendBook(Person person, int idBook) {
 		BookNode bookNode = lookup(idBook);
 		if (bookNode==null){
-			//System.out.println("trotaculo");
 			return 0;}
 		
 		if (available(bookNode) && bookNode.getBook().getLender().getId()!=person.getId()){
@@ -232,14 +284,28 @@ final class BookList {
 		return 2;}
 	}
 
+	/**
+	 * DEPRECATED: please use 
+	 * "boolean available(BookNode bookNode)"
+	 * @param idBook
+	 * @return, given a BookNode object with a Book object with ID equal to idBook, 
+	 * 0 if it does not exist, 
+	 * 1 if it is lended,
+	 * 2 if it is not lended.
+	 */
 	int available(int idBook) {
 		BookNode bookNode = lookup(idBook);
 		if (bookNode==null){return 0;}
 		else {return available(bookNode)?1:2;}
 	}
 
+	/**
+	 * @param bookNode
+	 * @return, given a BookNode object with a Book object,
+	 * true if it is lended,
+	 * false if it is not lended.
+	 */
 	boolean available(BookNode bookNode) {
-		//BookNode bookNode = lookup(idBook);
 		return bookNode.getBook().isLended();
 	}
 

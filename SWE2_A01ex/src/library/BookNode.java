@@ -1,5 +1,9 @@
 package library;
 
+/**
+ * @author luca
+ * BookNode class to store an object book and the next BookNode object
+ */
 public final class BookNode {
 	
 	private Book book;
@@ -13,6 +17,9 @@ public final class BookNode {
 		this.setNext(next);
 	}
 	
+	/**
+	 * @param book
+	 */
 	BookNode(Book book){
 		this(book, null);
 	}

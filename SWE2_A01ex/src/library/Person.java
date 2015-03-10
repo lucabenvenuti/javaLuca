@@ -23,22 +23,37 @@ public final class Person {
 		this.address = address;
 	}
 
+	/**
+	 * @return the person ID
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * @return the person first name
+	 */
 	String getFirstName() {
 		return firstName;
 	}
 
+	/**
+	 * @return the person last name
+	 */
 	String getLastName() {
 		return lastName;
 	}
 
+	/**
+	 * @return the person address
+	 */
 	String getAddress() {
 		return address;
 	}
 
+	/** (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", firstName=" + firstName + ", lastName="
