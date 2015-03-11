@@ -166,6 +166,7 @@ public final class Library {
 	}
 
 	/**
+	 * Check the availability of a book
 	 * @param idBook
 	 * @return given a book ID, 
 	 * 0 if it does not exist, 1 if it is lended, 2 if it is not lended.

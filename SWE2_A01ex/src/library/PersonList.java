@@ -75,7 +75,7 @@ final class PersonList {
 		return false;
 	}
 	
-	public PersonNode lookup(String firstName, String lastName) {
+	PersonNode lookup(String firstName, String lastName) {
 		PersonNode node = head;
 		while (node != null){
 			if (node.getPerson().getFirstName().equals(firstName) 
