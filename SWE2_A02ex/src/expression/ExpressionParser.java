@@ -33,6 +33,7 @@ public final class ExpressionParser {
 		this.factory = factory;
 		this.parser = new Buffer(s);
 		final Expression result = parseExpression();
+		
 		if (!parser.atEnd()) {
 			throw new IllegalArgumentException("Found illegal character '" + parser.getCurrent() + "' at position " + parser.getPosition());
 		}
@@ -48,8 +49,9 @@ public final class ExpressionParser {
 			final char operator = parser.advance();
 			final Expression right = parseTerm();
 			left = factory.createBinary(operator, left, right);
+			//System.out.println("test");
 		}
-
+		
 		return left;
 	}
 
@@ -81,16 +83,21 @@ public final class ExpressionParser {
 			return innerExpression;
 		} else if (Character.isDigit(parser.getCurrent())) {
 			int value = parser.getCurrent() - '0';
+			System.out.println(value);
 			parser.advance();
 			while (Character.isDigit(parser.getCurrent())) {
 				value *= 10;
+				System.out.println(value);
 				value += (parser.getCurrent() - '0');
 				parser.advance();
+				System.out.println(value);
 			}
 			return factory.createConstant(value);
 		} else {
 			throw new IllegalArgumentException("Expected '(' or number at position " + parser.getPosition());
 		}
+		
+
 	}
 
 	/**
@@ -105,6 +112,7 @@ public final class ExpressionParser {
 			this.text = text;
 			this.position = -1;
 			advance();
+			System.out.println(text);
 		}
 
 		private char safeAccess(int i) {
@@ -135,5 +143,6 @@ public final class ExpressionParser {
 		public int getPosition() {
 			return position;
 		}
+
 	}
 }
