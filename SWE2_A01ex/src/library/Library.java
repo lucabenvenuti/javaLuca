@@ -92,6 +92,12 @@ public final class Library {
 		return personList.lookup(id);		
 	}
 	
+	/**
+	 * get a PersonNode given this firstName and lastName
+	 * @param firstName
+	 * @param lastName
+	 * @return
+	 */
 	private PersonNode getPersonNode(String firstName, String lastName) {
 		return personList.lookup(firstName, lastName);
 	}

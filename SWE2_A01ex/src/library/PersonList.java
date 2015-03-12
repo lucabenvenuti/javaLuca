@@ -62,6 +62,12 @@ final class PersonList {
 		return null;
 	}
 		
+	/**
+	 * check if exist a person with this firstName and lastName
+	 * @param firstName
+	 * @param lastName
+	 * @return
+	 */
 	boolean isFirstLastName(String firstName, String lastName){
 		PersonNode node = head;
 		while (node != null){
@@ -75,6 +81,12 @@ final class PersonList {
 		return false;
 	}
 	
+	/**
+	 * Find a personNode with this firstName and lastName
+	 * @param firstName
+	 * @param lastName
+	 * @return
+	 */
 	PersonNode lookup(String firstName, String lastName) {
 		PersonNode node = head;
 		while (node != null){
