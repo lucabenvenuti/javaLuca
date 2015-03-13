@@ -33,7 +33,8 @@ public class ConstantExpression implements Expression {
 	
 	@Override
 	public void draw(int x, int y) {
-		Window.drawTextCentered(toString(), x+50, y+50);
+		int c = 50;
+		Window.drawTextCentered(toString(), x+c, y+c);
 	}
 	
 	@Override

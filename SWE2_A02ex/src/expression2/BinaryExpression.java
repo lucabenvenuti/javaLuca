@@ -4,9 +4,9 @@ import inout.Window;
 import expression.Expression;
 
 public abstract class BinaryExpression implements Expression {
-	private final Expression right;
-	private final Expression left;
-	private static int c=0;
+	protected final Expression right;
+	protected final Expression left;
+	//private static int c=0;
 
 	/**
 	 * @param left
@@ -31,14 +31,23 @@ public abstract class BinaryExpression implements Expression {
 		return left.getWidth() + right.getWidth();
 	}
 
-	@Override
+/*	@Override
 	public void draw(int x, int y) {
-		c= 50; //c+50;
-		Window.drawTextCentered(toString(), x+getCenter()+c, y+c);
-		
+		int c= 50; //c+50;
+	
 		left.draw(x-c, c+y);
 	//	c= c+getWidth();
 		right.draw(c+x+(getCenter()*3/2), c+y);
+		
+	}*/
+	
+	
+	public void draw(int x, int y, char c) {
+		Window.drawTextCentered(toString(), x+getCenter()+c, y+c);
+		int d = 75; //c+50;
+		Window.drawTextCentered(Character.toString(c), x+getCenter()+c, y+d);
+		Window.drawLine(x+getCenter()+c, y+d, x-c, c+y);
+		Window.drawLine(x+getCenter()+c, y+d, c+x+(getCenter()*3/2), c+y);
 		
 	}
 
