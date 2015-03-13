@@ -20,6 +20,7 @@ public class TreeTest {
 	//	System.out.println(expression2.evaluate());
 	//	System.out.println(expression2.getWidth());
 		expression.draw(100, 0);
+		//Window.drawLine(0, 0, 200, 200);
 	//	System.out.println("test");
 	/*	final Expression expression3 =
 				new ExpressionParser().createExpression("20", fact);

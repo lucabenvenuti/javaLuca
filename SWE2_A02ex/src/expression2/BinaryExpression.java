@@ -44,10 +44,13 @@ public abstract class BinaryExpression implements Expression {
 	
 	public void draw(int x, int y, char c) {
 		Window.drawTextCentered(toString(), x+getCenter()+c, y+c);
-		int d = 75; //c+50;
+		int d = 60; //c+50;
 		Window.drawTextCentered(Character.toString(c), x+getCenter()+c, y+d);
-		Window.drawLine(x+getCenter()+c, y+d, x-c, c+y);
-		Window.drawLine(x+getCenter()+c, y+d, c+x+(getCenter()*3/2), c+y);
+		System.out.println(x+getCenter()+c);
+		System.out.println(y+d);
+		System.out.println("trota");
+		Window.drawLine(x+getCenter()+c, y+d+20, x-c+40, y+d+40);
+			Window.drawLine(x+getCenter()+c, y+d+20, c+x+(getCenter()*4), y+d+30);
 		
 	}
 
