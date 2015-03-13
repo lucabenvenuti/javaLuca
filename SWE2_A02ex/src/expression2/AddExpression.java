@@ -16,12 +16,9 @@ public class AddExpression extends BinaryExpression{
 
 	@Override
 	public void draw(int x, int y) {
-		int c= 50; //c+50;
-		
+		int c= 50; 
 		draw(x,y,'+');
 		left.draw(x-c, c+y);
-	//	c= c+getWidth();
-		
 		right.draw(c+x+(getCenter()*3/2), c+y);
 		
 	}
