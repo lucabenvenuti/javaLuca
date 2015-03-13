@@ -1,5 +1,6 @@
 package expression2;
 
+import inout.Window;
 import expression.Expression;
 
 public class ConstantExpression implements Expression {
@@ -17,20 +18,26 @@ public class ConstantExpression implements Expression {
 		return this.value;
 	}
 
-	@Override
-	public void draw(int x, int y) {
-		// TODO Auto-generated method stub		
-	}
+
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Window.getTextWidth(toString());
+
 	}
 
 	@Override
 	public int getCenter() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getWidth()/2;
+	}
+	
+	@Override
+	public void draw(int x, int y) {
+		Window.drawTextCentered(toString(), x+50, y+50);
+	}
+	
+	@Override
+	public String toString(){
+		return new Integer(value).toString();
 	}
 }

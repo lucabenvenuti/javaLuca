@@ -9,26 +9,8 @@ public class AddExpression extends BinaryExpression{
 	}
 
 	@Override
-	public void draw(int x, int y) {
-		// TODO Auto-generated method stub
-	}
-
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int getCenter() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int evaluate(int left, int right) {
 		return left + right;
 	}
+	
 }
