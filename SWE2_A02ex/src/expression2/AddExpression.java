@@ -1,8 +1,10 @@
-package expression;
+package expression2;
 
-public class SubExpression extends BinaryExpression {
+import expression.Expression;
 
-	public SubExpression(Expression left, Expression right) {
+public class AddExpression extends BinaryExpression{
+
+	public AddExpression(Expression left, Expression right) {
 		super(left, right);
 	}
 
@@ -11,11 +13,13 @@ public class SubExpression extends BinaryExpression {
 		// TODO Auto-generated method stub
 	}
 
+
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 	@Override
 	public int getCenter() {
@@ -23,9 +27,8 @@ public class SubExpression extends BinaryExpression {
 		return 0;
 	}
 
-
 	@Override
 	public int evaluate(int left, int right) {
-		return left - right;		
+		return left + right;
 	}
 }

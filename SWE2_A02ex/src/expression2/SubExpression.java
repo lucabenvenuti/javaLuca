@@ -1,14 +1,16 @@
-package expression;
+package expression2;
 
-public class MulExpression extends BinaryExpression {
+import expression.Expression;
 
-	public MulExpression(Expression left, Expression right) {
+public class SubExpression extends BinaryExpression {
+
+	public SubExpression(Expression left, Expression right) {
 		super(left, right);
 	}
 
 	@Override
 	public void draw(int x, int y) {
-		// TODO Auto-generated method stub	
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -23,8 +25,9 @@ public class MulExpression extends BinaryExpression {
 		return 0;
 	}
 
+
 	@Override
 	public int evaluate(int left, int right) {
-		return left * right;
+		return left - right;		
 	}
 }

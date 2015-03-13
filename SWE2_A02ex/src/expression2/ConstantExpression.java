@@ -1,4 +1,6 @@
-package expression;
+package expression2;
+
+import expression.Expression;
 
 public class ConstantExpression implements Expression {
 

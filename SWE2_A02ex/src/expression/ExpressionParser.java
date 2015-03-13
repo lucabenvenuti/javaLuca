@@ -148,8 +148,8 @@ public final class ExpressionParser {
 
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Expression e = new ExpressionParser().createExpression("3 + (2 * 5) + 2", new BaseExpressionFactory());
 		System.out.println(e.evaluate());
-	}
+	}*/
 }

@@ -1,11 +1,11 @@
 package tree;
 
-import expression.AddExpression;
-import expression.ConstantExpression;
 import expression.Expression;
 import expression.ExpressionFactory;
-import expression.MulExpression;
-import expression.SubExpression;
+import expression2.AddExpression;
+import expression2.ConstantExpression;
+import expression2.MulExpression;
+import expression2.SubExpression;
 
 public class BaseExpressionFactory implements ExpressionFactory {
 
