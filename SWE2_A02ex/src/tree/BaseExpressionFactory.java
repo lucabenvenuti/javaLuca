@@ -9,32 +9,6 @@ import expression.SubExpression;
 
 public class BaseExpressionFactory implements ExpressionFactory {
 
-	/**
-	 * @param op
-	 * @param left
-	 * @param right
-	 * @param value
-	 */
-	BaseExpressionFactory(char op, Expression left, Expression right, int value) {
-		this.op = op;
-		this.left = left;
-		this.right = right;
-		this.value = value;
-	}
-	
-	BaseExpressionFactory(int value) {
-		this((Character) null,null,null,value);
-	}
-	
-	public BaseExpressionFactory() {
-		this((Character) null,null,null,(Integer) null);
-	}
-
-	private char op;
-	private Expression left;
-	private Expression right;
-	private int value;
-	
 	@Override
 	public Expression createConstant(int value) {
 		return new ConstantExpression(value);

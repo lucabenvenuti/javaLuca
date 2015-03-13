@@ -1,46 +1,27 @@
 package expression;
 
-public abstract class BinaryExpression implements Expression{
-	//abstract class AbstractMovie implements Movie {
-
-
-	
-	Expression right;
-	Expression left;
-	char op;
-	int value;
+public abstract class BinaryExpression implements Expression {
+	private final Expression right;
+	private final Expression left;
 
 	/**
-	 * @param op
 	 * @param left
 	 * @param right
 	 */
-	BinaryExpression(char op, Expression left, Expression right, int value) {
-		this.op = op;
+	BinaryExpression(Expression left, Expression right) {
 		this.left = left;
 		this.right = right;
-		this.value = value;
 	}
 
-	public BinaryExpression() {
-		this((Character) null, null, null, (Integer) null);
-	}
-
-	public BinaryExpression(int value) {
-		this((Character) null, null, null, value);
-	}
-	
-
-	BinaryExpression(char op, Expression left, Expression right) {
-		this(op,left,right, (Integer) null);
-	}
-
-	/* (non-Javadoc)
-	 * @see expression.Expression#evaluate()
+	/**
+	 * Calculates the arithmetic result of the expression and returns the result.
 	 */
+	public int evaluate() {
+		return evaluate(left.evaluate(), right.evaluate());
+	}
 	
+	abstract int evaluate(int left, int right);
 
-	
 /*	@Override
 	public int evaluate(){
 		if (this.left==null && this.right==null){
