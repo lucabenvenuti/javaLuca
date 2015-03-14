@@ -1,7 +1,5 @@
 package expression;
 
-import tree.BaseExpressionFactory;
-
 /**
  * Class for parsing expressions that uses an ExpressionFactory object to create the expression instances.<br/>
  * 
