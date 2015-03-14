@@ -32,17 +32,17 @@ public abstract class BinaryExpression implements Expression {
 	}
 	@Override
 	public int getWidth() {
-		return left.getWidth() + right.getWidth();
+		return left.getWidth() + right.getWidth();// +20;
 	}
 	
 	@Override
 	public void draw(int x, int y) {
-		Window.drawTextCentered(getValue(), x+50, y+50);
-		Window.drawTextCentered(getOperator(), x+50, y+70);
-		Window.drawLine(x+50, y+90, x+10, y+100);
-			Window.drawLine(x+50, y+90, 110+x, y+100);
-			left.draw(x-50, 50+y);
-			right.draw(50+x+(getCenter()*3/2), 50+y);
+		Window.drawTextCentered(getValue(), x+getCenter(), y+Window.getTextHeight());
+		Window.drawTextCentered(getOperator(), x+getCenter(), y+2*Window.getTextHeight());
+		Window.drawLine(x+getCenter(), y+3*Window.getTextHeight(), x+left.getCenter(), y+4*Window.getTextHeight());
+		Window.drawLine(x+getCenter(), y+3*Window.getTextHeight(), x+getCenter()+right.getCenter(), y+4*Window.getTextHeight());
+		left.draw(x, y+3*Window.getTextHeight());
+		right.draw(x+getCenter(), y+3*Window.getTextHeight());
 	}
 
 	@Override

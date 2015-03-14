@@ -20,7 +20,7 @@ public class ConstantExpression implements Expression {
 
 	@Override
 	public int getWidth() {
-		return Window.getTextWidth(toString());
+		return 20; //Window.getTextWidth(toString());
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class TreeTest {
 		
 		final Expression expression2 =
 		new ExpressionParser().createExpression("(9-1)*(17-7)", fact);
-		expression.draw(100, 0);
+		expression.draw(0, 0);
 		}
 
 }
