@@ -14,14 +14,14 @@ public class AddExpression extends BinaryExpression{
 		return left + right;
 	}
 
+
+
 	@Override
-	public void draw(int x, int y) {
-		int c= 50; 
-		draw(x,y,'+');
-		left.draw(x-c, c+y);
-		right.draw(c+x+(getCenter()*3/2), c+y);
-		
+	String getOperator() {
+		return "+";
 	}
+
+
 
 
 	

@@ -18,27 +18,23 @@ public class ConstantExpression implements Expression {
 		return this.value;
 	}
 
-
-
 	@Override
 	public int getWidth() {
 		return Window.getTextWidth(toString());
-
 	}
 
 	@Override
 	public int getCenter() {
-		return getWidth()/2;
+		return getWidth() / 2;
 	}
-	
+
 	@Override
 	public void draw(int x, int y) {
-		int c = 50;
-		Window.drawTextCentered(toString(), x+c, y+c);
+		Window.drawTextCentered(toString(), x + getCenter(), y + Window.getTextHeight());
 	}
-	
+
 	@Override
 	public String toString(){
-		return new Integer(value).toString();
+		return String.valueOf(value);
 	}
 }
