@@ -19,6 +19,7 @@ public abstract class BinaryExpression implements Expression {
 	/**
 	 * Calculates the arithmetic result of the expression and returns the result.
 	 */
+	@Override
 	public int evaluate() {
 		return evaluate(left.evaluate(), right.evaluate());
 	}
@@ -30,23 +31,28 @@ public abstract class BinaryExpression implements Expression {
 	String getValue() {
 		return String.valueOf(evaluate());
 	}
+	
 	@Override
 	public int getWidth() {
-		return left.getWidth() + right.getWidth();// +20;
+		return left.getWidth() + right.getWidth();
 	}
 	
 	@Override
 	public void draw(int x, int y) {
-		Window.drawTextCentered(getValue(), x+getCenter(), y+Window.getTextHeight());
-		Window.drawTextCentered(getOperator(), x+getCenter(), y+2*Window.getTextHeight());
-		Window.drawLine(x+getCenter(), y+3*Window.getTextHeight(), x+left.getCenter(), y+4*Window.getTextHeight());
-		Window.drawLine(x+getCenter(), y+3*Window.getTextHeight(), x+getCenter()+right.getCenter(), y+4*Window.getTextHeight());
-		left.draw(x, y+3*Window.getTextHeight());
-		right.draw(x+getCenter(), y+3*Window.getTextHeight());
+		int w = Window.getTextHeight();
+		int c = getCenter();
+
+		Window.drawTextCentered(getValue(), x+c, y+w);
+		Window.drawTextCentered(getOperator(), x+c, y+2*w);
+		Window.drawLine(x+c, y+3*w, x+left.getCenter(), y+4*w);
+		Window.drawLine(x+c, y+3*w, x+c+right.getCenter(), y+4*w);
+		left.draw(x, y+3*w);
+		right.draw(x+c, y+3*w);
 	}
 
 	@Override
 	public int getCenter() {
-		return getWidth() / 2;
+		return (left.getCenter() + right.getCenter()) / 2 + left.getCenter();
+//		return getWidth() / 2;
 	}
 }

@@ -7,20 +7,18 @@ public class ConstantExpression implements Expression {
 
 	private final int value;
 	
-	/**
-	 * @param value
-	 */
 	public ConstantExpression(int value) {
 		this.value = value;
 	}
 
+	@Override
 	public int evaluate() {
 		return this.value;
 	}
 
 	@Override
 	public int getWidth() {
-		return 20; //Window.getTextWidth(toString());
+		return 10+Window.getTextWidth(toString());
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package expression2;
 
-import inout.Window;
 import expression.Expression;
 
 public class SubExpression extends BinaryExpression {
@@ -15,7 +14,6 @@ public class SubExpression extends BinaryExpression {
 	}
 	
 
-	
 	@Override
 	String getOperator() {
 		return "-";

@@ -1,6 +1,5 @@
 package expression2;
 
-import inout.Window;
 import expression.Expression;
 
 public class MulExpression extends BinaryExpression {
@@ -13,9 +12,7 @@ public class MulExpression extends BinaryExpression {
 	public int evaluate(int left, int right) {
 		return left * right;
 	}
-	
-	
-	
+		
 	@Override
 	String getOperator() {
 		return "*";

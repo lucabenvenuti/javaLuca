@@ -51,7 +51,6 @@ public final class ExpressionParser {
 			final char operator = parser.advance();
 			final Expression right = parseTerm();
 			left = factory.createBinary(operator, left, right);
-			//System.out.println("test");
 		}
 		
 		return left;
@@ -85,14 +84,11 @@ public final class ExpressionParser {
 			return innerExpression;
 		} else if (Character.isDigit(parser.getCurrent())) {
 			int value = parser.getCurrent() - '0';
-//			System.out.println(value);
 			parser.advance();
 			while (Character.isDigit(parser.getCurrent())) {
 				value *= 10;
-//				System.out.println(value);
 				value += (parser.getCurrent() - '0');
 				parser.advance();
-//				System.out.println(value);
 			}
 			return factory.createConstant(value);
 		} else {
@@ -114,7 +110,6 @@ public final class ExpressionParser {
 			this.text = text;
 			this.position = -1;
 			advance();
-//			System.out.println(text);
 		}
 
 		private char safeAccess(int i) {
@@ -148,8 +143,4 @@ public final class ExpressionParser {
 
 	}
 
-	/*public static void main(String[] args) {
-		Expression e = new ExpressionParser().createExpression("3 + (2 * 5) + 2", new BaseExpressionFactory());
-		System.out.println(e.evaluate());
-	}*/
 }

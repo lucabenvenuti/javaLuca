@@ -16,10 +16,15 @@ public class BaseExpressionFactory implements ExpressionFactory {
 
 	@Override
 	public Expression createBinary(char op, Expression left, Expression right) {
-		if (op=='+'){return new AddExpression(left, right);}
-		else if (op=='-'){return new SubExpression(left, right);}
-		else if (op=='*'){return new MulExpression(left, right);}
-		else {return null;}
+		switch (op){
+			case '+':
+				return new AddExpression(left, right);
+			case '-':
+				return new SubExpression(left, right);
+			case '*':
+				return new MulExpression(left, right);
+			default:
+				throw new IllegalArgumentException("Op not supported: " + op);
+		}
 	}
-
 }
