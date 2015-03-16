@@ -9,7 +9,7 @@ public class MulExpression extends BinaryExpression {
 	}
 
 	@Override
-	public int evaluate(int left, int right) {
+	int evaluate(int left, int right) {
 		return left * right;
 	}
 		

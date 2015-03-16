@@ -3,7 +3,7 @@ package expression2;
 import inout.Window;
 import expression.Expression;
 
-public abstract class BinaryExpression implements Expression {
+abstract class BinaryExpression implements Expression {
 	protected final Expression right;
 	protected final Expression left;
 	
@@ -45,10 +45,8 @@ public abstract class BinaryExpression implements Expression {
 		Window.drawTextCentered(getValue(), x+c, y+h);
 		Window.drawTextCentered(getOperator(), x+c, y+2*h);
 		Window.drawLine(x+c, y+3*h, x+left.getCenter(), y+4*h);
-//		Window.drawLine(x+c, y+3*h, x+c+right.getCenter(), y+4*h);
 		Window.drawLine(x+c, y+3*h, x+left.getWidth()+right.getCenter(), y+4*h);
 		left.draw(x, y+3*h);
-//		right.draw(x+c, y+3*h);
 		right.draw(x+left.getWidth(), y+3*h);
 	}
 
