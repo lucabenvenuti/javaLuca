@@ -3,6 +3,17 @@ package expression2;
 import inout.Window;
 import expression.Expression;
 
+/**
+ * ConstantExpression.java
+ *
+ * A {@link ConstantExpression} is a class which 
+ * stores a value.
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class ConstantExpression implements Expression {
 
 	private final int value;

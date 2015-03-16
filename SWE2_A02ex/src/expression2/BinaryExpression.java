@@ -3,14 +3,21 @@ package expression2;
 import inout.Window;
 import expression.Expression;
 
+/**
+ * BinaryExpression.java
+ *
+ * A {@link BinaryExpression} is a super-class for 
+ * all binary expressions
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 abstract class BinaryExpression implements Expression {
 	protected final Expression right;
 	protected final Expression left;
 	
-	/**
-	 * @param left
-	 * @param right
-	 */
 	BinaryExpression(Expression left, Expression right) {
 		this.left = left;
 		this.right = right;
@@ -37,6 +44,9 @@ abstract class BinaryExpression implements Expression {
 		return left.getWidth() + right.getWidth();
 	}
 	
+	/** 
+	 * it draws the node and its leaves
+	 */
 	@Override
 	public void draw(int x, int y) {
 		int h = Window.getTextHeight();

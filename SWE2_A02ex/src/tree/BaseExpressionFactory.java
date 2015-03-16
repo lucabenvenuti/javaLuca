@@ -7,6 +7,17 @@ import expression2.ConstantExpression;
 import expression2.MulExpression;
 import expression2.SubExpression;
 
+/**
+ * BaseExpressionFactory.java
+ *
+ * A {@link BaseExpressionFactory} is a class which
+ * implements the correct sub-class call
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class BaseExpressionFactory implements ExpressionFactory {
 
 	@Override
