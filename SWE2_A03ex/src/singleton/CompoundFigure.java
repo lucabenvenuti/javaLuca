@@ -101,6 +101,12 @@ public class CompoundFigure extends Figure{
 						return val;
 					}
 
+					@Override
+					public void remove() {
+						// TODO Auto-generated method stub
+						
+					}
+
 				};
 			}
 
