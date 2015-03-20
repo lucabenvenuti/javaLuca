@@ -53,7 +53,7 @@ public class Controller {
     private List<Animation> animations = new ArrayList<Animation>();
     private List<Figure> figures = new ArrayList<Figure>();
 
-    private Controller() {
+	private Controller() {
     }
 
     private static Controller singleton = new Controller();
