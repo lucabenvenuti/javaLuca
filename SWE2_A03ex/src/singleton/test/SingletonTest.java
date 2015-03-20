@@ -3,6 +3,7 @@ package singleton.test;
 import singleton.Circle;
 import singleton.Rectangle;
 import singleton.Figure;
+import singleton.Line;
 import animation.Animation;
 import animation.Controller;
 
@@ -17,6 +18,10 @@ public class SingletonTest {
 		Figure rectangle = new Rectangle(50,80);
 		
 		rectangle.draw(140, 170);
+		
+		Figure line = new Line(50,80);
+		
+		line.draw(140, 170);
 		
 		Controller.addFigure(circle);
 		Controller.addFigure(rectangle);

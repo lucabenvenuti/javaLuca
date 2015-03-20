@@ -10,29 +10,45 @@ import inout.Window;
 
 public class CompoundFigure extends Figure{
 
+	protected CompoundFigure(int x, int y) {
+		super(x, y);
+		// TODO Auto-generated constructor stub
+	}
 
 
 
-	public class FigureList implements Iterable<Figure> {
+	private static class Node {
 
-		private static class Node {
+		Figure figure;
+		Node next;
 
-			Figure figure;
-			Node next;
-
-			Node(Figure figure, Node next) {
-				this.figure = figure;
-				this.next = next;
-			}
-
+		Node(Figure figure, Node next) {
+			this.figure = figure;
+			this.next = next;
 		}
+
+	}
+	
+
+	@Override
+	public void draw(int xOrigin, int yOrigin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static class FigureList implements Iterable<Figure> {
+
+
 
 		private Node head;
 
+		
 		public void push(Figure val) {
 			head = new Node(val, head);
 		}
 
+		
 		public void pop() throws NoSuchElementException {
 			if (isEmpty())
 				throw new NoSuchElementException();
@@ -76,5 +92,9 @@ public class CompoundFigure extends Figure{
 
 			};
 		}
-
+	}
+	
 }
+
+
+	
