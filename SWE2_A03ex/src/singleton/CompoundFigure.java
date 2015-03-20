@@ -14,18 +14,28 @@ public class CompoundFigure extends Figure{
 	
 	FigureList figureList = new FigureList();
 
-	protected CompoundFigure(int x, int y) {
+	public CompoundFigure(int x, int y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
-		// TODO Auto-generated method stub
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		for (Figure f:figureList){
+			if (k==5 || k ==10){i=0;}
+			if (k>9){j=5;}
+			else if (k>4){j=10;}
+			f.draw(xOrigin+15*j, yOrigin+i);
+			i = i +20;
+			k++;
+		}
 		
 	}
 	
-	void add(Figure f){
+	public void add(Figure f){
 		figureList.push(f);
 	/*	if (!figureList.isEmpty()){
 			Iterator<Figure> it = figureList.iterator();
@@ -34,11 +44,11 @@ public class CompoundFigure extends Figure{
 		}*/
 	}
 	
-	void removeListHead(){
+	public void removeListHead(){
 		figureList.pop();
 	}
 	
-	void getListHead(){
+	public void getListHead(){
 		figureList.top();
 	}
 	

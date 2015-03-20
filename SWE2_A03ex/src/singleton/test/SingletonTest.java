@@ -1,6 +1,7 @@
 package singleton.test;
 
 import singleton.Circle;
+import singleton.CompoundFigure;
 import singleton.Rectangle;
 import singleton.Figure;
 import singleton.Line;
@@ -13,15 +14,36 @@ public class SingletonTest {
 		
 		Figure circle = new Circle(50);
 		
-		circle.draw(40, 70);
+	//	circle.draw(40, 70);
 		
-		Figure rectangle = new Rectangle(50,80);
+		Figure rectangle = new Rectangle(10,10);
 		
-		rectangle.draw(140, 170);
+	//	rectangle.draw(140, 170);
 		
 		Figure line = new Line(50,80);
 		
-		line.draw(140, 170);
+	//	line.draw(140, 170);
+		
+		CompoundFigure compoundFigure = new CompoundFigure(20,20);
+		
+	//	compoundFigure.add(circle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		compoundFigure.add(rectangle);
+		
+		compoundFigure.draw(20, 20);
 		
 		Controller.addFigure(circle);
 		Controller.addFigure(rectangle);
