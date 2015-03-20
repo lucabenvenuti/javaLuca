@@ -63,7 +63,8 @@ public class Controller {
         int frame = 0;
 
         long start = System.currentTimeMillis();
-        public void run() {
+        @Override
+		public void run() {
 
             while (true) {
 
