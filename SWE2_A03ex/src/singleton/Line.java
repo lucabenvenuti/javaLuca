@@ -8,7 +8,6 @@ public class Line extends Figure{
 
 	public Line(int x, int y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

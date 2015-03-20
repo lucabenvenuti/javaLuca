@@ -9,8 +9,7 @@ public class Circle extends Figure{
 	public Circle(int x, int y) {
 		super(x, y);
 		if ((x)!=(y))
-			throw new IllegalArgumentException("Op not supported: ");		
-		// TODO Auto-generated constructor stub
+			throw new IllegalArgumentException("Not a circle");		
 	}
 
 	public Circle(int x) {

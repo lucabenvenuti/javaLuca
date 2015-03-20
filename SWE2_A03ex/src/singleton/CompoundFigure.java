@@ -1,14 +1,7 @@
 package singleton;
 
-//import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
-
-//import singleton.FigureList.CompoundFigure;
-import inout.Window;
-
-
 
 public class CompoundFigure extends Figure{
 	
@@ -37,11 +30,6 @@ public class CompoundFigure extends Figure{
 	
 	public void add(Figure f){
 		figureList.push(f);
-	/*	if (!figureList.isEmpty()){
-			Iterator<Figure> it = figureList.iterator();
-			while (it.hasNext()) {}
-		//	figureList.
-		}*/
 	}
 	
 	public void removeListHead(){
