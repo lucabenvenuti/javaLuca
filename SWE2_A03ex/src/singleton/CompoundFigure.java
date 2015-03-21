@@ -5,12 +5,14 @@ import java.util.NoSuchElementException;
 
 public class CompoundFigure extends Figure{
 	
-	FigureList figureList = new FigureList();
-
-	public CompoundFigure(int x, int y) {
-		super(x, y);
+	public CompoundFigure(int x, int y, int w, int h) {
+		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
 	}
+
+	FigureList figureList = new FigureList();
+
+
 
 	@Override
 	public void draw(int xOrigin, int yOrigin) {

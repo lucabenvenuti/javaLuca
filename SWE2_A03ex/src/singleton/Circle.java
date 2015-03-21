@@ -6,24 +6,31 @@ import inout.Window;
 
 public class Circle extends Figure{
 
-	public Circle(int x, int y) {
-		super(x, y);
-		if ((x)!=(y))
-			throw new IllegalArgumentException("Not a circle");		
-	}
 
-	public Circle(int x) {
-		super(x, x);
-		
+	
+	protected Circle(int x, int y, int w, int h) {
+		super(x, y, w, h);
+		if ((w)!=(h))
+		throw new IllegalArgumentException("Not a circle");		
 	}
 	
+	public Circle(int x, int y, int w) {
+		super(x, y, w, w);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
 
-		Window.drawCircle(xOrigin+x/2, yOrigin+x/2, x/2); //int x, int y, int w, int h
+		Window.drawCircle(xOrigin+x, yOrigin+y, w/2); //int x, int y, int w, int h
 		
 	}
 
 
 
 }
+
+
+//super(x, y);
+
+//	super(x, x);
