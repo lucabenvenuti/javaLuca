@@ -19,33 +19,21 @@ public abstract class Figure {
 
 	public abstract void draw(int xOrigin, int yOrigin);
 	
-/*	public abstract class Base1 implements Animation {}
-
-
-	protected Animation varClass1 = new Base1() {
-
-		@Override
-		public void animate(int frame) {
-			// TODO Auto-generated method stub
-			
-		}};*/
-	
 	Animation createXAnimation(){
-		
-		//a.animate(Controller.FRAMES_PER_SECOND);
-		//return a;
 		return new Animation() {
-
 			@Override
 			public void animate(int frame) {
 				x++;
 			}
-			
 		};
 	}
 	
 	Animation createYAnimation(){
 		return new YAnimation(this);
+	}
+	
+	Animation createCircleAnimation(int radius, int framesPerRotation){
+		return new CircleAnimation(radius, framesPerRotation);
 	}
 	
 		
@@ -60,6 +48,29 @@ public abstract class Figure {
 		@Override
 		public void animate(int frame) {
 			figure.y++;
+		}
+		
+	}
+	
+	class CircleAnimation implements Animation{
+		
+		private int radius, framesPerRotation, xC, yC;
+		private double angle;
+		private int counter =0;		
+
+		public CircleAnimation(int radius, int framesPerRotation) {
+			this.radius=radius;
+			this.framesPerRotation=framesPerRotation;
+			xC = (int) (x + radius*Math.sqrt(2)/2);
+			yC = (int) (y + radius*Math.sqrt(2)/2);
+			angle = (Math.PI*2/framesPerRotation);
+		}
+
+		@Override
+		public void animate(int frame) {
+			x = (int) (xC + radius*Math.cos(angle*counter));
+			y = (int) (yC + radius*Math.sin(angle*counter));
+			counter++;
 		}
 		
 	}
