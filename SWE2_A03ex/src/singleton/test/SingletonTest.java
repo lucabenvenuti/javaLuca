@@ -14,15 +14,15 @@ public class SingletonTest {
 		
 		Figure circle = new Circle(20,20,50);
 		
-//		circle.draw(40, 70);
+		circle.draw(40, 70);
 		
-		Figure rectangle = new Rectangle(20,20,10,10);
+		Figure rectangle = new Rectangle(20,20,50,80);
 		
-	//	rectangle.draw(140, 170);
+		rectangle.draw(140, 170);
 		
 		Figure line = new Line(20,20,50,80);
 		
-	//	line.draw(140, 170);
+		line.draw(140, 170);
 		
 		CompoundFigure compoundFigure = new CompoundFigure(20,20,20,20);
 		
@@ -43,7 +43,7 @@ public class SingletonTest {
 		compoundFigure.add(rectangle);
 		compoundFigure.add(rectangle);
 		
-		compoundFigure.draw(20, 20);
+	//	compoundFigure.draw(20, 20);
 		
 		Controller.addFigure(circle);
 		Controller.addFigure(rectangle);

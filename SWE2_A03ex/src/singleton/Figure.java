@@ -5,17 +5,17 @@ import animation.Controller;
 
 public abstract class Figure {
 	
-	protected Figure(int x, int y, int w, int h) {
-		this.x = x; 
-		this.y = y;
-		this.w = w;
-		this.h = h;
-	}
-
 	protected int x;
 	protected int y;
-	protected int w;
-	protected int h;
+	//protected int w;
+//	protected int h;
+	
+	protected Figure(int x, int y) {
+		this.x = x; 
+		this.y = y;
+	//	this.w = w;
+		//this.h = h;
+	}
 
 	public abstract void draw(int xOrigin, int yOrigin);
 	
@@ -33,7 +33,6 @@ public abstract class Figure {
 	Animation createYAnimation(){
 		return new YAnimation(this);
 	}
-	//aa
 		
 	static class YAnimation implements Animation{
 

@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 public class CompoundFigure extends Figure{
 	
 	public CompoundFigure(int x, int y, int w, int h) {
-		super(x, y, w, h);
+		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
 
