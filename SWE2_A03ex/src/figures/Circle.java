@@ -1,4 +1,4 @@
-package singleton;
+package figures;
 
 import inout.Window;
 

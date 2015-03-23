@@ -1,10 +1,10 @@
 package singleton.test;
 
-import singleton.Circle;
-import singleton.CompoundFigure;
-import singleton.Rectangle;
-import singleton.Figure;
-import singleton.Line;
+import figures.Circle;
+import figures.CompoundFigure;
+import figures.Figure;
+import figures.Line;
+import figures.Rectangle;
 import animation.Animation;
 import animation.Controller;
 
@@ -24,7 +24,7 @@ public class SingletonTest {
 		
 		line.draw(140, 170);
 		
-		CompoundFigure compoundFigure = new CompoundFigure(20,20,20,20);
+		CompoundFigure compoundFigure = new CompoundFigure(20,20);
 		
 	//	compoundFigure.add(circle);
 		compoundFigure.add(rectangle);

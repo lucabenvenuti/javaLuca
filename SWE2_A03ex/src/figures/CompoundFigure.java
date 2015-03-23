@@ -1,11 +1,11 @@
-package singleton;
+package figures;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class CompoundFigure extends Figure{
 	
-	public CompoundFigure(int x, int y, int w, int h) {
+	public CompoundFigure(int x, int y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}

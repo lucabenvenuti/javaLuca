@@ -1,7 +1,7 @@
 package animation;
 
+import figures.Figure;
 import inout.Window;
-import singleton.Figure;
 
 import java.util.ArrayList;
 import java.util.List;

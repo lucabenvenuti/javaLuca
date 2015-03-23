@@ -1,4 +1,4 @@
-package singleton;
+package figures;
 
 import animation.Animation;
 import animation.Controller;
