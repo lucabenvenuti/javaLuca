@@ -50,4 +50,36 @@ public abstract class Figure {
 		}
 		
 	}
+	
+	public Animation createCircleAnimation(int radius, int framesPerRotation){
+		return new CircleAnimation(radius, framesPerRotation);
+	}
+	
+	class CircleAnimation implements Animation{
+		
+			private int radius; //, xC, yC; //framesPerRotation, 
+			private double angle;
+	//		private int counter =0;		
+		
+			public CircleAnimation(int radius, int framesPerRotation) {
+				this.radius=radius;
+			//	this.framesPerRotation=framesPerRotation;
+			//	xC = (int) (xOrig + radius*Math.sqrt(2)/2);
+			//	yC = (int) (yOrig + radius*Math.sqrt(2)/2);
+				angle = (Math.PI*2/framesPerRotation);
+				}
+		
+	/*		public CircleAnimation() {
+				// TODO Auto-generated constructor stub
+			}*/
+
+			@Override
+			public void animate(int frame) {
+				x = (int) (xOrig + radius*Math.sqrt(2)/2 + radius*Math.cos(angle*frame));
+				y = (int) (yOrig + radius*Math.sqrt(2)/2 + radius*Math.sin(angle*frame));
+				//counter++;
+			}
+				
+	}
+	
 }
