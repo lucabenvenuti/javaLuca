@@ -33,7 +33,7 @@ public abstract class Figure {
 	Animation createYAnimation(){
 		return new YAnimation(this);
 	}
-	
+	//aa
 		
 	static class YAnimation implements Animation{
 
