@@ -19,21 +19,10 @@ public abstract class Figure {
 
 	public abstract void draw(int xOrigin, int yOrigin);
 	
-/*	public abstract class Base1 implements Animation {}
 
-
-	protected Animation varClass1 = new Base1() {
-
-		@Override
-		public void animate(int frame) {
-			// TODO Auto-generated method stub
-			
-		}};*/
-	
 	Animation createXAnimation(){
 		
-		//a.animate(Controller.FRAMES_PER_SECOND);
-		//return a;
+
 		return new Animation() {
 
 			@Override
