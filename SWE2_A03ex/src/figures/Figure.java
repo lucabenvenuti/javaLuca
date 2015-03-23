@@ -72,8 +72,8 @@ public abstract class Figure {
 		
 		//	@Override
 			public void animate(int frame) {
-				x = (int) (xOrig + radius*Math.sqrt(2)/2 + radius*Math.cos(angle*frame));
-				y = (int) (yOrig + radius*Math.sqrt(2)/2 + radius*Math.sin(angle*frame));
+				x = (int) (xOrig  + radius*Math.cos(angle*frame)); //+ radius*Math.sqrt(2)/2
+				y = (int) (yOrig  + radius*Math.sin(angle*frame)); //+ radius*Math.sqrt(2)/2
 			}		
 	}
 	
