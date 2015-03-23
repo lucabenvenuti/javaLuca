@@ -19,10 +19,7 @@ public abstract class Figure {
 
 	public abstract void draw(int xOrigin, int yOrigin);
 	
-
 	Animation createXAnimation(){
-		
-
 		return new Animation() {
 
 			@Override
