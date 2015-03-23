@@ -1,6 +1,5 @@
 package figures.test;
 
-import figures.CompoundFigure;
 import figures.Figure;
 import figures.Rectangle;
 import animation.Controller;

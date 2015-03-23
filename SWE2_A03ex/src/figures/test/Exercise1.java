@@ -18,16 +18,5 @@ public class Exercise1 {
 		Controller.addFigure(l);
 		
 		Controller.display();
-
-//		Figure[] figures = new Figure[] {
-//					new Circle(50, 50, 10),
-//					new Rectangle(120,20,50,80),
-//					new Line(220,20,50,80)
-//				};
-//
-//		for (Figure f : figures) {
-//			Controller.addFigure(f);
-//		}
-//		Controller.display();
 	}
 }
