@@ -4,28 +4,26 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class CompoundFigure extends Figure{
+
+	FigureList figureList = new FigureList();
 	
 	public CompoundFigure(int x, int y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
 	}
-
-	FigureList figureList = new FigureList();
-
-
 
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
-		int i = 0;
-		int j = 0;
-		int k = 0;
+//		int i = 0;
+//		int j = 0;
+//		int k = 0;
 		for (Figure f:figureList){
-			if (k==5 || k ==10){i=0;}
-			if (k>9){j=5;}
-			else if (k>4){j=10;}
-			f.draw(xOrigin+15*j, yOrigin+i);
-			i = i +20;
-			k++;
+//			if (k==5 || k ==10){i=0;}
+//			if (k>9){j=5;}
+//			else if (k>4){j=10;}
+//			f.draw(xOrigin+15*j, yOrigin+i);
+//			i = i +20;
+//			k++;
+			f.draw(xOrigin+x, yOrigin+y);
 		}
 		
 	}
@@ -83,11 +81,7 @@ public class CompoundFigure extends Figure{
 
 				return new Iterator<Figure>() {
 
-					Node current;
-
-					{
-						current = head;
-					}
+					Node current = head;
 
 					@Override
 					public boolean hasNext() {
@@ -106,7 +100,6 @@ public class CompoundFigure extends Figure{
 					@Override
 					public void remove() {
 						// TODO Auto-generated method stub
-						
 					}
 
 				};

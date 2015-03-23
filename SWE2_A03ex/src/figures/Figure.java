@@ -4,37 +4,39 @@ import animation.Animation;
 import animation.Controller;
 
 public abstract class Figure {
-	
+
+	private final int xOrig;
+	private final int yOrig;
 	protected int x;
 	protected int y;
 	//protected int w;
 //	protected int h;
 	
 	protected Figure(int x, int y) {
-		this.x = x; 
-		this.y = y;
+		this.xOrig = this.x = x;
+		this.yOrig = this.y = y;
 	//	this.w = w;
 		//this.h = h;
 	}
 
 	public abstract void draw(int xOrigin, int yOrigin);
 	
-	Animation createXAnimation(){
+	public Animation createXAnimation(){
 		return new Animation() {
 
 			@Override
 			public void animate(int frame) {
-				x++;
+				x = xOrig + frame;
 			}
 			
 		};
 	}
 	
-	Animation createYAnimation(){
+	public Animation createYAnimation(){
 		return new YAnimation(this);
 	}
 		
-	static class YAnimation implements Animation{
+	static class YAnimation implements Animation {
 
 		private Figure figure;
 		
@@ -44,7 +46,7 @@ public abstract class Figure {
 
 		@Override
 		public void animate(int frame) {
-			figure.y++;
+			figure.y = figure.yOrig + frame;
 		}
 		
 	}
