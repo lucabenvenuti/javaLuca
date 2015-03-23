@@ -1,4 +1,4 @@
-package singleton.test;
+package figures.test;
 
 import figures.CompoundFigure;
 import figures.Figure;

@@ -1,4 +1,4 @@
-package singleton.test;
+package figures.test;
 
 import figures.Circle;
 import figures.CompoundFigure;
@@ -8,7 +8,7 @@ import figures.Rectangle;
 import animation.Animation;
 import animation.Controller;
 
-public class SingletonTest {
+public class FiguresTest {
 
 	public static void main(String[] args) {
 		
