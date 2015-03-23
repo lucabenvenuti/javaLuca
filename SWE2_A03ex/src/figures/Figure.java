@@ -14,17 +14,30 @@ public abstract class Figure {
 		this.yOrig = this.y = y;
 	}
 
+	/**
+	 * @param xOrigin
+	 * @param yOrigin
+	 * Draw the figure from the given origin coordinates
+	 */
 	public abstract void draw(int xOrigin, int yOrigin);
 	
+	/**
+	 * @return
+	 * an animation in which the figure is moved along the x axis
+	 */
 	public Animation createXAnimation(){
 		return new Animation() {
-			@Override
+	//		@Override
 			public void animate(int frame) {
 				x = xOrig + frame;
 			}
 		};
 	}
 	
+	/**
+	 * @return
+	 * an animation in which the figure is moved along the y axis
+	 */
 	public Animation createYAnimation(){
 		return new YAnimation(this);
 	}
@@ -41,7 +54,7 @@ public abstract class Figure {
 			this.figure = figure;
 		}
 
-		@Override
+	//	@Override
 		public void animate(int frame) {
 			figure.y = figure.yOrig + frame;
 		}	
@@ -57,7 +70,7 @@ public abstract class Figure {
 				angle = (Math.PI*2/framesPerRotation);
 			}
 		
-			@Override
+		//	@Override
 			public void animate(int frame) {
 				x = (int) (xOrig + radius*Math.sqrt(2)/2 + radius*Math.cos(angle*frame));
 				y = (int) (yOrig + radius*Math.sqrt(2)/2 + radius*Math.sin(angle*frame));
