@@ -27,7 +27,7 @@ public abstract class Figure {
 	 */
 	public Animation createXAnimation(){
 		return new Animation() {
-	//		@Override
+			@Override
 			public void animate(int frame) {
 				x = xOrig + frame;
 			}
@@ -42,6 +42,12 @@ public abstract class Figure {
 		return new YAnimation(this);
 	}
 	
+	/**
+	 * @param radius
+	 * @param framesPerRotation
+	 * @return
+	 * an animation in which the figure is moved in a circle with its x, y coordinates as origin
+	 */
 	public Animation createCircleAnimation(int radius, int framesPerRotation){
 		return new CircleAnimation(radius, framesPerRotation);
 	}
@@ -50,11 +56,15 @@ public abstract class Figure {
 
 		private Figure figure;
 		
-		public YAnimation(Figure figure) {
+		YAnimation(Figure figure) {
 			this.figure = figure;
 		}
 
-	//	@Override
+		/** (non-Javadoc)
+		 * @see animation.Animation#animate(int)
+		 * the y coordinate of a figure is incremented by the frame
+		 */
+		@Override
 		public void animate(int frame) {
 			figure.y = figure.yOrig + frame;
 		}	
@@ -65,15 +75,20 @@ public abstract class Figure {
 			private int radius;
 			private double angle;
 		
-			public CircleAnimation(int radius, int framesPerRotation) {
+			CircleAnimation(int radius, int framesPerRotation) {
 				this.radius=radius;
 				angle = (Math.PI*2/framesPerRotation);
 			}
 		
-		//	@Override
+			/** (non-Javadoc)
+			 * @see animation.Animation#animate(int)
+			 * the x, y coordinates of a figure are incremented by the frame to move in a circle
+			 * x, y can become negative
+			 */
+			@Override
 			public void animate(int frame) {
-				x = (int) (xOrig  + radius*Math.cos(angle*frame)); //+ radius*Math.sqrt(2)/2
-				y = (int) (yOrig  + radius*Math.sin(angle*frame)); //+ radius*Math.sqrt(2)/2
+				x = (int) (xOrig  + radius*Math.cos(angle*frame)); 
+				y = (int) (yOrig  + radius*Math.sin(angle*frame)); 
 			}		
 	}
 	
