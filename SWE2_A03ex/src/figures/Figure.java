@@ -2,6 +2,18 @@ package figures;
 
 import animation.Animation;
 
+/**
+ * Figure.java
+ *
+ * A {@link Figure} is an abstract class with
+ * a draw abstract method, 3 createAnimation methods
+ * and 2 inner classes.
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public abstract class Figure {
 
 	private final int xOrig;
@@ -24,6 +36,7 @@ public abstract class Figure {
 	/**
 	 * @return
 	 * an animation in which the figure is moved along the x axis
+	 * It is implemented through an anonymous inner class
 	 */
 	public Animation createXAnimation(){
 		return new Animation() {
@@ -36,7 +49,8 @@ public abstract class Figure {
 	
 	/**
 	 * @return
-	 * an animation in which the figure is moved along the y axis
+	 * an animation in which the figure is moved along the y axis.
+	 * It calls a static inner constructor
 	 */
 	public Animation createYAnimation(){
 		return new YAnimation(this);

@@ -3,14 +3,38 @@ package figures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * CompoundFigure.java
+ *
+ * A {@link CompoundFigure} is a class which extends Figure,
+ * allows to add figures to an iterable FigureList. This inner
+ * FigureList class implements Iterable, so all its methods are
+ * available. {@link CompoundFigure} also implements a draw method,
+ * that draws all the figures in the FigureList.
+ * 
+ * Software Development II, 2015SS
+ * JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class CompoundFigure extends Figure{
 
 	FigureList figureList = new FigureList();
 	
+	/**
+	 * @param x
+	 * @param y
+	 * only the origin is necessary to create a 
+	 * {@link CompoundFigure} object
+	 */
 	public CompoundFigure(int x, int y) {
 		super(x, y);
 	}
 
+	/** (non-Javadoc)
+	 * @see figures.Figure#draw(int, int)
+	 * draws all the figures in the FigureList.
+	 */
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
 		for (Figure f:figureList){
@@ -18,16 +42,26 @@ public class CompoundFigure extends Figure{
 		}
 	}
 	
+	/**
+	 * @param f
+	 * add a figure to the FigureList.
+	 */
 	public void add(Figure f){
 		figureList.push(f);
 	}
 	
+	/**
+	 * remove the first figure of the FigureList.
+	 */
 	public void removeListHead(){
 		figureList.pop();
 	}
 	
-	public void getListHead(){
-		figureList.top();
+	/**
+	 * 
+	 */
+	public Figure getListHead(){
+		return figureList.top();
 	}
 	
 	private static class Node {
@@ -39,33 +73,36 @@ public class CompoundFigure extends Figure{
 			this.figure = figure;
 			this.next = next;
 		}
-
 	}
 	
 	private static class FigureList implements Iterable<Figure> {
 			
 			private Node head;
 			
-			public void push(Figure val) {
+			void push(Figure val) {
 				head = new Node(val, head);
 			}
 
-			public void pop() throws NoSuchElementException {
+			void pop() throws NoSuchElementException {
 				if (isEmpty())
 					throw new NoSuchElementException();
 				head = head.next;
 			}
 			
-			public Figure top() throws NoSuchElementException {
+			Figure top() throws NoSuchElementException {
 				if (isEmpty())
 					throw new NoSuchElementException();
 				return head.figure;
 			}
 
-			public boolean isEmpty() {
+			boolean isEmpty() {
 				return head == null;
 			}
 
+			/**
+			 * @return
+			 * a new Figure iterator
+			 */
 			@Override
 			public Iterator<Figure> iterator() {
 
