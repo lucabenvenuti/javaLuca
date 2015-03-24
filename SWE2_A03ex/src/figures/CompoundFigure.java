@@ -110,6 +110,10 @@ public class CompoundFigure extends Figure{
 
 					Node current = head;
 
+					/** (non-Javadoc)
+					 * @see java.util.Iterator#hasNext()
+					 * check if there is a current
+					 */
 					@Override
 					public boolean hasNext() {
 						return current != null;
