@@ -119,7 +119,7 @@ public class CompoundFigure extends Figure{
 
 					/** (non-Javadoc)
 					 * @see java.util.Iterator#hasNext()
-					 * check if there is a current
+					 * check if current is not null
 					 */
 					@Override
 					public boolean hasNext() {
@@ -128,7 +128,7 @@ public class CompoundFigure extends Figure{
 
 					/** (non-Javadoc)
 					 * @see java.util.Iterator#next()
-					 * return the figure next to the current
+					 * return the figure next to current
 					 */
 					@Override
 					public Figure next() throws NoSuchElementException {
@@ -141,7 +141,7 @@ public class CompoundFigure extends Figure{
 
 					/** (non-Javadoc)
 					 * @see java.util.Iterator#remove()
-					 * remove the current figure
+					 * remove the figure current 
 					 */
 					@Override
 					public void remove() {
