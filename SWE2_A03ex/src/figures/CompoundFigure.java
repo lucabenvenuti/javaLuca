@@ -58,7 +58,7 @@ public class CompoundFigure extends Figure{
 	}
 	
 	/**
-	 * 
+	 * return the first figure of figureList
 	 */
 	public Figure getListHead(){
 		return figureList.top();
@@ -115,6 +115,10 @@ public class CompoundFigure extends Figure{
 						return current != null;
 					}
 
+					/** (non-Javadoc)
+					 * @see java.util.Iterator#next()
+					 * return the figure next to the current
+					 */
 					@Override
 					public Figure next() throws NoSuchElementException {
 						if (current == null)
@@ -124,6 +128,10 @@ public class CompoundFigure extends Figure{
 						return val;
 					}
 
+					/** (non-Javadoc)
+					 * @see java.util.Iterator#remove()
+					 * remove the current figure
+					 */
 					@Override
 					public void remove() {
 						current = current.next;
