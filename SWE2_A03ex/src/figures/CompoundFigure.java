@@ -89,7 +89,7 @@ public class CompoundFigure extends Figure{
 
 					@Override
 					public void remove() {
-						head = head.next;
+						current = current.next;
 					}
 
 				};
