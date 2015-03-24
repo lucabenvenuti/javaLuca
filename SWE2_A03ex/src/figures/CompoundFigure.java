@@ -58,7 +58,8 @@ public class CompoundFigure extends Figure{
 	}
 	
 	/**
-	 * return the first figure of figureList
+	 * @return
+	 * the first figure of figureList
 	 */
 	public Figure getListHead(){
 		return figureList.top();
@@ -75,6 +76,12 @@ public class CompoundFigure extends Figure{
 		}
 	}
 	
+	/**
+	 * Implement FigureList as a private static inner class. The FigureList itself has
+	 * nodes for storing the list of child figures. FigureList should implement the
+	 * Iterable<Figure> interface, which allows iterating over all figures:
+	 *
+	 */
 	private static class FigureList implements Iterable<Figure> {
 			
 			private Node head;

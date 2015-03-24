@@ -35,7 +35,7 @@ public abstract class Figure {
 	
 	/**
 	 * @return
-	 * an animation in which the figure is moved along the x axis
+	 * an animation in which the figure is moved along the x axis.
 	 * It is implemented through an anonymous inner class
 	 */
 	public Animation createXAnimation(){
