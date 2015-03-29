@@ -26,4 +26,18 @@ public final class Source<A> {
 			next.receive(a);
 		}
 	}
+
+	/**
+	 * @return the onSend
+	 */
+	public Consumer<A> getOnSend() {
+		return onSend;
+	}
+
+	/**
+	 * @return the generator
+	 */
+	public Supplier<A> getGenerator() {
+		return generator;
+	}
 }
