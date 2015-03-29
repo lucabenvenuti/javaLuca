@@ -22,14 +22,14 @@ public class NumberApp {
 		input.getGenerator();*/
 		
 		Transform<Float, Float> input2 = new Transform<Float, Float>(
-				input.getGenerator(), 
-				g -> g.floatValue()*10,
-				g -> {
-					Out.println(" -> scale10: value " + g + " sent!");
+				input.??, 
+				multiply,
+				multiplied -> {
+					Out.println(" -> scale10: value " + multiplied + " sent!");
 				}
 				);
 		
-		input2.multiply();
+	//	input2.multiply();
 		
 	/*	Transform<Float, Float> trimmer = new Transform<Float, Float>(() -> {
 			Out.print("Input new aafloat value: ");

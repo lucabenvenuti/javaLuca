@@ -10,13 +10,13 @@ import java.util.function.Supplier;
 public final class Transform<A, B> {
 
 	//private Receiver<A> onReceive;
-	private final Supplier<A> getter;
+	private final Receiver<A> getter;
 	private final Function<A, B> processor;
 	private final Consumer<B> user;
 
 
 
-    public Transform(Supplier<A> getter, Function<A, B> processor,
+    public Transform(Receiver<A> getter, Function<A, B> processor,
 			Consumer<B> user) {
 		//super();
 		this.getter = getter;
@@ -32,31 +32,19 @@ public final class Transform<A, B> {
 	
 	
 	public void multiply() {
-		A a = getter.get();
+		getter.receive(a);
 		B b = processor.apply(a);
 		user.accept(b);
 		
 	}
 	
-/*	static public <A, B> void doGetTestProcessUse(
-			Supplier<A> getter, 
-			Predicate<A> condition, 
-			Function<A, B> processor, 
-			Consumer<B> user) {
-		A a = getter.get(); 
-		if (condition.test(a)) {
-			B b = processor.apply(a); 
-			user.accept(b); 
-		}
-	}*/
-	
-	/*Function<Float, Float> processor = new Function<Float, Float>() {
+	Function<Float, Float> processor2 = new Function<Float, Float>() {
 		@Override
 		public Float apply(Float i) {
 			return i*10; 
 		} 
 		
-	};*/
+	};
 	
 /*	Function<Float, Float> multiply2 = f -> {
 		if (f == null) return (float) 0; 

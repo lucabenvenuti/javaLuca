@@ -7,6 +7,8 @@ public final class Source<A> {
 
 	private Receiver<A> next;
 
+
+
 	private final Supplier<A> generator;
 	private final Consumer<A> onSend;
 
@@ -28,16 +30,9 @@ public final class Source<A> {
 	}
 
 	/**
-	 * @return the onSend
+	 * @return the next
 	 */
-	public Consumer<A> getOnSend() {
-		return onSend;
-	}
-
-	/**
-	 * @return the generator
-	 */
-	public Supplier<A> getGenerator() {
-		return generator;
+	public Receiver<A> getNext() {
+		return next;
 	}
 }
