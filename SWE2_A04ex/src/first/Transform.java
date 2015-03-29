@@ -26,10 +26,6 @@ public final class Transform<A, B> {
 
 
 
-/*	public void setNext(Receiver<A> next) {
-		this.next = next;
-	}*/
-	
 	
 	public void multiply(A a) {
 		getter.receive(a);

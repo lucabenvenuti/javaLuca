@@ -24,7 +24,7 @@ public class NumberApp {
 		
 		Transform<Float, Float> scale10 = new Transform<Float, Float>(
 				f -> {
-					Out.println(" -> input: value " + f + " sent!");
+					Out.println(" -> input: value " + f + " received!");
 				}, 
 				f -> f.floatValue()*10,
 				f -> {
@@ -34,7 +34,7 @@ public class NumberApp {
 		
 		Transform<Float, Float> average5 = new Transform<Float, Float>(
 				f -> {
-					Out.println(" -> input: value " + f + " sent!");
+					Out.println(" -> input: value " + f + " received!");
 				}, 
 				f -> f.floatValue()*10,
 				f -> {
@@ -44,13 +44,21 @@ public class NumberApp {
 
 		Transform<Float, Float> round = new Transform<Float, Float>(
 				f -> {
-					Out.println(" -> input: value " + f + " sent!");
+					Out.println(" -> input: value " + f + " received!");
 				}, 
 				f -> f.floatValue()*10,
 				f -> {
 					Out.println(" -> scale10: value " + f + " sent!");
 				}
 				);
+		
+		Sink<Float> displayer = new Sink<Float>(
+				f -> {
+					Out.println(" -> input: value " + f + " received!");
+				}	
+			,f -> {
+			Out.println(" -> scale10: value " + f + " sent!");
+		});
 		
 		input.generate();
 		scale10.multiply((float) 10);
