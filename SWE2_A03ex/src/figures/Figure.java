@@ -36,7 +36,11 @@ public abstract class Figure {
 	/**
 	 * @return
 	 * an animation in which the figure is moved along the x axis.
-	 * It is implemented through an anonymous inner class
+	 * It is implemented through an anonymous inner class.
+	 * The advantage is that the anonymous inner class can see all the 
+	 * fields of a Figure class object. So, there is no need to
+	 * create new fields. The disadvantage is that no different field
+	 * can be used.
 	 */
 	public Animation createXAnimation(){
 		return new Animation() {
@@ -50,7 +54,12 @@ public abstract class Figure {
 	/**
 	 * @return
 	 * an animation in which the figure is moved along the y axis.
-	 * It calls a static inner constructor
+	 * It calls a static inner constructor.
+	 * The disadvantage is that a method based on an inner class 
+	 * cannot see the 
+	 * fields of a Figure class object. So, there new fields
+	 * must be created. The advantage is that different fields
+	 * can be used.
 	 */
 	public Animation createYAnimation(){
 		return new YAnimation(this);
@@ -60,7 +69,8 @@ public abstract class Figure {
 	 * @param radius
 	 * @param framesPerRotation
 	 * @return
-	 * an animation in which the figure is moved in a circle with its x, y coordinates as origin
+	 * an animation in which the figure is moved in a circle with its 
+	 * x, y coordinates as origin.
 	 */
 	public Animation createCircleAnimation(int radius, int framesPerRotation){
 		return new CircleAnimation(radius, framesPerRotation);
@@ -84,6 +94,11 @@ public abstract class Figure {
 		}	
 	}
 	
+	/**
+	 * The advantage of an interface compared to an abstract class
+	 * is that the children classes can implement as many interfaces
+	 * as they like, but they can extend only one abstract class.
+	 */
 	class CircleAnimation implements Animation{
 		
 			private int radius;
@@ -97,7 +112,7 @@ public abstract class Figure {
 			/** (non-Javadoc)
 			 * @see animation.Animation#animate(int)
 			 * the x, y coordinates of a figure are incremented by the frame to move in a circle
-			 * x, y can become negative
+			 * x, y can become negative, making the figure disappear from the screen
 			 */
 			@Override
 			public void animate(int frame) {
