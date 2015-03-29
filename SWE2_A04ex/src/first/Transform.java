@@ -31,20 +31,22 @@ public final class Transform<A, B> {
 	}*/
 	
 	
-	public void multiply() {
+	public void multiply(A a) {
 		getter.receive(a);
 		B b = processor.apply(a);
 		user.accept(b);
 		
 	}
 	
-	Function<Float, Float> processor2 = new Function<Float, Float>() {
+/*	Function<Float, Float> multiplier = new Function<Float, Float>() {
+		private float multiplied = 0;
 		@Override
 		public Float apply(Float i) {
-			return i*10; 
+			multiplied = i*10; 
+			return multiplied;
 		} 
 		
-	};
+	};*/
 	
 /*	Function<Float, Float> multiply2 = f -> {
 		if (f == null) return (float) 0; 

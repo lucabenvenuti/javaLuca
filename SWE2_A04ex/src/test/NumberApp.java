@@ -17,31 +17,44 @@ public class NumberApp {
 		}, f -> {
 			Out.println(" -> input: value " + f + " sent!");
 		});
-	/*	input.generate();
-		input.getOnSend();
-		input.getGenerator();*/
 		
-		Transform<Float, Float> input2 = new Transform<Float, Float>(
-				input.??, 
-				multiply,
-				multiplied -> {
-					Out.println(" -> scale10: value " + multiplied + " sent!");
+		
+
+
+		
+		Transform<Float, Float> scale10 = new Transform<Float, Float>(
+				f -> {
+					Out.println(" -> input: value " + f + " sent!");
+				}, 
+				f -> f.floatValue()*10,
+				f -> {
+					Out.println(" -> scale10: value " + f + " sent!");
 				}
 				);
 		
-	//	input2.multiply();
+		Transform<Float, Float> average5 = new Transform<Float, Float>(
+				f -> {
+					Out.println(" -> input: value " + f + " sent!");
+				}, 
+				f -> f.floatValue()*10,
+				f -> {
+					Out.println(" -> scale10: value " + f + " sent!");
+				}
+				);
+
+		Transform<Float, Float> round = new Transform<Float, Float>(
+				f -> {
+					Out.println(" -> input: value " + f + " sent!");
+				}, 
+				f -> f.floatValue()*10,
+				f -> {
+					Out.println(" -> scale10: value " + f + " sent!");
+				}
+				);
 		
-	/*	Transform<Float, Float> trimmer = new Transform<Float, Float>(() -> {
-			Out.print("Input new aafloat value: ");
-			return In.readFloat();
-		}, a -> {
-			Out.println(" -> input: value " + a + " sent!");
-			return a;
-		}, null);
-		
-		System.out.println(trimmer);*/
-		
-		//Scale10 <Float, Float> scale10 = input -> input.multiply10();
+		input.generate();
+		scale10.multiply((float) 10);
+	
 
 		// TODO
 
