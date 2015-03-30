@@ -17,7 +17,7 @@ import first.Sink;
  * DrawingApp.java
  *
  * A {@link DrawingApp} is a test class; asks a string with a figure type and
- * its dimentions. Finally, it draws it accordingly.
+ * its dimensions. Finally, it draws it accordingly.
  * 
  * Software Development II, 2015SS JKU Linz
  * 

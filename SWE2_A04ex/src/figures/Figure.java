@@ -3,8 +3,7 @@ package figures;
 /**
  * Figure.java
  *
- * A {@link Figure} is an abstract class with a draw abstract method, 3
- * createAnimation methods and 2 inner classes.
+ * A {@link Figure} is an abstract class with a draw abstract method.
  * 
  * Software Development II, 2015SS JKU Linz
  * 
