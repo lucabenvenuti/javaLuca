@@ -14,14 +14,12 @@ package figures;
  */
 public abstract class Figure {
 
-	private final int xOrig;
-	private final int yOrig;
 	protected int x;
 	protected int y;
 
 	protected Figure(int x, int y) {
-		this.xOrig = this.x = x;
-		this.yOrig = this.y = y;
+		this.x = x;
+		this.y = y;
 	}
 
 	/**

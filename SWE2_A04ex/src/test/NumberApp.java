@@ -5,12 +5,9 @@ import java.util.function.Function;
 import inout.In;
 import inout.Out;
 import inout.Window;
-import first.Branch;
 import first.Transform;
 import first.Source;
 import first.Sink;
-
-//import first.Filter;
 
 public class NumberApp {
 
@@ -90,36 +87,10 @@ public class NumberApp {
 			Out.println(" -> display: value " + f + ".0 received!");
 		});
 		
-		Branch<Integer> brancher = new Branch<Integer>(
-				f -> {
-					Out.println(" -> display: value " + f + ".0 received!");
-				}, f -> f>30,
-				f -> {
-					Out.println(" -> round: value " + f + " sent!");
-				}
-				);
-		
-		
-		Sink<Integer> displayRectangle = new Sink<Integer>(f -> {
-			Window.drawRectangle(10, 10, 10, f);
-			Out.println(" -> display: value " + f + ".0 received!");
-		});
-		
-		Sink<Integer> displayCircle = new Sink<Integer>(f -> {
-			Window.drawCircle(10, 10, f);
-			Out.println(" -> display: value " + f + ".0 received!");
-		});
-
 		input.setNext(scale10);
 		scale10.setNext(average5);
 		average5.setNext(round);
-		//round.setNext(display);
-		round.setNext(brancher);
-		brancher.SetLeftRight(displayRectangle, displayCircle);
-
-		// input.setNext(...);
-
-		// --- start processing ---
+		round.setNext(display);
 
 		Window.clear();
 

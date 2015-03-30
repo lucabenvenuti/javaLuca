@@ -13,8 +13,6 @@ import first.Transform;
 import first.Source;
 import first.Sink;
 
-//import first.Filter;
-
 public class DrawingApp {
 
 	public static void main(String[] args) {
@@ -44,7 +42,7 @@ public class DrawingApp {
 			}
 
 		};
-		
+
 		Function<String, Circle> circleCreator = new Function<String, Circle>() {
 
 			@Override
@@ -69,60 +67,47 @@ public class DrawingApp {
 		}, f -> f.substring(0, 6).equals("circle"), f -> {
 			Out.println(" -> branchCircle: sent " + f);
 		});
-		
+
 		Transform<String, Circle> createCircle = new Transform<String, Circle>(
 				circleCreator, f -> {
 					Out.println(" -> createCircle: received " + f);
 				}, f -> {
 					Out.println(" -> createCircle: sent " + f.toString());
 				});
-		
+
 		Sink<String> displayError = new Sink<String>(f -> {
 			Out.println(" -> not a rectangle nor a circle!");
 		});
 
-		Filter<Rectangle> filterNullRect = new Filter<Rectangle>(
-				f -> {
-					Out.println(" -> filterNullRect: received " + f.toString());
-				}, 
-				f -> f!= null, 
-				f -> {
-					Out.println(" -> filterNullRect: sent " + f.toString());
-				});
-		
-		Filter<Circle> filterNullCircle = new Filter<Circle>(
-				f -> {
-					Out.println(" -> filterNullCircle: received " + f.toString());
-				}, 
-				f -> f!= null, 
-				f -> {
-					Out.println(" -> filterNullCircle: sent " + f.toString());
-				});
-		
-		Sink<Rectangle> displayRect = new Sink<Rectangle>(
-			f -> f.draw(100, 100));
-		
-		Sink<Circle> displayCircle = new Sink<Circle>(
-				f -> f.draw(200, 100));
-		
-		
+		Filter<Rectangle> filterNullRect = new Filter<Rectangle>(f -> {
+			Out.println(" -> filterNullRect: received " + f.toString());
+		}, f -> f != null, f -> {
+			Out.println(" -> filterNullRect: sent " + f.toString());
+		});
+
+		Filter<Circle> filterNullCircle = new Filter<Circle>(f -> {
+			Out.println(" -> filterNullCircle: received " + f.toString());
+		}, f -> f != null, f -> {
+			Out.println(" -> filterNullCircle: sent " + f.toString());
+		});
+
+		Sink<Rectangle> displayRect = new Sink<Rectangle>(f -> f.draw(100, 100));
+
+		Sink<Circle> displayCircle = new Sink<Circle>(f -> f.draw(200, 100));
+
 		command.setNext(branchRect);
 
 		branchRect.SetLeftRight(createRect, branchCircle);
-		
+
 		branchCircle.SetLeftRight(createCircle, displayError);
-		
+
 		createRect.setNext(filterNullRect);
-		
+
 		createCircle.setNext(filterNullCircle);
-		
+
 		filterNullRect.setNext(displayRect);
-		
+
 		filterNullCircle.setNext(displayCircle);
-
-		// input.setNext(...);
-
-		// --- start processing ---
 
 		Window.clear();
 
