@@ -1,11 +1,13 @@
 package test;
 
+import java.util.function.Function;
+
 import inout.In;
 import inout.Out;
 import inout.Window;
-import first.Receiver;
 import first.Transform;
 import first.Source;
+import first.Sink;
 
 //import first.Filter;
 
@@ -27,55 +29,80 @@ public class NumberApp {
 					Out.println(" -> scale10: value " + f + " sent!");
 				});
 
+		Function<Float, Integer> rounder = new Function<Float, Integer>() {
+
+			@Override
+			public Integer apply(Float i) {
+				int j = Math.round(i);
+				return j;
+			}
+
+		};
+
+		Function<Float, Float> averager = new Function<Float, Float>() {
+			private float array[] = new float[5];
+			private int j = 0, counter = 0;
+			private float sum;
+
+			@Override
+			public Float apply(Float i) {
+				if (j == 5) {
+					j = 0;
+				}
+				array[j] = i;
+				j++;
+				counter++;
+
+				if (counter < 5) {
+					sum = 0;
+					for (int k = 0; k < j; k++) {
+						sum += array[k];
+					}
+					return sum / counter;
+				} else {
+					sum = 0;
+					for (int k = 0; k < 5; k++) {
+						sum += array[k];
+					}
+					return sum / 5;
+				}
+			}
+
+		};
+
+		Transform<Float, Float> average5 = new Transform<Float, Float>(
+				averager, f -> {
+					Out.println(" -> average5: value " + f + " received!");
+				}, f -> {
+					Out.println(" -> average5: value " + f + " sent!");
+				});
+
+		Transform<Float, Integer> round = new Transform<Float, Integer>(
+				rounder, f -> {
+					Out.println(" -> round: value " + f + " received!");
+				}, f -> {
+					Out.println(" -> round: value " + f + " sent!");
+				});
+
+		Sink<Integer> display = new Sink<Integer>(f -> {
+			Window.drawRectangle(10, 10, 10, f);
+			Out.println(" -> display: value " + f + ".0 received!");
+		});
+
 		input.setNext(scale10);
-
-		input.generate();
-
-		// input2.filter(input.??);
-
-		/*
-		 * Transform<Float, Float> scale10 = new Transform<Float, Float>( f -> {
-		 * Out.println(" -> scale10: value " + f + " received!"); }, f ->
-		 * f.floatValue()*10, f -> { Out.println(" -> scale10: value " + f +
-		 * " sent!"); } );
-		 * 
-		 * float[] arrayFloat2 = new float[]{10,11,12,13,14,88,87,85,96}; int
-		 * k=Math.min(arrayFloat2.length, 5); int j=0; float[] arrayFloat = new
-		 * float[k]; for(int i = 0; i < arrayFloat.length ;i++) {arrayFloat[i]
-		 * =arrayFloat2[arrayFloat2.length-j]; j++;}
-		 * 
-		 * input.generate(); scale10.transformation((float) 10);
-		 * 
-		 * 
-		 * 
-		 * Transform<Float, Float> average5 = new Transform<Float, Float>( f ->
-		 * { Out.println(" -> input: value " + f + " received!"); }, f ->
-		 * f.apply(), f -> { Out.println(" -> scale10: value " + f + " sent!");
-		 * } ){ { private float sum = 0;
-		 * 
-		 * public float apply(float f) { sum += f; return sum; } } };
-		 * 
-		 * Transform<Float, Float> round = new Transform<Float, Float>( f -> {
-		 * Out.println(" -> input: value " + f + " received!"); }, f ->
-		 * f.floatValue()*10, f -> { Out.println(" -> scale10: value " + f +
-		 * " sent!"); } );
-		 * 
-		 * Sink<Float> displayer = new Sink<Float>( f -> {
-		 * Out.println(" -> input: value " + f + " received!"); } ,f -> {
-		 * Out.println(" -> scale10: value " + f + " sent!"); });
-		 */
-
-		// TODO
+		scale10.setNext(average5);
+		average5.setNext(round);
+		round.setNext(display);
 
 		// input.setNext(...);
 
 		// --- start processing ---
 
-		// Window.clear();
-		/*
-		 * while (true) {
-		 * 
-		 * }
-		 */
+		Window.clear();
+
+		while (true) {
+			input.generate();
+		}
+
 	}
 }

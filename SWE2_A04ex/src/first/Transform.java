@@ -3,7 +3,7 @@ package first;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public final class Transform<A, B> implements Receiver<A> {
+public class Transform<A, B> implements Receiver<A> {
 
 	private Receiver<B> next;
 
@@ -21,7 +21,8 @@ public final class Transform<A, B> implements Receiver<A> {
 	public void setNext(Receiver<B> next) {
 		this.next = next;
 	}
-
+	
+	
 	@Override
 	public void receive(A a) {
 		onReceive.accept(a);
