@@ -18,24 +18,39 @@ public class DrawingApp {
 	public static void main(String[] args) {
 		
 		
-		Source<String> input = new Source<String>(() -> {
+		Source<String> command = new Source<String>(() -> {
 			Out.print("Input new float value: ");
 			return In.readLine();
 		}, f -> {
 			Out.println(" -> input: value " + f + " sent!");
 		});
 
-		Branch<String> command = new Branch<String>(
+		Branch<String> branchRect = new Branch<String>(
 				f -> {
 					Out.println(" -> scale10: value " + f + " received!");
 				}, f -> f.substring(0,3).equals("rect")	,
 				f -> {
 			Out.println(" -> input: value " + f + " sent!");
 		});
-
-		input.setNext(command);
 		
-		command.SetLeftRight(displayRectangle, displayCircle);
+		Transform<String, Rectangle> round = new Transform<String, Rectangle>(
+				rounder, f -> {
+					Out.println(" -> round: value " + f + " received!");
+				}, f -> {
+					Out.println(" -> round: value " + f + " sent!");
+				});
+		
+		Branch<String> branchCircle = new Branch<String>(
+				f -> {
+					Out.println(" -> scale10: value " + f + " received!");
+				}, f -> f.substring(0,3).equals("circ")	,
+				f -> {
+			Out.println(" -> input: value " + f + " sent!");
+		});
+
+		command.setNext(branchRect);
+		
+		branchRect.SetLeftRight(createRect, branchCircle);
 
 		// input.setNext(...);
 
