@@ -3,12 +3,10 @@ package figures;
 /**
  * Figure.java
  *
- * A {@link Figure} is an abstract class with
- * a draw abstract method, 3 createAnimation methods
- * and 2 inner classes.
+ * A {@link Figure} is an abstract class with a draw abstract method, 3
+ * createAnimation methods and 2 inner classes.
  * 
- * Software Development II, 2015SS
- * JKU Linz
+ * Software Development II, 2015SS JKU Linz
  * 
  * @author Luca Benvenuti
  */
@@ -25,7 +23,7 @@ public abstract class Figure {
 	/**
 	 * @param xOrigin
 	 * @param yOrigin
-	 * Draw the figure from the given origin coordinates
+	 *            Draw the figure from the given origin coordinates
 	 */
 	public abstract void draw(int xOrigin, int yOrigin);
 

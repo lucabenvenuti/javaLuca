@@ -9,6 +9,16 @@ import inout.Window;
 import first.Transform;
 import first.Sink;
 
+/**
+ * NumberApp.java
+ *
+ * A {@link NumberApp} is a test class; asks float numbers and averages them.
+ * Finally, it draws a rectangle as high as the average.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class NumberApp {
 
 	public static void main(String[] args) {
@@ -30,8 +40,16 @@ public class NumberApp {
 		Function<Float, Float> averager = new Function<Float, Float>() {
 			private float array[] = new float[5];
 			private int j = 0, counter = 0;
-			private float sum;
 
+			/**
+			 * (non-Javadoc)
+			 * 
+			 * @see java.util.function.Function#apply(java.lang.Object)
+			 * 
+			 *      add the float to the array and return the average of the
+			 *      array element
+			 * 
+			 */
 			@Override
 			public Float apply(Float i) {
 				if (j == 5) {
@@ -40,15 +58,13 @@ public class NumberApp {
 				array[j] = i;
 				j++;
 				counter++;
-
+				float sum = 0;
 				if (counter < 5) {
-					sum = 0;
 					for (int k = 0; k < j; k++) {
 						sum += array[k];
 					}
 					return sum / counter;
 				} else {
-					sum = 0;
 					for (int k = 0; k < 5; k++) {
 						sum += array[k];
 					}
@@ -76,7 +92,7 @@ public class NumberApp {
 			Window.drawRectangle(10, 10, 10, f);
 			Out.println(" -> display: value " + f + ".0 received!");
 		});
-		
+
 		input.setNext(scale10);
 		scale10.setNext(average5);
 		average5.setNext(round);

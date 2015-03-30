@@ -13,6 +13,16 @@ import first.Filter;
 import first.Transform;
 import first.Sink;
 
+/**
+ * DrawingApp.java
+ *
+ * A {@link DrawingApp} is a test class; asks a string with a figure type and
+ * its dimentions. Finally, it draws it accordingly.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class DrawingApp {
 
 	public static void main(String[] args) {
@@ -31,12 +41,19 @@ public class DrawingApp {
 		});
 
 		Function<String, Rectangle> rectCreator = new Function<String, Rectangle>() {
-			
+
+			/**
+			 * (non-Javadoc)
+			 * 
+			 * @see java.util.function.Function#apply(java.lang.Object) parses a
+			 *      "rectangle" string and gets its dimensions. Return a
+			 *      Rectangle object.
+			 */
 			@Override
 			public Rectangle apply(String i) {
-				
+
 				String[] parts = i.split(" ");
-				
+
 				int x = Integer.parseInt(parts[1]);
 				int y = Integer.parseInt(parts[2]);
 				int w = Integer.parseInt(parts[3]);
@@ -48,10 +65,17 @@ public class DrawingApp {
 
 		Function<String, Circle> circleCreator = new Function<String, Circle>() {
 
+			/**
+			 * (non-Javadoc)
+			 * 
+			 * @see java.util.function.Function#apply(java.lang.Object) parses a
+			 *      "circle" string and gets its dimensions. Return a Circle
+			 *      object.
+			 */
 			@Override
 			public Circle apply(String i) {
 				String[] parts = i.split(" ");
-				
+
 				int x = Integer.parseInt(parts[1]);
 				int y = Integer.parseInt(parts[2]);
 				int r = Integer.parseInt(parts[3]);
