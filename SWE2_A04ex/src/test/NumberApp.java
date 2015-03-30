@@ -27,16 +27,6 @@ public class NumberApp {
 					Out.println(" -> scale10: value " + f + " sent!");
 				});
 
-		Function<Float, Integer> rounder = new Function<Float, Integer>() {
-
-			@Override
-			public Integer apply(Float i) {
-				int j = Math.round(i);
-				return j;
-			}
-
-		};
-
 		Function<Float, Float> averager = new Function<Float, Float>() {
 			private float array[] = new float[5];
 			private int j = 0, counter = 0;
@@ -76,7 +66,7 @@ public class NumberApp {
 				});
 
 		Transform<Float, Integer> round = new Transform<Float, Integer>(
-				rounder, f -> {
+				f -> f.intValue(), f -> {
 					Out.println(" -> round: value " + f + " received!");
 				}, f -> {
 					Out.println(" -> round: value " + f + " sent!");

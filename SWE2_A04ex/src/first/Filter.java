@@ -53,7 +53,7 @@ public class Filter<A> implements Receiver<A> {
 	/** (non-Javadoc)
 	 * @see second.Receiver#receive(java.lang.Object)
 	 * predicate.test(a)) applies the filter function.
-	 * next.receive(a) left.receive(a) passes the value to the whatEver component
+	 * next.receive(a) passes the value to the whatEver component
 	 */
 	@Override
 	public void receive(A a) {
