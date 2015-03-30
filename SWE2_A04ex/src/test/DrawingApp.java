@@ -31,13 +31,16 @@ public class DrawingApp {
 		});
 
 		Function<String, Rectangle> rectCreator = new Function<String, Rectangle>() {
-
+			
 			@Override
 			public Rectangle apply(String i) {
-				int x = Integer.parseInt(i.substring(5, 7));
-				int y = Integer.parseInt(i.substring(8, 10));
-				int w = Integer.parseInt(i.substring(11, 13));
-				int h = Integer.parseInt(i.substring(14, 16));
+				
+				String[] parts = i.split(" ");
+				
+				int x = Integer.parseInt(parts[1]);
+				int y = Integer.parseInt(parts[2]);
+				int w = Integer.parseInt(parts[3]);
+				int h = Integer.parseInt(parts[4]);
 				return new Rectangle(x, y, w, h);
 			}
 
@@ -47,9 +50,11 @@ public class DrawingApp {
 
 			@Override
 			public Circle apply(String i) {
-				int x = Integer.parseInt(i.substring(7, 9));
-				int y = Integer.parseInt(i.substring(10, 12));
-				int r = Integer.parseInt(i.substring(13, 15));
+				String[] parts = i.split(" ");
+				
+				int x = Integer.parseInt(parts[1]);
+				int y = Integer.parseInt(parts[2]);
+				int r = Integer.parseInt(parts[3]);
 				return new Circle(x, y, r);
 			}
 
