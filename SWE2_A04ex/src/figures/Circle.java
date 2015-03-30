@@ -36,7 +36,7 @@ public class Circle extends Figure{
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
 		Window.drawCircle(xOrigin+x, yOrigin+y, r); 
-		Out.println(" -> displayCircle: received!" + this.toString());
+		Out.println(" -> displayCircle: received " + this.toString());
 	}
 
 	/** (non-Javadoc)

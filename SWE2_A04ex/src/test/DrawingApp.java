@@ -28,7 +28,7 @@ public class DrawingApp {
 
 		Branch<String> branchRect = new Branch<String>(f -> {
 			Out.println(" -> branchRect: received " + f);
-		}, f -> f.substring(0, 3).equals("rect"), f -> {
+		}, f -> f.substring(0, 4).equals("rect"), f -> {
 			Out.println(" -> branchRect: sent " + f);
 		});
 
@@ -36,10 +36,10 @@ public class DrawingApp {
 
 			@Override
 			public Rectangle apply(String i) {
-				int x = Integer.parseInt(i.substring(5, 6));
-				int y = Integer.parseInt(i.substring(8, 9));
-				int w = Integer.parseInt(i.substring(11, 12));
-				int h = Integer.parseInt(i.substring(14, 15));
+				int x = Integer.parseInt(i.substring(5, 7));
+				int y = Integer.parseInt(i.substring(8, 10));
+				int w = Integer.parseInt(i.substring(11, 13));
+				int h = Integer.parseInt(i.substring(14, 16));
 				return new Rectangle(x, y, w, h);
 			}
 
@@ -49,9 +49,9 @@ public class DrawingApp {
 
 			@Override
 			public Circle apply(String i) {
-				int x = Integer.parseInt(i.substring(7, 8));
-				int y = Integer.parseInt(i.substring(10, 11));
-				int r = Integer.parseInt(i.substring(13, 14));
+				int x = Integer.parseInt(i.substring(7, 9));
+				int y = Integer.parseInt(i.substring(10, 12));
+				int r = Integer.parseInt(i.substring(13, 15));
 				return new Circle(x, y, r);
 			}
 
@@ -66,7 +66,7 @@ public class DrawingApp {
 
 		Branch<String> branchCircle = new Branch<String>(f -> {
 			Out.println(" -> branchCircle: received " + f);
-		}, f -> f.substring(0, 5).equals("circle"), f -> {
+		}, f -> f.substring(0, 6).equals("circle"), f -> {
 			Out.println(" -> branchCircle: sent " + f);
 		});
 		
@@ -103,7 +103,7 @@ public class DrawingApp {
 			f -> f.draw(100, 100));
 		
 		Sink<Circle> displayCircle = new Sink<Circle>(
-				f -> f.draw(100, 100));
+				f -> f.draw(200, 100));
 		
 		
 		command.setNext(branchRect);

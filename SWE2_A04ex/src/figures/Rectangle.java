@@ -39,7 +39,7 @@ public class Rectangle extends Figure{
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
 		Window.drawRectangle(xOrigin+x, yOrigin+y, w , h); 	
-		Out.println(" -> displayRectangle: received!" + this.toString());
+		Out.println(" -> displayRectangle: received " + this.toString());
 	}
 
 	/* (non-Javadoc)
