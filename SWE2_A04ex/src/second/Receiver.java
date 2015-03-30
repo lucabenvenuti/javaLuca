@@ -1,4 +1,4 @@
-package first;
+package second;
 
 public interface Receiver<A> {
 	

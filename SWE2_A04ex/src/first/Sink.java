@@ -2,6 +2,8 @@ package first;
 
 import java.util.function.Consumer;
 
+import second.Receiver;
+
 public final class Sink<A> implements Receiver<A> {
 
 	private Receiver<A> next;

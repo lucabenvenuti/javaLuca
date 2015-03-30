@@ -2,6 +2,7 @@ package test;
 
 import java.util.function.Function;
 
+import second.Source;
 import inout.In;
 import inout.Out;
 import inout.Window;
@@ -10,7 +11,6 @@ import figures.Circle;
 import first.Branch;
 import first.Filter;
 import first.Transform;
-import first.Source;
 import first.Sink;
 
 public class DrawingApp {

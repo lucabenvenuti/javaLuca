@@ -3,6 +3,8 @@ package first;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import second.Receiver;
+
 public class Transform<A, B> implements Receiver<A> {
 
 	private Receiver<B> next;

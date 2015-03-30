@@ -3,6 +3,8 @@ package first;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import second.Receiver;
+
 public class Filter<A> implements Receiver<A> {
 
 	private Receiver<A> next;

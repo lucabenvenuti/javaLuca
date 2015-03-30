@@ -3,6 +3,8 @@ package first;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import second.Receiver;
+
 public class Branch<A> implements Receiver<A> {
 
 	private Receiver<A> left;
@@ -12,6 +14,11 @@ public class Branch<A> implements Receiver<A> {
 	private final Predicate<A> predicate;
 	private final Consumer<A> onSend;
 
+	/**
+	 * @param onReceive
+	 * @param predicate
+	 * @param onSend
+	 */
 	public Branch(Consumer<A> onReceive, Predicate<A> predicate,
 			Consumer<A> onSend) {
 		super();
@@ -20,19 +27,32 @@ public class Branch<A> implements Receiver<A> {
 		this.onSend = onSend;
 	}
 
+	/**
+	 * @param left
+	 * @param right
+	 */
 	public void SetLeftRight(Receiver<A> left, Receiver<A> right) {
 		setLeft(left);
 		setRight(right);
 	}
 
+	/**
+	 * @param left
+	 */
 	public void setLeft(Receiver<A> left) {
 		this.left = left;
 	}
 
+	/**
+	 * @param right
+	 */
 	public void setRight(Receiver<A> right) {
 		this.right = right;
 	}
 
+	/** (non-Javadoc)
+	 * @see second.Receiver#receive(java.lang.Object)
+	 */
 	@Override
 	public void receive(A a) {
 		onReceive.accept(a);

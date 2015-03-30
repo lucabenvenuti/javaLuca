@@ -34,7 +34,8 @@ public class Rectangle extends Figure{
 
 	/** (non-Javadoc)
 	 * @see figures.Figure#draw(int, int)
-	 * draw a rectangle
+	 * draw a figure with an height and a width ==> a rectangle
+	 * print the required console output
 	 */
 	@Override
 	public void draw(int xOrigin, int yOrigin) {

@@ -32,6 +32,7 @@ public class Circle extends Figure{
 	/** (non-Javadoc)
 	 * @see figures.Figure#draw(int, int)
 	 * draw a figure with a radius ==> a circle
+	 * print the required console output
 	 */
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
