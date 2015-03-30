@@ -1,6 +1,8 @@
 package test;
 
 import java.util.function.Function;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 import inout.In;
 import inout.Out;
@@ -38,7 +40,38 @@ public class NumberApp {
 		};
 
 		Function<Float, Float> averager = new Function<Float, Float>() {
-			private float array[] = new float[5];
+			
+			private float array[] = new float[0];
+			
+			@Override
+			public Float apply(Float i) {
+				float array1[] = new float[array.length+1];
+				System.arraycopy(array, 0, array1, 0, array.length);
+				array1[array1.length-1] = i;
+				
+				array = array1;
+				
+				if (array.length<5) {
+					DoubleStream ds = IntStream.range(0, array.length)
+	                        .mapToDouble(j -> array[j]);
+					
+					float sum = (float) ds.sum();
+					System.out.println(sum);
+					return sum/array.length;} 
+				
+				else {
+					DoubleStream ds = IntStream.range(array.length-5, array.length)
+	                        .mapToDouble(j -> array[j]);
+					
+					float sum = (float) ds.sum();
+					System.out.println(sum);
+					return sum/5;} 
+					
+				} 
+				
+			
+			
+			/*private float array[] = new float[5];
 			private int j = 0, counter = 0;
 			private float sum;
 
@@ -64,7 +97,7 @@ public class NumberApp {
 					}
 					return sum / 5;
 				}
-			}
+			}*/
 
 		};
 
