@@ -27,25 +27,5 @@ public final class Source<A> {
 		}
 	}
 
-	/**
-	 * @return the next
-	 */
-	public Receiver<A> getNext() {
-		return next;
-	}
-
-	/**
-	 * @return the generator
-	 */
-	public Supplier<A> getGenerator() {
-		return generator;
-	}
-
-	/**
-	 * @return the onSend
-	 */
-	public Consumer<A> getOnSend() {
-		return onSend;
-	}
-
+	
 }

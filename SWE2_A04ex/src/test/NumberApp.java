@@ -3,15 +3,14 @@ package test;
 import inout.In;
 import inout.Out;
 import inout.Window;
+import first.Receiver;
 import first.Transform;
 import first.Source;
-//import first.Transformer;
+//import first.Filter;
 
 public class NumberApp {
 
 	public static void main(String[] args) {
-		
-		
 
 		Source<Float> input = new Source<Float>(() -> {
 			Out.print("Input new float value: ");
@@ -20,7 +19,23 @@ public class NumberApp {
 			Out.println(" -> input: value " + f + " sent!");
 		});
 		
-		Transform<Float, Float> scale10 = new Transform<Float, Float>(
+		Transform<Float, Float> filter = new Transform<Float, Float>(
+				f -> f.floatValue()*10, 
+				f -> {
+					Out.println(" -> average: value " + f + " received!");
+				}, f -> {
+					Out.println(" -> average: value " + f + " sent!");
+				});
+		
+		input.setNext(filter);
+
+
+		input.generate();
+		
+		//input2.filter(input.??);
+		
+		
+	/*	Transform<Float, Float> scale10 = new Transform<Float, Float>(
 				f -> {
 					Out.println(" -> scale10: value " + f + " received!");
 				}, 
@@ -81,7 +96,7 @@ public class NumberApp {
 				});
 
 
-
+*/
 
 		// TODO
 
