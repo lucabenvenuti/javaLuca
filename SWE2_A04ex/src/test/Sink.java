@@ -11,7 +11,7 @@ public class Sink<A> {
 
 
 
-    public Sink(Receiver<A> getter, 
+	public Sink(Receiver<A> getter, 
 			Consumer<A> user) {
 		//super();
 		this.getter = getter;
@@ -20,11 +20,11 @@ public class Sink<A> {
 
 
 
-	
-	public void multiply(A a) {
+
+	public void sinking(A a) {
 		getter.receive(a);
 		user.accept(a);
-		
+
 	}
-	
+
 }

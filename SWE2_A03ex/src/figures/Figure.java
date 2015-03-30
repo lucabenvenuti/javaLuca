@@ -20,7 +20,7 @@ public abstract class Figure {
 	private final int yOrig;
 	protected int x;
 	protected int y;
-	
+
 	protected Figure(int x, int y) {
 		this.xOrig = this.x = x;
 		this.yOrig = this.y = y;
@@ -32,7 +32,7 @@ public abstract class Figure {
 	 * Draw the figure from the given origin coordinates
 	 */
 	public abstract void draw(int xOrigin, int yOrigin);
-	
+
 	/**
 	 * @return
 	 * an animation in which the figure is moved along the x axis.
@@ -50,7 +50,7 @@ public abstract class Figure {
 			}
 		};
 	}
-	
+
 	/**
 	 * @return
 	 * an animation in which the figure is moved along the y axis.
@@ -64,7 +64,7 @@ public abstract class Figure {
 	public Animation createYAnimation(){
 		return new YAnimation(this);
 	}
-	
+
 	/**
 	 * @param radius
 	 * @param framesPerRotation
@@ -75,11 +75,11 @@ public abstract class Figure {
 	public Animation createCircleAnimation(int radius, int framesPerRotation){
 		return new CircleAnimation(radius, framesPerRotation);
 	}
-		
+
 	static class YAnimation implements Animation {
 
 		private Figure figure;
-		
+
 		YAnimation(Figure figure) {
 			this.figure = figure;
 		}
@@ -93,32 +93,32 @@ public abstract class Figure {
 			figure.y = figure.yOrig + frame;
 		}	
 	}
-	
+
 	/**
 	 * The advantage of an interface compared to an abstract class
 	 * is that the children classes can implement as many interfaces
 	 * as they like, but they can extend only one abstract class.
 	 */
 	class CircleAnimation implements Animation{
-		
-			private int radius;
-			private double angle;
-		
-			CircleAnimation(int radius, int framesPerRotation) {
-				this.radius=radius;
-				angle = (Math.PI*2/framesPerRotation);
-			}
-		
-			/** (non-Javadoc)
-			 * @see animation.Animation#animate(int)
-			 * the x, y coordinates of a figure are incremented by the frame to move in a circle
-			 * x, y can become negative, making the figure disappear from the screen
-			 */
-			@Override
-			public void animate(int frame) {
-				x = (int) (xOrig  + radius*Math.cos(angle*frame)); 
-				y = (int) (yOrig  + radius*Math.sin(angle*frame)); 
-			}		
+
+		private int radius;
+		private double angle;
+
+		CircleAnimation(int radius, int framesPerRotation) {
+			this.radius=radius;
+			angle = (Math.PI*2/framesPerRotation);
+		}
+
+		/** (non-Javadoc)
+		 * @see animation.Animation#animate(int)
+		 * the x, y coordinates of a figure are incremented by the frame to move in a circle
+		 * x, y can become negative, making the figure disappear from the screen
+		 */
+		@Override
+		public void animate(int frame) {
+			x = (int) (xOrig  + radius*Math.cos(angle*frame)); 
+			y = (int) (yOrig  + radius*Math.sin(angle*frame)); 
+		}		
 	}
-	
+
 }
