@@ -1,5 +1,6 @@
 package figures;
 
+import inout.Out;
 import inout.Window;
 
 /**
@@ -35,5 +36,14 @@ public class Circle extends Figure{
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
 		Window.drawCircle(xOrigin+x, yOrigin+y, r); 
+		Out.println(" -> displayCircle: received!" + this.toString());
+	}
+
+	/** (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Circle [x=" + x + ", y=" + y + ", r=" + r + "]";
 	}
 }

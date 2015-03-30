@@ -1,5 +1,6 @@
 package figures;
 
+import inout.Out;
 import inout.Window;
 
 /**
@@ -37,9 +38,17 @@ public class Rectangle extends Figure{
 	 */
 	@Override
 	public void draw(int xOrigin, int yOrigin) {
-		Window.drawRectangle(xOrigin+x, yOrigin+y, w , h); 		
+		Window.drawRectangle(xOrigin+x, yOrigin+y, w , h); 	
+		Out.println(" -> displayRectangle: received!" + this.toString());
 	}
 
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Rect [x=" + x + ", y=" + y + ", w=" + w + ", h=" + h + "]";
+	}
+	
 
 }
