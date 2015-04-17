@@ -1,6 +1,8 @@
 package roadNetwork;
 
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
 
 class Location implements Comparable<Location> {
 
@@ -8,6 +10,7 @@ class Location implements Comparable<Location> {
 	private final int y;
 	private final String name;
 	private Collection<Link> links;
+	private List<Location> locations;
 
 	protected Location(int x, int y, String name) {
 		super();
@@ -23,6 +26,27 @@ class Location implements Comparable<Location> {
 	void setLinks(Collection<Link> links) {
 		this.links = links;
 	}
+	
+	Collection<Link> getNeighbors() {
+		return null;
+	}
+	
+	Location getNeighborFor(Link lnk){
+		return null;
+	}
+	
+	Link getLinkTo(Location neighbor){
+		return null;
+	}
+	
+	List<Link> getLinkedSorted(Comparator<Link> linkComparator){
+		return null;
+	}
+	
+	List<Location> getNeighborsSorted(Comparator<Location> locationComparator){
+		return null;
+	}
+	
 
 	// void addLink()
 
