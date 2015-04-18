@@ -7,8 +7,14 @@ import java.util.TreeMap;
 public class TrafficNetwork {
 
 	SortedMap<String, Location> networkMap = new TreeMap<String, Location>();
-	
-	
+
+	public void addLocation(Location location) {
+		networkMap.put(location.getName(), location);
+	}
+
+	public SortedMap<String, Location> getNetworkMap() {
+		return networkMap;
+	}
 
 }
 
