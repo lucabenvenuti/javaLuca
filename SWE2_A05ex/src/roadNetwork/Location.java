@@ -27,7 +27,7 @@ class Location implements Comparable<Location> {
 		this.links = links;
 	}
 	
-	Collection<Link> getNeighbors() {
+	Collection<Location> getNeighbors() {
 		return null;
 	}
 	
