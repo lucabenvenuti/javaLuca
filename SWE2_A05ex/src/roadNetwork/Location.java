@@ -4,13 +4,14 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Location implements Comparable<Location> {
 
 	private final int x;
 	private final int y;
 	private final String name;
-	private Collection<Link> links;
+	private Collection<Link> links = new TreeSet();
 
 	// private List<Location> neighbors;
 
@@ -34,7 +35,7 @@ public class Location implements Comparable<Location> {
 	}
 
 	void addLink(Link link) {
-		links.add(link);
+		getLinks().add(link);
 	}
 
 	Collection<Link> getLinks() {
@@ -46,8 +47,8 @@ public class Location implements Comparable<Location> {
 	}
 
 	Collection<Location> getNeighbors() {
-		Collection<Location> neighbors = null;
-		for (Link l : links) {
+		Collection<Location> neighbors = new LinkedList();
+		for (Link l : getLinks()) {
 			neighbors.add(getNeighborFor(l)); // ???
 		}
 
@@ -63,7 +64,7 @@ public class Location implements Comparable<Location> {
 
 	Link getLinkTo(Location neighbor) {
 		for (Link l : links) {
-			if (l.getEnd().equals(neighbor))
+			if (l.getEnd().equals(neighbor) || l.getStart().equals(neighbor))
 				return l;
 		}
 
@@ -71,7 +72,9 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		return new LinkedList<Link>(linkComparator);
+		//TreeSet(Comparator<? super E> comparator)
+		Collection<Link> link1 = new TreeSet(Comparator<Link> linkComparator);
+		return null;
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
@@ -136,11 +139,7 @@ public class Location implements Comparable<Location> {
 		if (this.y > location.y)
 			return AFTER;
 
-		int comparison = this.name.compareTo(location.name);
-		if (comparison != EQUAL)
-			return comparison;
-
-		return EQUAL;
+		return this.name.compareTo(location.name);
 	}
 
 	@Override
