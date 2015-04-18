@@ -73,12 +73,15 @@ public class Location implements Comparable<Location> {
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
 		//TreeSet(Comparator<? super E> comparator)
-		Collection<Link> link1 = new TreeSet(Comparator<Link> linkComparator);
-		return null;
+		Collection<Link> link1 = new TreeSet(linkComparator);
+		link1.addAll(links);
+		return (List<Link>) link1;
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		return null;
+		Collection<Location> loc1 = new TreeSet(locationComparator);
+		loc1.addAll(getNeighbors());
+		return (List<Location>) loc1;
 	}
 
 	// void addLink()
