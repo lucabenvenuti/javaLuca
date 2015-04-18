@@ -10,7 +10,8 @@ class Location implements Comparable<Location> {
 	private final int y;
 	private final String name;
 	private Collection<Link> links;
-//	private List<Location> neighbors;
+
+	// private List<Location> neighbors;
 
 	protected Location(int x, int y, String name) {
 		super();
@@ -18,8 +19,8 @@ class Location implements Comparable<Location> {
 		this.y = y;
 		this.name = name;
 	}
-	
-	void addLink(Link link){
+
+	void addLink(Link link) {
 		links.add(link);
 	}
 
@@ -30,29 +31,28 @@ class Location implements Comparable<Location> {
 	void setLinks(Collection<Link> links) {
 		this.links = links;
 	}
-	
+
 	Collection<Location> getNeighbors() {
-	//	links.stream().
-		
+		// links.stream().
+
 		return null;
 	}
-	
-	Location getNeighborFor(Link lnk){
+
+	Location getNeighborFor(Link lnk) {
 		return null;
 	}
-	
-	Link getLinkTo(Location neighbor){
+
+	Link getLinkTo(Location neighbor) {
 		return null;
 	}
-	
-	List<Link> getLinkedSorted(Comparator<Link> linkComparator){
+
+	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
 		return null;
 	}
-	
-	List<Location> getNeighborsSorted(Comparator<Location> locationComparator){
+
+	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
 		return null;
 	}
-	
 
 	// void addLink()
 
@@ -87,37 +87,36 @@ class Location implements Comparable<Location> {
 		return true;
 	}
 
-/*	@Override
-	public int compareTo(Location o) {
-		int compare = this.x == o.x ? 0 : 1;
-		if (compare == 0) {
-			compare = this.y == o.y ? 0 : 1;
-		}
-		if (compare == 0) {
-			compare = this.name.compareTo(o.name);
-		}
-		return compare;
-	}*/
-	
+	/*
+	 * @Override public int compareTo(Location o) { int compare = this.x == o.x
+	 * ? 0 : 1; if (compare == 0) { compare = this.y == o.y ? 0 : 1; } if
+	 * (compare == 0) { compare = this.name.compareTo(o.name); } return compare;
+	 * }
+	 */
 
 	@Override
 	public int compareTo(Location location) {
-	    final int BEFORE = -1;
-	    final int EQUAL = 0;
-	    final int AFTER = 1;
-		
-	    if (this == location) return EQUAL;
-	    if (this.x < location.x) return BEFORE;
-	    if (this.x > location.x) return AFTER;
-	    
-	    if (this.y < location.y) return BEFORE;
-	    if (this.y > location.y) return AFTER;
-	    
-	    int comparison = this.name.compareTo(location.name);
-	    if (comparison != EQUAL) return comparison;
-	    
-	    return EQUAL;
+		final int BEFORE = -1;
+		final int EQUAL = 0;
+		final int AFTER = 1;
+
+		if (this == location)
+			return EQUAL;
+		if (this.x < location.x)
+			return BEFORE;
+		if (this.x > location.x)
+			return AFTER;
+
+		if (this.y < location.y)
+			return BEFORE;
+		if (this.y > location.y)
+			return AFTER;
+
+		int comparison = this.name.compareTo(location.name);
+		if (comparison != EQUAL)
+			return comparison;
+
+		return EQUAL;
 	}
-	
 
 }
