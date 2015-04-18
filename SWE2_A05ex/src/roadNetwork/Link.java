@@ -1,9 +1,9 @@
 package roadNetwork;
 
-import java.util.Comparator;
+//import java.util.Comparator;
 import java.util.List;
 
-class Link implements Comparable<Link> {
+public class Link implements Comparable<Link> {
 
 	private final String name;
 	private final LinkType linkType;
@@ -120,15 +120,16 @@ class Link implements Comparable<Link> {
 		return EQUAL;
 	}
 
-	Comparator<Link> lengthOrder = new Comparator<Link>() {
-		public int compare(Link s1, Link s2) {
-			return s1.getLength() - s2.getLength();
-		}
-	};
-
-	Comparator<Link> travelTimeInHoursOrder = new Comparator<Link>() {
-		public int compare(Link s1, Link s2) {
-			return s1.getTravelTimeInHours() - s2.getTravelTimeInHours();
-		}
-	};
+	/*
+	 * public static Comparator<Link> lengthOrder = new Comparator<Link>() {
+	 * 
+	 * @Override public int compare(Link s1, Link s2) { return s1.getLength() -
+	 * s2.getLength(); } };
+	 * 
+	 * public static Comparator<Link> travelTimeInHoursOrder = new
+	 * Comparator<Link>() {
+	 * 
+	 * @Override public int compare(Link s1, Link s2) { return
+	 * s1.getTravelTimeInHours() - s2.getTravelTimeInHours(); } };
+	 */
 }

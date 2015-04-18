@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-class Location implements Comparable<Location> {
+public class Location implements Comparable<Location> {
 
 	private final int x;
 	private final int y;
@@ -13,11 +13,23 @@ class Location implements Comparable<Location> {
 
 	// private List<Location> neighbors;
 
-	protected Location(int x, int y, String name) {
+	public Location(int x, int y, String name) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.name = name;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	void addLink(Link link) {
@@ -117,6 +129,11 @@ class Location implements Comparable<Location> {
 			return comparison;
 
 		return EQUAL;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [x=" + x + ", y=" + y + ", name=" + name + "]";
 	}
 
 }
