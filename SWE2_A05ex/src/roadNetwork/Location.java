@@ -10,13 +10,17 @@ class Location implements Comparable<Location> {
 	private final int y;
 	private final String name;
 	private Collection<Link> links;
-	private List<Location> locations;
+//	private List<Location> neighbors;
 
 	protected Location(int x, int y, String name) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.name = name;
+	}
+	
+	void addLink(Link link){
+		links.add(link);
 	}
 
 	Collection<Link> getLinks() {
@@ -28,6 +32,8 @@ class Location implements Comparable<Location> {
 	}
 	
 	Collection<Location> getNeighbors() {
+	//	links.stream().
+		
 		return null;
 	}
 	
@@ -81,7 +87,7 @@ class Location implements Comparable<Location> {
 		return true;
 	}
 
-	@Override
+/*	@Override
 	public int compareTo(Location o) {
 		int compare = this.x == o.x ? 0 : 1;
 		if (compare == 0) {
@@ -91,6 +97,27 @@ class Location implements Comparable<Location> {
 			compare = this.name.compareTo(o.name);
 		}
 		return compare;
+	}*/
+	
+
+	@Override
+	public int compareTo(Location location) {
+	    final int BEFORE = -1;
+	    final int EQUAL = 0;
+	    final int AFTER = 1;
+		
+	    if (this == location) return EQUAL;
+	    if (this.x < location.x) return BEFORE;
+	    if (this.x > location.x) return AFTER;
+	    
+	    if (this.y < location.y) return BEFORE;
+	    if (this.y > location.y) return AFTER;
+	    
+	    int comparison = this.name.compareTo(location.name);
+	    if (comparison != EQUAL) return comparison;
+	    
+	    return EQUAL;
 	}
+	
 
 }
