@@ -47,7 +47,7 @@ public class Location implements Comparable<Location> {
 
 	// use streams
 	Collection<Location> getNeighbors() {
-		
+
 		Collection<Location> neighbors = new LinkedList<Location>();
 		for (Link l : getLinks()) {
 			neighbors.add(getNeighborFor(l));
@@ -61,9 +61,10 @@ public class Location implements Comparable<Location> {
 
 	// use streams
 	Link getLinkTo(Location neighbor) {
-		
-		//getLinks().stream().filter(p -> p.getEnd().equals(neighbor) || p.getStart().equals(neighbor)).
-		
+
+		// getLinks().stream().filter(p -> p.getEnd().equals(neighbor) ||
+		// p.getStart().equals(neighbor)).
+
 		for (Link l : links) {
 			if (l.getEnd().equals(neighbor) || l.getStart().equals(neighbor))
 				return l;

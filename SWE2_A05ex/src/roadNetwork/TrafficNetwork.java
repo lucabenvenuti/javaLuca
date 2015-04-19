@@ -1,5 +1,6 @@
 package roadNetwork;
 
+import inout.Window;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -11,6 +12,9 @@ public class TrafficNetwork {
 		if (!networkMap.containsKey(location.getName())) {
 			networkMap.put(location.getName(), location);
 		}
+		Window.drawPoint(location.getX(), location.getY());
+		Window.drawText(location.getName(), location.getX() + 10,
+				location.getY());
 	}
 
 	public Location getLocation(String name) {
@@ -24,6 +28,8 @@ public class TrafficNetwork {
 		Link link = new Link(name, linkType, length, start, end);
 		start.addLink(link);
 		end.addLink(link);
+		Window.drawLine(start.getX(), start.getY(), end.getX(), end.getY(),
+				linkType.getColor());
 		return link;
 	}
 }
