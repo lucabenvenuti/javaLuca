@@ -118,8 +118,8 @@ public class Link implements Comparable<Link> {
 
 
 	public String toString(Location location) {
-		return linkType.toString() + name + ": "
-				+ length + " km to " + (linkType == null) ? 0 : linkType.hashCode();
+		return (linkType == null) ? "" : linkType.toString() + name + ": "
+				+ length + " km to " + getOtherLocation(location).getName();
 	}
 
 	@Override
