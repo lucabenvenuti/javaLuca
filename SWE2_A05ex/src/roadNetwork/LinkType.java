@@ -16,7 +16,7 @@ public enum LinkType {
 
 	@Override
 	public String toString() {
-		return super.toString() + "(" + vel + ")";
+		return super.toString();
 	}
 
 }

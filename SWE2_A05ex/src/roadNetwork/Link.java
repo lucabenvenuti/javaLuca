@@ -116,28 +116,16 @@ public class Link implements Comparable<Link> {
 		return this.name.compareTo(link.name);
 	}
 
-
 	public String toString(Location location) {
-		return (linkType == null) ? "" : linkType.toString() + name + ": "
-				+ length + " km to " + getOtherLocation(location).getName();
+		return (linkType == null) ? "" : "  " + linkType.toString() + " "
+				+ name + ": " + length + " km to "
+				+ getOtherLocation(location).getName();
 	}
 
 	@Override
 	public String toString() {
-		return "Link [linkType=" + linkType + ", name=" + name + ", length="
-				+ length + ", end=" + end + "]";
+		return "Link [name=" + name + ", linkType=" + linkType + ", length="
+				+ length + ", start=" + start + ", end=" + end + "]";
 	}
 
-	/*
-	 * public static Comparator<Link> lengthOrder = new Comparator<Link>() {
-	 * 
-	 * @Override public int compare(Link s1, Link s2) { return s1.getLength() -
-	 * s2.getLength(); } };
-	 * 
-	 * public static Comparator<Link> travelTimeInHoursOrder = new
-	 * Comparator<Link>() {
-	 * 
-	 * @Override public int compare(Link s1, Link s2) { return
-	 * s1.getTravelTimeInHours() - s2.getTravelTimeInHours(); } };
-	 */
 }

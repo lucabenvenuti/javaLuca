@@ -14,8 +14,6 @@ public class Location implements Comparable<Location> {
 	private final String name;
 	private Collection<Link> links = new TreeSet<Link>();
 
-	// private List<Location> neighbors;
-
 	public Location(int x, int y, String name) {
 		super();
 		this.x = x;
@@ -70,12 +68,15 @@ public class Location implements Comparable<Location> {
 		return null;
 	}
 
-	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		return getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
+	public List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
+		return getLinks().stream().sorted(linkComparator)
+				.collect(Collectors.toList());
 	}
 
-	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		return getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
+	public List<Location> getNeighborsSorted(
+			Comparator<Location> locationComparator) {
+		return getNeighbors().stream().sorted(locationComparator)
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -109,13 +110,6 @@ public class Location implements Comparable<Location> {
 		return true;
 	}
 
-	/*
-	 * @Override public int compareTo(Location o) { int compare = this.x == o.x
-	 * ? 0 : 1; if (compare == 0) { compare = this.y == o.y ? 0 : 1; } if
-	 * (compare == 0) { compare = this.name.compareTo(o.name); } return compare;
-	 * }
-	 */
-
 	@Override
 	public int compareTo(Location location) {
 		final int BEFORE = -1;
@@ -139,7 +133,8 @@ public class Location implements Comparable<Location> {
 
 	@Override
 	public String toString() {
-		return "Location [x=" + x + ", y=" + y + ", name=" + name + "]";
+		return "You are currently in " + name + " (" + x + "/" + y + ")" + "\n"
+				+ "From " + name + " you can go";
 	}
 
 }
