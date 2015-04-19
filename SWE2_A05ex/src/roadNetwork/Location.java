@@ -38,7 +38,7 @@ public class Location implements Comparable<Location> {
 		getLinks().add(link);
 	}
 
-	Collection<Link> getLinks() {
+	public Collection<Link> getLinks() {
 		return links;
 	}
 
@@ -70,11 +70,13 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		return getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
+		return null;
+				//getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		return getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
+		return null;
+				//getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
 	}
 
 	@Override

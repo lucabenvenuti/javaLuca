@@ -1,5 +1,6 @@
 package test;
 
+import inout.In;
 import roadNetwork.LinkType;
 import roadNetwork.Location;
 import roadNetwork.TrafficNetwork;
@@ -21,13 +22,19 @@ public class First {
 		trafficNetwork.addLocation(freistadt);
 		trafficNetwork.addLocation(steyermuhl);
 		trafficNetwork.addLocation(kirchdorf);
-
+		System.out.println("test");
 		trafficNetwork.addLink("A9", LinkType.AUTOBAHN, 52, linz,wels);
 		trafficNetwork.addLink("B310", LinkType.BUNDESSTRASSE, 45, linz,freistadt);
 		trafficNetwork.addLink("A1", LinkType.AUTOBAHN, 58, linz,sattledt);
 		trafficNetwork.addLink("A8", LinkType.AUTOBAHN, 58, wels,sattledt);
 		trafficNetwork.addLink("A1", LinkType.AUTOBAHN, 22, steyermuhl,sattledt);
 		trafficNetwork.addLink("A8", LinkType.AUTOBAHN, 45, kirchdorf,sattledt);
+		
+		Location current = linz;
+		while(true){
+			System.out.println(current.getLinks().size());
+			int i = In.readInt();
+		}
 		
 	}
 
