@@ -45,17 +45,17 @@ public class Location implements Comparable<Location> {
 		this.links = links;
 	}
 
-	Link checkExistingLink(int length, LinkType linkType, String name){
-		if (!getLinks().isEmpty()){
-			
-		for (Link l : getLinks()) {
-			if (l.compareTo(length, linkType, name)==0) return l;
-			
-		}}
-		
+	// use streams
+	Link checkExistingLink(int length, LinkType linkType, String name) {
+		if (!getLinks().isEmpty()) {
+			for (Link l : getLinks()) {
+				if (l.compareTo(length, linkType, name) == 0)
+					return l;
+			}
+		}
 		return null;
 	}
-	
+
 	// use streams
 	Collection<Location> getNeighbors() {
 

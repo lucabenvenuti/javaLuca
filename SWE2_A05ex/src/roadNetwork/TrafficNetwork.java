@@ -24,13 +24,15 @@ public class TrafficNetwork {
 	public Link addLink(String name, LinkType linkType, int length,
 			Location start, Location end) {
 		Link link = start.checkExistingLink(length, linkType, name);
-		if (link != null) return link;
+		if (link != null)
+			return link;
 		link = end.checkExistingLink(length, linkType, name);
-		if (link != null) return link;
-		
+		if (link != null)
+			return link;
+
 		addLocation(start);
 		addLocation(end);
-		
+
 		link = new Link(name, linkType, length, start, end);
 		start.addLink(link);
 		end.addLink(link);
