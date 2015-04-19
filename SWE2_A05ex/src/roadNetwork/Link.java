@@ -1,7 +1,6 @@
 package roadNetwork;
 
 import java.util.LinkedList;
-//import java.util.Comparator;
 import java.util.List;
 
 public class Link implements Comparable<Link> {
