@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Location implements Comparable<Location> {
 
@@ -70,13 +71,11 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		return null;
-				//getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
+		return getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		return null;
-				//getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
+		return getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
 	}
 
 	@Override
