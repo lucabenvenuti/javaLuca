@@ -14,10 +14,14 @@ public class First {
 	public static void main(String[] args) {
 
 		TrafficNetwork trafficNetwork = new TrafficNetwork();
-		trafficNetwork.addLocation(new Location(300, 80, "Linz"));
-		trafficNetwork.addLocation(new Location(240, 90, "Wels"));
-		trafficNetwork.addLocation(new Location(230, 110, "Satt"));
-		System.out.println(trafficNetwork.getNetworkMap());
+		Location linz = new Location(300, 80, "Linz");
+		Location wels = new Location(240, 90, "Wels")
+		trafficNetwork.addLocation(linz);
+		trafficNetwork.addLocation(wels);
+		
+		linz.addLink();
+//		trafficNetwork.addLocation(new Location(230, 110, "Sattledt"));
+		
 
 	}
 

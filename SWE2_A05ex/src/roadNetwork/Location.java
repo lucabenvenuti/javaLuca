@@ -1,6 +1,5 @@
 package roadNetwork;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -36,7 +35,7 @@ public class Location implements Comparable<Location> {
 		return name;
 	}
 
-	void addLink(Link link) {
+	public void addLink(Link link) {
 		getLinks().add(link);
 	}
 
@@ -48,12 +47,12 @@ public class Location implements Comparable<Location> {
 		this.links = links;
 	}
 
+	// use streams
 	Collection<Location> getNeighbors() {
 		Collection<Location> neighbors = new LinkedList<Location>();
 		for (Link l : getLinks()) {
-			neighbors.add(getNeighborFor(l)); // ???
+			neighbors.add(getNeighborFor(l));
 		}
-
 		return neighbors;
 	}
 
@@ -61,6 +60,7 @@ public class Location implements Comparable<Location> {
 		return lnk.getOtherLocation(this);
 	}
 
+	// use streams
 	Link getLinkTo(Location neighbor) {
 		for (Link l : links) {
 			if (l.getEnd().equals(neighbor) || l.getStart().equals(neighbor))
@@ -71,16 +71,12 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		return links.stream().sorted(linkComparator).collect(Collectors.toList());
+		return getLinks().stream().sorted(linkComparator).collect(Collectors.toList());
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		Collection<Location> loc1 = new TreeSet<Location>(locationComparator);
-		loc1.addAll(getNeighbors());
-		return new ArrayList<Location>(loc1);
+		return getNeighbors().stream().sorted(locationComparator).collect(Collectors.toList());
 	}
-
-	// cosa fighissima che si puo' fare
 
 	@Override
 	public int hashCode() {
