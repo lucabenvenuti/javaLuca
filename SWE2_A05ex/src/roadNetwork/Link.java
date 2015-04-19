@@ -116,6 +116,18 @@ public class Link implements Comparable<Link> {
 		return this.name.compareTo(link.name);
 	}
 
+
+	public String toString(Location location) {
+		return linkType.toString() + name + ": "
+				+ length + " km to " + (linkType == null) ? 0 : linkType.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "Link [linkType=" + linkType + ", name=" + name + ", length="
+				+ length + ", end=" + end + "]";
+	}
+
 	/*
 	 * public static Comparator<Link> lengthOrder = new Comparator<Link>() {
 	 * 

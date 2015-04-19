@@ -15,11 +15,12 @@ public class First {
 
 		TrafficNetwork trafficNetwork = new TrafficNetwork();
 		Location linz = new Location(300, 80, "Linz");
-		Location wels = new Location(240, 90, "Wels")
+		Location wels = new Location(240, 90, "Wels");
 		trafficNetwork.addLocation(linz);
 		trafficNetwork.addLocation(wels);
-		
-		linz.addLink();
+
+		trafficNetwork.addLink(String name, LinkType linkType, int length, Location start,
+				Location end)
 //		trafficNetwork.addLocation(new Location(230, 110, "Sattledt"));
 		
 

@@ -23,7 +23,10 @@ public class TrafficNetwork {
 			Location end) {
 		addLocation(start);
 		addLocation(end);
-		return new Link(name, linkType, length, start, end);
+		Link link = new Link(name, linkType, length, start, end);
+		start.addLink(link);
+		end.addLink(link);
+		return link;
 	}
 }
 
