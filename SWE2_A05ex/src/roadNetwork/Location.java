@@ -1,5 +1,6 @@
 package roadNetwork;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ public class Location implements Comparable<Location> {
 	private final int x;
 	private final int y;
 	private final String name;
-	private Collection<Link> links = new TreeSet();
+	private Collection<Link> links = new TreeSet<Link>();
 
 	// private List<Location> neighbors;
 
@@ -47,7 +48,7 @@ public class Location implements Comparable<Location> {
 	}
 
 	Collection<Location> getNeighbors() {
-		Collection<Location> neighbors = new LinkedList();
+		Collection<Location> neighbors = new LinkedList<Location>();
 		for (Link l : getLinks()) {
 			neighbors.add(getNeighborFor(l)); // ???
 		}
@@ -72,19 +73,18 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		//TreeSet(Comparator<? super E> comparator)
-		Collection<Link> link1 = new TreeSet(linkComparator);
+		Collection<Link> link1 = new TreeSet<Link>(linkComparator);
 		link1.addAll(links);
-		return (List<Link>) link1;
+		return new ArrayList<Link>(link1);
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
-		Collection<Location> loc1 = new TreeSet(locationComparator);
+		Collection<Location> loc1 = new TreeSet<Location>(locationComparator);
 		loc1.addAll(getNeighbors());
-		return (List<Location>) loc1;
+		return new ArrayList<Location>(loc1);
 	}
 
-	// void addLink()
+	// cosa fighissima che si puo' fare
 
 	@Override
 	public int hashCode() {
