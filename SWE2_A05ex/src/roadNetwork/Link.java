@@ -1,5 +1,6 @@
 package roadNetwork;
 
+import java.util.LinkedList;
 //import java.util.Comparator;
 import java.util.List;
 
@@ -11,7 +12,6 @@ public class Link implements Comparable<Link> {
 	private final Location start;
 	private final Location end;
 	private final int travelTimeInHours;
-	private List<Location> locations;
 
 	Link(String name, LinkType linkType, int length, Location start,
 			Location end) {
@@ -21,23 +21,23 @@ public class Link implements Comparable<Link> {
 		this.start = start;
 		this.end = end;
 		travelTimeInHours = length / linkType.getVel();
-		locations.add(start);
-		locations.add(end);
-	}
-
-	List<Location> getStartEnd() {
-		return locations;
 	}
 
 	List<Location> getLocations() {
+		LinkedList<Location> locations = new LinkedList<Location>();
+		locations.add(start);
+		locations.add(end);
 		return locations;
 	}
 
 	Location getOtherLocation(Location loc) {
 		if (loc.equals(start)) {
 			return end;
+		} else if (loc.equals(end)) {
+			return start;
+		} else {
+			return null;
 		}
-		return start;
 	}
 
 	String getName() {
@@ -113,11 +113,7 @@ public class Link implements Comparable<Link> {
 		if (comparison != EQUAL)
 			return comparison;
 
-		comparison = this.name.compareTo(link.name);
-		if (comparison != EQUAL)
-			return comparison;
-
-		return EQUAL;
+		return this.name.compareTo(link.name);
 	}
 
 	/*

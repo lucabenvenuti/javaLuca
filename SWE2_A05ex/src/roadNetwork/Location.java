@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Location implements Comparable<Location> {
 
@@ -57,10 +58,7 @@ public class Location implements Comparable<Location> {
 	}
 
 	Location getNeighborFor(Link lnk) {
-		if (!lnk.getStart().equals(this)) {
-			return lnk.getStart();
-		}
-		return lnk.getEnd();
+		return lnk.getOtherLocation(this);
 	}
 
 	Link getLinkTo(Location neighbor) {
@@ -73,9 +71,7 @@ public class Location implements Comparable<Location> {
 	}
 
 	List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
-		Collection<Link> link1 = new TreeSet<Link>(linkComparator);
-		link1.addAll(links);
-		return new ArrayList<Link>(link1);
+		return links.stream().sorted(linkComparator).collect(Collectors.toList());
 	}
 
 	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {

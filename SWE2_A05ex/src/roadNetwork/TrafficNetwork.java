@@ -1,21 +1,27 @@
 package roadNetwork;
 
-import java.util.Comparator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class TrafficNetwork {
 
-	SortedMap<String, Location> networkMap = new TreeMap<String, Location>();
+	private final SortedMap<String, Location> networkMap = new TreeMap<String, Location>();
 
 	public void addLocation(Location location) {
 		networkMap.put(location.getName(), location);
 	}
-
-	public SortedMap<String, Location> getNetworkMap() {
-		return networkMap;
+	
+	public void removeLocation(Location location) {
+		networkMap.remove(location.getName());
 	}
 
+	public void removeLocation(String name) {
+		networkMap.remove(name);
+	}
+
+	public Location getLocation(String name){
+		return networkMap.get(name);
+	}
 }
 
 /*
