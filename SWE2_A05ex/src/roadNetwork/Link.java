@@ -114,6 +114,10 @@ public class Link implements Comparable<Link> {
 
 		return this.name.compareTo(link.name);
 	}
+	
+	public int compareTo(int length, LinkType linkType, String name){
+		return compareTo(new Link(name, linkType, length, null, null));
+	}
 
 	public String toString(Location location) {
 		return (linkType == null) ? "" : "  " + linkType.toString() + " "

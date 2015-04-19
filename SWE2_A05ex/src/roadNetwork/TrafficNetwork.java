@@ -11,10 +11,10 @@ public class TrafficNetwork {
 	public void addLocation(Location location) {
 		if (!networkMap.containsKey(location.getName())) {
 			networkMap.put(location.getName(), location);
+			Window.drawPoint(location.getX(), location.getY());
+			Window.drawText(location.getName(), location.getX() + 10,
+					location.getY());
 		}
-		Window.drawPoint(location.getX(), location.getY());
-		Window.drawText(location.getName(), location.getX() + 10,
-				location.getY());
 	}
 
 	public Location getLocation(String name) {
@@ -23,9 +23,15 @@ public class TrafficNetwork {
 
 	public Link addLink(String name, LinkType linkType, int length,
 			Location start, Location end) {
+		Link link = start.checkExistingLink(length, linkType, name);
+		if (link != null) return link;
+		link = end.checkExistingLink(length, linkType, name);
+		if (link != null) return link;
+		
 		addLocation(start);
 		addLocation(end);
-		Link link = new Link(name, linkType, length, start, end);
+		
+		link = new Link(name, linkType, length, start, end);
 		start.addLink(link);
 		end.addLink(link);
 		Window.drawLine(start.getX(), start.getY(), end.getX(), end.getY(),
