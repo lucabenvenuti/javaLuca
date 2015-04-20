@@ -1,14 +1,22 @@
 package test;
 
-import java.util.List;
-
 import inout.In;
 import roadNetwork.LengthComp;
-import roadNetwork.Link;
 import roadNetwork.LinkType;
 import roadNetwork.Location;
 import roadNetwork.TrafficNetwork;
+//import roadNetwork.TravelTimeInHoursComp;
 
+/**
+ * First.java
+ *
+ * A {@link First} is a test class. It inserts new locations and links, and ask
+ * the user where he/she would like to go next.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class First {
 
 	public static void main(String[] args) {
@@ -20,6 +28,7 @@ public class First {
 		Location freistadt = new Location(400, 270, "Freistadt");
 		Location steyermuhl = new Location(250, 520, "Steyermuhl");
 		Location kirchdorf = new Location(350, 560, "Kirchdorf");
+		Location verona = new Location(700, 500, "Verona");
 		trafficNetwork.addLocation(linz);
 		trafficNetwork.addLocation(wels);
 		trafficNetwork.addLocation(sattledt);
@@ -36,6 +45,7 @@ public class First {
 				.addLink("A1", LinkType.STRASSE, 22, steyermuhl, sattledt);
 		trafficNetwork
 				.addLink("A8", LinkType.AUTOBAHN, 45, kirchdorf, sattledt);
+		trafficNetwork.addLink("A22", LinkType.AUTOBAHN, 600, linz, verona);
 
 		System.out
 				.println("====================================================");
@@ -47,14 +57,12 @@ public class First {
 		current = linz;
 		do {
 
-			System.out.println(current.toString());
-//			List<Link> duplicate = current.getLinkedSorted(new LengthComp());
-//			for (Link l : duplicate) {
-//				System.out.println(l.toString(current));
-//			}
+			System.out.println(current.locationToString());
 			Location currentLocation = current;
-			current.getLinkedSorted(new LengthComp()).forEach(l -> System.out.println(l.toString(currentLocation) + "\t" + l.getTravelTimeInHours()));
-
+			current.getLinkedSorted(new LengthComp()).forEach(
+					l -> System.out.println(l.linkToString(currentLocation)));
+			// current.getLinkedSorted(new TravelTimeInHoursComp()).forEach(l ->
+			// System.out.println(l.linkToString(currentLocation)));
 			System.out.println();
 			System.out.print("Next location: ");
 			String newPlace = In.readWord();

@@ -2,11 +2,20 @@ package roadNetwork;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+/**
+ * Location.java
+ *
+ * A {@link Location} is a class which implements a Comparable<Location> interface.
+ * It contains the x, y position of the location, its name and the links in and out.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class Location implements Comparable<Location> {
 
 	private final int x;
@@ -21,23 +30,26 @@ public class Location implements Comparable<Location> {
 		this.name = name;
 	}
 
-	public int getX() {
+	int getX() {
 		return x;
 	}
 
-	public int getY() {
+	int getY() {
 		return y;
 	}
 
+	/**
+	 * @return the location name
+	 */
 	public String getName() {
 		return name;
 	}
 
-	public void addLink(Link link) {
+	void addLink(Link link) {
 		getLinks().add(link);
 	}
 
-	public Collection<Link> getLinks() {
+	Collection<Link> getLinks() {
 		return links;
 	}
 
@@ -45,92 +57,49 @@ public class Location implements Comparable<Location> {
 		this.links = links;
 	}
 
-	// use streams
 	Link checkExistingLink(int length, LinkType linkType, String name) {
-		
-		return getLinks().stream().filter(l -> l.compareTo(length, linkType, name) == 0).findFirst().orElse(null);
-		
-	/*	if (!getLinks().isEmpty()) {
-			for (Link l : getLinks()) {
-				if (l.compareTo(length, linkType, name) == 0)
-					return l;
-			}
-		}
-		return null;*/
+		return getLinks().stream()
+				.filter(l -> l.compareTo(length, linkType, name) == 0)
+				.findFirst().orElse(null);
 	}
 
-	// use streams
 	Collection<Location> getNeighbors() {
-		
-		return getLinks().stream().map(l -> getNeighborFor(l)).collect(Collectors.toList());
-		
-
-/*		Collection<Location> neighbors = new LinkedList<Location>();
-		for (Link l : getLinks()) {
-			neighbors.add(getNeighborFor(l));
-		}
-		return neighbors;*/
+		return getLinks().stream().map(l -> getNeighborFor(l))
+				.collect(Collectors.toList());
 	}
 
 	Location getNeighborFor(Link lnk) {
 		return lnk.getOtherLocation(this);
 	}
 
-	// use streams
 	Link getLinkTo(Location neighbor) {
-
-		return getLinks().stream().filter(l -> l.getEnd().equals(neighbor) || l.getStart().equals(neighbor)).findFirst().orElse(null);
-
-/*		for (Link l : getLinks()) {
-			if (l.getEnd().equals(neighbor) || l.getStart().equals(neighbor))
-				return l;
-		}
-
-		return null;*/
+		return getLinks()
+				.stream()
+				.filter(l -> l.getEnd().equals(neighbor)
+						|| l.getStart().equals(neighbor)).findFirst()
+				.orElse(null);
 	}
 
+	/**
+	 * @param linkComparator
+	 * @return a List<Link> sorted by the given linkComparator
+	 */
 	public List<Link> getLinkedSorted(Comparator<Link> linkComparator) {
 		return getLinks().stream().sorted(linkComparator)
 				.collect(Collectors.toList());
 	}
 
-	public List<Location> getNeighborsSorted(
-			Comparator<Location> locationComparator) {
+	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
 		return getNeighbors().stream().sorted(locationComparator)
 				.collect(Collectors.toList());
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + x;
-		result = prime * result + y;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Location other = (Location) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (x != other.x)
-			return false;
-		if (y != other.y)
-			return false;
-		return true;
-	}
-
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object) comparison based on
+	 *      x, then y, then name
+	 */
 	@Override
 	public int compareTo(Location location) {
 		final int BEFORE = -1;
@@ -152,10 +121,12 @@ public class Location implements Comparable<Location> {
 		return this.name.compareTo(location.name);
 	}
 
-	@Override
-	public String toString() {
+	/**
+	 * @return a String with the info on the location.
+	 */
+	public String locationToString() {
 		return "You are currently in " + name + " (" + x + "/" + y + ")" + "\n"
-				+ "From " + name + " you can go";
+				+ "From " + name + " you can go :";
 	}
 
 }

@@ -3,6 +3,17 @@ package roadNetwork;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Link.java
+ *
+ * A {@link Link} is a class which implements a Comparable<Link> interface. It
+ * contains the name of the link, its type, length and travel time, and two
+ * locations between which the link is.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class Link implements Comparable<Link> {
 
 	private final String name;
@@ -22,14 +33,14 @@ public class Link implements Comparable<Link> {
 		travelTimeInHours = (float) length / linkType.getVel();
 	}
 
-	public List<Location> getLocations() {
+	List<Location> getLocations() {
 		LinkedList<Location> locations = new LinkedList<Location>();
 		locations.add(start);
 		locations.add(end);
 		return locations;
 	}
 
-	public Location getOtherLocation(Location loc) {
+	Location getOtherLocation(Location loc) {
 		if (loc.equals(start)) {
 			return end;
 		} else if (loc.equals(end)) {
@@ -39,7 +50,7 @@ public class Link implements Comparable<Link> {
 		}
 	}
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 
@@ -59,42 +70,25 @@ public class Link implements Comparable<Link> {
 		return end;
 	}
 
-	public float getTravelTimeInHours() {
+	float getTravelTimeInHours() {
 		return travelTimeInHours;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + length;
-		result = prime * result
-				+ ((linkType == null) ? 0 : linkType.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+	String travelTimeInHoursMinutesToString() {
+		int hours = (int) Math.floor(getTravelTimeInHours());
+		int minutes = (int) (Math.floor(getTravelTimeInHours() * 60) - hours * 60);
+		int seconds = (int) (Math.floor(getTravelTimeInHours() * 3600) - hours
+				* 3600 - minutes * 60);
+		return hours + " hours, " + minutes + " minutes, " + seconds
+				+ " seconds.";
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Link other = (Link) obj;
-		if (length != other.length)
-			return false;
-		if (linkType != other.linkType)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
-
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object) comparison based on
+	 *      length, then linkType, then name
+	 */
 	@Override
 	public int compareTo(Link link) {
 		final int BEFORE = -1;
@@ -115,20 +109,19 @@ public class Link implements Comparable<Link> {
 		return this.name.compareTo(link.name);
 	}
 
-	public int compareTo(int length, LinkType linkType, String name) {
+	int compareTo(int length, LinkType linkType, String name) {
 		return compareTo(new Link(name, linkType, length, null, null));
 	}
 
-	public String toString(Location location) {
+	/**
+	 * @param location
+	 * @return a String with the info on the link.
+	 */
+	public String linkToString(Location location) {
 		return (linkType == null) ? "" : "  " + linkType.toString() + " "
 				+ name + ": " + length + " km to "
-				+ getOtherLocation(location).getName();
-	}
-
-	@Override
-	public String toString() {
-		return "Link [name=" + name + ", linkType=" + linkType + ", length="
-				+ length + ", start=" + start + ", end=" + end + "]";
+				+ getOtherLocation(location).getName() + ". Travel time: "
+				+ travelTimeInHoursMinutesToString();
 	}
 
 }

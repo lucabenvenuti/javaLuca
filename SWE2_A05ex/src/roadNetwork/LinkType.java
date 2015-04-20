@@ -2,6 +2,15 @@ package roadNetwork;
 
 import java.awt.Color;
 
+/**
+ * LinkType.java
+ *
+ * A {@link LinkType} is an enum for roads.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public enum LinkType {
 
 	AUTOBAHN(130), BUNDESSTRASSE(100), STRASSE(50);
@@ -12,16 +21,11 @@ public enum LinkType {
 		this.vel = vel;
 	}
 
-	public int getVel() {
+	int getVel() {
 		return vel;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
-	public Color getColor() {
+	Color getColor() {
 		if (this == AUTOBAHN) {
 			return Color.GREEN;
 		}
