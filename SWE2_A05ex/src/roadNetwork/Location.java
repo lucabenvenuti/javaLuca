@@ -47,23 +47,29 @@ public class Location implements Comparable<Location> {
 
 	// use streams
 	Link checkExistingLink(int length, LinkType linkType, String name) {
-		if (!getLinks().isEmpty()) {
+		
+		return getLinks().stream().filter(l -> l.compareTo(length, linkType, name) == 0).findFirst().orElse(null);
+		
+	/*	if (!getLinks().isEmpty()) {
 			for (Link l : getLinks()) {
 				if (l.compareTo(length, linkType, name) == 0)
 					return l;
 			}
 		}
-		return null;
+		return null;*/
 	}
 
 	// use streams
 	Collection<Location> getNeighbors() {
+		
+		return getLinks().stream().map(l -> getNeighborFor(l)).collect(Collectors.toList());
+		
 
-		Collection<Location> neighbors = new LinkedList<Location>();
+/*		Collection<Location> neighbors = new LinkedList<Location>();
 		for (Link l : getLinks()) {
 			neighbors.add(getNeighborFor(l));
 		}
-		return neighbors;
+		return neighbors;*/
 	}
 
 	Location getNeighborFor(Link lnk) {
@@ -73,15 +79,14 @@ public class Location implements Comparable<Location> {
 	// use streams
 	Link getLinkTo(Location neighbor) {
 
-		// getLinks().stream().filter(p -> p.getEnd().equals(neighbor) ||
-		// p.getStart().equals(neighbor)).
+		return getLinks().stream().filter(l -> l.getEnd().equals(neighbor) || l.getStart().equals(neighbor)).findFirst().orElse(null);
 
-		for (Link l : getLinks()) {
+/*		for (Link l : getLinks()) {
 			if (l.getEnd().equals(neighbor) || l.getStart().equals(neighbor))
 				return l;
 		}
 
-		return null;
+		return null;*/
 	}
 
 	public List<Link> getLinkedSorted(Comparator<Link> linkComparator) {

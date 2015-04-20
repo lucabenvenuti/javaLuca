@@ -48,13 +48,12 @@ public class First {
 		do {
 
 			System.out.println(current.toString());
-			List<Link> duplicate = current.getLinkedSorted(new LengthComp());
-			for (Link l : duplicate) {
-				System.out.println(l.toString(current));
-			}
-
-			// current.getLinkedSorted(new LengthComp()).stream().forEach(p ->
-			// System.out.println(p.toString(current)));
+//			List<Link> duplicate = current.getLinkedSorted(new LengthComp());
+//			for (Link l : duplicate) {
+//				System.out.println(l.toString(current));
+//			}
+			Location currentLocation = current;
+			current.getLinkedSorted(new LengthComp()).forEach(l -> System.out.println(l.toString(currentLocation) + "\t" + l.getTravelTimeInHours()));
 
 			System.out.println();
 			System.out.print("Next location: ");

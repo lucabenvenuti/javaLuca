@@ -10,7 +10,7 @@ public class Link implements Comparable<Link> {
 	private final int length;
 	private final Location start;
 	private final Location end;
-	private final int travelTimeInHours;
+	private final float travelTimeInHours;
 
 	Link(String name, LinkType linkType, int length, Location start,
 			Location end) {
@@ -19,17 +19,17 @@ public class Link implements Comparable<Link> {
 		this.length = length;
 		this.start = start;
 		this.end = end;
-		travelTimeInHours = length / linkType.getVel();
+		travelTimeInHours = (float) length / linkType.getVel();
 	}
 
-	List<Location> getLocations() {
+	public List<Location> getLocations() {
 		LinkedList<Location> locations = new LinkedList<Location>();
 		locations.add(start);
 		locations.add(end);
 		return locations;
 	}
 
-	Location getOtherLocation(Location loc) {
+	public Location getOtherLocation(Location loc) {
 		if (loc.equals(start)) {
 			return end;
 		} else if (loc.equals(end)) {
@@ -39,7 +39,7 @@ public class Link implements Comparable<Link> {
 		}
 	}
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -59,7 +59,7 @@ public class Link implements Comparable<Link> {
 		return end;
 	}
 
-	int getTravelTimeInHours() {
+	public float getTravelTimeInHours() {
 		return travelTimeInHours;
 	}
 
