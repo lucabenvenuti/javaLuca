@@ -4,13 +4,14 @@ import inout.In;
 import roadNetwork.LengthComp;
 import roadNetwork.LinkType;
 import roadNetwork.Location;
+import roadNetwork.LocationComp;
 import roadNetwork.TrafficNetwork;
 //import roadNetwork.TravelTimeInHoursComp;
 
 /**
  * First.java
  *
- * A {@link First} is a test class. It inserts new locations and links, and ask
+ * A {@link First} is a test class. It inserts new locations and links, and asks
  * the user where he/she would like to go next.
  * 
  * Software Development II, 2015SS JKU Linz
@@ -35,6 +36,7 @@ public class First {
 		trafficNetwork.addLocation(freistadt);
 		trafficNetwork.addLocation(steyermuhl);
 		trafficNetwork.addLocation(kirchdorf);
+		trafficNetwork.addLocation(verona);
 
 		trafficNetwork.addLink("A9", LinkType.AUTOBAHN, 52, linz, wels);
 		trafficNetwork.addLink("B310", LinkType.BUNDESSTRASSE, 45, linz,
@@ -46,7 +48,8 @@ public class First {
 		trafficNetwork
 				.addLink("A8", LinkType.AUTOBAHN, 45, kirchdorf, sattledt);
 		trafficNetwork.addLink("A22", LinkType.AUTOBAHN, 600, linz, verona);
-
+		
+		//linz.getNeighborsSorted(new LocationComp()).forEach(l -> System.out.println(l.toString()));
 		System.out
 				.println("====================================================");
 		Location current, init;
@@ -73,6 +76,9 @@ public class First {
 		System.out.println("You are back in " + init.getName());
 		System.out
 				.println("====================================================");
+		
 	}
+	
+
 
 }

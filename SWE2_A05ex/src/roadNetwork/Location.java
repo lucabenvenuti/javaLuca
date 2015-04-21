@@ -89,7 +89,7 @@ public class Location implements Comparable<Location> {
 				.collect(Collectors.toList());
 	}
 
-	List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
+	public List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
 		return getNeighbors().stream().sorted(locationComparator)
 				.collect(Collectors.toList());
 	}
@@ -127,6 +127,11 @@ public class Location implements Comparable<Location> {
 	public String locationToString() {
 		return "You are currently in " + name + " (" + x + "/" + y + ")" + "\n"
 				+ "From " + name + " you can go :";
+	}
+
+	@Override
+	public String toString() {
+		return "Location [x=" + x + ", y=" + y + ", name=" + name + "]";
 	}
 
 }
