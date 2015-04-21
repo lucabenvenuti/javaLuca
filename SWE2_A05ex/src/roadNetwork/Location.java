@@ -130,6 +130,10 @@ public class Location implements Comparable<Location> {
 				+ getY() + ")" + "\n" + "From " + getName() + " you can go :";
 	}
 
+	/** (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 * basic eclipse implementation of to string for test purposes
+	 */
 	@Override
 	public String toString() {
 		return "Location [x=" + getX() + ", y=" + getY() + ", name="
