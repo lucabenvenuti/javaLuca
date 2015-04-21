@@ -9,8 +9,9 @@ import java.util.stream.Collectors;
 /**
  * Location.java
  *
- * A {@link Location} is a class which implements a Comparable<Location> interface.
- * It contains the x, y position of the location, its name and the links in and out.
+ * A {@link Location} is a class which implements a Comparable<Location>
+ * interface. It contains the x, y position of the location, its name and the
+ * links in and out.
  * 
  * Software Development II, 2015SS JKU Linz
  * 
@@ -24,7 +25,6 @@ public class Location implements Comparable<Location> {
 	private Collection<Link> links = new TreeSet<Link>();
 
 	public Location(int x, int y, String name) {
-		super();
 		this.x = x;
 		this.y = y;
 		this.name = name;
@@ -89,7 +89,8 @@ public class Location implements Comparable<Location> {
 				.collect(Collectors.toList());
 	}
 
-	public List<Location> getNeighborsSorted(Comparator<Location> locationComparator) {
+	public List<Location> getNeighborsSorted(
+			Comparator<Location> locationComparator) {
 		return getNeighbors().stream().sorted(locationComparator)
 				.collect(Collectors.toList());
 	}
@@ -108,30 +109,31 @@ public class Location implements Comparable<Location> {
 
 		if (this == location)
 			return EQUAL;
-		if (this.x < location.x)
+		if (this.getX() < location.getX())
 			return BEFORE;
-		if (this.x > location.x)
+		if (this.getX() > location.getX())
 			return AFTER;
 
-		if (this.y < location.y)
+		if (this.getY() < location.getY())
 			return BEFORE;
-		if (this.y > location.y)
+		if (this.getY() > location.getY())
 			return AFTER;
 
-		return this.name.compareTo(location.name);
+		return this.getName().compareTo(location.getName());
 	}
 
 	/**
 	 * @return a String with the info on the location.
 	 */
 	public String locationToString() {
-		return "You are currently in " + name + " (" + x + "/" + y + ")" + "\n"
-				+ "From " + name + " you can go :";
+		return "You are currently in " + getName() + " (" + getX() + "/"
+				+ getY() + ")" + "\n" + "From " + getName() + " you can go :";
 	}
 
 	@Override
 	public String toString() {
-		return "Location [x=" + x + ", y=" + y + ", name=" + name + "]";
+		return "Location [x=" + getX() + ", y=" + getY() + ", name="
+				+ getName() + "]";
 	}
 
 }

@@ -5,8 +5,8 @@ import java.util.Comparator;
 /**
  * LengthComp.java
  *
- * A {@link LengthComp} is a class which implements a Comparator<Link> interface. It
- * compares two given links by their length.
+ * A {@link LengthComp} is a class which implements a Comparator<Link>
+ * interface. It compares two given links by their length.
  * 
  * Software Development II, 2015SS JKU Linz
  * 
@@ -14,9 +14,11 @@ import java.util.Comparator;
  */
 public class LengthComp implements Comparator<Link> {
 
-	/** (non-Javadoc)
+	/**
+	 * (non-Javadoc)
+	 * 
 	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-	 * compares two given links by their length.
+	 *      compares two given links by their length.
 	 */
 	@Override
 	public int compare(Link link1, Link link2) {

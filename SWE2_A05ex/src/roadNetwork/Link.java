@@ -7,7 +7,7 @@ import java.util.List;
  * Link.java
  *
  * A {@link Link} is a class which implements a Comparable<Link> interface. It
- * contains the name of the link, its type, length and travel time, and two
+ * contains the name of the link, its type, length and travel time, and the two
  * locations between which the link is.
  * 
  * Software Development II, 2015SS JKU Linz
@@ -97,16 +97,16 @@ public class Link implements Comparable<Link> {
 
 		if (this == link)
 			return EQUAL;
-		if (this.length < link.length)
+		if (this.getLength() < link.getLength())
 			return BEFORE;
-		if (this.length > link.length)
+		if (this.getLength() > link.getLength())
 			return AFTER;
 
-		int comparison = this.linkType.compareTo(link.linkType);
+		int comparison = this.getLinkType().compareTo(link.getLinkType());
 		if (comparison != EQUAL)
 			return comparison;
 
-		return this.name.compareTo(link.name);
+		return this.getName().compareTo(link.getName());
 	}
 
 	int compareTo(int length, LinkType linkType, String name) {
@@ -118,8 +118,8 @@ public class Link implements Comparable<Link> {
 	 * @return a String with the info on the link.
 	 */
 	public String linkToString(Location location) {
-		return (linkType == null) ? "" : "  " + linkType.toString() + " "
-				+ name + ": " + length + " km to "
+		return (getLinkType() == null) ? "" : "  " + getLinkType().toString()
+				+ " " + getName() + ": " + getLength() + " km to "
 				+ getOtherLocation(location).getName() + ". Travel time: "
 				+ travelTimeInHoursMinutesToString();
 	}

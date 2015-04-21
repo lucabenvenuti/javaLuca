@@ -5,7 +5,8 @@ import java.awt.Color;
 /**
  * LinkType.java
  *
- * A {@link LinkType} is an enum for roads.
+ * A {@link LinkType} is an enum for roads, provides speed and, by a dedicated
+ * method, the color on the map
  * 
  * Software Development II, 2015SS JKU Linz
  * 

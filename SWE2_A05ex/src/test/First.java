@@ -4,8 +4,9 @@ import inout.In;
 import roadNetwork.LengthComp;
 import roadNetwork.LinkType;
 import roadNetwork.Location;
-import roadNetwork.LocationComp;
+//import roadNetwork.LocationComp;
 import roadNetwork.TrafficNetwork;
+
 //import roadNetwork.TravelTimeInHoursComp;
 
 /**
@@ -48,8 +49,9 @@ public class First {
 		trafficNetwork
 				.addLink("A8", LinkType.AUTOBAHN, 45, kirchdorf, sattledt);
 		trafficNetwork.addLink("A22", LinkType.AUTOBAHN, 600, linz, verona);
-		
-		//linz.getNeighborsSorted(new LocationComp()).forEach(l -> System.out.println(l.toString()));
+
+		// linz.getNeighborsSorted(new LocationComp()).forEach(l ->
+		// System.out.println(l.toString()));
 		System.out
 				.println("====================================================");
 		Location current, init;
@@ -67,18 +69,17 @@ public class First {
 			// current.getLinkedSorted(new TravelTimeInHoursComp()).forEach(l ->
 			// System.out.println(l.linkToString(currentLocation)));
 			System.out.println();
-			System.out.print("Next location: ");
-			String newPlace = In.readWord();
-			current = trafficNetwork.getLocation(newPlace);
+			do {
+				System.out.print("Next location: ");
+				String newPlace = In.readWord();
+				current = trafficNetwork.getLocation(newPlace);
+			} while (current == null);
 			System.out.println();
 		} while (!current.equals(init));
 
 		System.out.println("You are back in " + init.getName());
 		System.out
 				.println("====================================================");
-		
+
 	}
-	
-
-
 }
