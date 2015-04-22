@@ -33,7 +33,7 @@ public class TrafficNetwork {
 
 	/**
 	 * @param name
-	 * @return the location with the given key name.
+	 * @return the location in the map with the given key name.
 	 */
 	public Location getLocation(String name) {
 		return networkMap.get(name);

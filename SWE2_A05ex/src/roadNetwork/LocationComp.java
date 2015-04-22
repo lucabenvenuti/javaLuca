@@ -16,7 +16,7 @@ public class LocationComp implements Comparator<Location> {
 
 	/** (non-Javadoc)
 	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-	 * compares two given locations by their length.
+	 * compares two given locations by their compareTo method.
 	 */
 	@Override
 	public int compare(Location location1, Location location2) {
