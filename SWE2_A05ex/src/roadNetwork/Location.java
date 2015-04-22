@@ -89,6 +89,10 @@ public class Location implements Comparable<Location> {
 				.collect(Collectors.toList());
 	}
 
+	/**
+	 * @param locationComparator
+	 * @return a List<Location> sorted by the given locationComparator
+	 */
 	public List<Location> getNeighborsSorted(
 			Comparator<Location> locationComparator) {
 		return getNeighbors().stream().sorted(locationComparator)
@@ -132,7 +136,7 @@ public class Location implements Comparable<Location> {
 
 	/** (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	 * basic eclipse implementation of to string for test purposes
+	 * basic eclipse implementation of toString() for test purposes
 	 */
 	@Override
 	public String toString() {
