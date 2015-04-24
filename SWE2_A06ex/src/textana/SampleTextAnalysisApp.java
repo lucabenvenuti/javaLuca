@@ -45,7 +45,7 @@ public class SampleTextAnalysisApp {
 
 		// b) find first line number which contains a particular text
 
-		Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
+		/*		Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
 				"file");
 		Out.println("\nLine number with file: \n" + lineNum.orElse(-1));
 
@@ -98,7 +98,7 @@ public class SampleTextAnalysisApp {
 		// e) grouping by length
 		Map<Integer, List<String>> byLength = groupByLength(fileName);
 		Out.println("\nGrouped by length: ");
-		printGroupings(byLength);
+		printGroupings(byLength);*/
 
 	}
 

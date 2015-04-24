@@ -15,13 +15,13 @@ public class TextAnalysisFns {
 	public static Optional<String> findLine(String fileName, String word)
 			throws IOException {
 		return java.nio.file.Files.lines(java.nio.file.Paths.get(fileName))
-				.filter(l -> l.matches(word)).findFirst();
+				.filter(l -> l.contains(word)).findFirst();
 	}
 
 	public static List<String> findLines(String fileName, String word)
 			throws IOException {
 		return java.nio.file.Files.lines(java.nio.file.Paths.get(fileName))
-				.filter(l -> l.matches(word)).collect(Collectors.toList());
+				.filter(l -> l.contains(word)).collect(Collectors.toList());
 	}
 
 	// (b) find all line numbers which contain a text and return them in a list
