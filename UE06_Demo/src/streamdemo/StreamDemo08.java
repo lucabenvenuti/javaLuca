@@ -26,11 +26,11 @@ public class StreamDemo08 {
 		
 		printGroupings(byInitials);
 
-		names = Stream.of("Ann", "Pat", "Mary", "Joe", "John");
+		names = Stream.of("Ann", "Pat", "Mary", "Joe", "John", "Pat");
 		
-		Map<Integer, List<String>> byLength = 
+		Map<String, List<String>> byLength = 
 				names.collect(
-					Collectors.groupingBy(e -> e.length())
+					Collectors.groupingBy(e -> e.toString())
 				);
 		
 		printGroupings(byLength);

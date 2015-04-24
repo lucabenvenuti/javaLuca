@@ -48,8 +48,10 @@ public class StreamDemo01 {
 
 		IntStream range0_99 = IntStream.range(0, 100);
 		
+		
+		
 		IntStream range0_100 = IntStream.rangeClosed(0, 100);
-		//range0_100.forEach(n -> System.out.println(n));
+		range0_100.forEach(n -> System.out.println(n));
 
 		// by generator functions -----------------------------------
 

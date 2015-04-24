@@ -5,6 +5,7 @@ import static textana.TextAnalysisFns.findLines;
 import static textana.TextAnalysisFns.setOfWords;
 import static textana.TextAnalysisFns.groupByFirstChar;
 import static textana.TextAnalysisFns.groupByLength;
+import inout.In;
 import inout.Out;
 
 import java.io.IOException;
@@ -20,10 +21,14 @@ public class SampleTextAnalysisApp {
 	public static void main(String[] args) throws IOException {
 
 		String fileName = "sampletext.txt";
+		System.out.println("choose function");
+		char a = In.readChar();
+switch(a){
 
+case 'a':{
 	// a) find first line which contains a particular text
 
-/*		Optional<String> line = findLine(fileName, "file");
+		Optional<String> line = findLine(fileName, "file");
 		Out.println("\nLine with file: \n" + line.orElse("NOT FOUND"));
 
 		line = findLine(fileName, "nix");
@@ -41,8 +46,9 @@ public class SampleTextAnalysisApp {
 		Out.println("\nLines with nix: ");
 		for (String l : lines) {
 			Out.println(l);
-		}*/
-
+		}}
+break;
+case 'b':{
 		// b) find first line number which contains a particular text
 
 			Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
@@ -65,15 +71,19 @@ public class SampleTextAnalysisApp {
 		for (int l : lineNums) {
 			Out.println(l);
 		}
-
+}
+break;
+case 'c':{
 		// c) all words
-/*
+
 		List<String> allWords = TextAnalysisFns.words(fileName);
 		Out.println("\nWords in text: ");
 		for (String w : allWords) {
 			Out.println(w);
-		}/*
-
+		}
+}
+break;
+case 'd':{
 		// d) word occur
 		Map<String, Integer> wordOcurrs = TextAnalysisFns
 				.wordOccurrences(fileName);
@@ -81,25 +91,33 @@ public class SampleTextAnalysisApp {
 		for (String w : wordOcurrs.keySet()) {
 			Out.println(w + ": " + wordOcurrs.get(w));
 		}
-
+}
+break;
+case 'e':{
 		// e) set of words
 
-/*		Set<String> words = setOfWords(fileName);
+		Set<String> words = setOfWords(fileName);
 		Out.println("\nSet of words: ");
 		for (String w : words) {
 			Out.println(w);
 		}
-
+}
+break;
+case 'f':{
 		// f) grouping alphabetically, upper and lower cases same
 		Map<Character, List<String>> byChar = groupByFirstChar(fileName);
 		Out.println("\nGrouped by first character: ");
 		printGroupings(byChar);
-
+}
+break;
+case 'g':{
 		// e) grouping by length
 		Map<Integer, List<String>> byLength = groupByLength(fileName);
 		Out.println("\nGrouped by length: ");
-		printGroupings(byLength);*/
-
+		printGroupings(byLength);
+}break;
+default : System.out.println("trotaculo");
+}
 	}
 
 	private static void printGroupings(Map<?, ?> groupings) {

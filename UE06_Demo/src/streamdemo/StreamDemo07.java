@@ -4,7 +4,9 @@ import inout.Out;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -15,7 +17,7 @@ public class StreamDemo07 {
 	// ==== collect ======================================================
 
 	public static void main(String[] args) {
-		Stream<String> names;
+		
 		// reduce with combiner and accumulator TBD
 
 		// --- collect --------------------------------------------------------
@@ -33,16 +35,24 @@ public class StreamDemo07 {
 		//   accumulator: adding elements
 		//   combiner: combining partially computed collections
 		// ==> amenable to parallel execution
-		names = Stream.of("Ann", "Pat", "Mary", "Joe");
+	/*	names = Stream.of("Ann", "Pat", "Mary", "Joe");
 		
 		List<Integer> listOfLengths = names.collect(
 										() -> new ArrayList<Integer>(), 
 										(l, e) -> l.add(e.length()), 
-										(l1, l2) -> l1.addAll(l2));
+										(l1, l2) -> l1.addAll(l2));*/
 		
-		names = Stream.of("Ann", "Pat", "Mary", "Joe");
+		final Stream<String> names = Stream.of("Ann", "Pat", "Mary", "Joe", "Pat");
 		
-		listOfLengths = names.mapToInt(e -> e.length()).collect(
+		Map<String, Integer> mapOfLengths = names.collect(
+				() -> new TreeMap<>(), 
+				//(l, e) -> l.put(e,words(fileName).filter(w -> w.contains(e)).count()),
+				(l, e) -> l.put(e, ),
+				(l1, l2) -> l1.putAll(l2));
+		
+		mapOfLengths.forEach((k,m) -> System.out.println(k.toString()+Integer.valueOf(m)));
+		
+		/*listOfLengths = names.mapToInt(e -> e.length()).collect(
 										ArrayList<Integer>::new,
 										ArrayList<Integer>::add,
 										ArrayList<Integer>::addAll);
@@ -105,7 +115,7 @@ public class StreamDemo07 {
 		Out.println("Set of initials: ");
 		for (String i : initialsSet) {
 			Out.print(i + " ");
-		}
+		}*/
 	}
 
 	private static String initial(String n) {
