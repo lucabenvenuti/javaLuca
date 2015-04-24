@@ -1,0 +1,86 @@
+Exercise Software Development 2 SS 2015
+Exercise 06: Streams
+Deadline: 30. 4. 2015 8:15
+Name: Matriculation:
+Computer science: ? G1 (Prähofer) ? G2 (Prähofer) ? G3 (Grimmer) ? G4 (Grimmer)
+WIN: ? G1 (Khalil) ? G2 (Kusel) ? G3 (Kusel)
+Action Items submit electronically submitted in writing corr. Number of points
+Exercise 6 24 Java program
+Edition of the tests
+? Java program
+Text Analysis (24 points)
+In this exercise, we want to use the new stream of Java 8 for the analysis of a text. The text should
+thereby using the method of lines class files from Package java.nio be read from a file:
+static Stream <String> lines (Path path) throws IOException
+For example, changing the text to a file named "sampletext.txt" read as follows:
+java.nio.Files.lines (java.nio.Files.path ("sampletext.txt"))
+That is, the method returns a stream lines <String> with the lines of the file. Based on this
+Stream to text analysis be implemented as follows.
+
+(A) lines in which a word occurs (4 points)
+Implement a method which determines the first row that contains the given text.
+static Optional<String> findLine(String filename, String text)
+and a method
+static List<String> findLines(String filename, String text)
+which determines all the rows that contain the given text.
+
+(B) Line numbers in which a word occurs (4 points)
+Analogous to the methods of (a) you now implement search methods
+static Optional<Integer> findLineNumber(String filename, String word)
+static List<Integer> findLineNumbers(String filename, String word)
+which determine the result instead of the line, the line numbers.
+
+Notes:
+? In order to achieve the object, you must number the rows. You should be in a mapping (map)
+make, each row is displayed in a pair of line and line number. You can use the
+Use the Pair class from the download.
+? To generate the line numbers, you must carry a counter when mapping. This would
+you normally do with a local variable. In lambda expressions, you can but local
+Do not use variable variables. Consider a workaround.
+
+(C) All words (4 points)
+Implement a method
+static List<String> words(String filename)
+which a list of all the words in the order they occur (also twin). Non-words, such as
+numbers should not be included in the result.
+Note: You should split the line into words and then unite with flatMap to a flat list.
+
+
+(D) the presence of the words (4 points)
+Implement a method
+static Map<String, Integer> wordOccurrences(String filename)
+which determines how often a word appears in the text, ie the results table shows for each word how often the
+Word in the text occurs. It is not to be considered case-sensitive.
+Note: Starting from the stream of all words in the text, you can combine the words with groupingBy
+and then count the occurrences.
+
+(E) the amount of all words (4 points)
+Implement a method
+static Map<Character, List<String>> groupByFirstChar(Path path)
+which determines the set of all words, ie, words come in the set only once. Wholesale and
+Sensitive should not make a difference. Furthermore, the set of words should be sorted.
+
+(F) grouping of words (4 points)
+Implement a method
+static Map <Character, List <String >> groupByFirstChar (Path path)
+and a method
+static Map<Character, List<String>> groupByLength(Path path)
+the group the words after the first letter or by length.
+
+Test the methods by which analyzes for the sample text from the provided file
+"Sampletext.txt" test.
+In the default program to find a test application SampleTextAnalysisApp that the methods of the
+Test file "sampletext.txt" applies. Test your program with the application. Then run a
+Test on a large text file, for example, to the file in the "faust_1.txt".
+General Information:
+? You should implement every method possible as a cascade of Stream methods include
+the following scheme
+ Files.lines (...)
+ .streamMethod1 (...)
+ .streamMethode2 (...)
+ , ...
+ , materializeMethod (...);
+while at the end of the chain is a method that materializes the result stream, ie, a concrete
+Result in the form of a Collection, Map or a scalar value created.
+? Each method should be implemented individually and not to existing methods
+fall back on.
