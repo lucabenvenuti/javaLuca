@@ -52,7 +52,7 @@ public class StreamDemo03 {
 		Stream<String> wordsSorted = noDuplicates.sorted();
 
 		// ----  reduce to string --------------------------------------------
-		
+		System.out.println("test");
 		// building string
 		String wordsStr = wordsSorted.reduce("", (a, b) -> a + " " + b);
 		Out.println("Words: " + wordsStr);
