@@ -1,0 +1,3295 @@
+
+Line with Geist: 
+Nach jenem stillen, ernsten Geisterreich,
+
+Line with Gretchen: 
+NOT FOUND
+
+Lines with Geist: 
+Nach jenem stillen, ernsten Geisterreich,
+Ich weisz, wie man den Geist des Volks versoehnt;
+Bei deren Anblick uns der Geist entflieht.
+
+Lines with Gretchen: 
+
+Line number with Geist: 
+36
+
+Line number with Gretchen: 
+-1
+
+Lines numbers with Geist: 
+36
+62
+81
+
+Lines numbers with Gretchen: 
+
+Words in text: 
+ab
+abendrot
+aber
+abgesponnen
+ach!
+ach!
+aeolsharfe
+akkorden
+alle
+alle
+alle
+alle
+allein
+allen
+allenfalls
+aller
+allerliebste
+allerschlimmste
+alles
+allgemeinen
+als
+als
+alte
+alten
+alter
+am
+am
+am
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+anblick
+andern
+angefochten
+anmut
+armen
+art
+auch
+auch
+auch
+auch
+auch
+auf
+auf
+auf
+auf
+auf
+auf
+auf
+auf
+auferbaut
+aufgeregt
+aufgeschlagen
+augen
+augenblick
+augenblicks
+augenbraunen
+aus
+aus
+aus
+aus
+aus
+aus
+ausgedacht
+baeckertueren
+bald
+bald
+bang
+bedaecht'ger
+bedarfst
+bedenkt
+bedeutung
+beduerfen
+befluegelt
+befriedigen
+behagen
+behaglich
+beherzt
+bei
+bei
+bei
+beiden
+beifall
+beigestanden
+beim
+bekannt
+bekannt
+bekannte
+belebend
+bereit
+beseht
+besiegt
+besitze
+besonders
+besonders
+beste
+beste
+beste
+besten
+bewegt
+bilder
+bildern
+billet
+bin
+bis
+blaetter
+bleibt
+bleibt
+bleibt
+blick
+blueht
+bluete
+blumen
+brach
+braucht
+braut
+brav
+braven
+breite
+bretter
+bretterhaus
+bricht
+bringen
+bringt
+bringt
+brot
+brust
+bude
+buehnen
+bunten
+bunten
+busen
+busen
+busen
+choeren
+da
+da
+da
+da
+da
+da
+da
+da
+daecht
+damen
+dankbar
+dann
+dann
+dann
+dann
+dann
+dargebracht
+darum
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+das
+dasz
+dasz
+dasz
+dasz
+deinen
+deinetwillen
+dem
+dem
+dem
+dem
+dem
+dem
+dem
+dem
+dem
+dem
+dem
+den
+den
+den
+den
+den
+den
+den
+den
+den
+den
+den
+den
+denen
+denkt
+denn
+denn
+denn
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+der
+deren
+des
+des
+des
+des
+des
+des
+des
+des
+deutschen
+deutschen
+dich
+dichter
+dichter
+dichter
+dichter
+dichter:
+dichter:
+dichter:
+dichter:
+dichterhoehe
+dichtrischen
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+die
+dies
+dies
+diesem
+diesen
+diesmal
+dir
+direktor
+direktor:
+direktor:
+direktor:
+direktor:
+dirne
+doch
+doch
+doch
+doch
+doch
+doch
+draengen
+draengt
+draengt
+dran!
+drang
+drechselt
+drehend
+dringt
+drum
+drum
+du
+duerfet
+dunst
+durch
+durch
+durch
+durch
+durcheinander
+durchgedrungen
+eben
+echte
+echten
+eh
+ehren
+ehrenkranz
+eilt
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+ein
+eine
+einem
+einem
+einen
+einen
+einer
+einer
+einklang
+einmal
+einst
+einzelne
+einzugreifen
+element
+empfindung
+endlich
+endlich
+enge
+engen
+entflieht
+entschlusz
+entsprungen
+entwoehntes
+entzueckt
+entzueckung
+er
+er
+er
+er
+er
+er
+er
+erbittern
+erfreuen
+erfreuet
+ergreift
+ernsten
+ernsten
+erpflegen
+erquickt
+erreichten
+erschaffen
+erscheint
+erscheint
+erschuettern
+erschuettert
+erst
+erstaunen
+erste
+erste
+ersten
+erster
+ertoent
+erwartet
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+etwas
+etwas
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+euch
+eure
+eurem
+eurem
+euren
+eurer
+ew'ge
+fadens
+faellt
+fahren
+fassen
+fast
+faszt
+faust:
+fehlt
+feinde
+felsenwaenden
+fern
+fertig
+fest
+festzuhalten
+feuer
+ficht
+findet
+flicht
+flieszend
+folgenden
+folgt
+freilich
+freude
+freund
+freund
+freundliche
+freundschaft
+freundschaft
+freventlich
+frisch
+froh
+froher
+frueh
+fruehlingsblueten
+fuehl
+fuehlet
+fuehlt
+fuehlt
+fuehlt
+fuehre
+fuellten
+fuenkchen
+fuer
+fuer
+fuer
+gaffen
+gage
+ganzen
+ganzes
+gar
+gebar
+geben
+geben!
+geboren
+gebraucht
+gebraut
+gebt
+gebt
+gebt
+gebt
+gedraenge
+gedraenge
+gedraengter
+gefaellig
+gegenwart
+geh
+geht
+geist
+geist
+geisterreich
+gelassen
+gelesen
+geliebten
+gelungen
+gemuete
+geneigt
+genug
+genug
+genug:
+gern
+gern
+gesaenge
+geschaefte
+geschehn
+geschehn!
+geschieht
+gesetzt
+gestalt
+gestalten
+getaeuscht
+getan
+getraenke
+gewalt
+gewalt
+gewaltig
+gewechselt
+gewesen:
+gewisser
+gewoehnt
+gewonnen
+gezeigt
+gib
+gib
+gib
+glaenzt
+gleich
+gleich
+gleich
+gleich
+gleich
+gleiche
+gleichgueltig
+glueck
+glueck
+glueck
+gluecken
+gluehn
+gnadenpforte
+goenner
+goethe
+goetter
+goetterhand
+greift
+grosz
+groszen
+gruenen
+gut
+guten
+guter
+haben
+haben
+habet
+habt
+haelse
+haengen
+halb
+halb
+halbverklungnen
+hals
+halten
+handwerk
+hasses
+hatte
+haus
+haus
+heft'gen
+hellem
+heran
+herauf
+herren
+herrlichen
+herrn
+herz
+herz
+herz
+herzen
+herzen
+herzen
+herzens
+heute
+heute!
+hilft
+hilft's
+himmel
+himmelsenge
+himmelslicht
+hin
+hin
+hin
+hinein
+hinweggeschwunden
+hinzuschweifen
+hoechste
+hoelle
+hoeren
+hoeren
+hoeren
+hofft
+hofft
+hohen
+holdem
+holden
+holz
+hungersnot
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ich
+ihm
+ihn
+ihn
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr
+ihr's
+ihren
+ihren
+im
+im
+im
+im
+im
+immer
+immer
+immer
+immer
+immer
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+indes
+ins
+ins
+interessant
+irren
+irren
+irrt
+irrtum
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist
+ist's
+ist's
+ist's
+jahre
+jeden
+jeder
+jeder
+jeder
+jeder
+jeder
+jeder
+jedermann
+jedes
+jedes
+jene
+jenem
+jenem
+jener
+jener
+jenes
+jetzt
+jetzt
+johann
+journale
+jugend
+jugend
+jugend
+jugendlich
+kalt
+kann
+kann
+kartenspiel
+kasse
+keinen
+kinder
+kindisch
+klage
+klarheit
+kleine
+klingt-
+knaben
+knecht!
+knospe
+koennt
+koennt
+kommandiert
+kommt
+kommt
+kommt
+kommt
+kommt
+komplimente
+kraefte
+kraft
+kraft
+kranz
+kreis
+kreis
+kuenstler
+labyrinthisch
+lachen
+laenge
+laengst
+laeszt
+laeszt
+laeszt
+landen
+langeweile
+lassen
+laszt
+laszt
+laszt
+laszt
+lauf
+laufes
+laune
+lauscht
+leben
+lebens
+lebt
+lebt
+lebt's
+leicht
+leicht
+leidenschaft
+leidenschaften
+lesen
+leute
+lieb
+lieb
+liebe
+liebe
+liebesabenteuer
+liebsten
+lied
+lied
+lied
+lieder
+lippe
+lispelnd
+lust
+lustige
+lustige
+lustige
+lustige
+machen
+machen
+macht
+macht
+macht
+macht
+machte
+maedchen
+mag
+mag
+mahle
+man
+man
+man
+man
+man
+man
+man
+man
+man
+man
+man
+man
+man
+man
+manche
+manchem
+mancher
+mann
+mann
+maschinen
+maskenfesten
+masse
+masse
+maxime
+mehr
+mehr
+mein
+mein
+mein
+mein
+mein
+meine
+meinem
+meinem
+melanchol'sche
+menge
+menge
+menge
+menge
+menge
+menge
+menschen
+menschen
+menschenleben!
+menschenrecht
+merk
+merkt
+mich
+mich
+mich
+mich
+mich
+mich
+mild
+minder
+mir
+mir
+mir
+mir
+mir
+mir
+mir
+mir
+mir
+mir
+miszraten
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mit
+mitwelt
+mitzuteilen
+moechten
+moegliche
+moegt
+morgen
+musen
+musterhaft
+musz
+musz
+musz
+mut
+nach
+nach
+nach
+nach
+nach
+nach
+nach
+nach
+nacht
+nachwelt
+nachwelt
+nachwelt
+naechte
+naehe!
+nahrung
+naht
+naht
+narrheit
+natur
+natur
+nebel
+nebel
+nein
+nennt
+neu
+neu
+neu
+neugier
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nicht
+nichts
+nichts
+nichts
+nie
+nie
+nie
+noch
+noch
+noch
+noch
+noch
+noch
+noch
+not
+nuetzliches
+nun
+nun
+nun
+nun
+nur
+nur
+nur
+nur
+nur
+nur
+nur
+nur
+nur
+nur
+nur
+o
+o
+oder
+offenbart
+offenbarung
+oft
+oft
+ohne
+ohne
+olymp
+packt
+person:
+person:
+person:
+person:
+pfade
+pflicht
+pfosten
+pfuscherei
+phantasie
+plagt
+poesie
+poeten
+probiert
+prospekte
+publikum
+putz
+quell
+ragout
+recht
+recht
+recht
+reden
+reden
+regt
+reichlich
+reihe
+reine
+rhythmisch
+roh
+roman
+ruft
+sag
+sage
+sagt
+saitenspiel
+sammelt
+sang
+satt
+saubern
+sauget
+schatten
+schauer
+schaun
+schauspiel
+schauspiel
+schein
+schlachten
+schlaegt
+schlecht
+schlingt
+schluerfen
+schmausend
+schmerz
+schmerz
+schmerzen
+schmerzenvolle
+schnelle
+schnellen
+schoene
+schoenen
+schoenen
+schoenste
+schoepfung
+schon
+schon
+schon
+schon
+schonet
+schopfe
+schrecklich
+schreibt!
+schreitet
+schritt
+schuechtern
+schuettet
+schwankende
+schwebet
+schwer
+schwer--
+schwung
+seelen
+segen
+seh
+sehen
+sehn
+sehn!
+sehnen
+sehr
+seht
+sei
+sei!
+seid
+seid
+sein
+sein
+selbst
+selbst
+selbst
+selbstgesteckten
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich
+sich's
+sichert
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sie
+sieht
+sind
+sind
+sind
+sind
+sind
+sind
+sinne
+sitzen
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+sogleich
+solch
+solchem
+solcher
+solches
+soll
+soll
+soll
+sollte
+sollte
+sonst
+spalten
+spasz
+spiel
+spielen
+spindel
+sprich
+spricht
+stark
+staunend
+steigen
+steigt
+sterne
+stillen
+stillen
+stimmung
+stoeszen
+strenge
+strom
+strudel
+stueck
+stuecken!
+stunden
+sturm
+such
+sucht
+sucht
+taeler
+tag
+tag
+tage
+tage
+taten
+tausend
+teil
+teilt
+theater
+theatherdichter
+tiefe
+tiefer
+tier
+toenen
+toren
+traegt
+traene
+traenen
+traeumet
+tragoedie
+trank
+treibt
+treibt
+treibt
+triebe
+trueben
+truebsal
+trug
+tu
+uebertischten
+um
+um
+um
+um
+um
+um
+umwittert
+unbedeutend
+unbekannten
+unbestimmten
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+und
+ungebaendigt
+ungekraenkt:
+unharmon'sche
+uns
+uns
+uns
+uns
+uns
+uns
+unsern
+unsrer
+unsrer
+unsres
+unternehmung
+ununterbrochen
+unverloren
+unverzueglich
+verdiensten
+verdrieszlich
+verehren
+vereinet
+verflochten
+vergoennt
+verhuelle
+verhuellten
+verirren
+verklungen
+verlegen
+vernunft
+verpassen
+verscherzen!
+verschiedne
+verschlingt
+verschwand
+verschwenden
+versieht
+versoehnt
+versprach
+verstand
+versuch
+vertrinket
+verwirren
+viel
+viel
+viel
+viel
+vielen
+vieles
+vieles
+vielgeliebter
+vielleicht
+vieren
+voegeln
+volkes
+volks
+volle
+vollendeter
+volles
+vom
+vom
+vom
+vom
+vom
+vom
+vom
+von
+von
+von
+von
+von
+von
+von
+vor
+vor
+vor
+vor
+vorgelallt
+vorgelegt
+vorspiel
+vorwurf
+waechst
+wahn
+wahre
+wahrheit
+wahrheit
+walten
+wandelt
+war
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+was
+wasser
+wehen
+weich
+weiches
+weihe
+weil
+weil
+weinen
+weisz
+weisz
+weiten
+weiter
+welt
+welt
+welt
+welt
+welt
+wen
+wenig
+wenig
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wenn
+wer
+wer
+wer
+wer
+wer
+wer
+wer
+wer
+wer
+wer
+werden
+werdender
+werk
+werkzeug
+wesen
+wider
+widerklang
+wie
+wie
+wie
+wie
+wie
+wie
+wie
+wie
+wie
+wie
+wieder
+wieder
+wiederholt
+wiederholten
+wilde
+wilden
+will
+will
+will
+willen
+winket
+wir
+wir
+wir
+wir's
+wirbeltanz
+wird
+wird
+wird
+wird
+wird
+wird
+wird
+wird
+wird
+wird
+wird
+wirken
+wirket
+wirklichkeiten
+wirkt
+wiszt
+wo
+wo
+wo
+wo
+wodurch
+wodurch
+wogende
+wohl
+wohl
+wohl
+wohl!
+wolfgang
+wollen
+wollte
+worte
+wuenscht
+wuenschte
+wueten
+wunder
+wunder
+zaertliche
+zauberhauch
+zaudernden
+zeigt
+zeiten
+zerpfluecken
+zerstoben
+zerstreuet
+zerstreut
+zieht
+ziel
+ziele
+ziele
+zieme!
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu!
+zueignung
+zufaellig
+zufrieden
+zug
+zum
+zum
+zum
+zur
+zur
+zur
+zurueck!
+zuruecke
+zwaengt
+zwar
+zweck
+zwingen
+zwingt
+
+Words occurrences in text: 
+ab: 1
+abendrot: 1
+aber: 1
+abgesponnen: 1
+ach!: 2
+aeolsharfe: 1
+akkorden: 1
+alle: 4
+allein: 1
+allen: 1
+allenfalls: 1
+aller: 1
+allerliebste: 1
+allerschlimmste: 1
+alles: 1
+allgemeinen: 1
+als: 2
+alte: 1
+alten: 1
+alter: 1
+am: 3
+an: 10
+anblick: 1
+andern: 1
+angefochten: 1
+anmut: 1
+armen: 1
+art: 1
+auch: 5
+auf: 8
+auferbaut: 1
+aufgeregt: 1
+aufgeschlagen: 1
+augen: 1
+augenblick: 1
+augenblicks: 1
+augenbraunen: 1
+aus: 6
+ausgedacht: 1
+baeckertueren: 1
+bald: 2
+bang: 1
+bedaecht'ger: 1
+bedarfst: 1
+bedenkt: 1
+bedeutung: 1
+beduerfen: 1
+befluegelt: 1
+befriedigen: 1
+behagen: 1
+behaglich: 1
+beherzt: 1
+bei: 3
+beiden: 1
+beifall: 1
+beigestanden: 1
+beim: 1
+bekannt: 2
+bekannte: 1
+belebend: 1
+bereit: 1
+beseht: 1
+besiegt: 1
+besitze: 1
+besonders: 2
+beste: 3
+besten: 1
+bewegt: 1
+bilder: 1
+bildern: 1
+billet: 1
+bin: 1
+bis: 1
+blaetter: 1
+bleibt: 3
+blick: 1
+blueht: 1
+bluete: 1
+blumen: 1
+brach: 1
+braucht: 1
+braut: 1
+brav: 1
+braven: 1
+breite: 1
+bretter: 1
+bretterhaus: 1
+bricht: 1
+bringen: 1
+bringt: 2
+brot: 1
+brust: 1
+bude: 1
+buehnen: 1
+bunten: 2
+busen: 3
+choeren: 1
+da: 8
+daecht: 1
+damen: 1
+dankbar: 1
+dann: 5
+dargebracht: 1
+darum: 1
+das: 21
+dasz: 4
+deinen: 1
+deinetwillen: 1
+dem: 11
+den: 12
+denen: 1
+denkt: 1
+denn: 3
+der: 34
+deren: 1
+des: 8
+deutschen: 2
+dich: 1
+dichter: 4
+dichter:: 4
+dichterhoehe: 1
+dichtrischen: 1
+die: 41
+dies: 2
+diesem: 1
+diesen: 1
+diesmal: 1
+dir: 1
+direktor: 1
+direktor:: 4
+dirne: 1
+doch: 6
+draengen: 1
+draengt: 2
+dran!: 1
+drang: 1
+drechselt: 1
+drehend: 1
+dringt: 1
+drum: 2
+du: 1
+duerfet: 1
+dunst: 1
+durch: 4
+durcheinander: 1
+durchgedrungen: 1
+eben: 1
+echte: 1
+echten: 1
+eh: 1
+ehren: 1
+ehrenkranz: 1
+eilt: 1
+ein: 23
+eine: 1
+einem: 2
+einen: 2
+einer: 2
+einklang: 1
+einmal: 1
+einst: 1
+einzelne: 1
+einzugreifen: 1
+element: 1
+empfindung: 1
+endlich: 2
+enge: 1
+engen: 1
+entflieht: 1
+entschlusz: 1
+entsprungen: 1
+entwoehntes: 1
+entzueckt: 1
+entzueckung: 1
+er: 7
+erbittern: 1
+erfreuen: 1
+erfreuet: 1
+ergreift: 1
+ernsten: 2
+erpflegen: 1
+erquickt: 1
+erreichten: 1
+erschaffen: 1
+erscheint: 2
+erschuettern: 1
+erschuettert: 1
+erst: 1
+erstaunen: 1
+erste: 2
+ersten: 1
+erster: 1
+ertoent: 1
+erwartet: 1
+es: 19
+etwas: 2
+euch: 16
+eure: 1
+eurem: 2
+euren: 1
+eurer: 1
+ew'ge: 1
+fadens: 1
+faellt: 1
+fahren: 1
+fassen: 1
+fast: 1
+faszt: 1
+faust:: 1
+fehlt: 1
+feinde: 1
+felsenwaenden: 1
+fern: 1
+fertig: 1
+fest: 1
+festzuhalten: 1
+feuer: 1
+ficht: 1
+findet: 1
+flicht: 1
+flieszend: 1
+folgenden: 1
+folgt: 1
+freilich: 1
+freude: 1
+freund: 2
+freundliche: 1
+freundschaft: 2
+freventlich: 1
+frisch: 1
+froh: 1
+froher: 1
+frueh: 1
+fruehlingsblueten: 1
+fuehl: 1
+fuehlet: 1
+fuehlt: 3
+fuehre: 1
+fuellten: 1
+fuenkchen: 1
+fuer: 3
+gaffen: 1
+gage: 1
+ganzen: 1
+ganzes: 1
+gar: 1
+gebar: 1
+geben: 1
+geben!: 1
+geboren: 1
+gebraucht: 1
+gebraut: 1
+gebt: 4
+gedraenge: 2
+gedraengter: 1
+gefaellig: 1
+gegenwart: 1
+geh: 1
+geht: 1
+geist: 2
+geisterreich: 1
+gelassen: 1
+gelesen: 1
+geliebten: 1
+gelungen: 1
+gemuete: 1
+geneigt: 1
+genug: 2
+genug:: 1
+gern: 2
+gesaenge: 1
+geschaefte: 1
+geschehn: 1
+geschehn!: 1
+geschieht: 1
+gesetzt: 1
+gestalt: 1
+gestalten: 1
+getaeuscht: 1
+getan: 1
+getraenke: 1
+gewalt: 2
+gewaltig: 1
+gewechselt: 1
+gewesen:: 1
+gewisser: 1
+gewoehnt: 1
+gewonnen: 1
+gezeigt: 1
+gib: 3
+glaenzt: 1
+gleich: 5
+gleiche: 1
+gleichgueltig: 1
+glueck: 3
+gluecken: 1
+gluehn: 1
+gnadenpforte: 1
+goenner: 1
+goethe: 1
+goetter: 1
+goetterhand: 1
+greift: 1
+grosz: 1
+groszen: 1
+gruenen: 1
+gut: 1
+guten: 1
+guter: 1
+haben: 2
+habet: 1
+habt: 1
+haelse: 1
+haengen: 1
+halb: 2
+halbverklungnen: 1
+hals: 1
+halten: 1
+handwerk: 1
+hasses: 1
+hatte: 1
+haus: 2
+heft'gen: 1
+hellem: 1
+heran: 1
+herauf: 1
+herren: 1
+herrlichen: 1
+herrn: 1
+herz: 3
+herzen: 3
+herzens: 1
+heute: 1
+heute!: 1
+hilft: 1
+hilft's: 1
+himmel: 1
+himmelsenge: 1
+himmelslicht: 1
+hin: 3
+hinein: 1
+hinweggeschwunden: 1
+hinzuschweifen: 1
+hoechste: 1
+hoelle: 1
+hoeren: 3
+hofft: 2
+hohen: 1
+holdem: 1
+holden: 1
+holz: 1
+hungersnot: 1
+ich: 17
+ihm: 1
+ihn: 2
+ihr: 24
+ihr's: 1
+ihren: 2
+im: 5
+immer: 5
+in: 15
+indes: 1
+ins: 2
+interessant: 1
+irren: 2
+irrt: 1
+irrtum: 1
+ist: 13
+ist's: 3
+jahre: 1
+jeden: 1
+jeder: 6
+jedermann: 1
+jedes: 2
+jene: 1
+jenem: 2
+jener: 2
+jenes: 1
+jetzt: 2
+johann: 1
+journale: 1
+jugend: 3
+jugendlich: 1
+kalt: 1
+kann: 2
+kartenspiel: 1
+kasse: 1
+keinen: 1
+kinder: 1
+kindisch: 1
+klage: 1
+klarheit: 1
+kleine: 1
+klingt-: 1
+knaben: 1
+knecht!: 1
+knospe: 1
+koennt: 2
+kommandiert: 1
+kommt: 5
+komplimente: 1
+kraefte: 1
+kraft: 2
+kranz: 1
+kreis: 2
+kuenstler: 1
+labyrinthisch: 1
+lachen: 1
+laenge: 1
+laengst: 1
+laeszt: 3
+landen: 1
+langeweile: 1
+lassen: 1
+laszt: 4
+lauf: 1
+laufes: 1
+laune: 1
+lauscht: 1
+leben: 1
+lebens: 1
+lebt: 2
+lebt's: 1
+leicht: 2
+leidenschaft: 1
+leidenschaften: 1
+lesen: 1
+leute: 1
+lieb: 2
+liebe: 2
+liebesabenteuer: 1
+liebsten: 1
+lied: 3
+lieder: 1
+lippe: 1
+lispelnd: 1
+lust: 1
+lustige: 4
+machen: 2
+macht: 4
+machte: 1
+maedchen: 1
+mag: 2
+mahle: 1
+man: 14
+manche: 1
+manchem: 1
+mancher: 1
+mann: 2
+maschinen: 1
+maskenfesten: 1
+masse: 2
+maxime: 1
+mehr: 2
+mein: 5
+meine: 1
+meinem: 2
+melanchol'sche: 1
+menge: 6
+menschen: 2
+menschenleben!: 1
+menschenrecht: 1
+merk: 1
+merkt: 1
+mich: 6
+mild: 1
+minder: 1
+mir: 10
+miszraten: 1
+mit: 13
+mitwelt: 1
+mitzuteilen: 1
+moechten: 1
+moegliche: 1
+moegt: 1
+morgen: 1
+musen: 1
+musterhaft: 1
+musz: 3
+mut: 1
+nach: 8
+nacht: 1
+nachwelt: 3
+naechte: 1
+naehe!: 1
+nahrung: 1
+naht: 2
+narrheit: 1
+natur: 2
+nebel: 2
+nein: 1
+nennt: 1
+neu: 3
+neugier: 1
+nicht: 16
+nichts: 3
+nie: 3
+noch: 7
+not: 1
+nuetzliches: 1
+nun: 4
+nur: 11
+o: 2
+oder: 1
+offenbart: 1
+offenbarung: 1
+oft: 2
+ohne: 2
+olymp: 1
+packt: 1
+person:: 4
+pfade: 1
+pflicht: 1
+pfosten: 1
+pfuscherei: 1
+phantasie: 1
+plagt: 1
+poesie: 1
+poeten: 1
+probiert: 1
+prospekte: 1
+publikum: 1
+putz: 1
+quell: 1
+ragout: 1
+recht: 3
+reden: 2
+regt: 1
+reichlich: 1
+reihe: 1
+reine: 1
+rhythmisch: 1
+roh: 1
+roman: 1
+ruft: 1
+sag: 1
+sage: 1
+sagt: 1
+saitenspiel: 1
+sammelt: 1
+sang: 1
+satt: 1
+saubern: 1
+sauget: 1
+schatten: 1
+schauer: 1
+schaun: 1
+schauspiel: 2
+schein: 1
+schlachten: 1
+schlaegt: 1
+schlecht: 1
+schlingt: 1
+schluerfen: 1
+schmausend: 1
+schmerz: 2
+schmerzen: 1
+schmerzenvolle: 1
+schnelle: 1
+schnellen: 1
+schoene: 1
+schoenen: 2
+schoenste: 1
+schoepfung: 1
+schon: 4
+schonet: 1
+schopfe: 1
+schrecklich: 1
+schreibt!: 1
+schreitet: 1
+schritt: 1
+schuechtern: 1
+schuettet: 1
+schwankende: 1
+schwebet: 1
+schwer: 1
+schwer--: 1
+schwung: 1
+seelen: 1
+segen: 1
+seh: 1
+sehen: 1
+sehn: 1
+sehn!: 1
+sehnen: 1
+sehr: 1
+seht: 1
+sei: 1
+sei!: 1
+seid: 2
+sein: 2
+selbst: 3
+selbstgesteckten: 1
+sich: 21
+sich's: 1
+sichert: 1
+sie: 14
+sieht: 1
+sind: 6
+sinne: 1
+sitzen: 1
+so: 14
+sogleich: 1
+solch: 1
+solchem: 1
+solcher: 1
+solches: 1
+soll: 3
+sollte: 2
+sonst: 1
+spalten: 1
+spasz: 1
+spiel: 1
+spielen: 1
+spindel: 1
+sprich: 1
+spricht: 1
+stark: 1
+staunend: 1
+steigen: 1
+steigt: 1
+sterne: 1
+stillen: 2
+stimmung: 1
+stoeszen: 1
+strenge: 1
+strom: 1
+strudel: 1
+stueck: 1
+stuecken!: 1
+stunden: 1
+sturm: 1
+such: 1
+sucht: 2
+taeler: 1
+tag: 2
+tage: 2
+taten: 1
+tausend: 1
+teil: 1
+teilt: 1
+theater: 1
+theatherdichter: 1
+tiefe: 1
+tiefer: 1
+tier: 1
+toenen: 1
+toren: 1
+traegt: 1
+traene: 1
+traenen: 1
+traeumet: 1
+tragoedie: 1
+trank: 1
+treibt: 3
+triebe: 1
+trueben: 1
+truebsal: 1
+trug: 1
+tu: 1
+uebertischten: 1
+um: 6
+umwittert: 1
+unbedeutend: 1
+unbekannten: 1
+unbestimmten: 1
+und: 49
+ungebaendigt: 1
+ungekraenkt:: 1
+unharmon'sche: 1
+uns: 6
+unsern: 1
+unsrer: 2
+unsres: 1
+unternehmung: 1
+ununterbrochen: 1
+unverloren: 1
+unverzueglich: 1
+verdiensten: 1
+verdrieszlich: 1
+verehren: 1
+vereinet: 1
+verflochten: 1
+vergoennt: 1
+verhuelle: 1
+verhuellten: 1
+verirren: 1
+verklungen: 1
+verlegen: 1
+vernunft: 1
+verpassen: 1
+verscherzen!: 1
+verschiedne: 1
+verschlingt: 1
+verschwand: 1
+verschwenden: 1
+versieht: 1
+versoehnt: 1
+versprach: 1
+verstand: 1
+versuch: 1
+vertrinket: 1
+verwirren: 1
+viel: 4
+vielen: 1
+vieles: 2
+vielgeliebter: 1
+vielleicht: 1
+vieren: 1
+voegeln: 1
+volkes: 1
+volks: 1
+volle: 1
+vollendeter: 1
+volles: 1
+vom: 7
+von: 7
+vor: 4
+vorgelallt: 1
+vorgelegt: 1
+vorspiel: 1
+vorwurf: 1
+waechst: 1
+wahn: 1
+wahre: 1
+wahrheit: 2
+walten: 1
+wandelt: 1
+war: 1
+was: 20
+wasser: 1
+wehen: 1
+weich: 1
+weiches: 1
+weihe: 1
+weil: 2
+weinen: 1
+weisz: 2
+weiten: 1
+weiter: 1
+welt: 5
+wen: 1
+wenig: 2
+wenn: 12
+wer: 10
+werden: 1
+werdender: 1
+werk: 1
+werkzeug: 1
+wesen: 1
+wider: 1
+widerklang: 1
+wie: 10
+wieder: 2
+wiederholt: 1
+wiederholten: 1
+wilde: 1
+wilden: 1
+will: 3
+willen: 1
+winket: 1
+wir: 3
+wir's: 1
+wirbeltanz: 1
+wird: 11
+wirken: 1
+wirket: 1
+wirklichkeiten: 1
+wirkt: 1
+wiszt: 1
+wo: 4
+wodurch: 2
+wogende: 1
+wohl: 3
+wohl!: 1
+wolfgang: 1
+wollen: 1
+wollte: 1
+worte: 1
+wuenscht: 1
+wuenschte: 1
+wueten: 1
+wunder: 2
+zaertliche: 1
+zauberhauch: 1
+zaudernden: 1
+zeigt: 1
+zeiten: 1
+zerpfluecken: 1
+zerstoben: 1
+zerstreuet: 1
+zerstreut: 1
+zieht: 1
+ziel: 1
+ziele: 2
+zieme!: 1
+zu: 15
+zu!: 1
+zueignung: 1
+zufaellig: 1
+zufrieden: 1
+zug: 1
+zum: 3
+zur: 3
+zurueck!: 1
+zuruecke: 1
+zwaengt: 1
+zwar: 1
+zweck: 1
+zwingen: 1
+zwingt: 1
+
+Set of words: 
+taten
+jene
+schrecklich
+ernsten
+person:
+daecht
+entzueckt
+johann
+zwar
+vieren
+schoenen
+halb
+lassen
+buehnen
+schwankende
+direktor
+eurer
+eurem
+euren
+laufes
+toenen
+kraft
+lispelnd
+herz
+ragout
+bude
+verlegen
+faellt
+weil
+zu!
+lebens
+unverloren
+zieht
+ein
+gewonnen
+herzen
+maxime
+einzugreifen
+vereinet
+freundliche
+wiszt
+besonders
+o
+hals
+bildern
+fast
+ach!
+verschwand
+jenem
+jenes
+jener
+zufaellig
+deinetwillen
+ist
+unbekannten
+zug
+versprach
+zum
+zieme!
+gebraucht
+zur
+ew'ge
+unbestimmten
+goetterhand
+hofft
+jedermann
+waechst
+bedarfst
+sang
+wird
+pfade
+unternehmung
+schmerzen
+keinen
+himmelsenge
+menschenrecht
+wueten
+gebraut
+zerstoben
+phantasie
+wirklichkeiten
+von
+tragoedie
+vom
+vor
+gluecken
+ehren
+welt
+voegeln
+kommt
+machen
+verwirren
+deinen
+mitzuteilen
+wilden
+taeler
+weiches
+moegt
+eilt
+choeren
+stunden
+schlachten
+bringen
+seelen
+folgt
+besitze
+fuehl
+nein
+teilt
+pflicht
+wenn
+probiert
+segen
+journale
+kranz
+schritt
+menschen
+verhuellten
+gut
+hohen
+laune
+naehe!
+freventlich
+beduerfen
+nebel
+zeiten
+bedaecht'ger
+baeckertueren
+frisch
+flicht
+jugend
+walten
+verschlingt
+ohne
+wahn
+haus
+nach
+gedraengter
+oder
+anblick
+steigen
+eine
+abendrot
+satt
+verschwenden
+freilich
+gebt
+geboren
+verdiensten
+sucht
+zuruecke
+fuer
+guten
+vergoennt
+draengen
+guter
+jetzt
+damen
+faszt
+gegenwart
+bereit
+neu
+poesie
+erschuettert
+widerklang
+maskenfesten
+als
+schwer
+erschuettern
+werk
+freund
+bekannt
+schlecht
+saubern
+schauer
+schluerfen
+himmel
+weisz
+vernunft
+endlich
+roh
+naht
+glaenzt
+gleichgueltig
+erwartet
+tier
+bilder
+spiel
+masse
+fassen
+gedraenge
+theatherdichter
+sturm
+greift
+meinem
+hungersnot
+ziele
+blumen
+braut
+einst
+lippe
+vielgeliebter
+gestalten
+versieht
+unharmon'sche
+aufgeschlagen
+sonst
+landen
+ganzen
+sinne
+nie
+fuehlet
+gestalt
+gezeigt
+durcheinander
+schuettet
+komplimente
+ganzes
+bleibt
+doch
+element
+wuenschte
+sprich
+hoelle
+augenbraunen
+weiten
+weiter
+gewalt
+musz
+zaertliche
+zurueck!
+bricht
+worte
+zufrieden
+handwerk
+hilft's
+regt
+selbst
+zerpfluecken
+wieder
+geht
+holdem
+art
+diesmal
+knospe
+flieszend
+feinde
+holden
+such
+sichert
+schuechtern
+behaglich
+erbittern
+heute!
+getraenke
+kleine
+manche
+schwebet
+reden
+olymp
+leicht
+beste
+zerstreut
+pfosten
+einmal
+ungekraenkt:
+viel
+auf
+leidenschaften
+blaetter
+aus
+ausgedacht
+alle
+lieder
+sehn!
+not
+unbedeutend
+stark
+toren
+brust
+einklang
+stuecken!
+hinweggeschwunden
+miszraten
+liebe
+was
+war
+tiefer
+herrlichen
+wahrheit
+merkt
+zeigt
+hinein
+nachwelt
+lauf
+wohl!
+klarheit
+reichlich
+stillen
+gage
+augen
+lachen
+versoehnt
+menge
+treibt
+akkorden
+drechselt
+weihe
+staunend
+nicht
+irren
+erreichten
+mich
+geist
+behagen
+truebsal
+volle
+getaeuscht
+haelse
+umwittert
+traenen
+wen
+teil
+zwingt
+wer
+enge
+menschenleben!
+befriedigen
+hoechste
+koennt
+beifall
+schreibt!
+bretterhaus
+dringt
+solch
+gesetzt
+interessant
+musen
+minder
+blueht
+dich
+nun
+gewechselt
+nur
+hin
+blick
+kreis
+erste
+das
+naechte
+froher
+durch
+pfuscherei
+nennt
+verstand
+schlaegt
+bekannte
+schnellen
+gern
+hatte
+grosz
+nahrung
+auch
+entsprungen
+weich
+drehend
+verehren
+erscheint
+spielen
+spalten
+allerschlimmste
+engen
+gewaltig
+schatten
+volks
+sterne
+immer
+fertig
+volles
+wie
+breite
+sag
+getan
+dies
+mahle
+erst
+wir
+gemuete
+traegt
+heran
+laenge
+geisterreich
+alte
+ertoent
+kuenstler
+himmelslicht
+lebt's
+dichtrischen
+heft'gen
+gaffen
+den
+dem
+spindel
+der
+gluehn
+des
+sogleich
+gelassen
+auferbaut
+ab
+findet
+werkzeug
+mild
+nacht
+kommandiert
+zwingen
+verirren
+am
+an
+ziel
+schopfe
+labyrinthisch
+trank
+genug
+tage
+traene
+herauf
+gewisser
+wasser
+zwaengt
+sei
+seh
+hoeren
+wollen
+schoenste
+wandelt
+gefaellig
+wodurch
+aufgeregt
+schoene
+stoeszen
+wesen
+schmausend
+hilft
+nichts
+sehnen
+aeolsharfe
+da
+unverzueglich
+haengen
+die
+hasses
+bei
+allenfalls
+beim
+dir
+unsres
+besten
+weinen
+mein
+unsrer
+bringt
+mehr
+du
+besiegt
+sieht
+versuch
+beseht
+allein
+aber
+eh
+dunst
+brav
+irrtum
+schonet
+er
+es
+vorgelallt
+traeumet
+vorspiel
+glueck
+macht
+steigt
+gnadenpforte
+knaben
+prospekte
+gesaenge
+ficht
+moechten
+denen
+beherzt
+sie
+entschlusz
+schein
+geneigt
+goethe
+schauspiel
+mitwelt
+holz
+soll
+und
+schlingt
+uebertischten
+freundschaft
+uns
+geschieht
+bin
+bis
+sich
+geliebten
+gewoehnt
+haben
+zaudernden
+irrt
+gleiche
+habet
+im
+belebend
+in
+direktor:
+bluete
+indes
+gelesen
+euch
+beiden
+wider
+darum
+strom
+natur
+trueben
+schreitet
+groszen
+rhythmisch
+mag
+man
+meine
+kalt
+schon
+wunder
+verschiedne
+oft
+schoepfung
+poeten
+spasz
+vollendeter
+schwer--
+fuellten
+armen
+braucht
+allgemeinen
+sich's
+lust
+alten
+alter
+vertrinket
+kann
+trug
+wiederholten
+echten
+lauscht
+wogende
+triebe
+deren
+fuenkchen
+folgenden
+publikum
+noch
+bald
+zweck
+merk
+mancher
+kraefte
+erstaunen
+halbverklungnen
+klage
+wohl
+manchem
+erfreuen
+winket
+anmut
+herrn
+fahren
+erfreuet
+sehen
+stimmung
+bedenkt
+hinzuschweifen
+jahre
+stueck
+morgen
+fuehlt
+bang
+verklungen
+knecht!
+brot
+angefochten
+bunten
+etwas
+ersten
+vorgelegt
+durchgedrungen
+eben
+allerliebste
+erster
+denn
+dargebracht
+beigestanden
+wirbeltanz
+augenblick
+moegliche
+braven
+schaun
+neugier
+entwoehntes
+lustige
+verhuelle
+kindisch
+leben
+schnelle
+mir
+mit
+herren
+sammelt
+klingt-
+so
+ergreift
+frueh
+heute
+wuenscht
+lesen
+ruft
+narrheit
+reihe
+mann
+ihr's
+quell
+entzueckung
+erschaffen
+tu
+nuetzliches
+laeszt
+duerfet
+zueignung
+ich
+zauberhauch
+bedeutung
+zerstreuet
+ungebaendigt
+draengt
+um
+sei!
+herzens
+offenbart
+machte
+busen
+bretter
+dirne
+reine
+leidenschaft
+sind
+ehrenkranz
+sollte
+wenig
+sein
+geschaefte
+echte
+erquickt
+ist's
+eure
+gewesen:
+dann
+fadens
+gelungen
+wo
+seid
+gar
+ihren
+melanchol'sche
+lieb
+sehr
+seht
+sehn
+lied
+einzelne
+willen
+jedes
+jeder
+dichter
+jeden
+goetter
+strudel
+werden
+wolfgang
+kasse
+faust:
+laengst
+augenblicks
+empfindung
+volkes
+feuer
+fern
+selbstgesteckten
+fehlt
+genug:
+musterhaft
+wahre
+strenge
+packt
+ihn
+maschinen
+ihm
+ihr
+gruenen
+geben
+drang
+zu
+habt
+ununterbrochen
+sitzen
+geschehn
+wehen
+diesem
+laszt
+diesen
+geh
+verpassen
+fest
+tausend
+schmerzenvolle
+geben!
+vielleicht
+dichterhoehe
+langeweile
+schwung
+wilde
+dankbar
+offenbarung
+geschehn!
+wirket
+felsenwaenden
+freude
+wirken
+putz
+allen
+abgesponnen
+fruehlingsblueten
+alles
+denkt
+jugendlich
+aller
+roman
+festzuhalten
+drum
+gleich
+dasz
+saitenspiel
+sagt
+vielen
+solches
+solcher
+froh
+theater
+wollte
+sage
+erpflegen
+vieles
+tag
+hellem
+dichter:
+deutschen
+befluegelt
+goenner
+maedchen
+solchem
+halten
+leute
+brach
+gebar
+schmerz
+wir's
+einem
+einen
+verflochten
+einer
+lebt
+gib
+verdrieszlich
+billet
+liebsten
+sauget
+fuehre
+kartenspiel
+mut
+unsern
+plagt
+liebesabenteuer
+kinder
+spricht
+entflieht
+werdender
+tiefe
+verscherzen!
+will
+wiederholt
+recht
+andern
+vorwurf
+ins
+dran!
+wirkt
+bewegt
+
+Grouped by first character: 
+a: aus, auf, alten, ach!, an, aeolsharfe, auf, aufgeschlagen, augenbraunen, an, allein, alles, auch, an, an, auf, anblick, ach!, augenblicks, augenblick, auch, allen, aber, am, abgesponnen, augen, aus, aus, als, ausgedacht, auf, allerschlimmste, auf, an, armen, an, andern, alle, aus, auf, aller, ab, allgemeinen, akkorden, abendrot, alle, auf, art, angefochten, auch, alle, auferbaut, aus, aufgeregt, am, auch, alle, am, allenfalls, an, allerliebste, anmut, alte, alter, als, auch, auf, an, an, an, aus
+b: blick, busen, bilder, bringt, bang, beifall, besitze, beiden, beigestanden, behagen, besonders, bretter, bin, beste, bedeutung, bude, bei, bis, baeckertueren, brot, billet, bricht, bunten, bei, blueht, brust, bleibt, braven, behaglich, brav, besonders, breite, bringen, bringt, bei, beste, bedenkt, bleibt, befluegelt, besten, beseht, busen, befriedigen, bewegt, besiegt, busen, belebend, blaetter, braucht, bleibt, bekannt, bildern, bunten, beste, bluete, bald, bereit, blumen, brach, bedarfst, bekannte, beduerfen, bekannt, braut, beherzt, beim, buehnen, bretterhaus, bedaecht'ger
+c: choeren
+d: der, dem, die, diesmal, draengt, dunst, der, die, der, die, des, die, die, denen, die, das, der, der, der, der, den, das, dem, direktor, direktor:, die, deutschen, der, die, da, den, des, doch, das, dasz, denn, die, der, draengt, die, durch, die, die, dies, der, dichter, dichter:, der, deren, das, das, dem, dichter, da, die, des, durch, durchgedrungen, den, das, der, dasz, denn, der, den, doch, die, daecht, den, des, drum, doch, direktor:, den, dasz, die, da, der, die, durch, dem, dargebracht, das, doch, dichter:, das, dem, der, direktor:, denkt, der, das, diesen, das, der, den, damen, die, dichterhoehe, der, die, dem, der, der, dirne, die, die, dichter:, dir, das, der, dichter, das, deinetwillen, dem, der, dringt, die, des, die, die, drehend, durcheinander, die, dasz, das, den, das, der, die, den, des, dichter, denn, die, dichtrischen, die, dann, das, der, da, der, der, dann, der, der, dann, dann, dies, den, dem, dankbar, dichter:, die, da, da, da, die, die, da, die, die, doch, den, die, drang, das, der, des, die, der, du, dich, draengen, deinen, des, dem, die, doch, das, darum, das, direktor:, der, drechselt, dem, die, dran!, das, der, dann, deutschen, diesem, drum, das, die, duerfet, dem, den, der, die, durch
+e: erster, euch, einst, euch, euch, erschuettert, euren, euch, einer, erste, es, ersten, erste, ertoent, erfreuet, es, ein, entwoehntes, ergreift, ernsten, es, ein, es, ein, erwartet, erstaunen, enge, ein, es, entflieht, erpflegen, erschaffen, entsprungen, erst, es, erscheint, es, echte, einem, erbittern, einen, er, erschuettern, euch, empfindung, euch, ein, ein, endlich, etwas, ein, es, ein, es, euch, es, ein, es, euch, ein, echten, euch, ein, ein, eilt, eurer, ein, euch, ein, eine, einer, euch, euch, entzueckung, euch, einen, er, element, er, einklang, es, ew'ge, einzelne, es, ernsten, ehrenkranz, ein, es, entzueckt, eben, eh, ein, ein, ein, ein, erquickt, eurem, eurem, ein, er, ehren, erfreuen, ein, ein, erreichten, einzugreifen, einem, eure, euch, es, endlich, etwas, es, erscheint, einmal, euch, euch, entschlusz, er, es, er, ein, er, es, engen
+f: faust:, frueh, festzuhalten, fuehl, fuehlt, froher, freundschaft, folgenden, freundliche, faszt, folgt, fuehlt, fest, frisch, freilich, ficht, fast, freund, fuehre, freude, freundschaft, fuer, fuehlet, fuer, froh, faellt, freventlich, fadens, flieszend, fruehlingsblueten, flicht, fuehlt, fuenkchen, fertig, fuellten, freund, feinde, fern, findet, fuer, fassen, fahren, felsenwaenden, feuer, fehlt
+g: goethe, gestalten, gezeigt, geneigt, gut, gleich, guten, getaeuscht, glueck, gesaenge, gedraenge, geisterreich, gleich, gelassen, gern, geist, gewesen:, gewoehnt, gelesen, gefaellig, gern, gewaltig, gnadenpforte, geist, gedraenge, goetterhand, gelungen, gewalt, gestalt, geboren, glaenzt, gesetzt, gegenwart, groszen, gewisser, genug, geschehn!, gaffen, gewonnen, gleich, geht, gebt, gleich, gluecken, ganzes, gar, geben, gage, goenner, gebt, geh, gleichgueltig, gleiche, gluehn, geliebten, gruenen, goetter, geschaefte, glueck, geben!, greift, gebraut, gemuete, gleich, gib, gedraengter, gebar, genug:, gib, glueck, gib, guter, gewalt, genug, gewechselt, geschehn, gebt, getraenke, geschieht, getan, gebraucht, grosz, ganzen
+h: herz, halbverklungnen, herauf, hinweggeschwunden, hoeren, herzen, herz, hofft, hohen, haben, hellem, hungersnot, haelse, heute!, himmelsenge, herzens, hoeren, haben, hoeren, habt, haus, hilft's, handwerk, herren, halten, habet, holz, hin, haus, halb, hofft, holden, hin, hoechste, herzen, herz, herrlichen, hin, heran, hinein, herzen, hatte, hasses, hals, haengen, heft'gen, hinzuschweifen, holdem, herrn, hilft, heute, himmelslicht, himmel, hoelle
+i: ihr, ich, ich, ihr, ihr, ihr, irren, ich, ist, ihr, in, irrt, in, ich, im, ihr, in, ihr, in, ich, ich, ich, ich, in, in, in, ist, ich, ich, ihn, ich, immer, ist, ihn, ihren, ihr, in, ihr, ihr, ihr, in, ist, ihr, ihr, ich, ist, ihr, ihr, ihren, ihr, in, ihr, ich, immer, ihr, ist, ihm, ist, in, immer, in, im, im, ist, ist's, ins, ist's, ihr's, interessant, ist's, in, irrtum, im, ist, immer, ich, im, ich, ich, in, ins, irren, ist, ihr, indes, ihr, ist, ist, ihr, ihr, in
+j: johann, jenem, jugendlich, jenem, jedermann, jener, jetzt, jahre, jeder, jeder, jener, journale, jeden, jedes, jeder, jeder, jugend, jedes, jenes, jeder, jene, jugend, jugend, jeder
+k: kommt, klage, kasse, knaben, kreis, kommt, kann, koennt, kuenstler, kommt, kommt, kalt, kartenspiel, koennt, knecht!, klingt-, kraft, kraefte, kommt, klarheit, knospe, kraft, kranz, kindisch, kinder, komplimente, kann, kommandiert, keinen, kleine, kreis
+l: liebe, lieb, labyrinthisch, lauf, lebens, lied, lied, lebt, laengst, lied, lispelnd, lustige, landen, laeszt, leben, lebt, leute, lieb, lippe, lustige, laune, laszt, leidenschaft, laszt, liebsten, leicht, laeszt, langeweile, lesen, laenge, laeszt, leidenschaften, lustige, liebesabenteuer, laszt, lebt's, lauscht, lachen, lieder, lust, liebe, lustige, laufes, laszt, lassen
+m: mein, moegt, mich, mein, mit, manche, mit, mir, mein, menge, macht, meinem, meinem, mich, mein, mich, mild, mir, mir, menge, mit, moechten, man, machen, mit, mag, menge, mit, mit, mein, menge, mir, mir, mich, mit, miszraten, machte, mitwelt, mitzuteilen, musterhaft, mit, merkt, man, menge, mann, masse, manchem, musz, maxime, merk, mich, mann, musz, mahle, mancher, man, maskenfesten, mit, macht, musen, mehr, menschen, menschenrecht, menge, menschen, man, man, man, man, man, menschenleben!, melanchol'sche, machen, mir, mir, macht, meine, mir, mit, maedchen, man, mit, mut, mit, minder, macht, man, mich, mir, morgen, man, moegliche, musz, mag, mir, maschinen, mit
+n: naht, noch, nun, nebel, neu, nennt, nicht, noch, nach, nun, not, nie, nicht, neu, nach, nur, nicht, nein, nur, nachwelt, nachwelt, nichts, nur, nachwelt, nicht, nur, narrheit, nicht, nur, nicht, nur, neugier, nur, naehe!, nach, nacht, nur, nie, nur, natur, nicht, natur, naht, nach, nun, nur, nicht, nahrung, noch, noch, nichts, noch, neu, nebel, noch, nichts, nach, nach, naechte, nach, nicht, nicht, noch, nur, nuetzliches, nie, nun, nicht, nicht, nicht, nicht
+o: oft, o, o, oft, ohne, ohne, oder, olymp, offenbart, offenbarung
+p: person:, pfosten, person:, phantasie, publikum, pfuscherei, putz, plagt, pfade, person:, packt, person:, pflicht, poeten, poesie, probiert, prospekte
+q: quell
+r: reine, reden, ragout, recht, roh, recht, reihe, regt, rhythmisch, ruft, roman, recht, reichlich, reden
+s: schwankende, sich, so, steigt, sich, schatten, steigen, sage, schmerz, schoene, stunden, sie, sang, seelen, selbst, sich, sonst, sehnen, stillen, schwebet, schauer, sich, strenge, seh, so, sagt, sehr, sie, sind, sich, schon, sie, sitzen, so, sie, sind, schrecklich, sie, sei, sehen, sich, strom, sich, schon, sich, stoeszen, sich, so, sprich, strudel, stillen, segen, schuechtern, sich, sollte, spasz, sie, soll, schon, sich, sich, seid, schaun, sehn, so, staunend, seid, selbst, sich, sucht, so, stueck, stuecken!, solch, so, schlecht, sei!, solches, saubern, schon, solcher, spalten, schreibt!, seht, satt, schritt, sich, spielen, sie, sind, schauspiel, solchem, sag, so, sucht, schwer--, sie, schmerzen, such, sollte, schlingt, sein, spindel, sich, sie, schlaegt, sturm, sinne, schoenen, schuettet, sichert, schoenen, sie, so, sich, schmerz, sich's, schauspiel, so, so, sammelt, schoenste, sich, spiel, sauget, sich, sieht, sie, sind, schein, schwung, sich, sie, sein, so, selbst, sich, schmerzenvolle, schlachten, sich, schnellen, schwer, schmausend, saitenspiel, selbstgesteckten, spricht, sind, sehn!, stimmung, sie, so, schluerfen, stark, soll, soll, schopfe, sogleich, schonet, sterne, schreitet, so, schoepfung, schnelle
+t: teil, tragoedie, trueben, tage, toenen, traene, traenen, theater, theatherdichter, truebsal, tage, tu, tiefer, treibt, traeumet, toren, teilt, treibt, treibt, trank, traegt, tausend, taeler, trug, triebe, tiefe, taten, tag, tag, tier
+u: um, und, umwittert, und, und, um, und, unbekannten, und, und, unbestimmten, und, und, und, unsrer, unternehmung, und, und, und, und, und, unsrer, und, um, und, um, uns, uns, und, unsres, und, uns, und, unverloren, und, um, und, und, ungekraenkt:, und, uebertischten, und, uns, und, und, und, und, und, um, und, unharmon'sche, unbedeutend, und, und, und, uns, und, und, und, und, und, ununterbrochen, und, und, ungebaendigt, und, und, uns, unverzueglich, und, und, unsern, und, und, und, und
+v: von, versuch, vom, vom, vor, verklungen, verschwand, vorspiel, von, versoehnt, volks, verlegen, viel, vieren, vor, verschiedne, von, verhuelle, vorgelallt, vielleicht, verschlingt, vollendeter, von, von, von, volkes, vernunft, verstand, vieles, vor, vielgeliebter, vieles, vorgelegt, vorwurf, vom, vom, volles, viel, verirren, vom, verwirren, vergoennt, verscherzen!, verdrieszlich, verdiensten, vereinet, verflochten, versieht, volle, vielen, viel, vor, verhuellten, versprach, vom, vertrinket, verehren, viel, von, verpassen, verschwenden, voegeln, vom
+w: wolfgang, wieder, wohl, wahn, walten, wie, wiederholt, wird, widerklang, was, welt, wenn, weich, was, weiten, wie, was, wird, wirklichkeiten, was, wohl, wuenschte, weil, weisz, wie, wie, wir's, wenn, wehen, wiederholten, wie, wirkt, wunder, wogende, wider, willen, wo, wo, was, was, wilden, wenn, was, wenn, wollte, wer, will, was, weisz, wer, wird, wuenscht, wohl!, will, wird, was, wer, wird, was, wenn, wird, wie, wenig, wie, wirken, werkzeug, weiches, wen, wenn, was, wie, was, was, wilde, was, was, wohl, wodurch, wodurch, welt, wenn, wenn, wesen, wer, weihe, wer, wo, wer, wueten, wer, wer, wer, wie, wird, waechst, wird, wo, wenig, wahrheit, wird, welt, werk, wird, was, weinen, wer, werdender, wird, wieder, war, werden, welt, wunder, wahrheit, wenn, wenn, wenn, winket, wenn, wirbeltanz, wir, wie, wahre, worte, was, was, wir, wir, wollen, was, will, weil, weiter, wirket, wiszt, was, wasser, wandelt, welt
+z: zueignung, zu!, zauberhauch, zug, zerstoben, zerstreuet, zu, zu, zwar, zwaengt, zieht, zum, zur, zu, zeigt, zu, zwingen, zufrieden, zerpfluecken, zieme!, zu, zu, zerstreut, zu, zum, zu, zweck, ziele, zu, zu, zuruecke, zwingt, zur, zu, zum, zufaellig, zaertliche, zu, zu, zeiten, zurueck!, ziele, ziel, zaudernden, zur
+
+Grouped by length: 
+1: o, o
+2: so, um, es, um, an, es, in, es, in, es, im, zu, so, in, in, zu, da, so, an, an, an, in, um, um, so, es, tu, wo, wo, da, in, es, es, in, er, um, zu, am, zu, so, da, in, es, in, so, es, es, so, es, zu, zu, zu, in, an, zu, so, zu, zu, an, um, er, er, es, in, ab, es, in, wo, zu, im, im, so, es, eh, so, da, wo, in, so, er, im, zu, am, zu, so, da, im, da, da, da, am, du, in, an, es, es, so, er, es, er, er, an, an, an, es, in, so
+3: der, von, ihr, dem, die, ich, ich, gut, ihr, nun, zu!, aus, ihr, und, wie, der, vom, zug, die, ihr, mit, auf, und, mit, und, der, die, neu, des, die, und, mir, vom, vor, die, sie, die, ich, das, ist, der, der, ihr, und, was, der, ein, und, nun, der, den, ein, das, und, ich, seh, was, wie, mir, und, was, auf, dem, die, ihr, mir, oft, not, und, ihr, was, von, der, ich, sie, und, die, ein, und, mit, sie, und, den, des, ich, man, wie, bin, ich, nie, das, sie, sie, neu, und, wie, mit, sei, und, die, ich, mag, der, mit, und, die, bei, vor, bis, die, mit, und, wie, die, ein, auf, der, nur, mir, von, bei, der, uns, das, mir, das, uns, zum, zur, dem, nur, und, mit, und, uns, was, die, was, und, des, oft, den, ist, was, das, der, ich, nur, von, ich, von, der, wer, den, ihn, sie, und, die, von, ich, ist, was, wer, den, des, ihn, nur, und, mit, man, den, vor, die, der, ihr, ein, ihr, die, ihr, nur, aus, ein, was, wer, aus, dem, und, ein, ihr, ein, als, ist, ein, ihr, was, das, ein, ihr, wie, das, dem, wie, der, bei, ich, ist, ein, der, ein, auf, das, ihr, hin, ihr, nur, und, wen, vom, das, und, was, der, gar, vom, den, man, uns, wie, nur, und, die, und, zum, mit, und, auf, ihr, was, ein, was, der, die, roh, sie, dem, der, ein, der, ihr, was, die, ich, nur, sag, und, ihr, nie, vom, die, nur, ist, sie, was, dir, geh, hin, und, das, der, das, ihm, aus, dem, der, ist, die, und, des, die, auf, die, die, wer, sie, das, wer, zur, den, wer, das, wer, auf, der, hin, die, wer, art, zum, den, wer, des, die, sie, die, und, ein, man, wie, man, man, und, das, der, ist, man, nun, ein, man, und, ein, uns, ins, nur, ein, und, ein, und, der, der, und, der, der, und, vor, aus, ein, was, sie, und, den, sie, dem, ist, wer, ein, die, gib, mir, ich, war, ein, neu, die, mir, die, die, ich, die, ich, und, den, die, und, gib, das, der, des, die, gib, mir, der, mit, des, vom, dem, die, man, ins, mit, mut, und, mit, das, ist, und, wir, das, man, wie, als, nur, uns, der, ihr, von, was, dem, nie, sie, ihr, die, ist, was, wir, wir, mir, nun, ist, was, man, tag, und, das, der, und, auf, ihr, ein, mag, was, mir, tag, und, das, und, die, ihr, und, dem, aus, den, der, mit, und, die, vom, zur
+4: teil, euch, naht, sich, euch, wohl, herz, mein, noch, wahn, euch, mich, mein, sich, euch, tage, sage, lieb, wird, lauf, sang, ach!, lied, mein, bang, lied, sich, irrt, lebt, noch, welt, wenn, mich, nach, lied, mein, mich, herz, mild, sich, wird, sagt, wohl, sehr, lebt, weil, sind, fest, sich, gern, doch, sind, zwar, viel, dasz, auch, denn, gern, bude, nach, sich, wenn, enge, sich, tage, sich, brot, fast, sich, dies, mein, mich, nein, lieb, ach!, sich, erst, wenn, fuer, wenn, dasz, denn, doch, soll, will, auch, sich, wird, sich, brav, drum, euch, seid, doch, euch, ohne, aber, sehn, will, wird, dasz, kann, habt, mann, seid, sich, wird, geht, haus, gebt, euch, musz, wenn, doch, euch, wird, sei!, euch, merk, mich, mann, musz, holz, fuer, seht, wenn, satt, eilt, putz, sich, gage, ohne, euch, froh, haus, halb, kalt, sind, nach, eine, viel, euch, gebt, mehr, euch, euch, oder, such, wohl, alle, herz, sein, welt, wenn, wenn, dasz, regt, sich, ruft, alle, denn, naht, sich, nach, wird, dann, wird, eben, auch, viel, wird, alle, welt, dann, sich, dann, sich, werk, bald, dann, dies, wird, noch, sind, noch, sich, sein, wird, auch, noch, sich, welt, noch, alle, doch, lust, nach, trug, jene, dich, wenn, hals, wenn, sich, fern, wenn, nach, wenn, doch, nach, ziel, alte, eure, euch, noch, sind, auch, mich, kann, viel, euch, fuer, gebt, euch, soll, soll, beim, dann, will, musz, weil, drum, tier, welt
+5: blick, einst, frueh, fuehl, jenem, moegt, dunst, nebel, busen, euren, liebe, alten, einer, erste, kommt, klage, irren, guten, nennt, nicht, denen, erste, menge, macht, sonst, jenem, faszt, folgt, weich, hofft, menge, leben, hohen, schon, geist, volks, weisz, beste, nicht, haben, alles, wir's, menge, sehen, strom, wehen, durch, schon, ficht, kasse, leute, wirkt, jener, menge, nicht, deren, geist, wider, zieht, reine, segen, brust, lippe, jetzt, durch, jahre, echte, reden, spasz, haben, einem, immer, schon, weisz, laune, nicht, einen, kreis, zeigt, allen, ihren, laszt, merkt, nicht, wohl!, genug, laszt, kommt, augen, menge, durch, masse, jeder, sucht, etwas, jeder, solch, nicht, wenig, schon, denkt, recht, beste, habet, jener, kommt, mahle, kommt, lesen, jeden, damen, geben, ihren, eurer, macht, hofft, busen, dirne, einer, nacht, wilde, armen, plagt, toren, musen, zweck, immer, ziele, sucht, einen, recht, natur, jedes, busen, nicht, ew'ge, natur, aller, menge, wesen, immer, reihe, teilt, weihe, sturm, sinne, pfade, jeder, olymp, kraft, heran, kommt, ist's, roman, laszt, volle, ist's, jeder, nicht, ihr's, ist's, packt, wenig, beste, trank, eurem, spiel, jedes, eurem, jenes, jeder, sieht, ehren, recht, immer, quell, gebar, nebel, brach, hatte, drang, tiefe, kraft, liebe, macht, meine, guter, kranz, ziele, anmut, einem, irren, herrn, darum, nicht, alter, macht, nicht, wahre, genug, worte, laszt, sehn!, taten, indes, etwas, hilft, reden, stark, braut, dran!, getan, heute, nicht, nicht, wiszt, jeder, nicht, grosz, feuer, fehlt, nicht, engen, kreis, durch
+6: erster, faust:, goethe, johann, wieder, walten, steigt, fuehlt, bilder, bringt, froher, manche, gleich, herauf, lebens, glueck, hoeren, ersten, seelen, herzen, meinem, selbst, meinem, sehnen, toenen, gleich, traene, fuehlt, weiten, beiden, landen, unsrer, laeszt, sitzen, allein, frisch, machen, unsrer, hellem, vieren, billet, bricht, haelse, wunder, freund, heute!, bunten, sprich, willen, fuehre, blueht, freude, unsres, tiefer, gewalt, wilden, bleibt, hoeren, nichts, sollte, wollte, machte, braven, knaben, daecht, volkes, hoeren, schaun, vieles, gaffen, breite, gleich, koennt, selbst, bringt, vieles, gleich, stueck, ragout, leicht, ganzes, echten, zieme!, herren, maxime, laeszt, wirken, halten, diesen, treibt, bleibt, besten, volles, beseht, naehe!, holden, koennt, faellt, andern, sollte, bewegt, herzen, dringt, fadens, laenge, zwingt, laeszt, wueten, gluehn, flicht, treibt, treibt, bleibt, fuehlt, glueck, sich's, geben!, greift, hinein, lebt's, vielen, bunten, irrtum, bluete, jugend, sauget, herzen, traegt, bereit, gleich, lachen, weinen, schein, fertig, machen, nichts, wieder, zeiten, selbst, werden, lieder, knospe, wunder, blumen, taeler, genug:, nichts, triebe, glueck, hasses, jugend, freund, jugend, feinde, deinen, gewalt, laufes, schwer, winket, holdem, minder, findet, kinder, einmal, poeten, poesie, wollen, morgen, keinen, fassen, fahren, lassen, weiter, wirket, unsern, diesem, kleine, sterne, wasser, ganzen, himmel, hoelle
+7: gezeigt, trueben, diesmal, versuch, geneigt, draengt, steigen, schmerz, schoene, stunden, ertoent, beifall, laengst, ernsten, stillen, schauer, traenen, strenge, besitze, theater, lustige, person:, behagen, bretter, pfosten, gelesen, draengt, zwaengt, dichter, anblick, wogende, strudel, stillen, dichter, herzens, gestalt, geboren, glaenzt, lustige, person:, gesetzt, mitwelt, groszen, choeren, zwingen, endlich, bringen, manchem, hilft's, fuehlet, solches, saubern, solcher, vorwurf, bedenkt, spalten, weiches, mancher, neugier, schritt, spielen, goenner, solchem, knecht!, dichter, wodurch, besiegt, element, wodurch, drehend, spindel, klingt-, gleiche, ernsten, gruenen, goetter, sichert, dichter, lustige, person:, braucht, kraefte, waechst, schmerz, bekannt, bildern, gebraut, sammelt, lauscht, gemuete, nahrung, schwung, dankbar, tausend, lustige, person:, haengen, naechte, pflicht, spricht, endlich, bekannt, beherzt, schopfe, buehnen, schonet, duerfet, voegeln, wandelt
+8: wolfgang, schatten, gesaenge, erfreuet, ergreift, schwebet, lispelnd, vorspiel, direktor, truebsal, erwartet, gelassen, moechten, gewesen:, verlegen, gewoehnt, freilich, gewaltig, stoeszen, dichter:, gelungen, nachwelt, nachwelt, nachwelt, wuenscht, gewisser, vernunft, verstand, narrheit, liebsten, staunend, gewonnen, gluecken, publikum, dichter:, handwerk, schlecht, werkzeug, journale, traeumet, verirren, menschen, schwer--, dichter:, hoechste, einklang, schlingt, zuruecke, belebend, einzelne, akkorden, schlaegt, abendrot, schoenen, blaetter, vereinet, menschen, schoenen, versieht, klarheit, wahrheit, erquickt, erfreuen, dichter:, fuellten, wahrheit, zurueck!, bedarfst, draengen, maedchen, heft'gen, bekannte, verehren, kindisch, geschehn, stimmung, sogleich, probiert, schnelle
+9: tragoedie, zueignung, gestalten, umwittert, folgenden, gedraenge, zerstoben, direktor:, deutschen, wuenschte, besonders, jedermann, erstaunen, versoehnt, bedeutung, gefaellig, entflieht, gedraenge, verhuelle, erpflegen, miszraten, erscheint, gegenwart, behaglich, erbittern, phantasie, direktor:, besonders, geschehn!, zufrieden, stuecken!, vorgelegt, kuenstler, direktor:, schreibt!, zerstreut, verwirren, schmerzen, vergoennt, flieszend, schuettet, geliebten, offenbart, zufaellig, entzueckt, fuenkchen, auferbaut, schoenste, aufgeregt, werdender, versprach, reichlich, schnellen, direktor:, drechselt, erscheint, beduerfen, getraenke, geschieht, verpassen, moegliche, deutschen, maschinen, prospekte, gebraucht, schreitet
+10: jugendlich, wiederholt, getaeuscht, verklungen, widerklang, zerstreuet, aeolsharfe, verschwand, hungersnot, erschaffen, vorgelallt, vielleicht, augenblick, unverloren, musterhaft, empfindung, ausgedacht, pfuscherei, langeweile, befluegelt, schauspiel, rhythmisch, herrlichen, ehrenkranz, geschaefte, schauspiel, zaertliche, allenfalls, schlachten, erreichten, wirbeltanz, schmausend, vertrinket, gewechselt, zaudernden, schluerfen, entschlusz, schoepfung
+11: schwankende, zauberhauch, freundliche, unbekannten, entwoehntes, schrecklich, verschiedne, himmelsenge, goetterhand, entsprungen, schuechtern, augenblicks, verschlingt, vollendeter, mitzuteilen, abgesponnen, dargebracht, kartenspiel, befriedigen, entzueckung, freventlich, allgemeinen, unbedeutend, verdiensten, verflochten, angefochten, interessant, offenbarung, gedraengter, verhuellten, saitenspiel, komplimente, nuetzliches, kommandiert, bretterhaus
+12: festzuhalten, erschuettert, freundschaft, geisterreich, unbestimmten, beigestanden, unternehmung, augenbraunen, wiederholten, gnadenpforte, freundschaft, erschuettern, leidenschaft, zerpfluecken, ungekraenkt:, maskenfesten, dichterhoehe, deinetwillen, verscherzen!, dichtrischen, ungebaendigt, allerliebste, einzugreifen, himmelslicht, verschwenden, bedaecht'ger
+13: labyrinthisch, aufgeschlagen, baeckertueren, vielgeliebter, uebertischten, menschenrecht, gleichgueltig, unharmon'sche, durcheinander, verdrieszlich, unverzueglich, felsenwaenden
+14: wirklichkeiten, durchgedrungen, leidenschaften, menschenleben!, melanchol'sche, ununterbrochen, schmerzenvolle, hinzuschweifen
+15: halbverklungnen, theatherdichter, allerschlimmste, liebesabenteuer
+16: selbstgesteckten
+17: hinweggeschwunden, fruehlingsblueten
