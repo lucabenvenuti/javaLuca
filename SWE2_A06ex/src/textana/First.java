@@ -13,6 +13,8 @@ import java.util.stream.Stream;
 public class First {
 
 	public static void main(String[] args) {
+		
+		//TEST LUCA
 		try {
 			Files.lines(Paths.get("stuff.txt"))
             .map(line -> line.split("\\s+")) // Stream<String[]>
