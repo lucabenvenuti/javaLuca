@@ -21,9 +21,9 @@ public class SampleTextAnalysisApp {
 
 		String fileName = "sampletext.txt";
 
-		// a) find first line which contains a particular text
+	// a) find first line which contains a particular text
 
-		Optional<String> line = findLine(fileName, "file");
+/*		Optional<String> line = findLine(fileName, "file");
 		Out.println("\nLine with file: \n" + line.orElse("NOT FOUND"));
 
 		line = findLine(fileName, "nix");
@@ -41,11 +41,11 @@ public class SampleTextAnalysisApp {
 		Out.println("\nLines with nix: ");
 		for (String l : lines) {
 			Out.println(l);
-		}
+		}*/
 
 		// b) find first line number which contains a particular text
 
-		/*		Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
+			Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
 				"file");
 		Out.println("\nLine number with file: \n" + lineNum.orElse(-1));
 
@@ -54,7 +54,7 @@ public class SampleTextAnalysisApp {
 
 		// b) number lines and search
 
-		List<Integer> lineNums = TextAnalysisFns.findLineNums(fileName, "file");
+	List<Integer> lineNums = TextAnalysisFns.findLineNums(fileName, "file");
 		Out.println("\nLines numbers with file: ");
 		for (int l : lineNums) {
 			Out.println(l);
@@ -66,15 +66,15 @@ public class SampleTextAnalysisApp {
 			Out.println(l);
 		}
 
-		// b) all words
-
+		// c) all words
+/*
 		List<String> allWords = TextAnalysisFns.words(fileName);
 		Out.println("\nWords in text: ");
 		for (String w : allWords) {
 			Out.println(w);
-		}
+		}/*
 
-		// c) word occur
+		// d) word occur
 		Map<String, Integer> wordOcurrs = TextAnalysisFns
 				.wordOccurrences(fileName);
 		Out.println("\nWords occurrences in text: ");
@@ -82,15 +82,15 @@ public class SampleTextAnalysisApp {
 			Out.println(w + ": " + wordOcurrs.get(w));
 		}
 
-		// d) set of words
+		// e) set of words
 
-		Set<String> words = setOfWords(fileName);
+/*		Set<String> words = setOfWords(fileName);
 		Out.println("\nSet of words: ");
 		for (String w : words) {
 			Out.println(w);
 		}
 
-		// e) grouping alphabetically, upper and lower cases same
+		// f) grouping alphabetically, upper and lower cases same
 		Map<Character, List<String>> byChar = groupByFirstChar(fileName);
 		Out.println("\nGrouped by first character: ");
 		printGroupings(byChar);
