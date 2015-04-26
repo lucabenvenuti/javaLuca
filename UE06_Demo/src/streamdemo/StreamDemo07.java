@@ -46,9 +46,11 @@ public class StreamDemo07 {
 		
 		Map<String, Integer> mapOfLengths = names.collect(
 				() -> new TreeMap<>(), 
-				//(l, e) -> l.put(e,words(fileName).filter(w -> w.contains(e)).count()),
-				(l, e) -> l.put(e, ),
+				(l, e) -> l.put(e, e.length()),
 				(l1, l2) -> l1.putAll(l2));
+		
+
+		//(l, e) -> l.put(e,words(fileName).filter(w -> w.contains(e)).count()),
 		
 		mapOfLengths.forEach((k,m) -> System.out.println(k.toString()+Integer.valueOf(m)));
 		

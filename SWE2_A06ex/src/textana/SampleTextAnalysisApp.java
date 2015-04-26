@@ -23,101 +23,105 @@ public class SampleTextAnalysisApp {
 		String fileName = "sampletext.txt";
 		System.out.println("choose function");
 		char a = In.readChar();
-switch(a){
+		switch (a) {
 
-case 'a':{
-	// a) find first line which contains a particular text
+		case 'a': {
+			// a) find first line which contains a particular text
 
-		Optional<String> line = findLine(fileName, "file");
-		Out.println("\nLine with file: \n" + line.orElse("NOT FOUND"));
+			Optional<String> line = findLine(fileName, "file");
+			Out.println("\nLine with file: \n" + line.orElse("NOT FOUND"));
 
-		line = findLine(fileName, "nix");
-		Out.println("\nLine with nix: \n" + line.orElse("NOT FOUND"));
+			line = findLine(fileName, "nix");
+			Out.println("\nLine with nix: \n" + line.orElse("NOT FOUND"));
 
-		// a) find all lines which contain a text and return them in a list
+			// a) find all lines which contain a text and return them in a list
 
-		List<String> lines = findLines(fileName, "file");
-		Out.println("\nLines with file: ");
-		for (String l : lines) {
-			Out.println(l);
+			List<String> lines = findLines(fileName, "file");
+			Out.println("\nLines with file: ");
+			for (String l : lines) {
+				Out.println(l);
+			}
+
+			lines = TextAnalysisFns.findLines(fileName, "nix");
+			Out.println("\nLines with nix: ");
+			for (String l : lines) {
+				Out.println(l);
+			}
 		}
-
-		lines = TextAnalysisFns.findLines(fileName, "nix");
-		Out.println("\nLines with nix: ");
-		for (String l : lines) {
-			Out.println(l);
-		}}
-break;
-case 'b':{
-		// b) find first line number which contains a particular text
+			break;
+		case 'b': {
+			// b) find first line number which contains a particular text
 
 			Optional<Integer> lineNum = TextAnalysisFns.findLineNum(fileName,
-				"file");
-		Out.println("\nLine number with file: \n" + lineNum.orElse(-1));
+					"file");
+			Out.println("\nLine number with file: \n" + lineNum.orElse(-1));
 
-		lineNum = TextAnalysisFns.findLineNum(fileName, "nix");
-		Out.println("\nLine number with nix: \n" + lineNum.orElse(-1));
+			lineNum = TextAnalysisFns.findLineNum(fileName, "nix");
+			Out.println("\nLine number with nix: \n" + lineNum.orElse(-1));
 
-		// b) number lines and search
+			// b) number lines and search
 
-	List<Integer> lineNums = TextAnalysisFns.findLineNums(fileName, "file");
-		Out.println("\nLines numbers with file: ");
-		for (int l : lineNums) {
-			Out.println(l);
+			List<Integer> lineNums = TextAnalysisFns.findLineNums(fileName,
+					"file");
+			Out.println("\nLines numbers with file: ");
+			for (int l : lineNums) {
+				Out.println(l);
+			}
+
+			lineNums = TextAnalysisFns.findLineNums(fileName, "nix");
+			Out.println("\nLines numbers with nix: ");
+			for (int l : lineNums) {
+				Out.println(l);
+			}
 		}
+			break;
+		case 'c': {
+			// c) all words
 
-		lineNums = TextAnalysisFns.findLineNums(fileName, "nix");
-		Out.println("\nLines numbers with nix: ");
-		for (int l : lineNums) {
-			Out.println(l);
+			List<String> allWords = TextAnalysisFns.words(fileName);
+			Out.println("\nWords in text: ");
+			for (String w : allWords) {
+				Out.println(w);
+			}
 		}
-}
-break;
-case 'c':{
-		// c) all words
+			break;
+		case 'd': {
+			// d) word occur
+			Map<String, Integer> wordOcurrs = TextAnalysisFns
+					.wordOccurrences(fileName);
+			Out.println("\nWords occurrences in text: ");
+			for (String w : wordOcurrs.keySet()) {
+				Out.println(w + ": " + wordOcurrs.get(w));
+			}
+		}
+			break;
+		case 'e': {
+			// e) set of words
 
-		List<String> allWords = TextAnalysisFns.words(fileName);
-		Out.println("\nWords in text: ");
-		for (String w : allWords) {
-			Out.println(w);
+			Set<String> words = setOfWords(fileName);
+			Out.println("\nSet of words: ");
+			for (String w : words) {
+				Out.println(w);
+			}
 		}
-}
-break;
-case 'd':{
-		// d) word occur
-		Map<String, Integer> wordOcurrs = TextAnalysisFns
-				.wordOccurrences(fileName);
-		Out.println("\nWords occurrences in text: ");
-		for (String w : wordOcurrs.keySet()) {
-			Out.println(w + ": " + wordOcurrs.get(w));
+			break;
+		case 'f': {
+			// f) grouping alphabetically, upper and lower cases same
+			Map<Character, List<String>> byChar = groupByFirstChar(fileName);
+			Out.println("\nGrouped by first character: ");
+			printGroupings(byChar);
 		}
-}
-break;
-case 'e':{
-		// e) set of words
-
-		Set<String> words = setOfWords(fileName);
-		Out.println("\nSet of words: ");
-		for (String w : words) {
-			Out.println(w);
+			break;
+		case 'g': {
+			// e) grouping by length
+			Map<Integer, List<String>> byLength = groupByLength(fileName);
+			Out.println("\nGrouped by length: ");
+			printGroupings(byLength);
 		}
-}
-break;
-case 'f':{
-		// f) grouping alphabetically, upper and lower cases same
-		Map<Character, List<String>> byChar = groupByFirstChar(fileName);
-		Out.println("\nGrouped by first character: ");
-		printGroupings(byChar);
-}
-break;
-case 'g':{
-		// e) grouping by length
-		Map<Integer, List<String>> byLength = groupByLength(fileName);
-		Out.println("\nGrouped by length: ");
-		printGroupings(byLength);
-}break;
-default : System.out.println("trotaculo");
-}
+			break;
+		default:
+			System.out.println("trotaculo");
+		}
 	}
 
 	private static void printGroupings(Map<?, ?> groupings) {
