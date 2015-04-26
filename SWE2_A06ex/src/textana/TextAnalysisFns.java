@@ -147,17 +147,11 @@ public class TextAnalysisFns {
 	 */
 	public static Map<Character, List<String>> groupByFirstChar(String fileName)
 			throws IOException {
-		return Files
-				.lines(Paths.get(fileName))
-				.map(line -> line.toLowerCase())
+		return Files.lines(Paths.get(fileName)).map(line -> line.toLowerCase())
 				.map(line -> line.replaceAll("[^a-z ]", ""))
-				.map(line -> line.split(" "))
-				.flatMap(Arrays::stream)
-				.filter(w -> !w.equals(""))
-				.collect(
-						Collectors.groupingBy(w -> w.length() > 0 ? w.charAt(0)
-								: 0, Collectors.mapping(w -> w,
-								Collectors.toList())));
+				.map(line -> line.split(" ")).flatMap(Arrays::stream)
+				.filter(w -> !w.equals("")).collect(Collectors.groupingBy(w ->
+				w.charAt(0), Collectors.mapping(w -> w, Collectors.toList())));
 	}
 
 	/**
