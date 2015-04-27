@@ -148,7 +148,8 @@ public class TextAnalysisFns {
 	 * @throws IOException
 	 *             (e) setOfWords: determines the set of all words, ie, words
 	 *             come in the set only once. It is case-insensitive. Returns a
-	 *             sorted TreeSet<String>.
+	 *             sorted TreeSet<String>. Words can appear in each group twice
+	 *             or even more often.
 	 */
 	public static Set<String> setOfWords(String fileName) throws IOException {
 
@@ -165,8 +166,8 @@ public class TextAnalysisFns {
 	 * @throws IOException
 	 *             (f) groupByFirstChar: grouping words alphabetically after the
 	 *             first letter. It is case-insensitive. Returns a
-	 *             Map<Character, List<String>>.
-	 * 	       Words can appear in each group twice or even more often.
+	 *             Map<Character, List<String>>. Words can appear in each group
+	 *             twice or even more often.
 	 */
 	public static Map<Character, List<String>> groupByFirstChar(String fileName)
 			throws IOException {
@@ -188,7 +189,6 @@ public class TextAnalysisFns {
 	 * @throws IOException
 	 *             (f) groupByLength: grouping words by length. It is
 	 *             case-insensitive. Returns a Map<Integer, List<String>>.
-	 * 	       Words can appear in each group twice or even more often.
 	 */
 	public static Map<Integer, List<String>> groupByLength(String fileName)
 			throws IOException {
