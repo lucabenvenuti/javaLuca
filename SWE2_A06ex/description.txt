@@ -1,0 +1,9 @@
+(a) findLine: finds and returns as Optional<String> the first line which contains a particular word
+(a) findLines: finds and returns as List<String> the lines which contain a particular word
+(b) findLineNum: finds and returns as Optional<Integer the number of the first line which contains a text and return as an optional
+(b) findLineNums: finds and returns as List<Integer> all line numbers which contain a text and return them in a list
+(c) words: finds and returns as List<String> all the words in the order they occur (also twin). Non-words, such as numbers are not included in the result. It is case-insensitive.
+(d) word occurrences: which determines how often a word appears in the text, ie the results table (as Map<String, Integer>) shows for each word how often the Word in the text occurs. It is case-insensitive.
+(e) setOfWords: determines the set of all words, ie, words come in the set only once. It is case-insensitive. Returns a sorted TreeSet<String>.
+(f) groupByFirstChar: grouping words alphabetically after the first letter. It is case-insensitive. Returns a Map<Character, List<String>>.
+(f) groupByLength: grouping words by length. It is case-insensitive. Returns a Map<Integer, List<String>>.
