@@ -1,3 +1,18 @@
+REQUIREMENT SPECIFICATION:
+==========================
+
+The module textana achieves the following:
+
+- It reads a ".txt" file and returns its information.
+
+DRAFT:
+=========
+
+Class TextAnalysisFns
+------------
+ is a public class. It contains public static methods that can read a ".txt" file and returns its information.
+
+Operations:
 (a) findLine: finds and returns as Optional<String> the first line which contains a particular word
 (a) findLines: finds and returns as List<String> the lines which contain a particular word
 (b) findLineNum: finds and returns as Optional<Integer the number of the first line which contains a text and return as an optional

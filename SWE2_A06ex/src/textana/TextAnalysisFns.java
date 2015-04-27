@@ -12,6 +12,16 @@ import java.util.TreeSet;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+/**
+ * TextAnalysisFns.java
+ *
+ * A {@link TextAnalysisFns} is a public class. It
+ * contains public static methods that can reads a ".txt" file and returns its information.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class TextAnalysisFns {
 
 	/**
