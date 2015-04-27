@@ -20,5 +20,5 @@ Operations:
 (c) words: finds and returns as List<String> all the words in the order they occur (also twin). Non-words, such as numbers are not included in the result. It is case-insensitive.
 (d) word occurrences: which determines how often a word appears in the text, ie the results table (as Map<String, Integer>) shows for each word how often the Word in the text occurs. It is case-insensitive.
 (e) setOfWords: determines the set of all words, ie, words come in the set only once. It is case-insensitive. Returns a sorted TreeSet<String>.
-(f) groupByFirstChar: grouping words alphabetically after the first letter. It is case-insensitive. Returns a Map<Character, List<String>>.
-(f) groupByLength: grouping words by length. It is case-insensitive. Returns a Map<Integer, List<String>>.
+(f) groupByFirstChar: grouping words alphabetically after the first letter. It is case-insensitive. Returns a Map<Character, List<String>>. Words can appear in each group twice or even more often.
+(f) groupByLength: grouping words by length. It is case-insensitive. Returns a Map<Integer, List<String>>. Words can appear in each group twice or even more often.
