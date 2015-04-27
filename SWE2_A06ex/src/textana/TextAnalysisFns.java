@@ -19,7 +19,7 @@ public class TextAnalysisFns {
 	 * @param word
 	 * @return
 	 * @throws IOException
-	 *             (a) find the first line which contains a particular word
+	 *             (a) findLine: finds and returns as Optional<String> the first line which contains a particular word
 	 */
 	public static Optional<String> findLine(String fileName, String word)
 			throws IOException {
@@ -32,7 +32,7 @@ public class TextAnalysisFns {
 	 * @param word
 	 * @return
 	 * @throws IOException
-	 *             (a) find lines which contain a particular word
+	 *             (a) findLines: finds and returns as List<String> the lines which contain a particular word
 	 */
 	public static List<String> findLines(String fileName, String word)
 			throws IOException {
@@ -45,7 +45,7 @@ public class TextAnalysisFns {
 	 * @param word
 	 * @return
 	 * @throws IOException
-	 *             (b) find the number of the line which contains a text and
+	 *             (b) findLineNum: finds and returns as Optional<Integer the number of the first line which contains a text and
 	 *             return as an optional
 	 */
 	public static Optional<Integer> findLineNum(String fileName, String word)
@@ -70,7 +70,7 @@ public class TextAnalysisFns {
 	 * @param word
 	 * @return
 	 * @throws IOException
-	 *             (b) find all line numbers which contain a text and return
+	 *             (b) findLineNums: finds and returns as List<Integer> all line numbers which contain a text and return
 	 *             them in a list
 	 */
 	public static List<Integer> findLineNums(String fileName, String word)
@@ -94,7 +94,8 @@ public class TextAnalysisFns {
 	 * @param fileName
 	 * @return
 	 * @throws IOException
-	 *             (c) all words
+	 *             (c) words: finds and returns as List<String> all the words in the order they occur (also twin). Non-words, such as
+	 * numbers are not included in the result. It is case-insensitive.
 	 */
 	public static List<String> words(String fileName) throws IOException {
 		return Files.lines(Paths.get(fileName)).map(line -> line.toLowerCase())
@@ -107,7 +108,8 @@ public class TextAnalysisFns {
 	 * @param fileName
 	 * @return
 	 * @throws IOException
-	 *             (d) word occurrences
+	 *             (d) word occurrences: which determines how often a word appears in the text, ie the results table (as Map<String, Integer>) shows for each word how often the
+	 * Word in the text occurs. It is case-insensitive.
 	 */
 	public static Map<String, Integer> wordOccurrences(String fileName)
 			throws IOException {
@@ -128,7 +130,8 @@ public class TextAnalysisFns {
 	 * @param fileName
 	 * @return
 	 * @throws IOException
-	 *             (e) set of words
+	 *             (e) setOfWords: determines the set of all words, ie, words come in the set only once.
+	 * It is case-insensitive. Returns a sorted TreeSet<String>.
 	 */
 	public static Set<String> setOfWords(String fileName) throws IOException {
 
@@ -143,7 +146,8 @@ public class TextAnalysisFns {
 	 * @param fileName
 	 * @return
 	 * @throws IOException
-	 *             (f) grouping words alphabetically
+	 *             (f) groupByFirstChar: grouping words alphabetically after the first letter.
+	 * It is case-insensitive. Returns a Map<Character, List<String>>.
 	 */
 	public static Map<Character, List<String>> groupByFirstChar(String fileName)
 			throws IOException {
@@ -158,7 +162,8 @@ public class TextAnalysisFns {
 	 * @param fileName
 	 * @return
 	 * @throws IOException
-	 *             (f) grouping words by length
+	 *             (f) groupByLength: grouping words by length.
+	 * It is case-insensitive. Returns a Map<Integer, List<String>>.
 	 */
 	public static Map<Integer, List<String>> groupByLength(String fileName)
 			throws IOException {
