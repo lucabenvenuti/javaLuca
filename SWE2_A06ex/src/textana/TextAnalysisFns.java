@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * TextAnalysisFns.java
  *
  * A {@link TextAnalysisFns} is a public class. It contains public static
- * methods that can reads a ".txt" file and returns its information.
+ * methods that can read a ".txt" file and return its information.
  * 
  * Software Development II, 2015SS JKU Linz
  * 
@@ -57,7 +57,7 @@ public class TextAnalysisFns {
 	 * @param word
 	 * @return
 	 * @throws IOException
-	 *             (b) findLineNum: finds and returns as Optional<Integer the
+	 *             (b) findLineNum: finds and returns as Optional<Integer> the
 	 *             number of the first line which contains a text and return as
 	 *             an optional
 	 */
@@ -166,6 +166,7 @@ public class TextAnalysisFns {
 	 *             (f) groupByFirstChar: grouping words alphabetically after the
 	 *             first letter. It is case-insensitive. Returns a
 	 *             Map<Character, List<String>>.
+	 * 	       Words can appear in each group twice or even more often.
 	 */
 	public static Map<Character, List<String>> groupByFirstChar(String fileName)
 			throws IOException {
@@ -187,6 +188,7 @@ public class TextAnalysisFns {
 	 * @throws IOException
 	 *             (f) groupByLength: grouping words by length. It is
 	 *             case-insensitive. Returns a Map<Integer, List<String>>.
+	 * 	       Words can appear in each group twice or even more often.
 	 */
 	public static Map<Integer, List<String>> groupByLength(String fileName)
 			throws IOException {
