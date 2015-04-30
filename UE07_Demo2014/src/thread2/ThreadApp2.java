@@ -2,6 +2,7 @@ package thread2;
 
 public class ThreadApp2 {
 
+	//NOT GOOD
 	static class Producer extends Thread {
 		@Override
 		public void run() {
@@ -16,6 +17,7 @@ public class ThreadApp2 {
 		}
 	}
 
+	//BETTER
 	static class ProducerRunner implements Runnable {
 		@Override
 		public void run() {

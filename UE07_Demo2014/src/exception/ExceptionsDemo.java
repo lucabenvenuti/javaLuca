@@ -13,6 +13,10 @@ public class ExceptionsDemo {
 			// System.out.println(e.getMessage());
 			// e.printStackTrace();
 		}
+		
+		//try{ surrond with try-catch
+			Integer.parseInt("abcd");
+		//}
 	}
 
 	public static void exceptionsTest(final int x) throws ConnectException,
