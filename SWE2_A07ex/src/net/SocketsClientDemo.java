@@ -1,4 +1,4 @@
-package net3;
+package net;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +29,9 @@ public class SocketsClientDemo {
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
 			writer.println("OK");
 			writer.println("123");
+			writer.println("11");
+			writer.println("q");
+			writer.println("11");
 			writer.flush();
 			socket.shutdownOutput();
 

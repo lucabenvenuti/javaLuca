@@ -1,8 +1,4 @@
-package thread6;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package test;
 
 class Buffer {
 
@@ -43,29 +39,16 @@ class Producer extends Thread {
 						buffer.wait();
 					}
 					String s = this.getId() + " : " + i++;
-					doSomeHeavyWork();
 					buffer.put(s);
 					System.out.println("Producer produced " + s);
 					buffer.notifyAll();
 				}
-				Thread.sleep((int) (1000 * Math.random()));
+				Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
 				interrupt();
 			}
 		}
 		System.out.println("Producer terminated ");
-	}
-
-	private void doSomeHeavyWork() throws InterruptedException {
-		// Thread.sleep(100);
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Enter String");
-		try {
-			String s = br.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
@@ -85,21 +68,16 @@ class Consumer extends Thread {
 						System.out.println(" ++ Consumer blocked");
 						buffer.wait();
 					}
-					doSomeHeavyWork();
 					Object o = buffer.retrieve();
 					System.out.println("  Consumer found " + o);
 					buffer.notifyAll();
 				}
-				Thread.sleep((int) (1000 * Math.random()));
+				Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
 				interrupt();
 			}
 		}
 		System.out.println("Consumer terminated ");
-	}
-
-	private void doSomeHeavyWork() throws InterruptedException {
-		Thread.sleep(100);
 	}
 }
 
@@ -120,7 +98,7 @@ public class ProducerConsumerApp {
 		c2.start();
 
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(1_000);
 		} catch (InterruptedException e) {
 		}
 

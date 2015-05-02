@@ -15,7 +15,7 @@ public class ExceptionsDemo {
 		}
 
 		try {
-			Integer.parseInt("asdf");
+			Integer.parseInt("123");
 		} catch (NumberFormatException e) {
 
 		}

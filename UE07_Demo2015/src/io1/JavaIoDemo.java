@@ -15,10 +15,10 @@ import java.io.OutputStream;
 public class JavaIoDemo {
 
 	public static void main(String[] args) throws IOException {
-		demoFileInputStream();
-		// demoFileReader();
-		// demoBufferedReader();
-		// demoPrintWriter();
+		//demoFileInputStream();
+	//	demoFileReader();
+		demoBufferedReader();
+	//	demoPrintWriter();
 	}
 
 	public static void demoFileInputStream() {
@@ -69,9 +69,9 @@ public class JavaIoDemo {
 		BufferedReader reader = new BufferedReader(new FileReader("in.txt"));
 
 		try {
-			String line;
-			while ((line = reader.readLine()) != null) {
-				System.out.println(line);
+			//String line;
+			while ((reader.readLine()) != null) {
+				System.out.println(reader.readLine());
 			}
 		} finally {
 			reader.close();
