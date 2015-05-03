@@ -1,8 +1,10 @@
 package test;
 
-import java.io.BufferedReader;
+import inout.In;
+
+/*import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStreamReader;*/
 
 class Buffer {
 
@@ -29,7 +31,7 @@ class Buffer {
 		return o;
 	}
 
-	public synchronized boolean isEmpty() {
+	public synchronized boolean isEmpty() { // not good
 		return stringArray[0] == null && stringArray[1] == null
 				&& stringArray[2] == null;
 	}
@@ -47,7 +49,7 @@ class Producer extends Thread {
 	public void run() {
 		int i = 0;
 
-		while (!interrupted()) {
+		while (!interrupted()) { //do while
 			try {
 				synchronized (buffer) {
 					while (!buffer.isEmpty()) {
@@ -55,14 +57,15 @@ class Producer extends Thread {
 						buffer.wait();
 					}
 					String s = this.getId() + " : " + i++;
-					doSomeHeavyWork();
+				//	doSomeHeavyWork();
+					String p = In.readString();
 					buffer.put(s);
 					buffer.put(s + "2");
 					buffer.put(s + "3");
 					System.out.println("Producer produced " + s);
 					buffer.notifyAll();
 				}
-				Thread.sleep((int) (100 * Math.random()));
+			//	Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
 				interrupt();
 			}
@@ -70,15 +73,15 @@ class Producer extends Thread {
 		System.out.println("Producer terminated ");
 	}
 
-	private void doSomeHeavyWork() throws InterruptedException {
+/*	private void doSomeHeavyWork() throws InterruptedException {
 		Thread.sleep(10);
-		/*
+		
 		 * BufferedReader br = new BufferedReader(new
 		 * InputStreamReader(System.in)); System.out.print("Enter String"); try
 		 * { String s = br.readLine(); } catch (IOException e) {
 		 * e.printStackTrace(); }
-		 */
-	}
+		 
+	}*/
 
 }
 
@@ -97,7 +100,7 @@ class Consumer extends Thread {
 						System.out.println(" ++ Consumer blocked");
 						buffer.wait();
 					}
-					doSomeHeavyWork();
+				//	doSomeHeavyWork();
 					String[] o = buffer.retrieve();
 
 					for (int i = 0; i < o.length && o[i] != null; i++) {
@@ -106,7 +109,7 @@ class Consumer extends Thread {
 					System.out.println("pippo");
 					buffer.notifyAll();
 				}
-				Thread.sleep((int) (100 * Math.random()));
+			//	Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
 				interrupt();
 			}
@@ -127,15 +130,15 @@ public class ProducerConsumerApp {
 
 		Producer p1 = new Producer(buffer);
 		Consumer c1 = new Consumer(buffer);
-		Producer p2 = new Producer(buffer);
-		Consumer c2 = new Consumer(buffer);
+	//	Producer p2 = new Producer(buffer);
+	//	Consumer c2 = new Consumer(buffer);
 
 		p1.start();
 		c1.start();
-		p2.start();
+	/*	p2.start();
 		c2.start();
-
-		try {
+*/
+		/*try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 		}
@@ -151,7 +154,7 @@ public class ProducerConsumerApp {
 			p2.join();
 			c2.join();
 		} catch (InterruptedException e) {
-		}
+		}*/
 
 		System.out.println("Application terminated ");
 	}
