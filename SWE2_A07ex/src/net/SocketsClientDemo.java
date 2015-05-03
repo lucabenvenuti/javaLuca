@@ -22,18 +22,18 @@ public class SocketsClientDemo {
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
-
+			/*
 			String line;
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
-			}
+			}*/
 
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
 
 			Buffer buffer = new Buffer(3);
 
 			Producer p1 = new Producer(buffer);
-			Consumer c1 = new Consumer(buffer, writer);
+			Consumer c1 = new Consumer(buffer, writer, reader);
 			// Producer p2 = new Producer(buffer);
 			// Consumer c2 = new Consumer(buffer);
 

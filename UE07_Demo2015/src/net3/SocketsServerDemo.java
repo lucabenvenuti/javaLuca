@@ -25,13 +25,16 @@ public class SocketsServerDemo {
 				System.out.println("Waiting for client requests... ");
 				socket = server.accept();
 				System.out.println("Connected to client ");
-				writer = new PrintWriter(socket.getOutputStream());
-				writer.println("Hello World!");
-				writer.flush();
-				socket.shutdownOutput();
+
 				reader = new BufferedReader(new InputStreamReader(
 						socket.getInputStream()));
 
+				writer = new PrintWriter(socket.getOutputStream());
+				for (int i = 0; i < 3; i++){
+				writer.println("Hello World!");}
+				writer.flush();
+				socket.shutdownOutput();
+				
 				String line;
 				while ((line = reader.readLine()) != null) {
 					System.out.println(line);

@@ -30,31 +30,44 @@ public class SocketsServerDemo {
 				System.out.println("Waiting for client requests... ");
 				socket = server.accept();
 				System.out.println("Connected to client ");
-				writer = new PrintWriter(socket.getOutputStream());
-				writer.println("Hello World!");
-				writer.println("Current Time: " + new Date());
-				writer.flush();
-				socket.shutdownOutput();
+				
+				//writer.println("Hello World!");
+				//writer.println("Current Time: " + new Date());
+				
 				reader = new BufferedReader(new InputStreamReader(
 						socket.getInputStream()));
 
+				writer = new PrintWriter(socket.getOutputStream());
 				String line;
+				String lineOut;
 				while ((line = reader.readLine()) != null) {
 					try {
 						int n = Integer.parseInt(line);
 						if (superSlowIsPrimeImplementation(n)) {
-							System.out.println(line + " is a prime number");
+							lineOut = line + " is a prime number";
 						} else {
-							System.out.println(line + " is not a prime number");
+							lineOut = line + " is not a prime number";
 						}
 					} catch (NumberFormatException e) {
-						if (line.equals("q")) {
+						if (Buffer.TERMINATIONLINE.equals(line)) {
+							//lineOut = "terminated";
 							break;
 						} else {
-							System.out.println(line + " is not an integer");
+							lineOut = line + " is not an integer";
 						}
 					}
+				/*	writer = new PrintWriter(socket.getOutputStream());
+					
+					writer.flush();
+					socket.shutdownOutput();
+				*/	
+					writer.println(lineOut);
+					System.out.println(lineOut);
+
 				}
+				writer.flush();
+				socket.shutdownOutput();
+				
 
 			} finally {
 				System.out.println("Closing stuff");
