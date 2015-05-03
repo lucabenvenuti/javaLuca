@@ -9,36 +9,53 @@ import inout.In;
 class Buffer {
 
 	public final static String TERMINATIONLINE = "x";
-	
-	
-	private String[] stringArray = new String[3];
 
-	public synchronized void put(String s) {
-		if (stringArray[0] == null) {
-			stringArray[0] = s;
-		} else if (stringArray[1] == null) {
-			stringArray[1] = s;
+	private String data[];
+	private int head;
+	private int tail;
+	private int elements;
+
+	public Buffer(Integer number) {
+		data = new String[number];
+		head = 0;
+		tail = 0;
+		elements = 0;
+	}
+
+	public synchronized void put(String value) throws InterruptedException {
+		while (bufferFull()) {
+			wait();
 		}
-		// else if (stringArray[2]==null){stringArray[2] = s;}
-		else {
-			stringArray[2] = s;
+
+		data[tail++] = value;
+		if (tail == data.length) {
+			tail = 0;
 		}
-		// stringArray = o;
+		elements++;
+		notify();
 	}
 
-	public synchronized String[] retrieve() {
-		String[] o = stringArray;
-		stringArray[0] = null;
-		stringArray[1] = null;
-		stringArray[2] = null;
-		return o;
+	public synchronized String get() throws InterruptedException {
+		while (bufferEmpty()) {
+			wait();
+		}
+
+		String value = data[head++];
+		if (head == data.length) {
+			head = 0;
+		}
+		elements--;
+		notify();
+		return value;
 	}
 
-	public synchronized boolean isEmpty() { // not good
-		return stringArray[0] == null && stringArray[1] == null
-				&& stringArray[2] == null;
+	private boolean bufferEmpty() {
+		return elements == 0;
 	}
 
+	private boolean bufferFull() {
+		return elements == data.length;
+	}
 }
 
 class Producer extends Thread {
@@ -49,53 +66,25 @@ class Producer extends Thread {
 		this.buffer = buffer;
 	}
 
+	@Override
 	public void run() {
-		int i = 0;
 
-		String value = In.readLine();
-		
-		while (true) { // while  
-			
-		 if (Buffer.TERMINATIONLINE.equals(value))
-		 {
-			 
-		 }
-			 //true
+		while (true) {
 			try {
-				
-				
-//				synchronized (buffer) {
-//					while (!buffer.isEmpty()) {
-//						System.out.println(" ++ Producer blocked");
-//						buffer.wait();
-//					}
-//					String s = this.getId() + " : " + i++;
-//					// doSomeHeavyWork();
-//					String p = In.readString();
-//					buffer.put(s);
-//					buffer.put(s + "2");
-//					buffer.put(s + "3");
-//					System.out.println("Producer produced " + s);
-//					buffer.notifyAll();
-//				}
-				// Thread.sleep((int) (100 * Math.random()));
+				System.out.println("read");
+				String value = In.readLine();
+
+				if (Buffer.TERMINATIONLINE.equals(value)) {
+					buffer.put(value);
+					break;
+				}
+				buffer.put(value);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Producer terminated ");
+		// System.out.println("Producer terminated ");
 	}
-
-	/*
-	 * private void doSomeHeavyWork() throws InterruptedException {
-	 * Thread.sleep(10);
-	 * 
-	 * BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	 * System.out.print("Enter String"); try { String s = br.readLine(); } catch
-	 * (IOException e) { e.printStackTrace(); }
-	 * 
-	 * }
-	 */
 
 }
 
@@ -106,41 +95,34 @@ class Consumer extends Thread {
 		this.buffer = buffer;
 	}
 
+	@Override
 	public void run() {
-		while (!interrupted()) {
-			try {
-				synchronized (buffer) {
-					while (buffer.isEmpty()) {
-						System.out.println(" ++ Consumer blocked");
-						buffer.wait();
-					}
-					// doSomeHeavyWork();
-					String[] o = buffer.retrieve();
 
-					for (int i = 0; i < o.length && o[i] != null; i++) {
-						System.out.println("  Consumer found " + o[0]);
-					}
-					System.out.println("pippo");
-					buffer.notifyAll();
+		while (true) {
+			try {
+				String getter = buffer.get();
+
+				if (Buffer.TERMINATIONLINE.equals(getter)) {
+					// send
+					System.out.println(getter);
+					break;
 				}
-				// Thread.sleep((int) (100 * Math.random()));
+				System.out.println(getter);
+				// send
 			} catch (InterruptedException e) {
-				interrupt();
+				e.printStackTrace();
 			}
 		}
-		System.out.println("Consumer terminated ");
+		// System.out.println("Producer terminated ");
 	}
 
-	private void doSomeHeavyWork() throws InterruptedException {
-		Thread.sleep(10);
-	}
 }
 
 public class ProducerConsumerApp {
 
 	public static void main(String[] args) {
 
-		Buffer buffer = new Buffer();
+		Buffer buffer = new Buffer(3);
 
 		Producer p1 = new Producer(buffer);
 		Consumer c1 = new Consumer(buffer);

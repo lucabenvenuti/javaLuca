@@ -41,6 +41,10 @@ public class TestCircularBuffer {
 	}
 
 	class CircularBuffer {
+		
+		public final static String TERMINATIONLINE = "x";
+		
+		
 		private String data[];
 		private int head;
 		private int tail;
