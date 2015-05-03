@@ -97,8 +97,8 @@ class Buffer {
 		notify();
 	}
 
-	public synchronized String get(PrintWriter writer, BufferedReader reader, PrintWriter writerFile)
-			throws InterruptedException {
+	public synchronized String get(PrintWriter writer, BufferedReader reader,
+			PrintWriter writerFile) throws InterruptedException {
 		while (bufferEmpty()) {
 			wait();
 		}
@@ -166,7 +166,8 @@ class Consumer extends Thread {
 	private BufferedReader reader;
 	private PrintWriter writerFile;
 
-	public Consumer(Buffer buffer, PrintWriter writer, BufferedReader reader, PrintWriter writerFile) {
+	public Consumer(Buffer buffer, PrintWriter writer, BufferedReader reader,
+			PrintWriter writerFile) {
 		this.buffer = buffer;
 		this.writer = writer;
 		this.reader = reader;
