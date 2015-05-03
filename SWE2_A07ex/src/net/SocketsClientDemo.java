@@ -68,8 +68,6 @@ public class SocketsClientDemo {
 	}
 }
 
-
-
 class Producer extends Thread {
 
 	private final Buffer buffer;
@@ -120,16 +118,23 @@ class Consumer extends Thread {
 		while (true) {
 			try {
 				String getter = buffer.get(
-					//	writer, reader, writerFile
+				// writer, reader, writerFile
 						);
 				writer.println(getter);
 				writer.flush();
-				/*
-				 * try { // while ((line = reader.readLine()) != null) {
-				 * System.out.println(reader.readLine()); // } } catch (IOException e) {
-				 * // TODO Auto-generated catch block e.printStackTrace(); }
-				 */
+
+				String line = "";
+				try {
+					while ((line = reader.readLine()) != null) {
+						System.out.println(reader.readLine());
+					}
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 				writerFile.println(getter + "   " + new Date());
+				writerFile.println(line);
 				writerFile.flush();
 
 				if (Buffer.TERMINATIONLINE.equals(getter)) {
