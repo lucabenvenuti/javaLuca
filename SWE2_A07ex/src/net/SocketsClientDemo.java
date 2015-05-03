@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Date;
 
 public class SocketsClientDemo {
 
@@ -40,11 +41,12 @@ public class SocketsClientDemo {
 			 */
 
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
+			PrintWriter writerFile = new PrintWriter("out.txt");
 
 			Buffer buffer = new Buffer(3);
 
 			Producer p1 = new Producer(buffer);
-			Consumer c1 = new Consumer(buffer, writer, reader);
+			Consumer c1 = new Consumer(buffer, writer, reader, writerFile);
 
 			p1.start();
 			c1.start();
@@ -56,9 +58,12 @@ public class SocketsClientDemo {
 			}
 
 			socket.shutdownOutput();
+			writer.close();
+			writerFile.close();
 
 		} finally {
 			socket.close();
+
 		}
 	}
 }
@@ -92,7 +97,7 @@ class Buffer {
 		notify();
 	}
 
-	public synchronized String get(PrintWriter writer, BufferedReader reader)
+	public synchronized String get(PrintWriter writer, BufferedReader reader, PrintWriter writerFile)
 			throws InterruptedException {
 		while (bufferEmpty()) {
 			wait();
@@ -110,6 +115,8 @@ class Buffer {
 		 * System.out.println(reader.readLine()); // } } catch (IOException e) {
 		 * // TODO Auto-generated catch block e.printStackTrace(); }
 		 */
+		writerFile.println(value + "   " + new Date());
+		writerFile.flush();
 		notify();
 		return value;
 	}
@@ -157,11 +164,13 @@ class Consumer extends Thread {
 	private final Buffer buffer;
 	private PrintWriter writer;
 	private BufferedReader reader;
+	private PrintWriter writerFile;
 
-	public Consumer(Buffer buffer, PrintWriter writer, BufferedReader reader) {
+	public Consumer(Buffer buffer, PrintWriter writer, BufferedReader reader, PrintWriter writerFile) {
 		this.buffer = buffer;
 		this.writer = writer;
 		this.reader = reader;
+		this.writerFile = writerFile;
 	}
 
 	@Override
@@ -169,7 +178,7 @@ class Consumer extends Thread {
 
 		while (true) {
 			try {
-				String getter = buffer.get(writer, reader);
+				String getter = buffer.get(writer, reader, writerFile);
 
 				if (Buffer.TERMINATIONLINE.equals(getter)) {
 					// send
