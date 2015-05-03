@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Date;
 
 public class SocketsServerDemo {
 
@@ -17,10 +16,6 @@ public class SocketsServerDemo {
 
 		ServerSocket server = new ServerSocket(12345); // In.readInt());
 
-		// /////////////////////////////////
-		// Version 3: calling accept repeatedly
-
-		// while (true)
 		boolean continuation;
 		do {
 			Socket socket = null;
@@ -30,10 +25,7 @@ public class SocketsServerDemo {
 				System.out.println("Waiting for client requests... ");
 				socket = server.accept();
 				System.out.println("Connected to client ");
-				
-				//writer.println("Hello World!");
-				//writer.println("Current Time: " + new Date());
-				
+
 				reader = new BufferedReader(new InputStreamReader(
 						socket.getInputStream()));
 
@@ -50,24 +42,19 @@ public class SocketsServerDemo {
 						}
 					} catch (NumberFormatException e) {
 						if (Buffer.TERMINATIONLINE.equals(line)) {
-							//lineOut = "terminated";
+							System.out.println("terminated");
 							break;
 						} else {
 							lineOut = line + " is not an integer";
 						}
 					}
-				/*	writer = new PrintWriter(socket.getOutputStream());
-					
-					writer.flush();
-					socket.shutdownOutput();
-				*/	
+
 					writer.println(lineOut);
 					System.out.println(lineOut);
 
 				}
 				writer.flush();
 				socket.shutdownOutput();
-				
 
 			} finally {
 				System.out.println("Closing stuff");

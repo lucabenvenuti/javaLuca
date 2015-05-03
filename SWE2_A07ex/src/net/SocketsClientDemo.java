@@ -14,19 +14,15 @@ public class SocketsClientDemo {
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
 
-		// /////////////////////////////////
-		// client socket demo
-
 		Socket socket = new Socket("localhost", 12345);
 
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
 			/*
-			String line;
-			while ((line = reader.readLine()) != null) {
-				System.out.println(line);
-			}*/
+			 * String line; while ((line = reader.readLine()) != null) {
+			 * System.out.println(line); }
+			 */
 
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
 
@@ -34,24 +30,16 @@ public class SocketsClientDemo {
 
 			Producer p1 = new Producer(buffer);
 			Consumer c1 = new Consumer(buffer, writer, reader);
-			// Producer p2 = new Producer(buffer);
-			// Consumer c2 = new Consumer(buffer);
 
 			p1.start();
 			c1.start();
-			// writer.println("OK");
-			// writer.println("123");
-			// writer.println("11");
-			// writer.println("q");
-			// writer.println("11");
-			// writer.flush();
-			
+
 			try {
 				p1.join();
 				c1.join();
 			} catch (InterruptedException e) {
 			}
-			
+
 			socket.shutdownOutput();
 
 		} finally {
@@ -89,7 +77,8 @@ class Buffer {
 		notify();
 	}
 
-	public synchronized String get(PrintWriter writer) throws InterruptedException {
+	public synchronized String get(PrintWriter writer, BufferedReader reader)
+			throws InterruptedException {
 		while (bufferEmpty()) {
 			wait();
 		}
@@ -101,6 +90,11 @@ class Buffer {
 		elements--;
 		writer.println(value);
 		writer.flush();
+		/*
+		 * try { // while ((line = reader.readLine()) != null) {
+		 * System.out.println(reader.readLine()); // } } catch (IOException e) {
+		 * // TODO Auto-generated catch block e.printStackTrace(); }
+		 */
 		notify();
 		return value;
 	}
@@ -132,6 +126,7 @@ class Producer extends Thread {
 
 				if (Buffer.TERMINATIONLINE.equals(value)) {
 					buffer.put(value);
+					System.out.println("Producer terminated ");
 					break;
 				}
 				buffer.put(value);
@@ -139,7 +134,6 @@ class Producer extends Thread {
 				e.printStackTrace();
 			}
 		}
-		// System.out.println("Producer terminated ");
 	}
 
 }
@@ -147,10 +141,12 @@ class Producer extends Thread {
 class Consumer extends Thread {
 	private final Buffer buffer;
 	private PrintWriter writer;
+	private BufferedReader reader;
 
-	public Consumer(Buffer buffer, PrintWriter writer) {
+	public Consumer(Buffer buffer, PrintWriter writer, BufferedReader reader) {
 		this.buffer = buffer;
 		this.writer = writer;
+		this.reader = reader;
 	}
 
 	@Override
@@ -158,25 +154,18 @@ class Consumer extends Thread {
 
 		while (true) {
 			try {
-				String getter = buffer.get(writer);
+				String getter = buffer.get(writer, reader);
 
 				if (Buffer.TERMINATIONLINE.equals(getter)) {
 					// send
-				//	System.out.println(getter);
-	//				writer.println(getter);
-	//				writer.flush();
-
+					System.out.println("Producer terminated ");
 					break;
 				}
-	//			writer.println(getter);
-	//			writer.flush();
-		//		System.out.println(getter);
 				// send
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		// System.out.println("Producer terminated ");
 	}
 
 }
