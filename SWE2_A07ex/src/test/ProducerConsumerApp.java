@@ -104,9 +104,14 @@ class Consumer extends Thread {
 
 				if (Buffer.TERMINATIONLINE.equals(getter)) {
 					// send
-					System.out.println(getter);
+					System.out.println(getter);			
+					writer.println(getter);
+					writer.flush();
+					
 					break;
 				}
+				writer.println(getter);
+				writer.flush();
 				System.out.println(getter);
 				// send
 			} catch (InterruptedException e) {
