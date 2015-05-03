@@ -14,8 +14,8 @@ public class SocketsClientDemo {
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
 
-		Socket socket = null ;//new Socket("localhost", 12345);
-		
+		Socket socket = null;// new Socket("localhost", 12345);
+
 		do {
 			System.out.println("Digit host name");
 			String hostName = In.readLine();
@@ -26,10 +26,10 @@ public class SocketsClientDemo {
 				socket = new Socket(hostName, n);
 			} catch (IllegalArgumentException e) {
 				System.out.println("Invalid port number");
-					
+
 			}
-			
-		} while(socket == null);
+
+		} while (socket == null);
 
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(

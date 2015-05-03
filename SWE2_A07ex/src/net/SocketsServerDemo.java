@@ -15,7 +15,7 @@ public class SocketsServerDemo {
 	public static void main(String[] args) throws IOException {
 
 		ServerSocket server = null;
-		//new ServerSocket(12345); // In.readInt());
+		// new ServerSocket(12345); // In.readInt());
 		do {
 			System.out.println("Digit port number");
 			String portNumber = In.readLine();
@@ -24,10 +24,10 @@ public class SocketsServerDemo {
 				server = new ServerSocket(n);
 			} catch (IllegalArgumentException e) {
 				System.out.println("Invalid port number");
-					
+
 			}
-			
-		} while(server == null);
+
+		} while (server == null);
 
 		boolean continuation;
 		do {
