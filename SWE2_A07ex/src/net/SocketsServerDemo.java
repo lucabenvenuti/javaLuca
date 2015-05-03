@@ -14,20 +14,20 @@ public class SocketsServerDemo {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 
-//		ServerSocket server = null;
-		ServerSocket server = new ServerSocket(12345); // In.readInt());
-//		do {
-//			System.out.println("Digit port number");
-//			String portNumber = In.readLine();
-//			try {
-//				int n = Integer.parseInt(portNumber);
-//				server = new ServerSocket(n);
-//			} catch (IllegalArgumentException e) {
-//				System.out.println("Invalid port number");
-//
-//			}
-//
-//		} while (server == null);
+		ServerSocket server = null;
+		// new ServerSocket(12345); // In.readInt());
+		do {
+			System.out.println("Digit port number");
+			String portNumber = In.readLine();
+			try {
+				int n = Integer.parseInt(portNumber);
+				server = new ServerSocket(n);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid port number");
+
+			}
+
+		} while (server == null);
 
 		boolean continuation;
 		do {
@@ -46,7 +46,6 @@ public class SocketsServerDemo {
 				String line;
 				String lineOut;
 				while ((line = reader.readLine()) != null) {
-					System.out.println("[Server] Received " + line);
 					try {
 						int n = Integer.parseInt(line);
 						if (superSlowIsPrimeImplementation(n)) {
@@ -63,11 +62,12 @@ public class SocketsServerDemo {
 						}
 					}
 
-					System.out.println("[Sever] Sending " + lineOut);
 					writer.println(lineOut);
-					writer.flush();
+					System.out.println(lineOut);
+
 				}
-//				socket.shutdownOutput();
+				writer.flush();
+				socket.shutdownOutput();
 
 			} finally {
 				System.out.println("Closing stuff");

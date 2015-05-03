@@ -8,22 +8,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Date;
 
 public class SocketsClientDemo {
 
-	public static void main(String[] args) throws UnknownHostException, IOException {
-
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					new SocketsServerDemo().main(null);;
-				} catch(IOException e) {
-					e.printStackTrace();
-					System.exit(-1);
-				}
-			}
-		}.start();
+	public static void main(String[] args) throws UnknownHostException,
+			IOException {
 
 		Socket socket = null;// new Socket("localhost", 12345);
 
@@ -78,7 +68,6 @@ public class SocketsClientDemo {
 	}
 }
 
-
 class Producer extends Thread {
 
 	private final Buffer buffer;
@@ -94,6 +83,7 @@ class Producer extends Thread {
 			try {
 				System.out.println("insert a new number:");
 				String value = In.readLine();
+
 				if (Buffer.TERMINATIONLINE.equals(value)) {
 					buffer.put(value);
 					System.out.println("Producer terminated ");
@@ -127,24 +117,33 @@ class Consumer extends Thread {
 
 		while (true) {
 			try {
-				String value = buffer.get();
-
-				System.out.println("[Consumer] received " + value + " from producer");
-				writer.println(value);
+				String getter = buffer.get(
+				// writer, reader, writerFile
+						);
+				writer.println(getter);
 				writer.flush();
-				String result = reader.readLine();
-				System.out.println("[Consumer] received " + result + " from server");
 
-				//				writerFile.println(value);
-				//				writerFile.flush();
+				String line = "";
+				try {
+					while ((line = reader.readLine()) != null) {
+						System.out.println(reader.readLine());
+					}
 
-				if (Buffer.TERMINATIONLINE.equals(value)) {
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				writerFile.println(getter + "   " + new Date());
+				writerFile.println(line);
+				writerFile.flush();
+
+				if (Buffer.TERMINATIONLINE.equals(getter)) {
 					// send
 					System.out.println("Producer terminated ");
 					break;
 				}
 				// send
-			} catch (InterruptedException | IOException e) {
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
