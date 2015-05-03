@@ -14,7 +14,22 @@ public class SocketsClientDemo {
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
 
-		Socket socket = new Socket("localhost", 12345);
+		Socket socket = null ;//new Socket("localhost", 12345);
+		
+		do {
+			System.out.println("Digit host name");
+			String hostName = In.readLine();
+			System.out.println("Digit port number");
+			String portNumber = In.readLine();
+			try {
+				int n = Integer.parseInt(portNumber);
+				socket = new Socket(hostName, n);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid port number");
+					
+			}
+			
+		} while(socket == null);
 
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
