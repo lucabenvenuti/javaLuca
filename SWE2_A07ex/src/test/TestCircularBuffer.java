@@ -7,7 +7,7 @@ public class TestCircularBuffer {
 	  }
 
 	  public TestCircularBuffer() {
-	    CircularBuffer c = new CircularBuffer(8);
+	    CircularBuffer c = new CircularBuffer(3);
 
 	    System.out.println("Storing: 1");
 	    c.store(1);
@@ -43,20 +43,20 @@ public class TestCircularBuffer {
 
 	class CircularBuffer {
 	  private Integer data[];
-	  private int head;
-	  private int tail;
+	  private int nextFull;
+	  private int nextFree;
 
-	  public CircularBuffer(Integer number) {
+	  public CircularBuffer(Integer number) { //size
 	    data = new Integer[number];
-	    head = 0;
-	    tail = 0;
+	    nextFull = 0;
+	    nextFree = 0;
 	  }
 
-	  public boolean store(Integer value) {
+	  public boolean store(Integer value) { // s
 	    if (!bufferFull()) {
-	      data[tail++] = value;
-	      if (tail == data.length) {
-	        tail = 0;
+	      data[nextFree++] = value;
+	      if (nextFree == data.length) {
+	        nextFree = 0;
 	      }
 	      return true;
 	    } else {
@@ -65,10 +65,10 @@ public class TestCircularBuffer {
 	  }
 
 	  public Integer read() {
-	    if (head != tail) {
-	      int value = data[head++];
-	      if (head == data.length) {
-	        head = 0;
+	    if (nextFull != nextFree) {
+	      int value = data[nextFull++];
+	      if (nextFull == data.length) {
+	        nextFull = 0;
 	      }
 	      return value;
 	    } else {
@@ -77,10 +77,10 @@ public class TestCircularBuffer {
 	  }
 
 	  private boolean bufferFull() {
-	    if (tail + 1 == head) {
+	    if (nextFree + 1 == nextFull) {
 	      return true;
 	    }
-	    if (tail == (data.length - 1) && head == 0) {
+	    if (nextFree == (data.length - 1) && nextFull == 0) {
 	      return true;
 	    }
 	    return false;
