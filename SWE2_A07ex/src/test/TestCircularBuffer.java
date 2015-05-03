@@ -10,79 +10,81 @@ public class TestCircularBuffer {
 	    CircularBuffer c = new CircularBuffer(3);
 
 	    System.out.println("Storing: 1");
-	    c.store(1);
-	    System.out.println("Reading: " + c.read());
+	    try {
+			c.put("1");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    try {
+			System.out.println("Reading: " + c.get());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    System.out.println("Storing: 2");
-	    c.store(2);
+	    try {
+			c.put("1");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    System.out.println("Storing: 3");
-	    c.store(3);
+	    try {
+			c.put("1");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    System.out.println("Storing: 4");
-	    c.store(4);
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Storing: 8");
-	    c.store(8);
-	    System.out.println("Storing: 9");
-	    c.store(9);
-	    System.out.println("Storing: 10");
-	    c.store(10);
-	    System.out.println("Storing: 11");
-	    c.store(11);
-	    System.out.println("Storing: 12");
-	    c.store(12);
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
-	    System.out.println("Reading: " + c.read());
 	  }
 	}
 
 	class CircularBuffer {
-	  private Integer data[];
-	  private int nextFull;
-	  private int nextFree;
+		private String data[];
+		private int head;
+		private int tail;
+		private int elements;
 
-	  public CircularBuffer(Integer number) { //size
-	    data = new Integer[number];
-	    nextFull = 0;
-	    nextFree = 0;
-	  }
+		public CircularBuffer(Integer number) {
+		data = new String[number];
+		head = 0;
+		tail = 0;
+		elements = 0;
+		}
 
-	  public boolean store(Integer value) { // s
-	    if (!bufferFull()) {
-	      data[nextFree++] = value;
-	      if (nextFree == data.length) {
-	        nextFree = 0;
-	      }
-	      return true;
-	    } else {
-	      return false;
-	    }
-	  }
+		public synchronized void put(String value) throws InterruptedException {
+		while (bufferFull()) {
+		wait();
+		}
 
-	  public Integer read() {
-	    if (nextFull != nextFree) {
-	      int value = data[nextFull++];
-	      if (nextFull == data.length) {
-	        nextFull = 0;
-	      }
-	      return value;
-	    } else {
-	      return null;
-	    }
-	  }
+		data[tail++] = value;
+		if (tail == data.length) {
+		tail = 0;
+		}
+		elements++;
+		notify();
+		}
 
-	  private boolean bufferFull() {
-	    if (nextFree + 1 == nextFull) {
-	      return true;
-	    }
-	    if (nextFree == (data.length - 1) && nextFull == 0) {
-	      return true;
-	    }
-	    return false;
-	  }
+		public synchronized String get() throws InterruptedException {
+		while (bufferEmpty()) {
+		wait();
+		}
+
+		String value = data[head++];
+		if (head == data.length) {
+		head = 0;
+		}
+		elements--;
+		notify();
+		return value;
+		}
+
+		private boolean bufferEmpty() {
+		return elements == 0;
+		}
+
+		private boolean bufferFull() {
+		return elements == data.length;
+		}
 	}

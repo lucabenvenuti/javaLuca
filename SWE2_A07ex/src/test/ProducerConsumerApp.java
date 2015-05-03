@@ -3,11 +3,14 @@ package test;
 import inout.In;
 
 /*import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;*/
+ import java.io.IOException;
+ import java.io.InputStreamReader;*/
 
 class Buffer {
 
+	public final static String TERMINATIONLINE = "x";
+	
+	
 	private String[] stringArray = new String[3];
 
 	public synchronized void put(String s) {
@@ -49,39 +52,50 @@ class Producer extends Thread {
 	public void run() {
 		int i = 0;
 
-		while (!interrupted()) { //do while
+		String value = In.readLine();
+		
+		while (true) { // while  
+			
+		 if (Buffer.TERMINATIONLINE.equals(value))
+		 {
+			 
+		 }
+			 //true
 			try {
-				synchronized (buffer) {
-					while (!buffer.isEmpty()) {
-						System.out.println(" ++ Producer blocked");
-						buffer.wait();
-					}
-					String s = this.getId() + " : " + i++;
-				//	doSomeHeavyWork();
-					String p = In.readString();
-					buffer.put(s);
-					buffer.put(s + "2");
-					buffer.put(s + "3");
-					System.out.println("Producer produced " + s);
-					buffer.notifyAll();
-				}
-			//	Thread.sleep((int) (100 * Math.random()));
+				
+				
+//				synchronized (buffer) {
+//					while (!buffer.isEmpty()) {
+//						System.out.println(" ++ Producer blocked");
+//						buffer.wait();
+//					}
+//					String s = this.getId() + " : " + i++;
+//					// doSomeHeavyWork();
+//					String p = In.readString();
+//					buffer.put(s);
+//					buffer.put(s + "2");
+//					buffer.put(s + "3");
+//					System.out.println("Producer produced " + s);
+//					buffer.notifyAll();
+//				}
+				// Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
-				interrupt();
+				e.printStackTrace();
 			}
 		}
 		System.out.println("Producer terminated ");
 	}
 
-/*	private void doSomeHeavyWork() throws InterruptedException {
-		Thread.sleep(10);
-		
-		 * BufferedReader br = new BufferedReader(new
-		 * InputStreamReader(System.in)); System.out.print("Enter String"); try
-		 * { String s = br.readLine(); } catch (IOException e) {
-		 * e.printStackTrace(); }
-		 
-	}*/
+	/*
+	 * private void doSomeHeavyWork() throws InterruptedException {
+	 * Thread.sleep(10);
+	 * 
+	 * BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	 * System.out.print("Enter String"); try { String s = br.readLine(); } catch
+	 * (IOException e) { e.printStackTrace(); }
+	 * 
+	 * }
+	 */
 
 }
 
@@ -100,7 +114,7 @@ class Consumer extends Thread {
 						System.out.println(" ++ Consumer blocked");
 						buffer.wait();
 					}
-				//	doSomeHeavyWork();
+					// doSomeHeavyWork();
 					String[] o = buffer.retrieve();
 
 					for (int i = 0; i < o.length && o[i] != null; i++) {
@@ -109,7 +123,7 @@ class Consumer extends Thread {
 					System.out.println("pippo");
 					buffer.notifyAll();
 				}
-			//	Thread.sleep((int) (100 * Math.random()));
+				// Thread.sleep((int) (100 * Math.random()));
 			} catch (InterruptedException e) {
 				interrupt();
 			}
@@ -130,31 +144,22 @@ public class ProducerConsumerApp {
 
 		Producer p1 = new Producer(buffer);
 		Consumer c1 = new Consumer(buffer);
-	//	Producer p2 = new Producer(buffer);
-	//	Consumer c2 = new Consumer(buffer);
+		// Producer p2 = new Producer(buffer);
+		// Consumer c2 = new Consumer(buffer);
 
 		p1.start();
 		c1.start();
-	/*	p2.start();
-		c2.start();
-*/
-		/*try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-		}
-
-		p1.interrupt();
-		c1.interrupt();
-		p2.interrupt();
-		c2.interrupt();
-
-		try {
-			p1.join();
-			c1.join();
-			p2.join();
-			c2.join();
-		} catch (InterruptedException e) {
-		}*/
+		/*
+		 * p2.start(); c2.start();
+		 */
+		/*
+		 * try { Thread.sleep(10000); } catch (InterruptedException e) { }
+		 * 
+		 * p1.interrupt(); c1.interrupt(); p2.interrupt(); c2.interrupt();
+		 * 
+		 * try { p1.join(); c1.join(); p2.join(); c2.join(); } catch
+		 * (InterruptedException e) { }
+		 */
 
 		System.out.println("Application terminated ");
 	}
