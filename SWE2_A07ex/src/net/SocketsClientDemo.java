@@ -57,7 +57,7 @@ public class SocketsClientDemo {
 			} catch (InterruptedException e) {
 			}
 
-			socket.shutdownOutput();
+		//	socket.shutdownOutput();
 			writer.close();
 			writerFile.close();
 
@@ -117,33 +117,24 @@ class Consumer extends Thread {
 
 		while (true) {
 			try {
-				String getter = buffer.get(
-				// writer, reader, writerFile
-						);
-				writer.println(getter);
+				String value = buffer.get();
+
+				System.out.println("[Consumer] received " + value + " from producer");
+				writer.println(value);
 				writer.flush();
-
-				String line = "";
-				try {
-					while ((line = reader.readLine()) != null) {
-						System.out.println(reader.readLine());
-					}
-
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				writerFile.println(getter + "   " + new Date());
-				writerFile.println(line);
+				String result = reader.readLine();
+				System.out.println("[Consumer] received " + result + " from server");
+				
+				writerFile.println(result);
 				writerFile.flush();
 
-				if (Buffer.TERMINATIONLINE.equals(getter)) {
+				if (Buffer.TERMINATIONLINE.equals(value)) {
 					// send
 					System.out.println("Producer terminated ");
 					break;
 				}
 				// send
-			} catch (InterruptedException e) {
+			} catch (InterruptedException | IOException e) {
 				e.printStackTrace();
 			}
 		}

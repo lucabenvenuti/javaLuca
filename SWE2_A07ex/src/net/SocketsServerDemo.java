@@ -62,12 +62,15 @@ public class SocketsServerDemo {
 						}
 					}
 
+				//	writer.println(lineOut);
+			//		System.out.println(lineOut);
+					System.out.println("[Server] Sending " + lineOut);
 					writer.println(lineOut);
-					System.out.println(lineOut);
+					writer.flush();
 
 				}
-				writer.flush();
-				socket.shutdownOutput();
+			//	writer.flush();
+			//	socket.shutdownOutput();
 
 			} finally {
 				System.out.println("Closing stuff");
