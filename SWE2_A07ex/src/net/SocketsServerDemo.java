@@ -9,21 +9,32 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * SocketsServerDemo.java
+ *
+ * A {@link SocketsServerDemo} is a public class. It starts a ServerSocket,
+ * which can communicate with a client. It receives String from the client and
+ * sends to the client a String indicating if it is a number and, eventually,
+ * prime.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class SocketsServerDemo {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 
 		ServerSocket server = null;
-		// new ServerSocket(12345); // In.readInt());
 		do {
-			System.out.println("Digit port number");
+			System.out.println("Digit port number:");
 			String portNumber = In.readLine();
 			try {
 				int n = Integer.parseInt(portNumber);
 				server = new ServerSocket(n);
 			} catch (IllegalArgumentException e) {
-				System.out.println("Invalid port number");
+				System.out.println("Invalid port number!");
 
 			}
 
@@ -37,7 +48,7 @@ public class SocketsServerDemo {
 			try {
 				System.out.println("Waiting for client requests... ");
 				socket = server.accept();
-				System.out.println("Connected to client ");
+				System.out.println("Connected to client!");
 
 				reader = new BufferedReader(new InputStreamReader(
 						socket.getInputStream()));
@@ -49,31 +60,28 @@ public class SocketsServerDemo {
 					try {
 						int n = Integer.parseInt(line);
 						if (superSlowIsPrimeImplementation(n)) {
-							lineOut = line + " is a prime number";
+							lineOut = line + " is a prime number.";
 						} else {
-							lineOut = line + " is not a prime number";
+							lineOut = line + " is not a prime number.";
 						}
 					} catch (NumberFormatException e) {
 						if (Buffer.TERMINATIONLINE.equals(line)) {
-							System.out.println("terminated");
+							System.out
+									.println("[Server] Received termination line from client.");
 							break;
 						} else {
-							lineOut = line + " is not an integer";
+							lineOut = line + " is not an integer.";
 						}
 					}
 
-				//	writer.println(lineOut);
-			//		System.out.println(lineOut);
 					System.out.println("[Server] Sending " + lineOut);
 					writer.println(lineOut);
 					writer.flush();
 
 				}
-			//	writer.flush();
-			//	socket.shutdownOutput();
 
 			} finally {
-				System.out.println("Closing stuff");
+				System.out.println("[Server] Closing stuff.");
 				writer.close();
 				reader.close();
 				socket.close();
@@ -82,7 +90,7 @@ public class SocketsServerDemo {
 					.println("Wait for another client? y = yes, any other char = no");
 			continuation = (In.readChar() == 'y');
 		} while (continuation);
-		System.out.println("server terminated");
+		System.out.println("[Server] Server terminated.");
 	}
 
 	private static boolean superSlowIsPrimeImplementation(int n) {

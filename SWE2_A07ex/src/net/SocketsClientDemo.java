@@ -8,14 +8,28 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Date;
 
+/**
+ * SocketsClientDemo.java
+ *
+ * A {@link SocketsClientDemo} is a public class. It starts a Socket, which can
+ * communicate with a server. After being connected to a Server, a Producer ( =
+ * Reader ) reads user inputs and send them to a Buffer object. Synchronously, a
+ * Consumer ( = Sender ) reads Strings from the Buffer object, it sends them to
+ * the Server and receives from the Server a String indicating if it is a number
+ * and, eventually, prime. Finally, the Consumer writes these evaluations to a
+ * file.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class SocketsClientDemo {
 
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
 
-		Socket socket = null;// new Socket("localhost", 12345);
+		Socket socket = null;
 
 		do {
 			System.out.println("Digit host name");
@@ -35,13 +49,11 @@ public class SocketsClientDemo {
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
-			/*
-			 * String line; while ((line = reader.readLine()) != null) {
-			 * System.out.println(line); }
-			 */
 
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
 			PrintWriter writerFile = new PrintWriter("out.txt");
+			writerFile.println("#-#-# This is the beginning of the file #-#-#");
+			writerFile.flush();
 
 			Buffer buffer = new Buffer(3);
 
@@ -57,7 +69,6 @@ public class SocketsClientDemo {
 			} catch (InterruptedException e) {
 			}
 
-		//	socket.shutdownOutput();
 			writer.close();
 			writerFile.close();
 
@@ -76,17 +87,25 @@ class Producer extends Thread {
 		this.buffer = buffer;
 	}
 
+	/**
+	 * It reads user inputs and send them to a Buffer object. Insertion is
+	 * user-terminated by {@link Buffer.TERMINATIONLINE}.
+	 * 
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Thread#run()
+	 */
 	@Override
 	public void run() {
 
 		while (true) {
 			try {
-				System.out.println("insert a new number:");
+				System.out.println("Insert a new number:");
 				String value = In.readLine();
 
 				if (Buffer.TERMINATIONLINE.equals(value)) {
 					buffer.put(value);
-					System.out.println("Producer terminated ");
+					System.out.println("[Producer] terminated.");
 					break;
 				}
 				buffer.put(value);
@@ -112,6 +131,17 @@ class Consumer extends Thread {
 		this.writerFile = writerFile;
 	}
 
+	/**
+	 * It reads Strings from the Buffer object, it sends them to the Server and
+	 * receives from the Server a String indicating if it is a number and,
+	 * eventually, prime. Finally, the Consumer writes these evaluations to a
+	 * file. It stops when it reads {@link Buffer.TERMINATIONLINE} from the
+	 * Buffer.
+	 * 
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Thread#run()
+	 */
 	@Override
 	public void run() {
 
@@ -119,21 +149,22 @@ class Consumer extends Thread {
 			try {
 				String value = buffer.get();
 
-				System.out.println("[Consumer] received " + value + " from producer");
 				writer.println(value);
 				writer.flush();
 				String result = reader.readLine();
-				System.out.println("[Consumer] received " + result + " from server");
-				
-				writerFile.println(result);
+
+				if (result == null) {
+					writerFile
+							.println("#-#-# This is the end of the file #-#-#");
+				} else {
+					writerFile.println(result);
+				}
 				writerFile.flush();
 
 				if (Buffer.TERMINATIONLINE.equals(value)) {
-					// send
-					System.out.println("Producer terminated ");
+					System.out.println("[Consumer] terminated.");
 					break;
 				}
-				// send
 			} catch (InterruptedException | IOException e) {
 				e.printStackTrace();
 			}

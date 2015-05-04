@@ -1,9 +1,17 @@
 package net;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.util.Date;
-
+/**
+ * Buffer.java
+ *
+ * A {@link Buffer} is a class. It contains an array of Strings, two internal
+ * pointers (head, tail) and the number of elements. Its methods can
+ * synchronously put a new String into the array and get a String from the
+ * array.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 class Buffer {
 
 	public final static String TERMINATIONLINE = "x";
@@ -20,6 +28,13 @@ class Buffer {
 		elements = 0;
 	}
 
+	/**
+	 * This method can synchronously put a new String into the array, eventually
+	 * replacing an existing one.
+	 * 
+	 * @param value
+	 * @throws InterruptedException
+	 */
 	public synchronized void put(String value) throws InterruptedException {
 		while (bufferFull()) {
 			wait();
@@ -33,10 +48,14 @@ class Buffer {
 		notify();
 	}
 
-	public synchronized String get(
-//			PrintWriter writer, BufferedReader reader,
-//			PrintWriter writerFile
-			) throws InterruptedException {
+	/**
+	 * This method can synchronously get a String from the array. No String is
+	 * removed from the array by this method.
+	 * 
+	 * @return String
+	 * @throws InterruptedException
+	 */
+	public synchronized String get() throws InterruptedException {
 		while (bufferEmpty()) {
 			wait();
 		}
