@@ -1,0 +1,175 @@
+Exercise Software Development 2 SS 2015
+Exercise 08: JUnit
+Deadline: 21. 5. 2015 8:15
+Name: Matriculation number:
+Computer science:  G1 (Prähofer)  G2 (Prähofer)  G3 (Grimmer)  G4 (Grimmer)
+WIN:  G1 (Khalil)  G2 (Kusel)  G3 (Kusel)
+Task points dispense submitted in writing electronically corr. Points
+Exercise 8 24 Java program
+JUnit test cases
+Coverage report +
+Declaration
+Issue a gameplay
+Java program,
+JUnit test cases
+
+Othello
+Othello (or very similar variant Reversi) is a strategy game for two people. In this exercise, you are a
+Design and implement the program, which allows you to play Othello.
+Game rules (from http://de.wikipedia.org/wiki/Reversi):
+The game is played on a chess board with 8 x 8 blocks and two players with stones, on one side
+are black and white on the other side. The initial position as shown in Figure 1: are white stones
+to the fields D4 and E5 and black stones in the fields D5 and E4. Black begins. A player can make a
+Put stone on a field if he so in any direction (vertically, horizontally or diagonally; directions
+be specified with the cardinal points N, NW, W, SW, S, SE, E, NE) includes opposing pieces. That is, in
+a number must be an immediately following or followed by several opposing pieces and then a separate stone. If a player bets
+the stone on such a field, are all so enclosed opposing pieces flipped (see figure 2).
+If there is no empty space, with which he could include opposing pieces for the player, he can not move and must
+fit. The game ends in a draw when the board is completely filled or no longer pull both players
+can. It has won the player who at the end has more stones on the playing field.
+See http://de.wikipedia.org/wiki/Reversi for a detailed description of the game rules.
+Figure 1 Figure 2
+In the download you will find an implementation of the game, where the game board is (Board) is not implemented. The
+Implementation consists of the following classes, interfaces and enumerations:
+- Package Othello:
+- Pos: enumeration to represent the positions on the field (as positions on the chessboard).
+- Direction: enumeration for the different directions on the pitch.
+- Stone: enumeration for representing the assignment of the fields, ie, White, Black, Free.
+- Game State: enumeration to represent the different game states.
+- Board: Interface with access methods on the pitch.
+- BoardImpl: Implementation of Interface Board (in your default a TODO)
+- Player: Interface for implementing Player.
+- UserInteface: Interface for output of the saved game.
+- Game: class, building a game and unwind.
+Exercise Software Development 2 SS 2015
+- Package othello.ui:
+- Console Player: Implementation of Interface player that reads the trains from the console
+- ConsoleUI: Implementation of Interface User Interface, which reads the trains from the console
+- Package othello.ai:
+- Artificial Player: Implementation of Interface Player, which calculates the trains
+- Package othello.app:
+- OthelloMain: class with main method of a game with a player and Console
+Artificial player builds and launches.
+Following a gameplay is shown as an example.
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - - - - |
+| 3 | - - - - - - - - |
+| 4 | - - - 0 X - - - |
+| 5 | - - - X 0 - - - |
+| 6 | - - - - - - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of AI with stone X
+Stone X set on C_4
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - - - - |
+| 3 | - - - - - - - - |
+| 4 | - - X X X - - - |
+| 5 | - - - X 0 - - - |
+| 6 | - - - - - - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of white with stone 0
+Selection One of the Following
+Positions:
+1: C_3
+2: E_3
+3: C_5
+Select: 2
+Stone 0 set on E_3
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - - - - |
+| 3 | - - - - 0 - - - |
+| 4 | - - X X 0 - - - |
+| 5 | - - - X 0 - - - |
+| 6 | - - - - - - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of AI with stone X
+Stone X set on F_2
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - X - - |
+| 3 | - - - - X - - - |
+| 4 | - - X X 0 - - - |
+| 5 | - - - X 0 - - - |
+| 6 | - - - - - - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of white with stone 0
+Selection One of the Following
+Positions:
+1: E_2
+2: C_3
+3: B_4
+4: C_5
+5: C_6
+Select: 4
+Stone 0 set on C_5
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - X - - |
+| 3 | - - - - X - - - |
+| 4 | - - X X 0 - - - |
+| 5 | - - 0 0 0 - - - |
+| 6 | - - - - - - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of AI with stone X
+Stone X set on E_6
+----------------------------
+| | A B C D E F G H |
+----------------------------
+| 1 | - - - - - - - - |
+| 2 | - - - - - X - - |
+| 3 | - - - - X - - - |
+| 4 | - - X X X - - - |
+| 5 | - - 0 0 X - - - |
+| 6 | - - - - X - - - |
+| 7 | - - - - - - - - |
+| 8 | - - - - - - - - |
+----------------------------
+Move of white with stone 0
+Selection One of the Following
+Positions:
+1: G_1
+2: B_3
+3: C_3
+4: D_3
+5: F_3
+6: F_5
+Select:
+Your tasks in this exercise are now as follows:
+a) implementation of the class BoardImpl (10 points)
+Implement the class BoardImpl accordance with the specifications of the interface board.
+b) Test of BoardImpl in a comprehensive JUnit test (10 points)
+Write a comprehensive JUnit test for the class BoardImpl. The JUnit test is to carry trains and
+Test state of the board is correct according to the rules of the game.
+c) code coverage and analysis (4 points)
+Determine the code coverage of your test cases with the Eclipse plugin EclEmma [1] (or similar tools).
+Try with your unit tests to achieve the highest possible coverage. Nevertheless Explain why some of your
+Statements have not been tested / can not be tested.
+To be submitted are: Coverage Report (eg screenshots, including a short written analysis.).
+Note:
+ In Exercise Exercise 9 we will program interactive and graphical versions of the game. If you in this
+Exercise create a good base, you can re-use some of them in Exercise 9.
+Exercise Software Development 2 SS 2015
+[1] http://www.eclemma.org/
