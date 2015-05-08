@@ -1,12 +1,16 @@
 package othello;
 
 import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /** 
  * Class representing the board. It has 8x8 fields (as a chessboard) and 
  * maintains the stones on the board. 
  */
 public class BoardImpl implements Board {
+	
+	private Map<Pos, Stone> boardMap = new TreeMap<>();
 	
 	/** 
 	 * Constructor initializing the board with two white stones on positions D 4 and E 5
@@ -21,8 +25,9 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public Stone getStone(Pos pos) {
-		// TODO
-			return null; 
+		
+		// TODO 
+			return boardMap.get(pos); 
 	}
 	
 	/* (non-Javadoc)
@@ -30,7 +35,9 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
-		// TODO
+		// 1) isLegalMove
+		// 2) placeStone
+		// 3) flipColor
 	}
 
 	/* (non-Javadoc)
@@ -39,7 +46,7 @@ public class BoardImpl implements Board {
 	@Override
 	public boolean isFree(Pos pos) {
 		// TODO
-		return true; 
+		return getStone(pos) == Stone.FREE; 
 	}
 	
 	/* (non-Javadoc)
@@ -65,8 +72,8 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public Iterator<Pos> iterator() {
-		// TODO
-		return null;
+		// TODO 
+		return boardMap.keySet().iterator();
 	}
 
 

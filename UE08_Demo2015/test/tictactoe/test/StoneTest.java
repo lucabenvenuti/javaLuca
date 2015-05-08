@@ -24,5 +24,12 @@ public class StoneTest {
 		assertEquals("X", Stone.X.getLabel()); 
 		assertEquals("O", Stone.O.getLabel()); 
 	}
+	
+	@Test
+	public void testOther() {
+		assertEquals("O", Stone.X.other().getLabel()); 
+		assertEquals("X", Stone.O.other().getLabel()); 
+		assertEquals("-", Stone.FREE.other().getLabel()); 
+	}
 
 }
