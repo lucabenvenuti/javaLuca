@@ -51,6 +51,7 @@ public class BoardImpl implements Board {
 		for (Pos p : validPos) {
 			if (pos == p) {
 				boardMap.put(pos, stone);
+				return;
 			}
 
 		}
