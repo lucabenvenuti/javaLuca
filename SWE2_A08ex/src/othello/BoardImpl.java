@@ -1,8 +1,10 @@
 package othello;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +46,15 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
+		Pos[] validPos = getValidPositions(stone);
+
+		for (Pos p : validPos) {
+			if (pos == p) {
+				boardMap.put(pos, stone);
+			}
+
+		}
+
 		// 1) isLegalMove
 		// 2) placeStone
 		// 3) flipColor
@@ -86,13 +97,33 @@ public class BoardImpl implements Board {
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
 		// TODO
-		Map<Pos, Stone> boardMap2 = boardMap.entrySet().stream()
-				.filter(s -> s.getValue().equals(Stone.FREE))
-				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
-		
-		boardMap2.keySet().stream().filter(p -> p.)
+		/*
+		 * Map<Pos, Stone> boardMap2 = boardMap.entrySet().stream() .filter(s ->
+		 * s.getValue().equals(Stone.FREE)) .collect(Collectors.toMap(p ->
+		 * p.getKey(), p -> p.getValue()));
+		 * 
+		 * boardMap2.keySet().stream().filter(p -> p.)
+		 */
 
-		return null;
+		Collection<Pos> validPositions = new TreeSet<>();
+
+		while (iterator().hasNext()) {
+			Pos pos = iterator().next();
+			System.out.println(pos);
+			if (isFree(pos)) {
+				for (Direction dir : Direction.values()) {
+					// if (getStone(pos).isOther(getStone(pos.next(dir)))
+					if (stone.isOther(getStone(pos.next(dir)))
+					// && getStone(pos) == (getStone(pos.next(dir).next(
+							&& stone == (getStone(pos.next(dir).next(dir)))) {
+						validPositions.add(pos);
+						break;
+					}
+				}
+			}
+		}
+
+		return validPositions.toArray(new Pos[validPositions.size()]);
 	}
 
 	/*
