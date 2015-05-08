@@ -3,34 +3,43 @@ package othello;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
-/** 
- * Class representing the board. It has 8x8 fields (as a chessboard) and 
- * maintains the stones on the board. 
+/**
+ * Class representing the board. It has 8x8 fields (as a chessboard) and
+ * maintains the stones on the board.
  */
 public class BoardImpl implements Board {
-	
+
 	private Map<Pos, Stone> boardMap = new TreeMap<>();
-	
-	/** 
-	 * Constructor initializing the board with two white stones on positions D 4 and E 5
-	 * and two black stones on positions D 5 and E 4. 
+
+	/**
+	 * Constructor initializing the board with two white stones on positions D 4
+	 * and E 5 and two black stones on positions D 5 and E 4.
 	 */
 	public BoardImpl() {
 		// TODO
+		boardMap.put(Pos.D_4, Stone.WHITE);
+		boardMap.put(Pos.E_5, Stone.WHITE);
+		boardMap.put(Pos.D_5, Stone.BLACK);
+		boardMap.put(Pos.E_4, Stone.BLACK);
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#getStone(othello.Pos)
 	 */
 	@Override
 	public Stone getStone(Pos pos) {
-		
-		// TODO 
-			return boardMap.get(pos); 
+
+		// TODO
+		return boardMap.get(pos);
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#setStone(othello.Pos, othello.Stone)
 	 */
 	@Override
@@ -40,41 +49,61 @@ public class BoardImpl implements Board {
 		// 3) flipColor
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#isFree(othello.Pos)
 	 */
 	@Override
 	public boolean isFree(Pos pos) {
 		// TODO
-		return getStone(pos) == Stone.FREE; 
+		return getStone(pos) == Stone.FREE;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#isFull()
 	 */
 	@Override
 	public boolean isFull() {
 		// TODO
+		while (iterator().hasNext()) {
+			Pos pos = iterator().next();
+			System.out.println(pos);
+			if (isFree(pos)) {
+				return false;
+			}
+		}
 		return true;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#getValidPositions(othello.Stone)
 	 */
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
 		// TODO
+		Map<Pos, Stone> boardMap2 = boardMap.entrySet().stream()
+				.filter(s -> s.getValue().equals(Stone.FREE))
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		
+		boardMap2.keySet().stream().filter(p -> p.)
+
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see othello.Board#iterator()
 	 */
 	@Override
 	public Iterator<Pos> iterator() {
-		// TODO 
+		// TODO
 		return boardMap.keySet().iterator();
 	}
-
 
 }

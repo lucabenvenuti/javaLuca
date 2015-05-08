@@ -49,6 +49,10 @@ public class First {
 		trafficNetwork
 				.addLink("A8", LinkType.AUTOBAHN, 45, kirchdorf, sattledt);
 		trafficNetwork.addLink("A22", LinkType.AUTOBAHN, 600, linz, verona);
+		
+		LinkType hh = LinkType.AUTOBAHN;
+		
+		System.out.println(hh==LinkType.AUTOBAHN);
 
 		// linz.getNeighborsSorted(new LocationComp()).forEach(l ->
 		// System.out.println(l.toString()));
