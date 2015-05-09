@@ -15,7 +15,6 @@ import java.util.TreeSet;
 public class BoardImpl implements Board {
 
 	private Map<Pos, Stone> boardMap = new TreeMap<>();
-	private int i = 0;
 
 	/**
 	 * Constructor initializing the board with two white stones on positions D 4
@@ -24,7 +23,7 @@ public class BoardImpl implements Board {
 	public BoardImpl() {
 		// TODO
 
-		for (Pos p : Pos.values()) {
+		for (Pos p : Pos.ALL) {
 			boardMap.put(p, Stone.FREE);
 		}
 		boardMap.remove(Pos.D_4);
