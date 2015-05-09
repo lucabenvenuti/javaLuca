@@ -100,11 +100,12 @@ public class BoardImpl implements Board {
 						// System.out.println(pos==null);
 						if (isFree(pos3)) {// do nothing
 							continue;
-						} else if (stone.isOther(getStone(pos3))) {// do
-																	// nothing
-						} else if (stone.equals(getStone(pos3))) {
+						} else if (stone.isOther(getStone(pos3))) {
 							findCaptureCandidates(candidatesToCapture, pos,
 									stone, dir);
+						} else if (stone.equals(getStone(pos3))) {// do
+							// nothing
+
 						} else {
 							System.out.println("Wrong insertion");
 						}
