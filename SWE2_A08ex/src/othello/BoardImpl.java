@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -55,44 +56,42 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
-		if (isFull()) {
-			return;
-		}
-		Pos[] validPos = getValidPositions(stone);
-		if (validPos == null) {
-			return;
-		}
+		if (!isFull()) {
+			Pos[] validPos = getValidPositions(stone);
 
-		for (Pos p : validPos) {
-			if (pos == p) {
-				boardMap.remove(pos);
-				boardMap.put(pos, stone);
+			if (Optional.ofNullable(validPos).isPresent()) {
 
-				for (Direction dir : Direction.values()) {
-					Pos pos3 = p.next(dir);
-					if (pos3 == null) {
-						continue;
-					}
+				for (Pos p : validPos) {
+					if (pos.equals(p)) {
+						boardMap.remove(pos);
+						boardMap.put(pos, stone);
 
-					List<Pos> candidatesToCapture = new ArrayList<>();
-					if (isValidDirection(pos3, dir)) {
-						if (isFree(pos3)) {// do nothing
-							continue;
-						} else if (stone.isOther(getStone(pos3))) {
-							findCaptureCandidates(candidatesToCapture, pos,
-									stone, dir);
-						} else if (stone.equals(getStone(pos3))) {// do nothing
-						} else {
-							System.out.println("Wrong insertion");
+						for (Direction dir : Direction.values()) {
+							Pos pos3 = p.next(dir);
+							if (!Optional.ofNullable(pos3).isPresent()) {
+								continue;
+							}
+
+							List<Pos> candidatesToCapture = new ArrayList<>();
+							if (isValidDirection(pos3, dir)) {
+								if (isFree(pos3)) {// do nothing
+									continue;
+								} else if (stone.isOther(getStone(pos3))) {
+									findCaptureCandidates(candidatesToCapture,
+											pos, stone, dir);
+								} else if (stone.equals(getStone(pos3))) {// do
+																			// nothing
+								} else {
+									System.out.println("Wrong insertion");
+								}
+							}
+							if (candidatesToCapture.size() > 0) {
+								capture(candidatesToCapture, stone);
+							}
 						}
-					} else {
-						continue;
-					}
-					if (candidatesToCapture.size() > 0) {
-						capture(candidatesToCapture, stone);
+						break;
 					}
 				}
-				break;
 			}
 		}
 	}
@@ -109,22 +108,18 @@ public class BoardImpl implements Board {
 			Stone stone, Direction dir) {
 		// TODO Auto-generated method stub
 
-		if (pos.next(dir) == null) {
+		if (!Optional.ofNullable(pos.next(dir)).isPresent()) {
 			candidatesToCapture.clear();
-			return;
 		} else {
 			candidatesToCapture.add(pos.next(dir));
+			if (stone.equals(getStone(pos.next(dir)))) {
+			} else if (Stone.FREE.equals(getStone(pos.next(dir)))) {
+				candidatesToCapture.clear();
+			} else {
+				findCaptureCandidates(candidatesToCapture, pos.next(dir),
+						stone, dir);
+			}
 		}
-
-		if (stone.equals(getStone(pos.next(dir)))) {
-		} else if (Stone.FREE.equals(getStone(pos.next(dir)))) {
-			candidatesToCapture.clear();
-			return;
-		} else {
-			findCaptureCandidates(candidatesToCapture, pos.next(dir), stone,
-					dir);
-		}
-
 	}
 
 	/*
@@ -187,11 +182,8 @@ public class BoardImpl implements Board {
 	}
 
 	public boolean isValidDirection(Pos pos, Direction dir) {
-		if (pos.next(dir) == null)
-			return false;
-		if (pos.next(dir).next(dir) == null)
-			return false;
-		return true;
+		return Optional.ofNullable(pos.next(dir)).isPresent()
+				&& Optional.ofNullable(pos.next(dir).next(dir)).isPresent();
 	}
 
 	/*
