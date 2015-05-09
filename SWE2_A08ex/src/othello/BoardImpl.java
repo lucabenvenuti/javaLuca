@@ -55,6 +55,7 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
+		if (isFull()){return;}
 		Pos[] validPos = getValidPositions(stone);
 		if (validPos == null) {
 			return;
