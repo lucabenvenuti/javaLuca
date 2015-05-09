@@ -24,8 +24,8 @@ public class BoardImpl implements Board {
 	 */
 	public BoardImpl() {
 		// TODO
-		
-		for(Pos p:Pos.values()) {
+
+		for (Pos p : Pos.values()) {
 			boardMap.put(p, Stone.FREE);
 		}
 		boardMap.remove(Pos.D_4);
@@ -36,8 +36,7 @@ public class BoardImpl implements Board {
 		boardMap.put(Pos.E_5, Stone.WHITE);
 		boardMap.put(Pos.D_5, Stone.BLACK);
 		boardMap.put(Pos.E_4, Stone.BLACK);
-		
-		
+
 	}
 
 	/*
@@ -59,70 +58,84 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
-	//	System.out.println("test");
+		// System.out.println("test");
 		Pos[] validPos = getValidPositions(stone);
 		if (validPos == null) {
-			System.out.println("error");
+		//	System.out.println("error");
 			return;
-		} else{
+		} /*else {
 			System.out.println(validPos.length);
 			System.out.println(pos);
 		}
-		
+*/
+		first:
 		for (Pos p : validPos) {
+			
 			if (pos == p) {
+				//System.out.println(pos);
+			//	System.out.println(p);
 				boardMap.put(pos, stone);
 				// boardMap.remove(key)
-				
+
 				for (Direction dir : Direction.values()) {
-					Pos pos3 = pos.next(dir);
+					Pos pos3 = p.next(dir);
+				//	System.out.println(i++);
+				//	System.out.println(pos3);
 					
-					List<Pos> candidatesToCapture = new ArrayList<>();
+					if (pos3 == null){
+						System.out.println(pos3);
+						System.out.println("null3");
+					}
+					
+					else if (isFree(pos3)) {// do nothing
+						System.out.println("free");
+					//	continue;
+					} else{
+						System.out.println("occupied");
+					}
+					
+
+					/*List<Pos> candidatesToCapture = new ArrayList<>();
 					if (isValidDirection(pos3, dir)) {
-						//System.out.println(pos==null);
+						// System.out.println(pos==null);
 						if (isFree(pos3)) {// do nothing
+							continue;
 						} else if (stone.isOther(getStone(pos3))) {// do
 																	// nothing
-						} else if (stone == getStone(pos3)) {
+						} else if (stone.equals(getStone(pos3))) {
 							findCaptureCandidates(candidatesToCapture, pos,
 									stone, dir);
 						} else {
 							System.out.println("Wrong insertion");
 						}
 					}
-
-					capture(candidatesToCapture, stone);
-					
-					
-					
-					/*Iterator iterator1 = iterator();
-					while (iterator1.hasNext()) {
-						Pos pos2 = (Pos) iterator1.next();
-						List<Pos> candidatesToCapture = new ArrayList<>();
-						if (isValidDirection(pos2, dir)) {
-							System.out.println(pos==null);
-							if (isFree(pos2)) {// do nothing
-							} else if (stone.isOther(getStone(pos2))) {// do
-																		// nothing
-							} else if (stone == getStone(pos2)) {
-								findCaptureCandidates(candidatesToCapture, pos,
-										stone, dir);
-							} else {
-								System.out.println("Wrong insertion");
-							}
-						}
-
+					if (candidatesToCapture.size() > 0) {
 						capture(candidatesToCapture, stone);
-
-						
-						 * System.out.println(pos2); if (isFree(pos2)) {
-						 * return;// false; }
-						 
 					}*/
 
-				}
-		//		System.out.println("test");
-				return;
+					/*
+					 * Iterator<Pos> iterator1 = iterator(); while
+					 * (iterator1.hasNext()) { Pos pos2 = iterator1.next();
+					 * List<Pos> candidatesToCapture = new ArrayList<>(); if
+					 * (isValidDirection(pos2, dir)) {
+					 * System.out.println(pos==null); if (isFree(pos2)) {// do
+					 * nothing } else if (stone.isOther(getStone(pos2))) {// do
+					 * // nothing } else if (stone == getStone(pos2)) {
+					 * findCaptureCandidates(candidatesToCapture, pos, stone,
+					 * dir); } else { System.out.println("Wrong insertion"); } }
+					 * 
+					 * capture(candidatesToCapture, stone);
+					 * 
+					 * 
+					 * System.out.println(pos2); if (isFree(pos2)) { return;//
+					 * false; }
+					 * 
+					 * }
+					 */
+
+				} break first;
+				// System.out.println("test");
+			//	return;
 			}
 
 		}
@@ -149,8 +162,8 @@ public class BoardImpl implements Board {
 			candidatesToCapture.clear();
 		}
 
-		if (getStone(pos.next(dir)) == stone) {
-		} else if (getStone(pos.next(dir)) == Stone.FREE) {
+		if (stone.equals(getStone(pos.next(dir)))) {
+		} else if (Stone.FREE.equals(getStone(pos.next(dir)))) {
 			candidatesToCapture.clear();
 		} else {
 			findCaptureCandidates(candidatesToCapture, pos.next(dir), stone,
@@ -167,7 +180,7 @@ public class BoardImpl implements Board {
 	@Override
 	public boolean isFree(Pos pos) {
 		// TODO
-		return getStone(pos) == Stone.FREE;
+		return Stone.FREE.equals(getStone(pos));
 	}
 
 	/*
@@ -178,9 +191,9 @@ public class BoardImpl implements Board {
 	@Override
 	public boolean isFull() {
 		// TODO
-		Iterator iterator1 = iterator();
+		Iterator<Pos> iterator1 = iterator();
 		while (iterator1.hasNext()) {
-			Pos pos = (Pos) iterator1.next();
+			Pos pos = iterator1.next();
 			// System.out.println(pos);
 			if (isFree(pos)) {
 				return false;
@@ -196,7 +209,7 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
-		
+
 		// TODO
 		/*
 		 * Map<Pos, Stone> boardMap2 = boardMap.entrySet().stream() .filter(s ->
@@ -205,55 +218,56 @@ public class BoardImpl implements Board {
 		 * 
 		 * boardMap2.keySet().stream().filter(p -> p.)
 		 */
-		
+
 		Collection<Pos> validPositions = new TreeSet<>();
-	//	System.out.println(validPositions.isEmpty());
-		Iterator iterator1 = iterator();
+		// System.out.println(validPositions.isEmpty());
+		Iterator<Pos> iterator1 = iterator();
 		while (iterator1.hasNext()) {
-		//	System.out.println(i++);
-			Pos pos = (Pos) iterator1.next();
-		//	System.out.println(pos.name());
+			Pos pos = iterator1.next();
+			// System.out.println(pos.name());
 			// System.out.println(pos);
-		//	System.out.println(pos);
+			// System.out.println(pos);
 			if (isFree(pos)) {
 				for (Direction dir : Direction.values()) {
 					//
 					if (!isValidDirection(pos, dir)) {
-				//		System.out.println("test1");
+						// System.out.println("test1");
 						continue;
 					}
-					//System.out.println(pos.next(dir));
-					//System.out.println(dir);
+					// System.out.println(pos.next(dir));
+					// System.out.println(dir);
 					// if (getStone(pos).isOther(getStone(pos.next(dir)))
 					//
-				//	System.out.println(getStone(pos.next(dir)).name());
-			//		System.out.println(stone.isOther(getStone(pos.next(dir))));
-				//	System.out.println(getStone(Pos.D_4).isOther(getStone(Pos.D_4.next(Direction.E))));
-					
-					
-			/*		if (stone.isOther(getStone(pos.next(dir)))){
-					//	System.out.println("test3");
-					}*/
-					
-					
+					// System.out.println(getStone(pos.next(dir)).name());
+					// System.out.println(stone.isOther(getStone(pos.next(dir))));
+					// System.out.println(getStone(Pos.D_4).isOther(getStone(Pos.D_4.next(Direction.E))));
+
+					/*
+					 * if (stone.isOther(getStone(pos.next(dir)))){ //
+					 * System.out.println("test3"); }
+					 */
+
 					if (stone.isOther(getStone(pos.next(dir)))
 					// && getStone(pos) == (getStone(pos.next(dir).next(
-							&& getStone(pos.next(dir)).isOther(getStone(pos.next(dir).next(dir)))) {
+							&& getStone(pos.next(dir)).isOther(
+									getStone(pos.next(dir).next(dir)))) {
 						validPositions.add(pos);
-					//	System.out.println("test2");
+						// System.out.println("test2");
 						break;
 					}
 				}
 			}
 		}
-	  //  System.out.println(validPositions.size());
+		// System.out.println(validPositions.size());
 		return validPositions.toArray(new Pos[validPositions.size()]);
 	}
 
 	public boolean isValidDirection(Pos pos, Direction dir) {
-		if (pos.next(dir)==null) return false;
-		if (pos.next(dir).next(dir) == null) return false;
-		return true;//pos.next(dir) != null && pos.next(dir).next(dir) != null;
+		if (pos.next(dir) == null)
+			return false;
+		if (pos.next(dir).next(dir) == null)
+			return false;
+		return true;// pos.next(dir) != null && pos.next(dir).next(dir) != null;
 	}
 
 	/*
