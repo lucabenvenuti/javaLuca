@@ -1,7 +1,9 @@
 package othello;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -51,6 +53,35 @@ public class BoardImpl implements Board {
 		for (Pos p : validPos) {
 			if (pos == p) {
 				boardMap.put(pos, stone);
+				// boardMap.remove(key)
+
+				for (Direction dir : Direction.values()) {
+
+					while (iterator().hasNext()) {
+						Pos pos2 = iterator().next();
+						List<Pos> candidatesToCapture = new ArrayList<>();
+						if (isValidDirection(pos2, dir)) {
+							if (isFree(pos)) {// do nothing
+							} else if (stone.isOther(getStone(pos2))) {// do
+																		// nothing
+							} else if (stone == getStone(pos2)) {
+								findCaptureCandidates(candidatesToCapture, pos,
+										stone, dir);
+							} else {
+								System.out.println("Wrong insertion");
+							}
+						}
+						
+						capture(candidatesToCapture, stone);
+
+						/*
+						 * System.out.println(pos2); if (isFree(pos2)) {
+						 * return;// false; }
+						 */
+					}
+
+				}
+
 				return;
 			}
 
@@ -59,6 +90,33 @@ public class BoardImpl implements Board {
 		// 1) isLegalMove
 		// 2) placeStone
 		// 3) flipColor
+	}
+
+	private void capture(List<Pos> candidatesToCapture, Stone stone) {
+		// TODO Auto-generated method stub
+		for (Pos p:candidatesToCapture){
+			boardMap.remove(p);
+			boardMap.put(p,stone);
+		}		
+	}
+
+	private void findCaptureCandidates(List<Pos> candidatesToCapture, Pos pos,
+			Stone stone, Direction dir) {
+		// TODO Auto-generated method stub
+		if (pos.next(dir) != null) {
+			candidatesToCapture.add(pos.next(dir));
+		} else {
+			candidatesToCapture.clear();
+		}
+
+		if (getStone(pos.next(dir)) == stone) {
+		} else if (getStone(pos.next(dir)) == Stone.FREE) {
+			candidatesToCapture.clear();
+		} else {
+			findCaptureCandidates(candidatesToCapture, pos.next(dir), stone,
+					dir);
+		}
+
 	}
 
 	/*
@@ -113,6 +171,10 @@ public class BoardImpl implements Board {
 			System.out.println(pos);
 			if (isFree(pos)) {
 				for (Direction dir : Direction.values()) {
+					if (!isValidDirection(pos, dir)) {
+						break;
+					}
+
 					// if (getStone(pos).isOther(getStone(pos.next(dir)))
 					if (stone.isOther(getStone(pos.next(dir)))
 					// && getStone(pos) == (getStone(pos.next(dir).next(
@@ -125,6 +187,10 @@ public class BoardImpl implements Board {
 		}
 
 		return validPositions.toArray(new Pos[validPositions.size()]);
+	}
+
+	public boolean isValidDirection(Pos pos, Direction dir) {
+		return pos.next(dir) != null && pos.next(dir).next(dir) != null;
 	}
 
 	/*
