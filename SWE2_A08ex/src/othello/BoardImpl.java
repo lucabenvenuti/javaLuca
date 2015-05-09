@@ -82,7 +82,7 @@ public class BoardImpl implements Board {
 				//	System.out.println(i++);
 				//	System.out.println(pos3);
 					
-					if (pos3 == null){
+					/*if (pos3 == null){
 						System.out.println(pos3);
 						System.out.println("null3");
 					}
@@ -92,10 +92,10 @@ public class BoardImpl implements Board {
 					//	continue;
 					} else{
 						System.out.println("occupied");
-					}
-					
+					}*/
+					if (pos3 == null){continue;}
 
-					/*List<Pos> candidatesToCapture = new ArrayList<>();
+					List<Pos> candidatesToCapture = new ArrayList<>();
 					if (isValidDirection(pos3, dir)) {
 						// System.out.println(pos==null);
 						if (isFree(pos3)) {// do nothing
@@ -108,10 +108,10 @@ public class BoardImpl implements Board {
 						} else {
 							System.out.println("Wrong insertion");
 						}
-					}
+					} else {continue;}
 					if (candidatesToCapture.size() > 0) {
 						capture(candidatesToCapture, stone);
-					}*/
+					}
 
 					/*
 					 * Iterator<Pos> iterator1 = iterator(); while
