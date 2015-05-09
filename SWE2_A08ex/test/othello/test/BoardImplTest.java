@@ -8,6 +8,9 @@ import static othello.Pos.A_3;
 import static othello.Pos.B_1;
 import static othello.Pos.B_2;
 import static othello.Pos.C_1;
+
+import java.util.Iterator;
+
 import inout.Out;
 
 import org.junit.After;
@@ -39,18 +42,33 @@ public class BoardImplTest {
 	public void testBoardImpl() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 	}
+	
+	@Test
+	public void testIsFull() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		assertFalse(game.isFull());
+//		fail();
+//		//Iterator<Pos> iterator1 = game.iterator();
+//		for (int i = 0; i<50; i++) {
+//			Pos pos1 = game.getValidPositions(Stone.BLACK)[0];
+//			game.setStone(pos1, Stone.BLACK); 
+//				assertEquals(Stone.BLACK, game.getStone(pos1)); 
+//		}
+//		assertFalse(game.isFull());
+	
+	}
 
 	@Test
 	public void testGetStoneBlack() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		assertEquals(Stone.BLACK, game.getStone(Pos.D_5)); 
 		
+		Pos pos1 = game.getValidPositions(Stone.BLACK)[0];
+		game.setStone(pos1, Stone.BLACK); 
+			assertEquals(Stone.BLACK, game.getStone(pos1)); 
+		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1);
 		
-/*		game.setStone(Pos.A_2, Stone.BLACK); 
-		assertEquals(Stone.BLACK, game.getStone(Pos.A_2)); 
-		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
-		
-		game.setStone(Pos.B_2, Stone.BLACK); 
+		/*game.setStone(Pos.B_2, Stone.BLACK); 
 		assertEquals(Stone.BLACK, game.getStone(Pos.B_2)); 
 		assertAllFreeExcept(Pos.B_2);
 		

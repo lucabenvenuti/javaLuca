@@ -60,7 +60,7 @@ public class BoardImpl implements Board {
 			return;
 		}
 
-		first: for (Pos p : validPos) {
+		for (Pos p : validPos) {
 			if (pos == p) {
 				boardMap.remove(pos);
 				boardMap.put(pos, stone);
@@ -89,7 +89,7 @@ public class BoardImpl implements Board {
 						capture(candidatesToCapture, stone);
 					}
 				}
-				break first;
+				break;
 			}
 		}
 	}
