@@ -95,6 +95,9 @@ public class BoardImplTest {
 		// fail();
 	}
 
+	/**
+	 * Check if the Board is full.
+	 */
 	@Test
 	public void testIsFull() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);

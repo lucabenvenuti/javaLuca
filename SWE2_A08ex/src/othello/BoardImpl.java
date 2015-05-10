@@ -12,8 +12,7 @@ import java.util.TreeMap;
  *
  * A {@link BoardImpl} is a public class representing the board. It has 8x8
  * fields (as a chessboard) and maintains the stones on the board. It implements
- * the methods given in {@link Board}, plus a method to find the candidates to
- * be flipped.
+ * the methods given in {@link Board}.
  * 
  * Software Development II, 2015SS JKU Linz
  * 
