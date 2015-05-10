@@ -2,27 +2,15 @@ package othello.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static othello.Pos.A_1;
-import static othello.Pos.A_3;
-import static othello.Pos.B_1;
-import static othello.Pos.B_2;
-import static othello.Pos.C_1;
-
-import java.util.Iterator;
-
-import inout.Out;
+import static org.junit.Assert.assertNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import othello.GameState;
+import othello.BoardImpl;
 import othello.Pos;
 import othello.Stone;
-import othello.BoardImpl;
-import othello.Board;
 
 public class BoardImplTest {
 
@@ -42,6 +30,12 @@ public class BoardImplTest {
 	@Test
 	public void testBoardImpl() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+	}
+	
+	@Test
+	public void testGetValidPositionsNull() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		assertNull(game.getValidPositions(null));
 	}
 
 	@Test

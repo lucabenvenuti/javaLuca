@@ -56,9 +56,8 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
-		if (!isFull()) {
-			Pos[] validPos = Optional.ofNullable(stone).isPresent() ? getValidPositions(stone)
-					: null;
+		if (!isFull() && Optional.ofNullable(stone).isPresent()) {
+			Pos[] validPos =  getValidPositions(stone);
 
 			if (Optional.ofNullable(validPos).isPresent()) {
 
@@ -159,7 +158,7 @@ public class BoardImpl implements Board {
 	 */
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
-
+		if (!Optional.ofNullable(stone).isPresent()) return null; 
 		Collection<Pos> validPositions = new TreeSet<>();
 		Iterator<Pos> iterator1 = iterator();
 		while (iterator1.hasNext()) {
