@@ -57,7 +57,8 @@ public class BoardImpl implements Board {
 	@Override
 	public void setStone(Pos pos, Stone stone) {
 		if (!isFull()) {
-			Pos[] validPos = getValidPositions(Optional.ofNullable(stone).get());
+			Pos[] validPos = Optional.ofNullable(stone).isPresent() ? getValidPositions(stone)
+					: null;
 
 			if (Optional.ofNullable(validPos).isPresent()) {
 
