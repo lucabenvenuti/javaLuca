@@ -3,6 +3,7 @@ package othello.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -67,30 +68,31 @@ public class BoardImplTest {
 		assertEquals(game.getValidPositions(null).length, 0);
 	}
 
-	 /**
+	/**
 	 * Check if the candidates are correctly flipped.
 	 */
-	 @Test
-	 public void testFindCaptureCandidates() {
-	 assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
-	 game.setStone(Pos.A_1, Stone.WHITE);
-	 game.setStone(Pos.A_2, Stone.BLACK);
-	 game.setStone(Pos.A_3, Stone.BLACK);
-	 game.setStone(Pos.A_4, Stone.BLACK);
-	 game.setStone(Pos.A_5, Stone.BLACK);
-	 game.setStone(Pos.A_6, Stone.WHITE);
-	 assertEquals(game.getStone(Pos.A_5), Stone.WHITE);
-	 assertEquals(game.getStone(Pos.A_4), Stone.WHITE);
-	 assertEquals(game.getStone(Pos.A_3), Stone.WHITE);
-	 assertEquals(game.getStone(Pos.A_2), Stone.WHITE);
-	 }
+	@Test
+	public void testFindCaptureCandidates() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		game.setStone(Pos.A_1, Stone.WHITE);
+		game.setStone(Pos.A_2, Stone.BLACK);
+		game.setStone(Pos.A_3, Stone.BLACK);
+		game.setStone(Pos.A_4, Stone.BLACK);
+		game.setStone(Pos.A_5, Stone.BLACK);
+		game.setStone(Pos.A_6, Stone.WHITE);
+		assertEquals(game.getStone(Pos.A_5), Stone.WHITE);
+		assertEquals(game.getStone(Pos.A_4), Stone.WHITE);
+		assertEquals(game.getStone(Pos.A_3), Stone.WHITE);
+		assertEquals(game.getStone(Pos.A_2), Stone.WHITE);
+	}
 
 	/**
 	 * Check if the Board has still free Pos.
 	 */
 	@Test
-	public void testIsNotFull() {
+	public void testIsFreeAndNotFull() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		assertTrue(game.isFree(Pos.D_7));
 		assertFalse(game.isFull());
 		// fail();
 	}
@@ -105,11 +107,11 @@ public class BoardImplTest {
 			game.setStone(p, Stone.BLACK);
 		}
 		assertTrue(game.isFull());
-		
-//		if (!condizione1) {
-//			  fail();
-//			}
-//			assertTrue(condizione1);
+
+		// if (!condizione1) {
+		// fail();
+		// }
+		// assertTrue(condizione1);
 	}
 
 	/**
@@ -131,6 +133,23 @@ public class BoardImplTest {
 		assertEquals(Stone.WHITE, game.getStone(pos2));
 		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1,
 				pos2);
+	}
+
+	@Test
+	public void testGetValidPositions() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		game.setStone(Pos.C_4, Stone.BLACK);
+		assertArrayEquals(new Pos[] { Pos.C_3, Pos.E_3, Pos.C_5 },
+				game.getValidPositions(Stone.WHITE));
+		game.setStone(Pos.E_3, Stone.WHITE);
+		game.setStone(Pos.F_2, Stone.BLACK);
+		assertArrayEquals(new Pos[] { Pos.E_2, Pos.C_3, Pos.B_4, Pos.C_5,
+				Pos.C_6 }, game.getValidPositions(Stone.WHITE));
+		game.setStone(Pos.C_5, Stone.WHITE);
+		game.setStone(Pos.E_6, Stone.BLACK);
+		assertArrayEquals(new Pos[] { Pos.G_1, Pos.B_3, Pos.C_3, Pos.D_3,
+				Pos.F_3, Pos.F_5 }, game.getValidPositions(Stone.WHITE));
+		
 	}
 
 	// private section --------------------------------------------------------
