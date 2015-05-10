@@ -10,16 +10,26 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
- * Class representing the board. It has 8x8 fields (as a chessboard) and
- * maintains the stones on the board.
+ * BoardImpl.java
+ *
+ * A {@link BoardImpl} is a public class representing the board. It has 8x8
+ * fields (as a chessboard) and maintains the stones on the board. It implements
+ * the methods given in {@link Board}, plus a method to find the candidates to
+ * be flipped.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author TAs & Luca Benvenuti
+ * 
+ * 
  */
 public class BoardImpl implements Board {
 
 	private Map<Pos, Stone> boardMap = new TreeMap<>();
 
 	/**
-	 * Constructor initializing the board with two white stones on positions D 4
-	 * and E 5 and two black stones on positions D 5 and E 4.
+	 * TAs: Constructor initializing the board with two white stones on
+	 * positions D 4 and E 5 and two black stones on positions D 5 and E 4.
 	 */
 	public BoardImpl() {
 		for (Pos p : Pos.ALL) {
@@ -167,7 +177,7 @@ public class BoardImpl implements Board {
 		return validPositions.toArray(new Pos[validPositions.size()]);
 	}
 
-	public boolean isValidDirection(Pos pos, Direction dir) {
+	private boolean isValidDirection(Pos pos, Direction dir) {
 		return Optional.ofNullable(pos.next(dir)).isPresent()
 				&& Optional.ofNullable(pos.next(dir).next(dir)).isPresent();
 	}
