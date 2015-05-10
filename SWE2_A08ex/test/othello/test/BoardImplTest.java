@@ -37,7 +37,6 @@ public class BoardImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-
 		game = new BoardImpl();
 	}
 

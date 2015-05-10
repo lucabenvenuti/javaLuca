@@ -35,10 +35,6 @@ public class BoardImpl implements Board {
 		for (Pos p : Pos.ALL) {
 			boardMap.put(p, Stone.FREE);
 		}
-		boardMap.remove(Pos.D_4);
-		boardMap.remove(Pos.E_5);
-		boardMap.remove(Pos.D_5);
-		boardMap.remove(Pos.E_4);
 		boardMap.put(Pos.D_4, Stone.WHITE);
 		boardMap.put(Pos.E_5, Stone.WHITE);
 		boardMap.put(Pos.D_5, Stone.BLACK);
@@ -60,7 +56,6 @@ public class BoardImpl implements Board {
 
 				for (Pos p : validPos) {
 					if (pos.equals(p)) { // 1) isLegalMove
-						boardMap.remove(pos);
 						boardMap.put(pos, stone); // 2) placeStone
 
 						for (Direction dir : Direction.values()) {
@@ -99,7 +94,6 @@ public class BoardImpl implements Board {
 
 	private void capture(List<Pos> candidatesToCapture, Stone stone) {
 		for (Pos p : candidatesToCapture) {
-			boardMap.remove(p);
 			boardMap.put(p, stone);
 		}
 	}
