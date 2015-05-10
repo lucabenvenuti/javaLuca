@@ -2,13 +2,15 @@ package othello.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
+
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import othello.BoardImpl;
+import othello.Direction;
 import othello.Pos;
 import othello.Stone;
 
@@ -31,11 +33,18 @@ public class BoardImplTest {
 	public void testBoardImpl() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 	}
-	
+
 	@Test
-	public void testGetValidPositionsNull() {
+	public void testGetValidPositionsZero() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
-		assertNull(game.getValidPositions(null));
+		assertEquals(game.getValidPositions(null).length, 0);
+	}
+
+	@Test
+	public void testFindCaptureCandidates() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		game.findCaptureCandidates(new ArrayList<>(), Pos.A_1, Stone.BLACK,
+				Direction.W);
 	}
 
 	@Test
@@ -43,14 +52,6 @@ public class BoardImplTest {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		assertFalse(game.isFull());
 		// fail();
-		// //Iterator<Pos> iterator1 = game.iterator();
-		// for (int i = 0; i<50; i++) {
-		// Pos pos1 = game.getValidPositions(Stone.BLACK)[0];
-		// game.setStone(pos1, Stone.BLACK);
-		// assertEquals(Stone.BLACK, game.getStone(pos1));
-		// }
-		// assertFalse(game.isFull());
-
 	}
 
 	@Test
@@ -62,92 +63,13 @@ public class BoardImplTest {
 		game.setStone(pos1, Stone.BLACK);
 		assertEquals(Stone.BLACK, game.getStone(pos1));
 		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1);
-		
+
 		Pos pos2 = game.getValidPositions(Stone.WHITE)[1];
 		game.setStone(pos2, Stone.WHITE);
 		assertEquals(Stone.WHITE, game.getStone(pos2));
-		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1, pos2);
-		
-		//fail();
-		
-		//game.setStone(pos1, null);
-		/*
-		 * game.setStone(Pos.B_2, Stone.BLACK); assertEquals(Stone.BLACK,
-		 * game.getStone(Pos.B_2)); assertAllFreeExcept(Pos.B_2);
-		 * 
-		 * game.setStone(Pos.C_1, Stone.BLACK); assertEquals(Stone.BLACK,
-		 * game.getStone(Pos.C_1)); assertAllFreeExcept(Pos.C_1);
-		 */
-
-		/*
-		 * game.doMove(Pos.C_3); assertEquals(Stone.X, game.getStone(Pos.C_1));
-		 * assertEquals(Stone.O, game.getStone(Pos.B_2)); assertEquals(Stone.X,
-		 * game.getStone(Pos.A_2)); assertEquals(Stone.O,
-		 * game.getStone(Pos.C_3)); assertAllFreeExcept(Pos.A_2, Pos.B_2,
-		 * Pos.C_1, Pos.C_3);
-		 */
-
+		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1,
+				pos2);
 	}
-
-	/*
-	 * @Test public void testGetMoveNumber() { assertEquals(0,
-	 * game.getMoveNumber());
-	 * 
-	 * game.doMove(Pos.A_2); assertEquals(1, game.getMoveNumber());
-	 * 
-	 * game.doMove(Pos.B_2); assertEquals(2, game.getMoveNumber());
-	 * 
-	 * game.doMove(Pos.C_1); assertEquals(3, game.getMoveNumber());
-	 * 
-	 * game.doMove(Pos.C_3); assertEquals(4, game.getMoveNumber()); }
-	 * 
-	 * @Test public void testDoMove() { game.doMove(Pos.A_2);
-	 * assertEquals(Stone.X, game.getStone(Pos.A_2));
-	 * assertAllFreeExcept(Pos.A_2);
-	 * 
-	 * game.doMove(Pos.B_2); assertEquals(Stone.O, game.getStone(Pos.B_2));
-	 * assertEquals(Stone.X, game.getStone(Pos.A_2));
-	 * assertAllFreeExcept(Pos.A_2, Pos.B_2);
-	 * 
-	 * game.doMove(Pos.C_1); assertEquals(Stone.X, game.getStone(Pos.C_1));
-	 * assertEquals(Stone.O, game.getStone(Pos.B_2)); assertEquals(Stone.X,
-	 * game.getStone(Pos.A_2)); assertAllFreeExcept(Pos.A_2, Pos.B_2, Pos.C_1);
-	 * 
-	 * game.doMove(Pos.C_3); assertEquals(Stone.X, game.getStone(Pos.C_1));
-	 * assertEquals(Stone.O, game.getStone(Pos.B_2)); assertEquals(Stone.X,
-	 * game.getStone(Pos.A_2)); assertEquals(Stone.O, game.getStone(Pos.C_3));
-	 * assertAllFreeExcept(Pos.A_2, Pos.B_2, Pos.C_1, Pos.C_3); }
-	 * 
-	 * @Test public void testGetGameState1() { game.doMove(A_1); // X . . . . .
-	 * . . . printBoard(game); assertEquals(GameState.RUNNING,
-	 * game.getGameState()); game.doMove(B_2); // X . . . 0 . . . .
-	 * printBoard(game); assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(B_1); // X . . X 0 . . . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState()); game.doMove(A_3);
-	 * // X . 0 X 0 . . . . printBoard(game); assertEquals(GameState.RUNNING,
-	 * game.getGameState()); game.doMove(C_1); // X . 0 X 0 . X . .
-	 * printBoard(game); assertEquals(GameState.WINNER_PLAYER_X,
-	 * game.getGameState()); }
-	 * 
-	 * @Test public void testGetGameState2() { game.doMove(Pos.A_1); // X . . .
-	 * . . . . . printBoard(game); assertEquals(GameState.RUNNING,
-	 * game.getGameState()); game.doMove(Pos.B_2); // X . . . 0 . . . .
-	 * printBoard(game); assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.A_2); // X X . . 0 . . . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.A_3); // X X 0 . 0 . . . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.C_1); // X X 0 . 0 . 0 . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.B_1); // X X 0 X 0 . 0 . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.B_3); // X X 0 X 0 X 0 . . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.C_2); // X X 0 X 0 X 0 0 . printBoard(game);
-	 * assertEquals(GameState.RUNNING, game.getGameState());
-	 * game.doMove(Pos.C_3); // X X 0 X 0 X 0 0 X printBoard(game);
-	 * assertEquals(GameState.DRAW, game.getGameState()); }
-	 */
 
 	// private section --------------------------------------------------------
 
@@ -166,21 +88,5 @@ public class BoardImplTest {
 		}
 		return false;
 	}
-
-	/*
-	 * private String posOutputString(TTTGame board, int col, char row) { switch
-	 * (board.getStone(Pos.getPos(row, col))) { case X: return "X"; case O:
-	 * return "O"; case FREE: return " "; default: throw new
-	 * AssertionError("illegal state"); } }
-	 * 
-	 * private void printBoard(TTTGame board) { Out.println("Board at move " +
-	 * board.getMoveNumber()); Out.println("with state " +
-	 * board.getGameState()); Out.println("  --------------");
-	 * Out.println("  |  1 | 2 | 3 |"); for (char row = 'A'; row <= 'C'; row =
-	 * (char)(row+1)) { Out.println("  --------------"); Out.print(row + " | ");
-	 * for (int col = 1; col <= 3; col++) { Out.print(" " +
-	 * posOutputString(board, col, row) + " |"); } Out.println(); }
-	 * Out.println("  --------------"); }
-	 */
 
 }

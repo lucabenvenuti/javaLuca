@@ -22,8 +22,6 @@ public class BoardImpl implements Board {
 	 * and E 5 and two black stones on positions D 5 and E 4.
 	 */
 	public BoardImpl() {
-		// TODO
-
 		for (Pos p : Pos.ALL) {
 			boardMap.put(p, Stone.FREE);
 		}
@@ -38,43 +36,34 @@ public class BoardImpl implements Board {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see othello.Board#getStone(othello.Pos)
-	 */
 	@Override
 	public Stone getStone(Pos pos) {
-		// TODO
 		return boardMap.get(pos);
 	}
 
-	/*
-	 * // 1) isLegalMove // 2) placeStone // 3) flipColor (non-Javadoc)
-	 * 
-	 * @see othello.Board#setStone(othello.Pos, othello.Stone)
-	 */
 	@Override
 	public void setStone(Pos pos, Stone stone) {
 		if (!isFull() && Optional.ofNullable(stone).isPresent()) {
-			Pos[] validPos =  getValidPositions(stone);
+			Pos[] validPos = getValidPositions(stone);
 
 			if (Optional.ofNullable(validPos).isPresent()) {
 
 				for (Pos p : validPos) {
-					if (pos.equals(p)) {
+					if (pos.equals(p)) { // 1) isLegalMove
 						boardMap.remove(pos);
-						boardMap.put(pos, stone);
+						boardMap.put(pos, stone); // 2) placeStone
 
 						for (Direction dir : Direction.values()) {
 							Pos pos3 = p.next(dir);
 							if (!Optional.ofNullable(pos3).isPresent()) {
-								continue;
+								continue; // this branch can be tested only when
+											// the setStone starts to reach one
+											// border of the Board.
 							}
 
 							List<Pos> candidatesToCapture = new ArrayList<>();
 							if (isValidDirection(pos3, dir)) {
-								if (isFree(pos3)) {// do nothing
+								if (isFree(pos3)) {
 									continue;
 								} else if (stone.isOther(getStone(pos3))) {
 									findCaptureCandidates(candidatesToCapture,
@@ -82,11 +71,13 @@ public class BoardImpl implements Board {
 								} else if (stone.equals(getStone(pos3))) {// do
 																			// nothing
 								} else {
-									System.out.println("Wrong insertion");
+									System.out
+											.println("Wrong insertion, this message should appear only if the constructor has been wrongly initialized");
 								}
 							}
 							if (candidatesToCapture.size() > 0) {
-								capture(candidatesToCapture, stone);
+								capture(candidatesToCapture, stone); // 3)
+																		// flipColor
 							}
 						}
 						break;
@@ -97,17 +88,26 @@ public class BoardImpl implements Board {
 	}
 
 	private void capture(List<Pos> candidatesToCapture, Stone stone) {
-		// TODO Auto-generated method stub
 		for (Pos p : candidatesToCapture) {
 			boardMap.remove(p);
 			boardMap.put(p, stone);
 		}
 	}
 
-	private void findCaptureCandidates(List<Pos> candidatesToCapture, Pos pos,
+	/**
+	 * 
+	 * Recursive function to update a list of Pos candidate to be flipped, given
+	 * a direction. The list is filled with opposite stones Pos, completed with
+	 * same stone, and emptied if a null or a opposite stone are in the last
+	 * Pos.
+	 * 
+	 * @param candidatesToCapture
+	 * @param pos
+	 * @param stone
+	 * @param dir
+	 */
+	public void findCaptureCandidates(List<Pos> candidatesToCapture, Pos pos,
 			Stone stone, Direction dir) {
-		// TODO Auto-generated method stub
-
 		if (!Optional.ofNullable(pos.next(dir)).isPresent()) {
 			candidatesToCapture.clear();
 		} else {
@@ -122,25 +122,13 @@ public class BoardImpl implements Board {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see othello.Board#isFree(othello.Pos)
-	 */
 	@Override
 	public boolean isFree(Pos pos) {
-		// TODO
 		return Stone.FREE.equals(getStone(pos));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see othello.Board#isFull()
-	 */
 	@Override
 	public boolean isFull() {
-		// TODO
 		Iterator<Pos> iterator1 = iterator();
 		while (iterator1.hasNext()) {
 			Pos pos = iterator1.next();
@@ -148,32 +136,30 @@ public class BoardImpl implements Board {
 				return false;
 			}
 		}
-		return true;
+		return true; // this branch can be tested only when the game is finished
+						// with one winner, because the boardMap is private.
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see othello.Board#getValidPositions(othello.Stone)
-	 */
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
-		if (!Optional.ofNullable(stone).isPresent()) return null; 
 		Collection<Pos> validPositions = new TreeSet<>();
-		Iterator<Pos> iterator1 = iterator();
-		while (iterator1.hasNext()) {
-			Pos pos = iterator1.next();
-			if (isFree(pos)) {
-				for (Direction dir : Direction.values()) {
-					//
-					if (!isValidDirection(pos, dir)) {
-						continue;
-					}
-					if (stone.isOther(getStone(pos.next(dir)))
-							&& getStone(pos.next(dir)).isOther(
-									getStone(pos.next(dir).next(dir)))) {
-						validPositions.add(pos);
-						break;
+		if (Optional.ofNullable(stone).isPresent()) {
+
+			Iterator<Pos> iterator1 = iterator();
+			while (iterator1.hasNext()) {
+				Pos pos = iterator1.next();
+				if (isFree(pos)) {
+					for (Direction dir : Direction.values()) {
+						//
+						if (!isValidDirection(pos, dir)) {
+							continue;
+						}
+						if (stone.isOther(getStone(pos.next(dir)))
+								&& getStone(pos.next(dir)).isOther(
+										getStone(pos.next(dir).next(dir)))) {
+							validPositions.add(pos);
+							break;
+						}
 					}
 				}
 			}
@@ -186,14 +172,8 @@ public class BoardImpl implements Board {
 				&& Optional.ofNullable(pos.next(dir).next(dir)).isPresent();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see othello.Board#iterator()
-	 */
 	@Override
 	public Iterator<Pos> iterator() {
-		// TODO
 		return boardMap.keySet().iterator();
 	}
 
