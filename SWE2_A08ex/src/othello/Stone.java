@@ -18,6 +18,7 @@ public enum Stone {
 		this.symbol = name; 
 	}
 	
+	@Override
 	public String toString() {
 		return symbol;
 	}
