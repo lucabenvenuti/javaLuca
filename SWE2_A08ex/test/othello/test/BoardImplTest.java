@@ -2,15 +2,13 @@ package othello.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
-import java.util.ArrayList;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import othello.BoardImpl;
-import othello.Direction;
 import othello.Pos;
 import othello.Stone;
 
@@ -69,16 +67,23 @@ public class BoardImplTest {
 		assertEquals(game.getValidPositions(null).length, 0);
 	}
 
-	/**
-	 * Check null branch of findCaptureCandidates() when it goes out of the
-	 * Board.
+	 /**
+	 * Check if the candidates are correctly flipped.
 	 */
-	@Test
-	public void testFindCaptureCandidates() {
-		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
-		game.findCaptureCandidates(new ArrayList<>(), Pos.A_1, Stone.BLACK,
-				Direction.W);
-	}
+	 @Test
+	 public void testFindCaptureCandidates() {
+	 assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+	 game.setStone(Pos.A_1, Stone.WHITE);
+	 game.setStone(Pos.A_2, Stone.BLACK);
+	 game.setStone(Pos.A_3, Stone.BLACK);
+	 game.setStone(Pos.A_4, Stone.BLACK);
+	 game.setStone(Pos.A_5, Stone.BLACK);
+	 game.setStone(Pos.A_6, Stone.WHITE);
+	 assertEquals(game.getStone(Pos.A_5), Stone.WHITE);
+	 assertEquals(game.getStone(Pos.A_4), Stone.WHITE);
+	 assertEquals(game.getStone(Pos.A_3), Stone.WHITE);
+	 assertEquals(game.getStone(Pos.A_2), Stone.WHITE);
+	 }
 
 	/**
 	 * Check if the Board has still free Pos.
@@ -88,6 +93,20 @@ public class BoardImplTest {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		assertFalse(game.isFull());
 		// fail();
+	}
+
+	@Test
+	public void testIsFull() {
+		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
+		for (Pos p : Pos.ALL) {
+			game.setStone(p, Stone.BLACK);
+		}
+		assertTrue(game.isFull());
+		
+//		if (!condizione1) {
+//			  fail();
+//			}
+//			assertTrue(condizione1);
 	}
 
 	/**

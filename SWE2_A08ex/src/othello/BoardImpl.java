@@ -1,13 +1,11 @@
 package othello;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
  * BoardImpl.java
@@ -39,7 +37,6 @@ public class BoardImpl implements Board {
 		boardMap.put(Pos.E_5, Stone.WHITE);
 		boardMap.put(Pos.D_5, Stone.BLACK);
 		boardMap.put(Pos.E_4, Stone.BLACK);
-
 	}
 
 	@Override
@@ -49,79 +46,28 @@ public class BoardImpl implements Board {
 
 	@Override
 	public void setStone(Pos pos, Stone stone) {
-		if (!isFull() && Optional.ofNullable(stone).isPresent()) {
-			Pos[] validPos = getValidPositions(stone);
-
-			if (Optional.ofNullable(validPos).isPresent()) {
-
-				for (Pos p : validPos) {
-					if (pos.equals(p)) { // 1) isLegalMove
-						boardMap.put(pos, stone); // 2) placeStone
-
-						for (Direction dir : Direction.values()) {
-							Pos pos3 = p.next(dir);
-							if (!Optional.ofNullable(pos3).isPresent()) {
-								continue; // this branch can be tested only when
-											// the setStone starts to reach one
-											// border of the Board.
-							}
-
-							List<Pos> candidatesToCapture = new ArrayList<>();
-							if (isValidDirection(pos3, dir)) {
-								if (isFree(pos3)) {
-									continue;
-								} else if (stone.isOther(getStone(pos3))) {
-									findCaptureCandidates(candidatesToCapture,
-											pos, stone, dir);
-								} else if (stone.equals(getStone(pos3))) {// do
-																			// nothing
-								} else {
-									System.out
-											.println("Wrong insertion, this message should appear only if the constructor has been wrongly initialized");
-								}
-							}
-							if (candidatesToCapture.size() > 0) {
-								capture(candidatesToCapture, stone); // 3)
-																		// flipColor
-							}
-						}
-						break;
-					}
-				}
+		boardMap.put(pos, stone);
+		for (Direction dir : Direction.values()) {
+			ArrayList<Pos> candidatesToCapture = new ArrayList<>();
+			findCaptureCandidates(candidatesToCapture, pos, stone, dir);
+			for (Pos candidateToCapture : candidatesToCapture) {
+				boardMap.put(candidateToCapture, stone);
 			}
 		}
 	}
 
-	private void capture(List<Pos> candidatesToCapture, Stone stone) {
-		for (Pos p : candidatesToCapture) {
-			boardMap.put(p, stone);
-		}
-	}
-
-	/**
-	 * 
-	 * Recursive function to update a list of Pos candidate to be flipped, given
-	 * a direction. The list is filled with opposite stones Pos, completed with
-	 * same stone, and emptied if a null or a opposite stone are in the last
-	 * Pos.
-	 * 
-	 * @param candidatesToCapture
-	 * @param pos
-	 * @param stone
-	 * @param dir
-	 */
-	public void findCaptureCandidates(List<Pos> candidatesToCapture, Pos pos,
+	private void findCaptureCandidates(List<Pos> candidatesToCapture, Pos pos,
 			Stone stone, Direction dir) {
-		if (!Optional.ofNullable(pos.next(dir)).isPresent()) {
+		Pos nextPos = pos.next(dir);
+		if (nextPos == null) {
 			candidatesToCapture.clear();
 		} else {
-			candidatesToCapture.add(pos.next(dir));
-			if (stone.equals(getStone(pos.next(dir)))) {
-			} else if (Stone.FREE.equals(getStone(pos.next(dir)))) {
+			Stone nextStone = getStone(nextPos);
+			if (nextStone == Stone.FREE) {
 				candidatesToCapture.clear();
-			} else {
-				findCaptureCandidates(candidatesToCapture, pos.next(dir),
-						stone, dir);
+			} else if (nextStone.isOther(stone)) {
+				candidatesToCapture.add(nextPos);
+				findCaptureCandidates(candidatesToCapture, nextPos, stone, dir);
 			}
 		}
 	}
@@ -133,37 +79,24 @@ public class BoardImpl implements Board {
 
 	@Override
 	public boolean isFull() {
-		Iterator<Pos> iterator1 = iterator();
-		while (iterator1.hasNext()) {
-			Pos pos = iterator1.next();
-			if (isFree(pos)) {
+		for (Iterator<Pos> iter = iterator(); iter.hasNext();) {
+			if (isFree(iter.next())) {
 				return false;
 			}
 		}
-		return true; // this branch can be tested only when the game is finished
-						// with one winner, because the boardMap is private.
+		return true;
 	}
 
 	@Override
 	public Pos[] getValidPositions(Stone stone) {
-		Collection<Pos> validPositions = new TreeSet<>();
-		if (Optional.ofNullable(stone).isPresent()) {
-
-			Iterator<Pos> iterator1 = iterator();
-			while (iterator1.hasNext()) {
-				Pos pos = iterator1.next();
-				if (isFree(pos)) {
-					for (Direction dir : Direction.values()) {
-						//
-						if (!isValidDirection(pos, dir)) {
-							continue;
-						}
-						if (stone.isOther(getStone(pos.next(dir)))
-								&& getStone(pos.next(dir)).isOther(
-										getStone(pos.next(dir).next(dir)))) {
-							validPositions.add(pos);
-							break;
-						}
+		List<Pos> validPositions = new ArrayList<>();
+		for (Iterator<Pos> iter = iterator(); iter.hasNext();) {
+			Pos pos = iter.next();
+			if (isFree(pos)) {
+				for (Direction dir : Direction.values()) {
+					if (isValidDirection(pos, stone, dir)) {
+						validPositions.add(pos);
+						break;
 					}
 				}
 			}
@@ -171,9 +104,10 @@ public class BoardImpl implements Board {
 		return validPositions.toArray(new Pos[validPositions.size()]);
 	}
 
-	private boolean isValidDirection(Pos pos, Direction dir) {
-		return Optional.ofNullable(pos.next(dir)).isPresent()
-				&& Optional.ofNullable(pos.next(dir).next(dir)).isPresent();
+	private boolean isValidDirection(Pos pos, Stone stone, Direction dir) {
+		LinkedList<Pos> candidatesToCapture = new LinkedList<>();
+		findCaptureCandidates(candidatesToCapture, pos, stone, dir);
+		return !candidatesToCapture.isEmpty();
 	}
 
 	@Override
