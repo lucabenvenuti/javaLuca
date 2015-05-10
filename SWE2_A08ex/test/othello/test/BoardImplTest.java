@@ -3,6 +3,7 @@ package othello.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static othello.Pos.A_1;
 import static othello.Pos.A_3;
 import static othello.Pos.B_1;
@@ -67,7 +68,15 @@ public class BoardImplTest {
 		game.setStone(pos1, Stone.BLACK);
 		assertEquals(Stone.BLACK, game.getStone(pos1));
 		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1);
-
+		
+		Pos pos2 = game.getValidPositions(Stone.WHITE)[1];
+		game.setStone(pos2, Stone.WHITE);
+		assertEquals(Stone.WHITE, game.getStone(pos2));
+		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1, pos2);
+		
+		//fail();
+		
+		//game.setStone(pos1, null);
 		/*
 		 * game.setStone(Pos.B_2, Stone.BLACK); assertEquals(Stone.BLACK,
 		 * game.getStone(Pos.B_2)); assertAllFreeExcept(Pos.B_2);
