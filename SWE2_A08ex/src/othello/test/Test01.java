@@ -31,10 +31,10 @@ public class Test01 {
 		
 		BoardImpl game = new BoardImpl();
 		game.setStone(Pos.C_4, Stone.BLACK);
+		game.setStone(Pos.C_3, Stone.WHITE);
+		game.setStone(Pos.D_3, Stone.BLACK);
 		game.setStone(Pos.E_3, Stone.WHITE);
-		game.setStone(Pos.F_2, Stone.BLACK);
-		game.setStone(Pos.C_5, Stone.WHITE);
-		game.setStone(Pos.E_6, Stone.BLACK);
+		game.setStone(Pos.C_2, Stone.BLACK);
 		for (Pos p:game.getValidPositions(Stone.WHITE)){
 			System.out.println(p.toString());
 		}
