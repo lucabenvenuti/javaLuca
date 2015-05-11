@@ -94,7 +94,6 @@ public class BoardImplTest {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		assertTrue(game.isFree(Pos.D_7));
 		assertFalse(game.isFull());
-		// fail();
 	}
 
 	/**
@@ -107,11 +106,6 @@ public class BoardImplTest {
 			game.setStone(p, Stone.BLACK);
 		}
 		assertTrue(game.isFull());
-
-		// if (!condizione1) {
-		// fail();
-		// }
-		// assertTrue(condizione1);
 	}
 
 	/**
@@ -151,17 +145,15 @@ public class BoardImplTest {
 				Pos.C_6 }, game.getValidPositions(Stone.WHITE));
 		game.setStone(Pos.C_5, Stone.WHITE);
 		game.setStone(Pos.E_6, Stone.BLACK);
-
-		/*
-		 * assertArrayEquals(new Pos[] { Pos.G_1, Pos.B_3, Pos.C_3, Pos.D_3,
-		 * Pos.F_3, Pos.F_5 }, game.getValidPositions(Stone.WHITE));
-		 */
-
 		assertArrayEquals(new Pos[] { Pos.G_1, Pos.C_3, Pos.F_5 },
 				game.getValidPositions(Stone.WHITE));
 
 	}
 
+	/**
+	 * After stone insertion, check again if the given array of valid positions
+	 * is correct.
+	 */
 	@Test
 	public void testGetValidPositions2() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
@@ -173,12 +165,10 @@ public class BoardImplTest {
 		assertArrayEquals(new Pos[] { Pos.E_3, Pos.C_5 },
 				game.getValidPositions(Stone.WHITE));
 		game.setStone(Pos.E_3, Stone.WHITE);
-		game.setStone(Pos.C_2, Stone.BLACK); // 6th move
+		game.setStone(Pos.C_2, Stone.BLACK);
 		assertArrayEquals(new Pos[] { Pos.B_1, Pos.B_2, Pos.B_3, Pos.B_4,
-				Pos.B_5, // ??
-				Pos.C_5, Pos.C_6, 
-				Pos.D_6 // ??
-				}, game.getValidPositions(Stone.WHITE));
+				Pos.B_5, Pos.C_5, Pos.C_6, Pos.D_6 },
+				game.getValidPositions(Stone.WHITE));
 
 		game.setStone(Pos.B_1, Stone.WHITE);
 		game.setStone(Pos.F_5, Stone.BLACK);
@@ -194,8 +184,6 @@ public class BoardImplTest {
 				Pos.E_6, Pos.F_6, Pos.G_6 },
 				game.getValidPositions(Stone.WHITE));
 	}
-
-	// private section --------------------------------------------------------
 
 	private void assertAllFreeExcept(Pos... occupied) {
 		for (Pos pos : Pos.ALL) {
