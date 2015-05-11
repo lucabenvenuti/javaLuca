@@ -69,7 +69,8 @@ public class BoardImplTest {
 	}
 
 	/**
-	 * Check if the candidates are correctly flipped.
+	 * Check if the candidates are correctly flipped. BoardImpl.setStone(...) is
+	 * not defensively implemented, so illegal moves can be forced for testing.
 	 */
 	@Test
 	public void testFindCaptureCandidates() {
@@ -97,7 +98,8 @@ public class BoardImplTest {
 	}
 
 	/**
-	 * Check if the Board is full.
+	 * Check if the Board is full. BoardImpl.setStone(...) is not defensively
+	 * implemented, so illegal moves can be forced for testing.
 	 */
 	@Test
 	public void testIsFull() {
@@ -117,12 +119,12 @@ public class BoardImplTest {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		assertEquals(Stone.BLACK, game.getStone(Pos.D_5));
 
-		Pos pos1 = game.getValidPositions(Stone.BLACK)[0];
+		final Pos pos1 = game.getValidPositions(Stone.BLACK)[0];
 		game.setStone(pos1, Stone.BLACK);
 		assertEquals(Stone.BLACK, game.getStone(pos1));
 		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1);
 
-		Pos pos2 = game.getValidPositions(Stone.WHITE)[1];
+		final Pos pos2 = game.getValidPositions(Stone.WHITE)[1];
 		game.setStone(pos2, Stone.WHITE);
 		assertEquals(Stone.WHITE, game.getStone(pos2));
 		assertAllFreeExcept(Pos.A_2, Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5, pos1,
@@ -130,11 +132,11 @@ public class BoardImplTest {
 	}
 
 	/**
-	 * After stone insertion, check if the given array of valid positions is
+	 * After stone insertions, check if the given array of valid positions is
 	 * correct.
 	 */
 	@Test
-	public void testGetValidPositions() {
+	public void testGetValidPositions1() {
 		assertAllFreeExcept(Pos.D_4, Pos.D_5, Pos.E_4, Pos.E_5);
 		game.setStone(Pos.C_4, Stone.BLACK);
 		assertArrayEquals(new Pos[] { Pos.C_3, Pos.E_3, Pos.C_5 },
@@ -151,7 +153,7 @@ public class BoardImplTest {
 	}
 
 	/**
-	 * After stone insertion, check again if the given array of valid positions
+	 * After stone insertions, check again if the given array of valid positions
 	 * is correct.
 	 */
 	@Test
