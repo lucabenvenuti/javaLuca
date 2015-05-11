@@ -151,10 +151,15 @@ public class BoardImplTest {
 				Pos.C_6 }, game.getValidPositions(Stone.WHITE));
 		game.setStone(Pos.C_5, Stone.WHITE);
 		game.setStone(Pos.E_6, Stone.BLACK);
+
 		/*
 		 * assertArrayEquals(new Pos[] { Pos.G_1, Pos.B_3, Pos.C_3, Pos.D_3,
 		 * Pos.F_3, Pos.F_5 }, game.getValidPositions(Stone.WHITE));
 		 */
+
+		assertArrayEquals(new Pos[] { Pos.G_1, Pos.C_3, Pos.F_5 },
+				game.getValidPositions(Stone.WHITE));
+
 	}
 
 	@Test

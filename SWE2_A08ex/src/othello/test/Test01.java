@@ -38,6 +38,19 @@ public class Test01 {
 		for (Pos p:game.getValidPositions(Stone.WHITE)){
 			System.out.println(p.toString());
 		}
+		System.out.println();
+		System.out.println("second test");
+		System.out.println();
+		game = null;
+		game = new BoardImpl();
+		game.setStone(Pos.C_4, Stone.BLACK);
+		game.setStone(Pos.E_3, Stone.WHITE);
+		game.setStone(Pos.F_2, Stone.BLACK);
+		game.setStone(Pos.C_5, Stone.WHITE);
+		game.setStone(Pos.E_6, Stone.BLACK);
+		for (Pos p:game.getValidPositions(Stone.WHITE)){
+			System.out.println(p.toString());
+		}
 	}
 
 }
