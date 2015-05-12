@@ -18,7 +18,7 @@ import java.util.TreeMap;
  * 
  * Software Development II, 2015SS JKU Linz
  * 
- * @author TAs & Luca Benvenuti
+ * @author TAs & Luca Benvenuti - k1258320
  * 
  * 
  */

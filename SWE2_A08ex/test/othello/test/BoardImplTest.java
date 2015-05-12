@@ -22,7 +22,7 @@ import othello.Stone;
  * 
  * Software Development II, 2015SS JKU Linz
  * 
- * @author Luca Benvenuti
+ * @author Luca Benvenuti - k1258320
  */
 public class BoardImplTest {
 
