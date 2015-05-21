@@ -149,7 +149,7 @@ public class GraphView extends JComponent {
 	private ValueChangeListener valueListener = new ValueChangeListener() {
 		@Override
 		public void valueChanged(ValueChangeEvent e) {
-			calcBounds();
+			calcBounds(); // not necessary for othello
 			repaint();
 		}
 	};
@@ -157,7 +157,7 @@ public class GraphView extends JComponent {
 	private MouseAdapter mouseHandler = new MouseAdapter() {
 
 		@Override
-		public void mouseClicked(MouseEvent me) {
+		public void mouseClicked(MouseEvent me) { //only one useful
 			int value = getValueFromPos(me.getY());
 			model.setValue(value);
 		}

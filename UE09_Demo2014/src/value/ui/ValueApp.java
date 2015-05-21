@@ -76,7 +76,7 @@ public class ValueApp {
 		frame.setJMenuBar(menuBar);
 
 		// 4) Aufbau einer GUI aus Hierarchie von Komponenten
-		Container contentPane = frame.getContentPane();
+		Container contentPane = frame.getContentPane(); ///VERY IMPORTANT, is about swing
 		contentPane.setLayout(new BorderLayout());
 
 		JPanel topPanel = new JPanel();
@@ -115,13 +115,27 @@ public class ValueApp {
 		contentPane.add(graphView, BorderLayout.WEST);
 
 		// MVC: Listener zum Datenmodell hinzufügen
-		model.addValueChangeListener(modelChangedHandler);
+		model.addValueChangeListener(//modelChangedHandler);
+				e ->  {
+					valueLabel.setText(Integer.toString(e.getValue()));
+					historyListModel.addElement(e.getValue());
+					historyList.setSelectedIndex(historyListModel.getSize() -1);
+					historyList.ensureIndexIsVisible(historyListModel.getSize()-1);
+				});
 		model.reset(); 
 		
 		// 6) Implementierung der ActionListener
-		exitMenu.addActionListener(exitHandler);
-		incrButton.addActionListener(incrHandler);
-		decrButton.addActionListener(decrHandler);
+		exitMenu.addActionListener(e -> {
+			frame.dispose();
+			System.exit(0);
+		}
+				
+			//	exitHandler
+				);
+		incrButton.addActionListener(//incrHandler);
+				e -> model.incr()				);
+		decrButton.addActionListener(//decrHandler);
+				e -> model.decr());
 		resetButton.addActionListener(resetHandler);
 		newValueField.addActionListener(newValueHandler);
 		historyList.getSelectionModel().addListSelectionListener(listSelectionHandler); 

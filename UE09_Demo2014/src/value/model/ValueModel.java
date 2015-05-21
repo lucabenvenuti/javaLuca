@@ -40,7 +40,7 @@ public class ValueModel {
 		listeners.remove(listener);
 	}
 
-	protected void fireChangeEvent() {
+	private void fireChangeEvent() {
 		ValueChangeEvent evt = new ValueChangeEvent(this, getValue());
 		for (ValueChangeListener l : listeners) {
 			l.valueChanged(evt);
