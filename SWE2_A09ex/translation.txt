@@ -1,0 +1,30 @@
+Exercise Software Development 2 SS 2015
+Exercise 09: MVC
+Deadline: 28.05. 2012 8:15
+Name: Matriculation number:
+Computer science: ? G1 (Prähofer) ? G2 (Prähofer) ? G3 (Grimmer) ? G4 (Grimmer)
+WIN: ? G1 (Khalil) ? G2 (Kusel) ? G3 (Kusel)
+Task points dispense submitted in writing electronically corr. Points
+Exercise 09 24 Java program
+Test output
+Java program ?
+Othello by the MVC architecture (24 Points)
+In this exercise, the program will be implemented in accordance with the Othello MVC architecture. And it shall own
+graphic component for display of the field and the user interaction are implemented. The following
+Figure shows how the application might look like.
+The task thus includes:
+? Model Implementation: Implement a model of game including field consisting of model, and listener.
+Event Object.
+? Swing application: Build a Swing application with menu items, and corresponding components.
+Note that the data accesses on the model interface and effected changes in the display
+are caused exclusively by events of the model.
+? Menus: Implement File menu and Game with menu items to exit the game and for resetting
+of the game.
+? Swing component for field representation and setting of the stone: Implement a separate Swing component that
+the pitch is graphically. The component is derived from JPanel and override paintComponent. The
+Component listens for events from the model in order to redraw the pitch at changes (repaint). The
+Furthermore, the component is to allow you to set a stone. The component is intended to MouseClick events
+react, and a stone on the corresponding field set (if possible).
+? representation of the trains in a JList: Use a JList to represent the sequence of moves. Use
+A default ListModel to save the result of trains. Possibly Implement a class to
+Representation of a train.
