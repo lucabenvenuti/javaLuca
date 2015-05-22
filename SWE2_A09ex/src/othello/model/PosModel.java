@@ -26,7 +26,7 @@ public class PosModel {
 		return pos;
 	}
 
-	public void setValue(int row, int column) {
+	public void setPos(int row, int column) {
 		this.row = row;
 		this.column = column;
 		this.pos = Pos.getPos(row, column);

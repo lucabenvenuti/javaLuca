@@ -37,7 +37,7 @@ public class OthelloGuiApp {
 	private PosModel model;
 
 	private JLabel valueLabel;
-	private JButton incrButton, decrButton, resetButton;
+	private JButton boardButton[][];
 	private JTextField newValueField;
 	private DefaultListModel<Integer> historyListModel;
 	private JList<Integer> historyList;
@@ -58,6 +58,8 @@ public class OthelloGuiApp {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
 		menuBar.add(fileMenu);
+		JMenu gameMenu = new JMenu("Game");
+		menuBar.add(gameMenu);
 		JMenuItem exitMenu = new JMenuItem("Exit");
 		fileMenu.add(exitMenu);
 		frame.setJMenuBar(menuBar);
@@ -68,12 +70,11 @@ public class OthelloGuiApp {
 		JPanel topPanel = new JPanel();
 		contentPane.add(topPanel, BorderLayout.NORTH);
 		topPanel.setBorder(BorderFactory.createEtchedBorder());
-		incrButton = new JButton("Incr");
-		topPanel.add(incrButton);
-		decrButton = new JButton("Decr");
-		topPanel.add(decrButton);
-		resetButton = new JButton("Reset");
-		topPanel.add(resetButton);
+		/*
+		 * incrButton = new JButton("Incr"); topPanel.add(incrButton);
+		 * decrButton = new JButton("Decr"); topPanel.add(decrButton);
+		 * resetButton = new JButton("Reset"); topPanel.add(resetButton);
+		 */
 
 		JPanel bottomPanel = new JPanel();
 		contentPane.add(bottomPanel, BorderLayout.SOUTH);
@@ -103,13 +104,15 @@ public class OthelloGuiApp {
 		contentPane.add(binaryView, BorderLayout.EAST);
 
 		model.addValueChangeListener(modelChangedHandler);
-		model.reset();
+		// model.reset();
 
 		exitMenu.addActionListener(exitHandler);
-		incrButton.addActionListener(incrHandler);
-		decrButton.addActionListener(decrHandler);
-		resetButton.addActionListener(resetHandler);
-		newValueField.addActionListener(newValueHandler);
+		/*
+		 * incrButton.addActionListener(incrHandler);
+		 * decrButton.addActionListener(decrHandler);
+		 * resetButton.addActionListener(resetHandler);
+		 * newValueField.addActionListener(newValueHandler);
+		 */
 		historyList.getSelectionModel().addListSelectionListener(
 				listSelectionHandler);
 
@@ -121,8 +124,8 @@ public class OthelloGuiApp {
 	private PosChangeListener modelChangedHandler = new PosChangeListener() {
 		@Override
 		public void posChanged(PosChangeEvent e) {
-			valueLabel.setText(Integer.toString(e.getValue()));
-			historyListModel.addElement(e.getValue());
+			valueLabel.setText(Integer.toString(e.getRow()));
+			historyListModel.addElement(e.getRow());
 			historyList.setSelectedIndex(historyListModel.size() - 1);
 			historyList.ensureIndexIsVisible(historyListModel.size() - 1);
 		}
@@ -135,42 +138,31 @@ public class OthelloGuiApp {
 		}
 	};
 
-/*	private ActionListener incrHandler = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			model.incr();
-		}
-
-	};
-
-	private ActionListener decrHandler = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			model.decr();
-		}
-	};
-
-	private ActionListener resetHandler = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			historyListModel.clear();
-			model.reset();
-		}
-	};
-*/
-/*	private ActionListener newValueHandler = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				int val = Integer.parseInt(newValueField.getText());
-				model.setValue(val);
-			} catch (NumberFormatException ex) {
-				JOptionPane.showMessageDialog(frame,
-						"Wrong format for new value", frame.getTitle(),
-						JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	};*/
+	/*
+	 * private ActionListener incrHandler = new ActionListener() {
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) { model.incr(); }
+	 * 
+	 * };
+	 * 
+	 * private ActionListener decrHandler = new ActionListener() {
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) { model.decr(); } };
+	 * 
+	 * private ActionListener resetHandler = new ActionListener() {
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) {
+	 * historyListModel.clear(); model.reset(); } };
+	 */
+	/*
+	 * private ActionListener newValueHandler = new ActionListener() {
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) { try { int val =
+	 * Integer.parseInt(newValueField.getText()); model.setValue(val); } catch
+	 * (NumberFormatException ex) { JOptionPane.showMessageDialog(frame,
+	 * "Wrong format for new value", frame.getTitle(),
+	 * JOptionPane.ERROR_MESSAGE); } } };
+	 */
 
 	private ListSelectionListener listSelectionHandler = new ListSelectionListener() {
 
@@ -180,7 +172,7 @@ public class OthelloGuiApp {
 			if (i >= 0 && i < historyListModel.size() - 1) {
 				int value = historyListModel.get(i);
 				historyListModel.removeRange(i, historyListModel.size() - 1);
-				model.setValue(value);
+				model.setPos(value, value);
 			}
 		}
 	};

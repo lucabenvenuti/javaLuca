@@ -37,7 +37,7 @@ public class BoardView extends JComponent {
 		 */
 
 		for (int i = 0; i < buttons.length; i++) {
-			for (int j = 1; j < buttons[i].length; j++) {
+			for (int j = 0; j < buttons[i].length; j++) {
 				buttons[i][j] = new JToggleButton(Pos.getPos(i + 1, j + 1)
 						.toString()); // wrong, now I want to see if they are
 										// positioned correctly
@@ -64,7 +64,7 @@ public class BoardView extends JComponent {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Pos pos = getPosFromButtons();
-			model.setValue(pos.row, pos.getColIdx());
+			model.setPos(pos.row, pos.getColIdx());
 		}
 
 	};

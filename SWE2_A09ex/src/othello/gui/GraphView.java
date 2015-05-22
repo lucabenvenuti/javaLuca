@@ -15,8 +15,8 @@ import othello.model.PosModel;
 
 @SuppressWarnings("serial")
 public class GraphView extends JComponent {
-	
-	// constants for drawing 
+
+	// constants for drawing
 	private static final int TEXT_ADJ = 5;
 	private static final int PREF_HEIGHT = 200;
 	private static final int PREF_WIDTH = 70;
@@ -26,26 +26,26 @@ public class GraphView extends JComponent {
 	private static final int X_BORDER = 10;
 	private static final int X_POS = 26;
 	private static final int Y_POS = 26;
-	private static final int ARR_LENGTH = 20; 
-	private static final int ARR_HEIGHT = 4; 
+	private static final int ARR_LENGTH = 20;
+	private static final int ARR_HEIGHT = 4;
 
 	private PosModel model;
 
-	// bounds and ticks 
+	// bounds and ticks
 	private int bound;
 	private int nMajorTicks;
 	private int nMinorTicks;
 
-	// variables for dragging 
-	private boolean dragging; 
-	private int draggedValue; 
-	
+	// variables for dragging
+	private boolean dragging;
+	private int draggedValue;
+
 	public GraphView(PosModel model) {
 		this.model = model;
 		model.addValueChangeListener(posListener);
-		 
-		this.addMouseListener(mouseHandler); 
-		//this.addMouseMotionListener(mouseHandler); 
+
+		this.addMouseListener(mouseHandler);
+		// this.addMouseMotionListener(mouseHandler);
 
 		// Initialize the calculated bound fields.
 		calcBounds();
@@ -69,15 +69,19 @@ public class GraphView extends JComponent {
 		// Draw main ticks
 		for (int i = 0; i <= nMajorTicks; i++) {
 			int o = h * i / nMajorTicks;
-			g.drawLine(X_POS - MAJOR_TICK_LENGTH, m + o, X_POS + MAJOR_TICK_LENGTH, m + o);
-			g.drawLine(X_POS - MAJOR_TICK_LENGTH, m - o, X_POS + MAJOR_TICK_LENGTH, m - o);
+			g.drawLine(X_POS - MAJOR_TICK_LENGTH, m + o, X_POS
+					+ MAJOR_TICK_LENGTH, m + o);
+			g.drawLine(X_POS - MAJOR_TICK_LENGTH, m - o, X_POS
+					+ MAJOR_TICK_LENGTH, m - o);
 		}
 
 		// Draw small ticks
 		for (int i = 0; i <= nMinorTicks; i++) {
 			int o = h * i / nMinorTicks;
-			g.drawLine(X_POS - MINOR_TICK_LENGTH, m + o, X_POS + MINOR_TICK_LENGTH, m + o);
-			g.drawLine(X_POS - MINOR_TICK_LENGTH, m - o, X_POS + MINOR_TICK_LENGTH, m - o);
+			g.drawLine(X_POS - MINOR_TICK_LENGTH, m + o, X_POS
+					+ MINOR_TICK_LENGTH, m + o);
+			g.drawLine(X_POS - MINOR_TICK_LENGTH, m - o, X_POS
+					+ MINOR_TICK_LENGTH, m - o);
 		}
 
 		// Draw numbers
@@ -89,19 +93,23 @@ public class GraphView extends JComponent {
 		// Draw value arrow
 		int y = getPosFromValue(model.getColumn());
 		g.drawLine(X_POS - ARR_LENGTH, y, X_POS - MAJOR_TICK_LENGTH, y);
-		g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y - ARR_HEIGHT, X_POS - MAJOR_TICK_LENGTH, y);
-		g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y + ARR_HEIGHT, X_POS - MAJOR_TICK_LENGTH, y);
-		
-		// Draw dragged value 
+		g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y - ARR_HEIGHT,
+				X_POS - MAJOR_TICK_LENGTH, y);
+		g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y + ARR_HEIGHT,
+				X_POS - MAJOR_TICK_LENGTH, y);
+
+		// Draw dragged value
 		if (dragging) {
 			y = getPosFromValue(draggedValue);
-			Color prev = g.getColor(); 
-			g.drawString(Integer.toString(draggedValue), xText, y + TEXT_ADJ);		
-			g.setColor(Color.GRAY); 
+			Color prev = g.getColor();
+			g.drawString(Integer.toString(draggedValue), xText, y + TEXT_ADJ);
+			g.setColor(Color.GRAY);
 			g.drawLine(X_POS - ARR_LENGTH, y, X_POS - MAJOR_TICK_LENGTH, y);
-			g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y - ARR_HEIGHT, X_POS - MAJOR_TICK_LENGTH, y);
-			g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y + ARR_HEIGHT, X_POS - MAJOR_TICK_LENGTH, y);
-			g.setColor(prev); 
+			g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y - ARR_HEIGHT,
+					X_POS - MAJOR_TICK_LENGTH, y);
+			g.drawLine(X_POS - MAJOR_TICK_LENGTH - ARR_HEIGHT, y + ARR_HEIGHT,
+					X_POS - MAJOR_TICK_LENGTH, y);
+			g.setColor(prev);
 		}
 	}
 
@@ -114,9 +122,9 @@ public class GraphView extends JComponent {
 	private int getValueFromPos(int y) {
 		int m = getHeight() / 2;
 		int h = m - Y_BORDER;
-		int yNorm = - (y - m);
-		double valD = bound * yNorm / (double) h; 
-		return (int)Math.round(valD);
+		int yNorm = -(y - m);
+		double valD = bound * yNorm / (double) h;
+		return (int) Math.round(valD);
 	}
 
 	private void calcBounds() {
@@ -148,7 +156,7 @@ public class GraphView extends JComponent {
 			}
 		}
 	}
-	
+
 	private PosChangeListener posListener = new PosChangeListener() {
 		@Override
 		public void posChanged(PosChangeEvent e) {
@@ -162,27 +170,22 @@ public class GraphView extends JComponent {
 		@Override
 		public void mouseClicked(MouseEvent me) {
 			int value = getValueFromPos(me.getY());
-			model.setValue(me.getX(), me.getY());
+			model.setPos(me.getX(), me.getY());
 		}
 
-		/*@Override
-		public void mousePressed(MouseEvent me) {
-			dragging = true; 
-			draggedValue = getValueFromPos(me.getY());
-			repaint(); 
-		}
+		/*
+		 * @Override public void mousePressed(MouseEvent me) { dragging = true;
+		 * draggedValue = getValueFromPos(me.getY()); repaint(); }
+		 * 
+		 * @Override public void mouseReleased(MouseEvent me) { int value =
+		 * getValueFromPos(me.getY()); model.setValue(value); dragging = false;
+		 * }
+		 */
 
-		@Override
-		public void mouseReleased(MouseEvent me) {
-			int value = getValueFromPos(me.getY());
-			model.setValue(value);
-			dragging = false; 
-		}*/
-		
 		@Override
 		public void mouseDragged(MouseEvent me) {
 			draggedValue = getValueFromPos(me.getY());
-			repaint(); 
+			repaint();
 		}
 
 	};
