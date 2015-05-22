@@ -1,4 +1,4 @@
-package othello.gui;
+package othello.gui2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

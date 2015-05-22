@@ -27,8 +27,8 @@ import javax.swing.event.ListSelectionListener;
 import othello.model.PosChangeEvent;
 import othello.model.PosChangeListener;
 import othello.model.PosModel;
-import othello.gui.GraphView;
 import othello.gui.BoardView;
+import othello.gui2.GraphView;
 
 public class OthelloGuiApp {
 
