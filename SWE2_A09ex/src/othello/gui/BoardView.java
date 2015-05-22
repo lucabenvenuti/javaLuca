@@ -21,7 +21,7 @@ public class BoardView extends JComponent {
 
 	public BoardView(PosModel model) {
 		this.model = model;
-		model.addValueChangeListener(valueListener);
+		model.addValueChangeListener(posListener);
 		initialize();
 		repaint();
 	}
@@ -64,7 +64,7 @@ public class BoardView extends JComponent {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Pos pos = getPosFromButtons();
-			model.setValue(pos.row, Pos.getColIdx(pos.col));
+			model.setValue(pos.row, pos.getColIdx());
 		}
 
 	};

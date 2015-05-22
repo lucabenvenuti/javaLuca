@@ -24,16 +24,17 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import othello.model.ValueChangeEvent;
-import othello.model.ValueChangeListener;
-import othello.model.ValueModel;
-import othello.ui.GraphView;
+import othello.model.PosChangeEvent;
+import othello.model.PosChangeListener;
+import othello.model.PosModel;
+import othello.gui.GraphView;
+import othello.gui.BoardView;
 
 public class OthelloGuiApp {
 
 	private JFrame frame;
 
-	private ValueModel model;
+	private PosModel model;
 
 	private JLabel valueLabel;
 	private JButton incrButton, decrButton, resetButton;
@@ -45,7 +46,7 @@ public class OthelloGuiApp {
 
 	private BoardView binaryView;
 
-	OthelloGuiApp(ValueModel model) {
+	OthelloGuiApp(PosModel model) {
 		this.model = model;
 	}
 
@@ -117,9 +118,9 @@ public class OthelloGuiApp {
 		frame.setVisible(true);
 	}
 
-	private ValueChangeListener modelChangedHandler = new ValueChangeListener() {
+	private PosChangeListener modelChangedHandler = new PosChangeListener() {
 		@Override
-		public void valueChanged(ValueChangeEvent e) {
+		public void posChanged(PosChangeEvent e) {
 			valueLabel.setText(Integer.toString(e.getValue()));
 			historyListModel.addElement(e.getValue());
 			historyList.setSelectedIndex(historyListModel.size() - 1);
@@ -134,7 +135,7 @@ public class OthelloGuiApp {
 		}
 	};
 
-	private ActionListener incrHandler = new ActionListener() {
+/*	private ActionListener incrHandler = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			model.incr();
@@ -156,8 +157,8 @@ public class OthelloGuiApp {
 			model.reset();
 		}
 	};
-
-	private ActionListener newValueHandler = new ActionListener() {
+*/
+/*	private ActionListener newValueHandler = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -169,7 +170,7 @@ public class OthelloGuiApp {
 						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-	};
+	};*/
 
 	private ListSelectionListener listSelectionHandler = new ListSelectionListener() {
 
@@ -187,7 +188,7 @@ public class OthelloGuiApp {
 	// main
 
 	public static void main(String[] args) {
-		OthelloGuiApp app = new OthelloGuiApp(new ValueModel());
+		OthelloGuiApp app = new OthelloGuiApp(new PosModel());
 		app.start();
 	}
 }

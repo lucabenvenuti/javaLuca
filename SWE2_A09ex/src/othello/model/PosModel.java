@@ -59,7 +59,7 @@ public class PosModel {
 	private void fireChangeEvent() {
 		PosChangeEvent evt = new PosChangeEvent(this, getRow(), getColumn());
 		for (PosChangeListener l : listeners) {
-			l.valueChanged(evt);
+			l.posChanged(evt);
 		}
 	}
 	

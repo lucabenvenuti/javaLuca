@@ -73,6 +73,10 @@ public enum Pos {
 	public static int getColIdx(char col) {
 		return col - 'A' + 1;
 	}
+	
+	public int getColIdx() {
+		return col - 'A' + 1;
+	}
 
 	/**
 	 * Gets the position value for the given row and column numbers. 
