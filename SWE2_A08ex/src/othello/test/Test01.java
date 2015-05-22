@@ -28,8 +28,8 @@ public class Test01 {
 		
 		}*/
 		
-		
-		BoardImpl game = new BoardImpl();
+		System.out.println(Pos.getPos(1,1));
+/*		BoardImpl game = new BoardImpl();
 		game.setStone(Pos.C_4, Stone.BLACK);
 		game.setStone(Pos.C_3, Stone.WHITE);
 		game.setStone(Pos.D_3, Stone.BLACK);
@@ -50,7 +50,7 @@ public class Test01 {
 		game.setStone(Pos.E_6, Stone.BLACK);
 		for (Pos p:game.getValidPositions(Stone.WHITE)){
 			System.out.println(p.toString());
-		}
+		}*/
 	}
 
 }

@@ -80,7 +80,7 @@ public enum Pos {
 	 * @param colIdx the number representing the column 
 	 * @return the position value if row and colIdx represent a valid position, null otherwise. 
 	 */
-	private static Pos getPos(int row, int colIdx) {
+	public static Pos getPos(int row, int colIdx) {
 		if (isValidPos(row, colIdx)) {
 			return ALL[N_ROWS * (row - 1) + (colIdx - 1)]; 
 		} else {
