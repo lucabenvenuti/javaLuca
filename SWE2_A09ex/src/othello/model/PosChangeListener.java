@@ -4,6 +4,6 @@ import java.util.EventListener;
 
 public interface PosChangeListener extends EventListener {
 	
-	public void valueChanged(PosChangeEvent evt);
+	public void posChanged(PosChangeEvent evt);
 	
 }

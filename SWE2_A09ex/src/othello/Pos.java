@@ -70,7 +70,7 @@ public enum Pos {
 	 * @param col the character representing the column
 	 * @return the index number
 	 */
-	private static int getColIdx(char col) {
+	public static int getColIdx(char col) {
 		return col - 'A' + 1;
 	}
 
