@@ -3,9 +3,6 @@ package value.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import value.model.ValueChangeEvent;
-import value.model.ValueChangeListener;
-
 public class ValueModel {
 	
 	private int value;
@@ -43,7 +40,7 @@ public class ValueModel {
 		listeners.remove(listener);
 	}
 
-	private void fireChangeEvent() {
+	protected void fireChangeEvent() {
 		ValueChangeEvent evt = new ValueChangeEvent(this, getValue());
 		for (ValueChangeListener l : listeners) {
 			l.valueChanged(evt);
