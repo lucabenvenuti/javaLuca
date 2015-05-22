@@ -8,7 +8,7 @@ import othello.model.PosChangeEvent;
 import othello.model.PosChangeListener;
 
 public class PosModel {
-	
+
 	private int row;
 	private int column;
 	private Pos pos;
@@ -33,20 +33,13 @@ public class PosModel {
 		fireChangeEvent();
 	}
 
-/*	public void incr() {
-		this.value++;
-		fireChangeEvent();
-	}
-
-	public void decr() {
-		this.value--;
-		fireChangeEvent();
-	}
-
-	public void reset() {
-		this.value = 0;
-		fireChangeEvent();
-	}*/
+	/*
+	 * public void incr() { this.value++; fireChangeEvent(); }
+	 * 
+	 * public void decr() { this.value--; fireChangeEvent(); }
+	 * 
+	 * public void reset() { this.value = 0; fireChangeEvent(); }
+	 */
 
 	public void addValueChangeListener(PosChangeListener listener) {
 		listeners.add(listener);
@@ -62,5 +55,5 @@ public class PosModel {
 			l.posChanged(evt);
 		}
 	}
-	
+
 }
