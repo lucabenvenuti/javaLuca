@@ -1,11 +1,17 @@
 package othello.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 import othello.Pos;
@@ -27,7 +33,11 @@ public class BoardView extends JComponent {
 	}
 
 	private void initialize() {
-		setLayout(new GridBagLayout());
+		setLayout(new GridLayout(8, 8));
+		Dimension boardSize = new Dimension(600, 600);
+		setPreferredSize(boardSize);
+		setBounds(0, 0, boardSize.width, boardSize.height);
+
 		/*
 		 * buttons[7] = new JToggleButton("128"); buttons[6] = new
 		 * JToggleButton("64"); buttons[5] = new JToggleButton("32"); buttons[4]
@@ -38,6 +48,10 @@ public class BoardView extends JComponent {
 
 		for (int i = 0; i < buttons.length; i++) {
 			for (int j = 0; j < buttons[i].length; j++) {
+				/*
+				 * JPanel square = new JPanel( new BorderLayout() ); add( square
+				 * ); square.setBackground(Color.GREEN);
+				 */
 				buttons[i][j] = new JToggleButton(Pos.getPos(i + 1, j + 1)
 						.toString()); // wrong, now I want to see if they are
 										// positioned correctly

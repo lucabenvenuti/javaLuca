@@ -42,7 +42,7 @@ public class OthelloGuiApp {
 	private DefaultListModel<Integer> historyListModel;
 	private JList<Integer> historyList;
 
-	private GraphView graphView;
+	// private GraphView graphView;
 
 	private BoardView binaryView;
 
@@ -97,11 +97,13 @@ public class OthelloGuiApp {
 		historyList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		historyPanel.add(new JScrollPane(historyList), BorderLayout.CENTER);
 
-		graphView = new GraphView(model);
-		contentPane.add(graphView, BorderLayout.WEST);
+		/*
+		 * graphView = new GraphView(model); contentPane.add(graphView,
+		 * BorderLayout.WEST);
+		 */
 
 		binaryView = new BoardView(model);
-		contentPane.add(binaryView, BorderLayout.EAST);
+		contentPane.add(binaryView, BorderLayout.WEST);
 
 		model.addValueChangeListener(modelChangedHandler);
 		// model.reset();
