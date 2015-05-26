@@ -4,7 +4,6 @@ import static othello.Pos.A_1;
 import static othello.Pos.A_8;
 import static othello.Pos.H_1;
 import static othello.Pos.H_8;
-import inout.Out;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,9 @@ import othello.Stone;
  * Class implementing an artificial player with a simple strategy. 
  */
 public class ArtificialPlayer implements Player {
-	
+
+    public static final int DECISION_TIME = 1000;
+
 	/** Stone of this player */
 	private Stone stone;
 
@@ -35,14 +36,15 @@ public class ArtificialPlayer implements Player {
 	 */
 	@Override
 	public Pos nextMove(Board board) {
-		Out.println(); 
-		Out.println("Move of " + getName() + " with stone " + this.getStone());
+	    try {
+	        Thread.sleep(DECISION_TIME);
+	    } catch(InterruptedException e) { }
+
 		List<Pos> valid = new ArrayList<Pos>();
 		for (Pos pos : board.getValidPositions(this.getStone())) {
 			valid.add(pos);
 		}
 		if (valid.size() == 0) {
-			Out.println("No valid position for " + getName() + "!");
 			return null;
 		} else if (valid.contains(A_1)) {
 			return A_1;
