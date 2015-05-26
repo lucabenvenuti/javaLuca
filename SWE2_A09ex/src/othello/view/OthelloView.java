@@ -45,6 +45,7 @@ public class OthelloView extends JComponent implements UserInterface {
 		for (int i = 0; i < allPos.length; i++) {
 			buttons[i].setStone(board.getStone(allPos[i]));
 		}
+	//	repaint();
 	}
 
 	@Override
@@ -62,11 +63,14 @@ public class OthelloView extends JComponent implements UserInterface {
 		System.out.println();
 		System.out.println("!!!!!!!!!!!!! Game over !!!!!!!!!!!!!!!!!!!!");
 		System.out.println(game.toString());
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+	}
+
+	@Override
+	public void reset(Board board) {
+		board.reset();
+		Pos[] allPos = Pos.ALL;
+		for (int i = 0; i < allPos.length; i++) {
+			buttons[i].setStone(board.getStone(allPos[i]));
 		}
-		System.exit(0);
 	}
 }

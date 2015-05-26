@@ -24,4 +24,10 @@ public interface UserInterface {
 	 */
 	public void gameOver(GameState gameState);
 	
+	
+	/**
+	 * Called when the game is over
+	 * @param gameState the game state 
+	 */
+	public void reset(Board board);
 }

@@ -25,10 +25,17 @@ public class BoardImpl implements Board {
 	private Map<Pos, Stone> boardMap = new TreeMap<>();
 
 	/**
-	 * TAs: Constructor initializing the board with two white stones on
-	 * positions D 4 and E 5 and two black stones on positions D 5 and E 4.
+	 * TAs: Constructor initializing.
 	 */
 	public BoardImpl() {
+		reset();
+	}
+
+	/**
+	 * Resetting the board with two white stones on positions D 4 and E 5 and
+	 * two black stones on positions D 5 and E 4.
+	 */
+	public void reset() {
 		for (Pos p : Pos.ALL) {
 			boardMap.put(p, Stone.FREE);
 		}

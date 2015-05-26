@@ -47,6 +47,11 @@ public interface Board extends Iterable<Pos>  {
 	 * @return positions which represent valid moves for the given stone 
 	 */
 	public abstract Pos[] getValidPositions(Stone stone);
+	
+	/**
+
+	 */
+	public void reset();
 
 
 }

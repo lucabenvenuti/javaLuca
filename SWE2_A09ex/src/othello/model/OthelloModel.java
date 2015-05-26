@@ -49,8 +49,8 @@ public class OthelloModel {
 	 */
 	public void play() {
 
-		this.guiPlayer.setStone(WHITE);
-		this.artificialPlayer.setStone(BLACK);
+		guiPlayer.setStone(WHITE);
+		artificialPlayer.setStone(BLACK);
 
 		state = BLACK_NEXT;
 		userInterface.boardChanged(board);
@@ -143,7 +143,12 @@ public class OthelloModel {
 	}
 
 	public void reset() {
-		throw new RuntimeException("Functionality not supported");
+		userInterface.reset(board);
+		state = BLACK_NEXT;
+		Pos pos = getCurrentPlayer().nextMove(board);
+		firePosChangeEvent(getCurrentPlayer(), pos);
+		computeGameState();
+		fireStateChangeEvent(getState());
 	}
 
 	public void addListener(PosChangeListener listener) {
