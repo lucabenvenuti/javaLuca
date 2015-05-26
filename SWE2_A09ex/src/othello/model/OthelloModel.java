@@ -21,6 +21,19 @@ import othello.UserInterface;
 import othello.ai.ArtificialPlayer;
 import othello.view.GuiPlayer;
 
+/**
+ * OthelloModel.java
+ *
+ * A {@link OthelloModel} is a public class. It performs as Model in an MVC
+ * architecture. Serves as the central component for executing a game. Uses a
+ * user interface component for interaction, two players white and black, and a
+ * board representing the state of the board. In addition maintains the game
+ * state.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author TAs & Luca Benvenuti
+ */
 public class OthelloModel {
 	private final List<PosChangeListener> posListeners = new ArrayList<>();
 	private final List<StateChangeListener> stateListeners = new ArrayList<>();
@@ -131,6 +144,13 @@ public class OthelloModel {
 		}
 	}
 
+	/**
+	 * 
+	 * The user attempts to move
+	 * 
+	 * @param pos
+	 * @return true if the move is done.
+	 */
 	public boolean attemptMove(Pos pos) {
 		if (getCurrentPlayer() == guiPlayer) {
 			return guiPlayer.setNextMove(pos);
@@ -138,10 +158,16 @@ public class OthelloModel {
 		return false;
 	}
 
+	/**
+	 * @return the initial game state.
+	 */
 	public GameState getInitalGameState() {
 		return GameState.WHITE_NEXT;
 	}
 
+	/**
+	 * Reset the board and restart the game.
+	 */
 	public void reset() {
 		userInterface.reset(board);
 		state = BLACK_NEXT;
@@ -151,18 +177,38 @@ public class OthelloModel {
 		fireStateChangeEvent(getState());
 	}
 
+	/**
+	 * Add a PosChangeListener to the list.
+	 * 
+	 * @param listener
+	 */
 	public void addListener(PosChangeListener listener) {
 		posListeners.add(listener);
 	}
 
+	/**
+	 * Remove a PosChangeListener to the list.
+	 * 
+	 * @param listener
+	 */
 	public void removeListener(PosChangeListener listener) {
 		posListeners.remove(listener);
 	}
 
+	/**
+	 * Add a StateChangeListener to the list.
+	 * 
+	 * @param listener
+	 */
 	public void addListener(StateChangeListener listener) {
 		stateListeners.add(listener);
 	}
 
+	/**
+	 * Remove a StateChangeListener to the list.
+	 * 
+	 * @param listener
+	 */
 	public void removeListener(StateChangeListener listener) {
 		stateListeners.remove(listener);
 	}

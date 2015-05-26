@@ -6,7 +6,18 @@ import java.awt.event.ActionListener;
 import othello.model.OthelloModel;
 import othello.view.StoneButton;
 
+/**
+ * OthelloController.java
+ *
+ * A {@link OthelloController} is a public class implementing an ActionListener.
+ * It performs as controller in an MVC architecture.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class OthelloController implements ActionListener {
+
 	private final OthelloModel model;
 
 	public OthelloController(OthelloModel model) {

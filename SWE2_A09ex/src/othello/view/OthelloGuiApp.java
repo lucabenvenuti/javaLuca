@@ -27,6 +27,17 @@ import othello.model.PosChangeListener;
 import othello.model.StateChangeEvent;
 import othello.model.StateChangeListener;
 
+/**
+ * OthelloGuiApp.java
+ *
+ * A {@link OthelloGuiApp} is a public class. It creates a GUI app to play
+ * Othello. It uses a MVC architecture, together with JFrame and JLabel, and
+ * JList for the history.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author TAs & Luca Benvenuti
+ */
 public class OthelloGuiApp {
 
 	private final OthelloModel model;
@@ -79,12 +90,12 @@ public class OthelloGuiApp {
 		}
 	};
 
-	OthelloGuiApp(OthelloModel model, OthelloView view) {
+	private OthelloGuiApp(OthelloModel model, OthelloView view) {
 		this.model = model;
 		this.view = view;
 	}
 
-	public void start() {
+	private void start() {
 		frame = new JFrame("Othello");
 
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -140,7 +151,6 @@ public class OthelloGuiApp {
 	}
 
 	public static void main(String[] args) {
-		// TODO: cleanup
 		OthelloView view = new OthelloView();
 		OthelloModel model = new OthelloModel(view);
 		OthelloController controller = new OthelloController(model);

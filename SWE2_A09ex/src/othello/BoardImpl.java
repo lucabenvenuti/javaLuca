@@ -18,7 +18,6 @@ import java.util.TreeMap;
  * 
  * @author TAs & Luca Benvenuti
  * 
- * 
  */
 public class BoardImpl implements Board {
 

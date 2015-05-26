@@ -8,6 +8,16 @@ import javax.swing.JToggleButton;
 import othello.Pos;
 import othello.Stone;
 
+/**
+ * StoneButton.java
+ *
+ * A {@link StoneButton} is a public interface extending {@link JToggleButton}.
+ * It allows painting a Stone in a GUI.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class StoneButton extends JToggleButton {
 	private static final long serialVersionUID = -8933910706465044870L;
 	private final Pos pos;
@@ -17,12 +27,20 @@ public class StoneButton extends JToggleButton {
 		this.pos = pos;
 	}
 
+	/**
+	 * @return the Pos.
+	 */
 	public Pos getPos() {
 		return pos;
 	}
 
-	public void setStone(Stone s) {
-		stone = s;
+	/**
+	 * set the Stone in the StoneButton.
+	 * 
+	 * @param stone
+	 */
+	public void setStone(Stone stone) {
+		this.stone = stone;
 		repaint();
 	}
 

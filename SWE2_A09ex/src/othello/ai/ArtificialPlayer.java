@@ -14,31 +14,33 @@ import othello.Pos;
 import othello.Stone;
 
 /**
- * Class implementing an artificial player with a simple strategy. 
+ * ArtificialPlayer.java
+ *
+ * A {@link ArtificialPlayer} is a public class implementing an artificial
+ * player with a simple strategy.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author TAs & Luca Benvenuti
  */
 public class ArtificialPlayer implements Player {
 
-    public static final int DECISION_TIME = 1000;
+	private static final int DECISION_TIME = 1000;
 
 	/** Stone of this player */
 	private Stone stone;
 
-	/* (non-Javadoc)
-	 * @see othello.Player#getName()
-	 */
 	@Override
 	public String getName() {
 		return "AI";
 	}
 
-	/* (non-Javadoc)
-	 * @see othello.Player#nextMove(othello.Board)
-	 */
 	@Override
 	public Pos nextMove(Board board) {
-	    try {
-	        Thread.sleep(DECISION_TIME);
-	    } catch(InterruptedException e) { }
+		try {
+			Thread.sleep(DECISION_TIME);
+		} catch (InterruptedException e) {
+		}
 
 		List<Pos> valid = new ArrayList<Pos>();
 		for (Pos pos : board.getValidPositions(this.getStone())) {
@@ -55,21 +57,15 @@ public class ArtificialPlayer implements Player {
 		} else if (valid.contains(H_8)) {
 			return H_8;
 		} else {
-			return valid.get((int)(Math.random()*valid.size()));
+			return valid.get((int) (Math.random() * valid.size()));
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see othello.Player#setStone(othello.Stone)
-	 */
 	@Override
 	public void setStone(Stone stone) {
 		this.stone = stone;
 	}
 
-	/* (non-Javadoc)
-	 * @see othello.Player#getStone()
-	 */
 	@Override
 	public Stone getStone() {
 		return stone;

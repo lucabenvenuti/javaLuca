@@ -14,11 +14,27 @@ import othello.Stone;
 import othello.UserInterface;
 import othello.controller.OthelloController;
 
+/**
+ * OthelloView.java
+ *
+ * A {@link OthelloView} is a public interface extending {@link JComponent} and
+ * implementing {@link UserInterface}. It allows drawing a Board and filling it
+ * with stones.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class OthelloView extends JComponent implements UserInterface {
 
 	private static final long serialVersionUID = -2201347995102344073L;
 	private StoneButton[] buttons;
 
+	/**
+	 * Initialize the View given a Controller.
+	 * 
+	 * @param controller
+	 */
 	public void initialize(OthelloController controller) {
 		removeAll();
 		setLayout(new GridLayout(8, 8));
@@ -45,7 +61,6 @@ public class OthelloView extends JComponent implements UserInterface {
 		for (int i = 0; i < allPos.length; i++) {
 			buttons[i].setStone(board.getStone(allPos[i]));
 		}
-	//	repaint();
 	}
 
 	@Override

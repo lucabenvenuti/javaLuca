@@ -5,6 +5,17 @@ import othello.Player;
 import othello.Pos;
 import othello.Stone;
 
+/**
+ * GuiPlayer.java
+ *
+ * A {@link GuiPlayer} is a public class representing the human player. It
+ * implements the methods given in {@link Player}.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ */
 public class GuiPlayer implements Player {
 	public static final String PLAYER_NAME = "Player";
 	private Stone stone;
@@ -34,7 +45,12 @@ public class GuiPlayer implements Player {
 		}
 	}
 
-	// producer
+	/**
+	 * Producer of nextMove.
+	 * 
+	 * @param move
+	 * @return true if the Pos has been produced.
+	 */
 	public synchronized boolean setNextMove(Pos move) {
 		if (nextMove == null) {
 			for (Pos p : validMoves) {
