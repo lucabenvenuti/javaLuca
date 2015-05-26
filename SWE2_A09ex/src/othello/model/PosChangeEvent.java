@@ -8,8 +8,8 @@ import othello.Pos;
 @SuppressWarnings("serial")
 public class PosChangeEvent extends EventObject {
 
-    private final Player player;
-    private final Pos pos;
+	private final Player player;
+	private final Pos pos;
 
 	PosChangeEvent(OthelloModel source, Player player, Pos pos) {
 		super(source);
@@ -18,7 +18,7 @@ public class PosChangeEvent extends EventObject {
 	}
 
 	public Player getPlayer() {
-	    return player;
+		return player;
 	}
 
 	public Pos getPos() {

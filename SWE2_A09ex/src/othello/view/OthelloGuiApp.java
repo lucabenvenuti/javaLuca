@@ -29,116 +29,123 @@ import othello.model.StateChangeListener;
 
 public class OthelloGuiApp {
 
-    private final OthelloModel model;
-    private final OthelloView view;
+	private final OthelloModel model;
+	private final OthelloView view;
 
-    private JFrame frame;
-    private JLabel stateLabel;
-    private DefaultListModel<String> historyListModel;
-    private JList<String> historyList;
+	private JFrame frame;
+	private JLabel stateLabel;
+	private DefaultListModel<String> historyListModel;
+	private JList<String> historyList;
 
-    private PosChangeListener posChangedListener = new PosChangeListener() {
-        @Override
-        public void posChanged(PosChangeEvent e) {
-            Pos pos = e.getPos();
-            if (pos == null) {
-                historyListModel.addElement("No valid move for " + e.getPlayer());
-            } else {
-                historyListModel.addElement(e.getPlayer().getName() + " on " + pos);
-            }
-            historyList.setSelectedIndex(historyListModel.size() - 1);
-            historyList.ensureIndexIsVisible(historyListModel.size() - 1);
-        }
-    };
+	private PosChangeListener posChangedListener = new PosChangeListener() {
+		@SuppressWarnings("synthetic-access")
+		@Override
+		public void posChanged(PosChangeEvent e) {
+			Pos pos = e.getPos();
+			if (pos == null) {
+				historyListModel.addElement("No valid move for "
+						+ e.getPlayer());
+			} else {
+				historyListModel.addElement(e.getPlayer().getName() + " on "
+						+ pos);
+			}
+			historyList.setSelectedIndex(historyListModel.size() - 1);
+			historyList.ensureIndexIsVisible(historyListModel.size() - 1);
+		}
+	};
 
-    private StateChangeListener stateChangedListener = new StateChangeListener() {
-        @Override
-        public void stateChanged(StateChangeEvent e) {
-            stateLabel.setText(e.getState().toString());
-        }
-    };
+	private StateChangeListener stateChangedListener = new StateChangeListener() {
+		@SuppressWarnings("synthetic-access")
+		@Override
+		public void stateChanged(StateChangeEvent e) {
+			stateLabel.setText(e.getState().toString());
+		}
+	};
 
-    private ActionListener exitListener = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            frame.dispose();
-        }
-    };
+	private ActionListener exitListener = new ActionListener() {
+		@SuppressWarnings("synthetic-access")
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+		}
+	};
 
-    private ActionListener resetListener = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            model.reset();
-        }
-    };
+	private ActionListener resetListener = new ActionListener() {
+		@SuppressWarnings("synthetic-access")
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			historyListModel.clear();
+			model.reset();
+		}
+	};
 
-    OthelloGuiApp(OthelloModel model, OthelloView view) {
-        this.model = model;
-        this.view = view;
-    }
+	OthelloGuiApp(OthelloModel model, OthelloView view) {
+		this.model = model;
+		this.view = view;
+	}
 
-    public void start() {
-        frame = new JFrame("Othello");
+	public void start() {
+		frame = new JFrame("Othello");
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JMenuBar menuBar = new JMenuBar();
+		JMenuBar menuBar = new JMenuBar();
+		JMenu fileMenu = new JMenu("File");
+		menuBar.add(fileMenu);
+		JMenu gameMenu = new JMenu("Game");
+		menuBar.add(gameMenu);
+		JMenuItem exitMenuItem = new JMenuItem("Exit");
+		exitMenuItem.addActionListener(exitListener);
+		fileMenu.add(exitMenuItem);
+		JMenuItem resetMenuItem = new JMenuItem("Reset");
+		resetMenuItem.addActionListener(resetListener);
+		gameMenu.add(resetMenuItem);
 
-        JMenu fileMenu = new JMenu("File");
-        menuBar.add(fileMenu);
-        JMenu gameMenu = new JMenu("Game");
-        menuBar.add(gameMenu);
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
-        exitMenuItem.addActionListener(exitListener);
-        fileMenu.add(exitMenuItem);
-        JMenuItem resetMenuItem = new JMenuItem("Reset");
-        resetMenuItem.addActionListener(resetListener);
-        gameMenu.add(resetMenuItem);
+		frame.setJMenuBar(menuBar);
 
-        frame.setJMenuBar(menuBar);
+		Container contentPane = frame.getContentPane();
+		contentPane.setLayout(new BorderLayout());
 
-        Container contentPane = frame.getContentPane();
-        contentPane.setLayout(new BorderLayout());
+		JPanel topPanel = new JPanel();
+		contentPane.add(topPanel, BorderLayout.NORTH);
+		topPanel.setBorder(BorderFactory.createEtchedBorder());
 
-        JPanel topPanel = new JPanel();
-        contentPane.add(topPanel, BorderLayout.NORTH);
-        topPanel.setBorder(BorderFactory.createEtchedBorder());
+		JPanel bottomPanel = new JPanel();
+		contentPane.add(bottomPanel, BorderLayout.SOUTH);
+		bottomPanel.setBorder(BorderFactory.createTitledBorder("State:"));
+		bottomPanel.setLayout(new GridLayout(1, 1, 5, 5));
+		stateLabel = new JLabel("State is: "
+				+ model.getInitalGameState().toString());
+		stateLabel.setBorder(BorderFactory.createEtchedBorder());
+		bottomPanel.add(stateLabel);
 
-        JPanel bottomPanel = new JPanel();
-        contentPane.add(bottomPanel, BorderLayout.SOUTH);
-        bottomPanel.setBorder(BorderFactory.createTitledBorder("State:"));
-        bottomPanel.setLayout(new GridLayout(1, 1, 5, 5));
-        stateLabel = new JLabel("State is: " + model.getInitalGameState().toString());
-        stateLabel.setBorder(BorderFactory.createEtchedBorder());
-        bottomPanel.add(stateLabel);
+		JPanel historyPanel = new JPanel();
+		contentPane.add(historyPanel, BorderLayout.CENTER);
+		historyPanel.setBorder(BorderFactory.createTitledBorder("History"));
+		historyPanel.setLayout(new BorderLayout());
+		historyListModel = new DefaultListModel<String>();
+		historyList = new JList<String>(historyListModel);
+		historyList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		historyPanel.add(new JScrollPane(historyList), BorderLayout.CENTER);
 
-        JPanel historyPanel = new JPanel();
-        contentPane.add(historyPanel, BorderLayout.CENTER);
-        historyPanel.setBorder(BorderFactory.createTitledBorder("History"));
-        historyPanel.setLayout(new BorderLayout());
-        historyListModel = new DefaultListModel<String>();
-        historyList = new JList<String>(historyListModel);
-        historyList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        historyPanel.add(new JScrollPane(historyList), BorderLayout.CENTER);
+		contentPane.add(view, BorderLayout.WEST);
 
-        contentPane.add(view, BorderLayout.WEST);
+		model.addListener(posChangedListener);
+		model.addListener(stateChangedListener);
 
-        model.addListener(posChangedListener);
-        model.addListener(stateChangedListener);
+		frame.setLocation(100, 100);
+		frame.pack();
+		frame.setVisible(true);
+		model.play();
+	}
 
-        frame.setLocation(100, 100);
-        frame.pack();
-        frame.setVisible(true);
-        model.play();
-    }
-
-    public static void main(String[] args) {
-        // TODO: cleanup
-        OthelloView view = new OthelloView();
-        OthelloModel model = new OthelloModel(view);
-        OthelloController controller = new OthelloController(model);
-        view.initialize(controller);
-        OthelloGuiApp app = new OthelloGuiApp(model, view);
-        app.start();
-    }
+	public static void main(String[] args) {
+		// TODO: cleanup
+		OthelloView view = new OthelloView();
+		OthelloModel model = new OthelloModel(view);
+		OthelloController controller = new OthelloController(model);
+		view.initialize(controller);
+		OthelloGuiApp app = new OthelloGuiApp(model, view);
+		app.start();
+	}
 }
