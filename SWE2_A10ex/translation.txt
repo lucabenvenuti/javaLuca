@@ -1,0 +1,116 @@
+Exercise 10: Design Patterns 1
+Deadline: 11. 6. 2015 8:15
+Exercise 11: Design Patterns 2
+Deadline: 18. 6. 2015 8:15
+Computer science: ? G1 (Prähofer) ? G2 (Prähofer) ? G3 (Grimmer) ? G4 (Grimmer)
+WIN: ? G1 (Khalil) ? G2 (Kusel) ? G3 (Kusel)
+Task points dispense submitted in writing electronically corr. Points
+Exercise 10 24 Java program
+including JavaDoc
+Java program
+including JavaDoc
+?
+Exercise 11 24 Java program
+including JavaDoc
+Java program
+including JavaDoc
+?
+MicroDraw
+MicroDraw is easy with which one can create graphs from primitive shapes GUI application.
+Figure 1 shows the application.
+Figure 1: Screeshot of MicroDraw
+The application has a toolbar with tools for adding rectangles and ovals, and a selection tools.
+With the selection tool you can select, move and resize elements. Furthermore, one can
+Groups of selected objects form (menu item "Group").
+The implementation of the application has an architecture as shown in Figure 2.
+? The displayed graphical objects are in Package mdraw.shapes implemented. They are all of
+Interface Shape derived, which methods for accessing and setting the position and size,
+Drawing and filling, selection and generating a replica defined. There are concrete Shape classes
+Rect, Oval and Group. Groups are formed according to the Composite pattern.
+? Class Shape Model together with Listeners and Event objects from the package mdraw.model import
+plemented a model to the MVC principle. Shape Model manages a number of shapes and a
+Amount of the currently selected shape. It notifies changes in the amount of Shapes with
+Changed shape events and changes in the selection shape with selection events.
+? ShapeApp and Shape Panel implement the graphical display. You listen to shape changed
+and changes shape selection events of the model. In ShapeApp there are a number of Action
+Implementations that implement the responses to the menu operations.
+? It is essential in the application, the treatment of mouse events in Shape Panel. The Reaction
+on the Mouse events depends on the selected tool in the Toolbar. The Shape Panel directs data
+manufactures all Mouse events to the selected tool in the Toolbar. For the implementation of
+Tools there is an abstract base class tool (in the package mdraw.tools). Tool guides of AbstractAc-
+tion from (ie can be used as an action) and implemented MouseListener and MouseMo-
+tion listener. In addition, tool also defines a method PaintTool feedback (Graphics g), the
+is called when paintComponent the Shape Panel, a visual feedback for the operation
+to give the tool (eg when moving shapes). The administration of the tools takes place in the Tool
+Range, which is used directly as a toolbar (extended JToolBar). One can the Tool Palette
+Add tools that appear in the toolbar of the application.
+Shape Model
+Shapes
+Selected
+ShapeApp
+Shape Panel Tool Palette
+Tool Tool
+Selected
+Action
+Action
+...
+Shape
+Changed
+Events
+Selection
+Events
+Mouse
+Events ...
+Figure 2: Architecture
+You get the implementation of this application made available for downloading. In Directory doc
+There is a Javadoc documentation of all classes of implementation.
+UE10: extension of MicroDraw with Shape and Shape Visitor Adapter (24 points)
+The project would now like to expand the application range of functions. Our Project
+want you doing design patterns apply and formulated the task following:
+Adapter: There are now not only rectangles and ovals can be used as basic shapes, but
+countries also with possibly different interface. This is according to the principle of the adapter Pattern
+be realized. Build a corresponding structures in the class system of shapes.
+In concrete terms, now images can be used via the adapter pattern as shapes. Implement
+to an Image Adapter class. Implement a tool and expand the Toolbar for the production
+Image of Shapes. Use a JFileChooser to an image file for the generation of Images
+select.
+Note: The following instructions show the selection of an image file and generating an image.
+JFileChooser chooser = new JFileChooser (".");
+int code = chooser.showOpenDialog (null);
+if (code == 0) {
+File imgFile = chooser.getSelectedFile ();
+Image img = javax.imageio.ImageIO.read (imgFile);
+...
+}
+
+Visitor: Expand the system with a Visitor pattern. The Visitor interface is a generic return
+have transfer value and be defined as following:
+public interface Shape Visitor <T> {
+public T visitRect (Rect r);
+T public visit oval (Oval o);
+T public visit group (Group g);
+T public visit adapter (adapter Shape a);
+}
+Implement the Visitor the following operations:
+? a Compute Area Visitor, which calculates the sum of the areas of all shapes. It should
+for groups the areas of all elements are added without consideration of overlaps
+take. The area of ??ovals is calculated according to the formula
+?? ? ?? ?
+where a and b are the semi-axes. The calculated surface area is exposed to the standard output
+will give.
+? Stretch a Visitor, the following changes the shapes in size:
+o rectangles verdopplet in height
+o Oval are doubled in width
+o Groups are doubled in both directions
+o adapter remain unchanged.
+? a UnstretchVisitor that performs the inverse operation to stretch Visitor.
+Perform the operations a corresponding menu items.
+This implementation must be documented with Javadoc comments !!
+UE 11: Extension of MicroDraw with Undo / Redo (24 points)
+In Exercise 11, the application is now to be extended to allow undo / redo operations permits are
+the. Implement according to the Command Pattern undo / redo all operations in the Shapes shader
+peModel change.
+For undo / redo, there are in the class already DrawApp the corresponding menu operations and the Action
+Objects undoAction and redoAction.
+Change all codes that cause changes in the model.
+This implementation must be documented with Javadoc comments !!

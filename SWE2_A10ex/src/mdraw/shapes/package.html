@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+
+<h2>Package Specification</h2>
+
+This package contains classes representing shapes.
+Base interface {@link Shape} defines methods for retrieving information of shapes, like position and size, and
+methods for drawing.
+<p>
+Concrete shape implementations are
+<ul>
+<li> <code>Rect</code> : representing rectangle with width and height. </li>
+<li> <code>Oval</code> : representing an oval also specified with width and height.  </li>
+<li> <code>Group</code> : a group consisting of a list of sub-shapes of any type. Implements the composite pattern.  </li>
+</ul>
+<p>
+Class {@link PrimitiveShape} serves as a common base class for classes <code>Rect</code> and <code>Oval</code>.
+</body>
+</html>
