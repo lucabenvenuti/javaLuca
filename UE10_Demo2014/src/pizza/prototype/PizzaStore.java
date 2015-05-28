@@ -17,7 +17,7 @@ public class PizzaStore {
 	private List<Pizza> menu = new ArrayList<Pizza>(); 
 
 	public PizzaStore(Pizza pizzaPrototype, Spaghetti spaghettiPrototype) {
-		menu.add(pizzaPrototype); 
+		menu.add(pizzaPrototype); //shallow copy of our prototype
 		this.pizzaPrototype = pizzaPrototype;
 		this.spaghettiPrototype = spaghettiPrototype;
 	}

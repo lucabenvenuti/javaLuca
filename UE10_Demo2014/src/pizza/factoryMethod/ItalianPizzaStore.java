@@ -1,4 +1,4 @@
-package pizza.factoryMethod;
+package pizza.factoryMethod; // since these methods only produces objects
 
 import pizza.dishes.ItalianPizza;
 import pizza.dishes.Pizza;

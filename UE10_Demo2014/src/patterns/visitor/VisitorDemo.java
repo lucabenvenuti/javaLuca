@@ -62,6 +62,10 @@ class DrawVisitor implements Visitor {
     }
 }
 
+/**
+ * @author benvenuti
+ *
+ */
 public class VisitorDemo {
     static public void main(String[] args){
         Car car = new Car();
