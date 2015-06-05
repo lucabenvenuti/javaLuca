@@ -64,6 +64,7 @@ Events ...
 Figure 2: Architecture
 You get the implementation of this application made available for downloading. In Directory doc
 There is a Javadoc documentation of all classes of implementation.
+
 UE10: extension of MicroDraw with Shape and Shape Visitor Adapter (24 points)
 The project would now like to expand the application range of functions. Our Project
 want you doing design patterns apply and formulated the task following:
@@ -106,6 +107,7 @@ o adapter remain unchanged.
 ? a UnstretchVisitor that performs the inverse operation to stretch Visitor.
 Perform the operations a corresponding menu items.
 This implementation must be documented with Javadoc comments !!
+
 UE 11: Extension of MicroDraw with Undo / Redo (24 points)
 In Exercise 11, the application is now to be extended to allow undo / redo operations permits are
 the. Implement according to the Command Pattern undo / redo all operations in the Shapes shader
