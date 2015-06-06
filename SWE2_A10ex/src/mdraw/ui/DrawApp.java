@@ -281,7 +281,7 @@ public class DrawApp {
 				ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
 				s.accept(stretchVisitor);
 			}
-			// missing click control
+			model.clearSelection();
 		}
 	};
 
@@ -304,7 +304,7 @@ public class DrawApp {
 				ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
 				s.accept(unstretchVisitor);
 			}
-			// missing click control
+			model.clearSelection();
 		}
 	};
 
@@ -327,9 +327,10 @@ public class DrawApp {
 				ShapeVisitor<Integer> areaVisitor = new AreaVisitor();
 				area += s.accept(areaVisitor);
 			}
+			System.out.println("Area of selected images is:");
 			System.out.println(area);
+			model.clearSelection();
 		}
-		// missing click control
 	};
 
 }
