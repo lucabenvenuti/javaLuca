@@ -28,7 +28,7 @@ Interface Shape derived, which methods for accessing and setting the position an
 Drawing and filling, selection and generating a replica defined. There are concrete Shape classes
 Rect, Oval and Group. Groups are formed according to the Composite pattern.
 ? Class Shape Model together with Listeners and Event objects from the package mdraw.model import
-plemented a model to the MVC principle. Shape Model manages a number of shapes and a
+implemented a model to the MVC principle. Shape Model manages a number of shapes and a
 Amount of the currently selected shape. It notifies changes in the amount of Shapes with
 Changed shape events and changes in the selection shape with selection events.
 ? ShapeApp and Shape Panel implement the graphical display. You listen to shape changed
@@ -37,11 +37,11 @@ Implementations that implement the responses to the menu operations.
 ? It is essential in the application, the treatment of mouse events in Shape Panel. The Reaction
 on the Mouse events depends on the selected tool in the Toolbar. The Shape Panel directs data
 manufactures all Mouse events to the selected tool in the Toolbar. For the implementation of
-Tools there is an abstract base class tool (in the package mdraw.tools). Tool guides of AbstractAc-
-tion from (ie can be used as an action) and implemented MouseListener and MouseMo-
-tion listener. In addition, tool also defines a method PaintTool feedback (Graphics g), the
+Tools there is an abstract base class tool (in the package mdraw.tools). Tool guides of AbstractAction from 
+(i.e. can be used as an action) and implemented MouseListener and MouseMotion listener. 
+In addition, tool also defines a method PaintTool feedback (Graphics g), the
 is called when paintComponent the Shape Panel, a visual feedback for the operation
-to give the tool (eg when moving shapes). The administration of the tools takes place in the Tool
+to give the tool (e.g. when moving shapes). The administration of the tools takes place in the Tool
 Range, which is used directly as a toolbar (extended JToolBar). One can the Tool Palette
 Add tools that appear in the toolbar of the application.
 Shape Model
@@ -63,7 +63,7 @@ Mouse
 Events ...
 Figure 2: Architecture
 You get the implementation of this application made available for downloading. In Directory doc
-There is a Javadoc documentation of all classes of implementation.
+There is a Java-doc documentation of all classes of implementation.
 
 UE10: extension of MicroDraw with Shape and Shape Visitor Adapter (24 points)
 The project would now like to expand the application range of functions. Our Project
