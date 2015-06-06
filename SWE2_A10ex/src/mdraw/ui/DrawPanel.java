@@ -40,7 +40,7 @@ public class DrawPanel extends JPanel {
 	private final ShapeModel model;
 
 	/** The tool palette shown in the tool bar */
-	private final ToolPalette toolPalette;
+	public final ToolPalette toolPalette;
 
 	/**
 	 * Constructor initializing shape model and setting tool palette
@@ -99,7 +99,7 @@ public class DrawPanel extends JPanel {
 	 * @param withResizeCorner
 	 *            if the right/bottom corner should be shown as a resize anchor
 	 */
-	private void drawSelection(Shape sel, Graphics g, boolean withResizeCorner) {
+	private static void drawSelection(Shape sel, Graphics g, boolean withResizeCorner) {
 		int x = sel.getLeft();
 		int y = sel.getTop();
 		int w = sel.getWidth();

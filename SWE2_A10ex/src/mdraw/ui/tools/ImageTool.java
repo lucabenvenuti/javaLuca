@@ -19,10 +19,10 @@ import mdraw.shapes.*;
 public class ImageTool extends Tool {
 
 	/** Default width of added oval */
-	private static final int DEFAULT_WIDTH = 50;
+//	private static final int DEFAULT_WIDTH = 50;
 	
 	/** Default height of added oval */
-	private static final int DEFAULT_HEIGHT = 40;
+//	private static final int DEFAULT_HEIGHT = 40;
 
 	/** Shape model where the rectangle is added */
 	private final ShapeModel model;

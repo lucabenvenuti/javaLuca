@@ -46,10 +46,10 @@ public class DrawApp {
 	}
 
 	/** Drawing model */
-	private final ShapeModel model;
+	public final ShapeModel model;
 	
 	/** Frame object */
-	private final JFrame frame;
+	public final JFrame frame;
 	
 	/** Tool palette representing tools in tool bar */
 	private ToolPalette toolPalette;
@@ -163,7 +163,7 @@ public class DrawApp {
 	};
 
 	/** Handler for group actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action groupAction = new AbstractAction("Group") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -190,7 +190,7 @@ public class DrawApp {
 	};
 
 	/** Handler for ungroup actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action ungroupAction = new AbstractAction("Ungroup") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -217,7 +217,7 @@ public class DrawApp {
 	};
 
 	/** Handler for undo actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action undoAction = new AbstractAction("Undo") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -232,7 +232,7 @@ public class DrawApp {
 	};
 
 	/** Handler for redo actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action redoAction = new AbstractAction("Redo") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
