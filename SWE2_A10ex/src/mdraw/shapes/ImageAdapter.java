@@ -3,6 +3,7 @@ package mdraw.shapes;
 import static mdraw.shapes.ShapeUtil.areClose;
 import static mdraw.shapes.ShapeUtil.isWithin;
 
+import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -18,7 +19,12 @@ import javax.swing.JFileChooser;
  * @author Luca Benvenuti
  * @version 1.0
  */
-public class ImageAdapter implements Shape, ImageObserver {
+public class ImageAdapter extends Applet implements Shape {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/** x-coordinate of the shape. */
 	protected int x;
@@ -32,7 +38,8 @@ public class ImageAdapter implements Shape, ImageObserver {
 	/** Height of the shape. */
 	private int h;
 
-	private Image img;
+	private Image image;
+	private boolean loaded = false;
 
 	/**
 	 * Constructor initializing x and y coordinate and width and heigth.
@@ -47,6 +54,12 @@ public class ImageAdapter implements Shape, ImageObserver {
 	 *            the height
 	 */
 	public ImageAdapter(int x, int y) {
+		this.x = x;
+		this.y = y;
+		init();
+	}
+	
+	public void init() {
 		int h1 = 0;
 		int w1 = 0;
 		JFileChooser chooser = new JFileChooser(".");
@@ -54,19 +67,39 @@ public class ImageAdapter implements Shape, ImageObserver {
 		if (code == 0) {
 			File imgFile = chooser.getSelectedFile();
 			try {
-				img = javax.imageio.ImageIO.read(imgFile);
-				h1 = img.getHeight(chooser);
-				w1 = img.getWidth(chooser);
+				image = javax.imageio.ImageIO.read(imgFile);
+				h1 = image.getHeight(chooser);
+				w1 = image.getWidth(chooser);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
 		}
-		this.x = x;
-		this.y = y;
-		this.w = w1;
-		this.h = h1;
+		h = h1;
+		w = w1;
+		prepareImage(image, -1, -1, this);
 	}
+
+	public void paint(Graphics g) {
+		if (loaded)
+			g.drawImage(image, 0, 0, this);
+	}
+
+	public void update(Graphics g) {
+		paint(g);
+	}
+
+	public synchronized boolean imageUpdate(Image image, int infoFlags, int x,
+			int y, int width, int height) {
+		if ((infoFlags & ImageObserver.ALLBITS) != 0) {
+			loaded = true;
+			repaint();
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 
 	/*
 	 * (non-Javadoc)
@@ -75,8 +108,7 @@ public class ImageAdapter implements Shape, ImageObserver {
 	 */
 	@Override
 	public void draw(Graphics g) {
-		// ImageObserver observer = new ImageObserver();
-		g.drawImage(img, x, y, this);
+		paint(g);
 	}
 
 	/*
@@ -86,6 +118,7 @@ public class ImageAdapter implements Shape, ImageObserver {
 	 */
 	@Override
 	public void fill(Graphics g, Color c) {
+		paint(g);
 	}
 
 	/*
@@ -146,18 +179,6 @@ public class ImageAdapter implements Shape, ImageObserver {
 		} catch (CloneNotSupportedException e) {
 			throw new Error();
 		}
-	}
-
-	@Override
-	public boolean imageUpdate(Image img, int infoflags, int x, int y,
-			int width, int height) {
-		if (img != null) {
-			setPos(x, y);
-			setSize(w, h);
-			this.img = img;
-			return true;
-		}
-		return false;
 	}
 
 }
