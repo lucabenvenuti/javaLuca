@@ -127,10 +127,5 @@ abstract public class PrimitiveShape extends Object implements Shape  {
 			throw new Error();
 		}
 	}	
-	
-	@Override
-	public <T> T accept(Visitor<T> v) {
-		return v.visitShape(this);
-	}
 
 }

@@ -64,5 +64,10 @@ public class Rect extends PrimitiveShape {
 						+ getHeight())) && isWithin(x, getLeft(), getLeft()
 						+ getWidth()));
 	}
+	
+	@Override
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitRect(this);
+	}
 
 }

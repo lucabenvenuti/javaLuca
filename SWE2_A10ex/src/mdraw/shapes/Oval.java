@@ -69,5 +69,10 @@ public class Oval extends PrimitiveShape {
 		double a2b2S = Math.pow(a2b2, 0.25);
 		return ShapeUtil.areClose(d2S, a2b2S);
 	}
+	
+	@Override
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitOval(this);
+	}
 
 }

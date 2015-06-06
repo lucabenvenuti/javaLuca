@@ -190,8 +190,8 @@ public class Group implements Shape {
 	}
 	
 	@Override
-	public <T> T accept(Visitor<T> v) {
-		return v.visitShape(this);
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitGroup(this);
 	}
 
 }

@@ -104,6 +104,6 @@ public interface Shape extends Cloneable {
 	 */
 	public abstract Shape copy();
 
-	public <T> T accept(Visitor<T> v);
+	public <T> T accept(ShapeVisitor<T> v);
 
 }
