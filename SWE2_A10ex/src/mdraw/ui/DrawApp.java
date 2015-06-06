@@ -17,14 +17,17 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 
 import mdraw.model.ShapeModel;
+import mdraw.shapes.AreaVisitor;
 import mdraw.shapes.Group;
 import mdraw.shapes.Shape;
+import mdraw.shapes.StretchVisitor;
+import mdraw.shapes.ShapeVisitor;
+import mdraw.shapes.UnstretchVisitor;
 import mdraw.ui.tools.ImageTool;
 import mdraw.ui.tools.OvalTool;
 import mdraw.ui.tools.RectTool;
 import mdraw.ui.tools.SelTool;
 import mdraw.ui.tools.ToolPalette;
-
 
 /**
  * Application object for micro drawing tool.
@@ -38,7 +41,8 @@ public class DrawApp {
 	/**
 	 * Starts the drawing application with new drawing model.
 	 * 
-	 * @param args the program arguments (not used)
+	 * @param args
+	 *            the program arguments (not used)
 	 */
 	public static void main(String[] args) {
 		ShapeModel model = new ShapeModel();
@@ -48,19 +52,21 @@ public class DrawApp {
 
 	/** Drawing model */
 	public final ShapeModel model;
-	
+
 	/** Frame object */
 	public final JFrame frame;
-	
+
 	/** Tool palette representing tools in tool bar */
 	private ToolPalette toolPalette;
-	
+
 	/** Drawing panel object */
 	private DrawPanel drawPanel;
 
-	/** 
-	 * Constructor initializing model and setting up application. 
-	 * @param model the model for this application
+	/**
+	 * Constructor initializing model and setting up application.
+	 * 
+	 * @param model
+	 *            the model for this application
 	 */
 	public DrawApp(ShapeModel model) {
 		super();
@@ -100,7 +106,6 @@ public class DrawApp {
 		editMenu.add(strechShapes);
 		editMenu.add(unstrechShapes);
 		editMenu.add(computeArea);
-		
 
 		// tools and tool palette
 		toolPalette = new ToolPalette();
@@ -121,7 +126,6 @@ public class DrawApp {
 		toolPalette.add(strechShapes);
 		toolPalette.add(unstrechShapes);
 		toolPalette.add(computeArea);
-		
 
 		// drawing panel
 		drawPanel = new DrawPanel(model, toolPalette);
@@ -257,7 +261,7 @@ public class DrawApp {
 			throw new UnsupportedOperationException();
 		}
 	};
-	
+
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action strechShapes = new AbstractAction("Strech shapes") {
 		{
@@ -268,10 +272,19 @@ public class DrawApp {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			throw new UnsupportedOperationException();
+
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			for (Shape s : selected) {
+				ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
+				s.accept(stretchVisitor);
+			}
+			// missing click control
 		}
 	};
-	
+
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action unstrechShapes = new AbstractAction("Unstrech shapes") {
 		{
@@ -282,12 +295,19 @@ public class DrawApp {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			throw new UnsupportedOperationException();
+
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			for (Shape s : selected) {
+				ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
+				s.accept(unstretchVisitor);
+			}
+			// missing click control
 		}
 	};
-	
 
-	
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action computeArea = new AbstractAction("Compute area") {
 		{
@@ -298,8 +318,18 @@ public class DrawApp {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			throw new UnsupportedOperationException();
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			int area = 0;
+			for (Shape s : selected) {
+				ShapeVisitor<Integer> areaVisitor = new AreaVisitor();
+				area += s.accept(areaVisitor);
+			}
+			System.out.println(area);
 		}
+		// missing click control
 	};
 
 }
