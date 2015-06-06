@@ -19,6 +19,7 @@ import javax.swing.WindowConstants;
 import mdraw.model.ShapeModel;
 import mdraw.shapes.Group;
 import mdraw.shapes.Shape;
+import mdraw.ui.tools.ImageTool;
 import mdraw.ui.tools.OvalTool;
 import mdraw.ui.tools.RectTool;
 import mdraw.ui.tools.SelTool;
@@ -94,6 +95,12 @@ public class DrawApp {
 		editMenu.addSeparator();
 		editMenu.add(undoAction);
 		editMenu.add(redoAction);
+		editMenu.addSeparator();
+		editMenu.addSeparator();
+		editMenu.add(strechShapes);
+		editMenu.add(unstrechShapes);
+		editMenu.add(computeArea);
+		
 
 		// tools and tool palette
 		toolPalette = new ToolPalette();
@@ -101,6 +108,7 @@ public class DrawApp {
 		toolPalette.addTool(new SelTool(toolPalette, model));
 		toolPalette.addTool(new RectTool(toolPalette, model));
 		toolPalette.addTool(new OvalTool(toolPalette, model));
+		toolPalette.addTool(new ImageTool(toolPalette, model));
 		toolPalette.addSeparator(new Dimension(8, 12));
 		toolPalette.add(delAction);
 		toolPalette.addSeparator(new Dimension(8, 12));
@@ -109,6 +117,10 @@ public class DrawApp {
 		toolPalette.addSeparator(new Dimension(8, 12));
 		toolPalette.add(undoAction);
 		toolPalette.add(redoAction);
+		toolPalette.addSeparator(new Dimension(8, 12));
+		toolPalette.add(strechShapes);
+		toolPalette.add(unstrechShapes);
+		toolPalette.add(computeArea);
 		
 
 		// drawing panel
@@ -238,6 +250,50 @@ public class DrawApp {
 			putValue(Action.ACCELERATOR_KEY,
 					KeyStroke.getKeyStroke(KeyEvent.VK_Y, KeyEvent.CTRL_MASK));
 			putValue(Action.SHORT_DESCRIPTION, "Redo last undone operation");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			throw new UnsupportedOperationException();
+		}
+	};
+	
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action strechShapes = new AbstractAction("Strech shapes") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Strech the shapes");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			throw new UnsupportedOperationException();
+		}
+	};
+	
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action unstrechShapes = new AbstractAction("Unstrech shapes") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Unstrech the shapes");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			throw new UnsupportedOperationException();
+		}
+	};
+	
+
+	
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action computeArea = new AbstractAction("Compute area") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Compute the area");
 		}
 
 		@Override

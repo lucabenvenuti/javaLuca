@@ -188,5 +188,10 @@ public class Group implements Shape {
 		copy = new Group(ShapeUtil.copyShapes(this.elements));
 		return copy;
 	}
+	
+	@Override
+	public <T> T accept(Visitor<T> v) {
+		return v.visitShape(this);
+	}
 
 }

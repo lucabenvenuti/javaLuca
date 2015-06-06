@@ -11,7 +11,7 @@ package mdraw.shapes;
  * @version 1.1
  * @since 1.0
  */
-abstract public class PrimitiveShape extends Object implements Shape {
+abstract public class PrimitiveShape extends Object implements Shape  {
 
 	/** x-coordinate of the shape. */
 	protected int x;
@@ -127,5 +127,10 @@ abstract public class PrimitiveShape extends Object implements Shape {
 			throw new Error();
 		}
 	}	
+	
+	@Override
+	public <T> T accept(Visitor<T> v) {
+		return v.visitShape(this);
+	}
 
 }

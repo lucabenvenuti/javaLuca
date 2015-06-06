@@ -19,7 +19,7 @@ import javax.swing.JFileChooser;
  * @author Luca Benvenuti
  * @version 1.0
  */
-public class ImageAdapter extends Applet implements Shape {
+public class ImageAdapter extends Applet implements Shape  {
 
 	/**
 	 * 
@@ -179,6 +179,11 @@ public class ImageAdapter extends Applet implements Shape {
 		} catch (CloneNotSupportedException e) {
 			throw new Error();
 		}
+	}
+
+	@Override
+	public <T> T accept(Visitor<T> v) {
+		return v.visitShape(this);
 	}
 
 }
