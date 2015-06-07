@@ -16,7 +16,6 @@ public class SetSelectionCommand implements Command {
 		super();
 		this.model = model;
 		this.selected = model.selected;
-		// assert (s != null);
 		this.s = s;
 	}
 

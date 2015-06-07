@@ -15,7 +15,6 @@ public class ResizeShapeCommand implements Command {
 	public ResizeShapeCommand(ShapeModel model, Shape s, int w, int h) {
 		super();
 		this.model = model;
-	//	assert (s != null);
 		this.s = s;
 		this.w = w;
 		this.h = h;

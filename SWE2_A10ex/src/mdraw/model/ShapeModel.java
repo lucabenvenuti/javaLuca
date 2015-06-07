@@ -208,17 +208,26 @@ public class ShapeModel { // extends AbstractUndoableEdit
 	 */
 	public void removeSelection(Shape s) {
 		assert (s != null);
-		if (selected.remove(s)) {
-			fireSelectionChanged(selected);
-		}
+		/*
+		 * if (selected.remove(s)) { fireSelectionChanged(selected); }
+		 */
+		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
+				this, s);
+		removeSelectionCommand.doCmd();
+		undoStack.addFirst(removeSelectionCommand);
 	}
 
 	/**
 	 * Clears the selected shapes. Selected shapes will be empty afterwards.
 	 */
 	public void clearSelection() {
-		selected.clear();
-		fireSelectionChanged(selected);
+		/*
+		 * selected.clear(); fireSelectionChanged(selected);
+		 */
+		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
+				this);
+		clearSelectionCommand.doCmd();
+		undoStack.addFirst(clearSelectionCommand);
 	}
 
 	/**

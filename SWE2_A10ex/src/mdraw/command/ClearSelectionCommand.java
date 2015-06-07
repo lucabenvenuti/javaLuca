@@ -1,33 +1,32 @@
 package mdraw.command;
 
+import java.util.List;
+
 import mdraw.model.ShapeModel;
 import mdraw.shapes.Shape;
 
 public class ClearSelectionCommand implements Command {
-	
-	private ShapeModel model;
-	private Shape s;
-	
 
-	public ClearSelectionCommand(ShapeModel model, Shape s) {
+	private ShapeModel model;
+	private final List<Shape> selected;
+
+	public ClearSelectionCommand(ShapeModel model) {
 		super();
 		this.model = model;
-		this.s = s;
+		this.selected = model.selected;
 	}
 
 	@Override
 	public void doCmd() {
-		assert (s != null);
-		model.shapes.add(s);
-		model.fireShapeAdded(s);
+		model.selected.clear();
+		model.fireSelectionChanged(model.selected);
 	}
 
 	@Override
 	public void undoCmd() {
-		assert (s != null);
-		model.shapes.remove(s);
-		model.fireShapeRemoved(s);
-		model.removeSelection(s);		
+		model.selected.clear();
+		model.selected.addAll(selected);
+		model.fireSelectionChanged(selected);
 	}
 
 }

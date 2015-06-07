@@ -4,10 +4,9 @@ import mdraw.model.ShapeModel;
 import mdraw.shapes.Shape;
 
 public class AddSelectionCommand implements Command {
-	
+
 	private ShapeModel model;
 	private Shape s;
-	
 
 	public AddSelectionCommand(ShapeModel model, Shape s) {
 		super();
@@ -26,7 +25,7 @@ public class AddSelectionCommand implements Command {
 	public void undoCmd() {
 		if (model.selected.remove(s)) {
 			model.fireSelectionChanged(model.selected);
-		}	
+		}
 	}
 
 }
