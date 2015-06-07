@@ -11,12 +11,12 @@ public class RemoveShapeCommand implements Command {
 	public RemoveShapeCommand(ShapeModel model, Shape s) {
 		super();
 		this.model = model;
+		assert (s != null);
 		this.s = s;
 	}
 
 	@Override
 	public void doCmd() {
-		assert (s != null);
 		model.shapes.remove(s);
 		model.fireShapeRemoved(s);
 		model.removeSelection(s);
@@ -24,7 +24,6 @@ public class RemoveShapeCommand implements Command {
 
 	@Override
 	public void undoCmd() {
-
 		assert (s != null);
 		model.shapes.add(s);
 		model.fireShapeAdded(s);

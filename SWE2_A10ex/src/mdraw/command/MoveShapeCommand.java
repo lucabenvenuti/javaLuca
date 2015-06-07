@@ -14,10 +14,10 @@ public class MoveShapeCommand implements Command {
 
 
 
-	MoveShapeCommand(ShapeModel model, Shape s, int dx, int dy) {
+	public MoveShapeCommand(ShapeModel model, Shape s, int dx, int dy) {
 		super();
 		this.model = model;
-		assert (s != null);
+		//assert (s != null);
 		this.s = s;
 		this.dx = dx;
 		this.dy = dy;

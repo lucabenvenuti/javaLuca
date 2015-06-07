@@ -17,17 +17,16 @@ public class AddSelectionCommand implements Command {
 
 	@Override
 	public void doCmd() {
-		assert (s != null);
-		model.shapes.add(s);
-		model.fireShapeAdded(s);
+		if (model.selected.add(s)) {
+			model.fireSelectionChanged(model.selected);
+		}
 	}
 
 	@Override
 	public void undoCmd() {
-		assert (s != null);
-		model.shapes.remove(s);
-		model.fireShapeRemoved(s);
-		model.removeSelection(s);		
+		if (model.selected.remove(s)) {
+			model.fireSelectionChanged(model.selected);
+		}	
 	}
 
 }

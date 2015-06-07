@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
-import mdraw.command.Command;
+import mdraw.command.*;
 import mdraw.command.AddShapeCommand;
 import mdraw.command.RemoveShapeCommand;
 import mdraw.shapes.Shape;
@@ -25,18 +25,18 @@ import mdraw.shapes.Shape;
  * @version 1.1
  * @since 1.0
  */
-//@SuppressWarnings("serial")
-public class ShapeModel  { //extends AbstractUndoableEdit
+// @SuppressWarnings("serial")
+public class ShapeModel { // extends AbstractUndoableEdit
 
 	/** List of shapes */
 	public final List<Shape> shapes;
 
 	/** List of selected shapes */
-	private final List<Shape> selected;
+	public final List<Shape> selected;
 
 	/** List for event listeners */
 	private final EventListenerList listeners;
-	
+
 	private final Deque<Command> undoStack = new ArrayDeque<>();
 	private final Deque<Command> redoStack = new ArrayDeque<>();
 
@@ -66,9 +66,10 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the shape to add
 	 */
 	public void addShape(Shape s) {
-/*		assert (s != null);
-		shapes.add(s);
-		fireShapeAdded(s);*/
+		assert (s != null);
+		/*
+		 * shapes.add(s); fireShapeAdded(s);
+		 */
 		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
 		addShapeCommand.doCmd();
 		undoStack.addFirst(addShapeCommand);
@@ -81,10 +82,10 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the shape to remove
 	 */
 	public void removeShape(Shape s) {
-/*		assert (s != null);
-		shapes.remove(s);
-		fireShapeRemoved(s);
-		removeSelection(s);*/
+		assert (s != null);
+		/*
+		 * shapes.remove(s); fireShapeRemoved(s); removeSelection(s);
+		 */
 		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
 		removeShapeCommand.doCmd();
 		undoStack.addFirst(removeShapeCommand);
@@ -101,9 +102,14 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the delta in y
 	 */
 	public void moveShape(Shape s, int dx, int dy) {
-/*		assert (s != null);
-		s.setPos(s.getLeft() + dx, s.getTop() + dy);
-		fireShapeChanged(s);*/
+		assert (s != null);
+		/*
+		 * s.setPos(s.getLeft() + dx, s.getTop() + dy); fireShapeChanged(s);
+		 */
+		MoveShapeCommand moveShapeCommand = new MoveShapeCommand(this, s, dx,
+				dy);
+		moveShapeCommand.doCmd();
+		undoStack.addFirst(moveShapeCommand);
 	}
 
 	/**
@@ -118,8 +124,13 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 */
 	public void resizeShape(Shape s, int w, int h) {
 		assert (s != null);
-		s.setSize(w, h);
-		fireShapeChanged(s);
+		/*
+		 * s.setSize(w, h); fireShapeChanged(s);
+		 */
+		ResizeShapeCommand resizeShapeCommand = new ResizeShapeCommand(this, s,
+				w, h);
+		resizeShapeCommand.doCmd();
+		undoStack.addFirst(resizeShapeCommand);
 	}
 
 	/**
@@ -162,9 +173,14 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 */
 	public void setSelection(Shape[] shapes) {
 		assert (shapes != null);
-		selected.clear();
-		selected.addAll(Arrays.asList(shapes));
-		fireSelectionChanged(selected);
+		/*
+		 * selected.clear(); selected.addAll(Arrays.asList(shapes));
+		 * fireSelectionChanged(selected);
+		 */
+		SetSelectionCommand setSelectionCommand = new SetSelectionCommand(this,
+				shapes);
+		setSelectionCommand.doCmd();
+		undoStack.addFirst(setSelectionCommand);
 	}
 
 	/**
@@ -175,9 +191,13 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 */
 	public void addSelections(Shape s) {
 		assert (s != null);
-		if (selected.add(s)) {
-			fireSelectionChanged(selected);
-		}
+		/*
+		 * if (selected.add(s)) { fireSelectionChanged(selected); }
+		 */
+		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
+				s);
+		addSelectionCommand.doCmd();
+		undoStack.addFirst(addSelectionCommand);
 	}
 
 	/**

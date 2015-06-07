@@ -4,30 +4,35 @@ import mdraw.model.ShapeModel;
 import mdraw.shapes.Shape;
 
 public class ResizeShapeCommand implements Command {
-	
+
 	private ShapeModel model;
 	private Shape s;
-	
+	private int w;
+	private int h;
+	private int widthOrig;
+	private int heightOrig;
 
-	public ResizeShapeCommand(ShapeModel model, Shape s) {
+	public ResizeShapeCommand(ShapeModel model, Shape s, int w, int h) {
 		super();
 		this.model = model;
+	//	assert (s != null);
 		this.s = s;
+		this.w = w;
+		this.h = h;
+		widthOrig = s.getWidth();
+		heightOrig = s.getHeight();
 	}
 
 	@Override
 	public void doCmd() {
-		assert (s != null);
-		model.shapes.add(s);
-		model.fireShapeAdded(s);
+		s.setSize(w, h);
+		model.fireShapeChanged(s);
 	}
 
 	@Override
 	public void undoCmd() {
-		assert (s != null);
-		model.shapes.remove(s);
-		model.fireShapeRemoved(s);
-		model.removeSelection(s);		
+		s.setSize(widthOrig, heightOrig);
+		model.fireShapeChanged(s);
 	}
 
 }
