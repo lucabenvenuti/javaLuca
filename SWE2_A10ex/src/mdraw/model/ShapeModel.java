@@ -86,21 +86,9 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 		fireShapeRemoved(s);
 		removeSelection(s);*/
 		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
-		removeShapeCommand.undoCmd();
+		removeShapeCommand.doCmd();
 		undoStack.addFirst(removeShapeCommand);
 	}
-
-/*	@Override
-	public void undo() {
-		super.undo();
-		points.remove(point);
-	}
-
-	@Override
-	public void redo() {
-		super.redo();
-		points.add(point);
-	}*/
 
 	/**
 	 * Moves a shape to a new position
@@ -113,9 +101,9 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the delta in y
 	 */
 	public void moveShape(Shape s, int dx, int dy) {
-		assert (s != null);
+/*		assert (s != null);
 		s.setPos(s.getLeft() + dx, s.getTop() + dy);
-		fireShapeChanged(s);
+		fireShapeChanged(s);*/
 	}
 
 	/**
@@ -287,7 +275,7 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 * @param shapes
 	 *            the shapes which have been changed
 	 */
-	private void fireShapeChanged(Shape... shapes) {
+	public void fireShapeChanged(Shape... shapes) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "changed", shapes);
 		for (ShapeChangedListener l : listeners
 				.getListeners(ShapeChangedListener.class)) {
@@ -301,7 +289,7 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 * @param selected
 	 *            the shapes which are now selected
 	 */
-	private void fireSelectionChanged(List<Shape> selected) {
+	public void fireSelectionChanged(List<Shape> selected) {
 		ShapeSelectionEvent evt = new ShapeSelectionEvent(this, getSelected());
 		for (ShapeSelectionListener l : listeners
 				.getListeners(ShapeSelectionListener.class)) {
