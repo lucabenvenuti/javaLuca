@@ -2,15 +2,14 @@ package mdraw.model;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
+//import cmd.Command;
 import mdraw.command.*;
-import mdraw.command.AddShapeCommand;
-import mdraw.command.RemoveShapeCommand;
 import mdraw.shapes.Shape;
 
 /**
@@ -324,6 +323,26 @@ public class ShapeModel { // extends AbstractUndoableEdit
 				.getListeners(ShapeSelectionListener.class)) {
 			l.shapeSelectionChanged(evt);
 		}
+	}
+	
+	public void undoCommand() {
+		if (undoStack.isEmpty()) {
+			return;
+		}
+		Command cmd = undoStack.getFirst();
+		cmd.undoCmd();
+		undoStack.removeFirst();
+		redoStack.addFirst(cmd);
+	}
+
+	public void redoCommand() {
+		if (redoStack.isEmpty()) {
+			return;
+		}
+		Command cmd = redoStack.removeFirst();
+		//doCommand(cmd);
+		cmd.doCmd();
+		undoStack.addFirst(cmd);
 	}
 
 }
