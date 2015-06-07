@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.event.EventListenerList;
+import javax.swing.undo.AbstractUndoableEdit;
 
 import mdraw.shapes.Shape;
 
@@ -20,7 +21,8 @@ import mdraw.shapes.Shape;
  * @version 1.1
  * @since 1.0
  */
-public class ShapeModel {
+//@SuppressWarnings("serial")
+public class ShapeModel  { //extends AbstractUndoableEdit
 
 	/** List of shapes */
 	private final List<Shape> shapes;
@@ -74,6 +76,18 @@ public class ShapeModel {
 		fireShapeRemoved(s);
 		removeSelection(s);
 	}
+
+/*	@Override
+	public void undo() {
+		super.undo();
+		points.remove(point);
+	}
+
+	@Override
+	public void redo() {
+		super.redo();
+		points.add(point);
+	}*/
 
 	/**
 	 * Moves a shape to a new position
@@ -233,7 +247,8 @@ public class ShapeModel {
 	private void fireShapeAdded(Shape s) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "added",
 				new Shape[] { s });
-		for (ShapeChangedListener l : listeners.getListeners(ShapeChangedListener.class)) {
+		for (ShapeChangedListener l : listeners
+				.getListeners(ShapeChangedListener.class)) {
 			l.shapeAdded(evt);
 		}
 	}

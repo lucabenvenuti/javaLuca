@@ -244,6 +244,7 @@ public class DrawApp {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
+			//model.undo();
 		}
 	};
 
@@ -259,6 +260,7 @@ public class DrawApp {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
+			//model.redo();
 		}
 	};
 
