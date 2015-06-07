@@ -1,6 +1,6 @@
 package mdraw.command;
 
-public interface Command {
+public interface Command extends Cloneable {
 
 	public void doCmd();
 	
