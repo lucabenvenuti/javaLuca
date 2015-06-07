@@ -18,23 +18,9 @@ import mdraw.shapes.*;
 @SuppressWarnings("serial")
 public class ImageTool extends Tool {
 
-	/** Default width of added oval */
-//	private static final int DEFAULT_WIDTH = 50;
-	
-	/** Default height of added oval */
-//	private static final int DEFAULT_HEIGHT = 40;
-
-	/** Shape model where the rectangle is added */
 	private final ShapeModel model;
 
-	/**
-	 * Constructor setting palette and model.
-	 * 
-	 * @param palette
-	 *            the tool palette where this tool should be added
-	 * @param model
-	 *            the shape model where the oval is added
-	 */
+
 	public ImageTool(ToolPalette palette, ShapeModel model) {
 		super("ImageShape", new ImageIcon("img.png"), palette);
 		this.model = model;

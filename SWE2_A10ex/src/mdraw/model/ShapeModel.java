@@ -1,12 +1,16 @@
 package mdraw.model;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 
 import javax.swing.event.EventListenerList;
-import javax.swing.undo.AbstractUndoableEdit;
 
+import mdraw.command.Command;
+import mdraw.command.AddShapeCommand;
+import mdraw.command.RemoveShapeCommand;
 import mdraw.shapes.Shape;
 
 /**
@@ -25,13 +29,16 @@ import mdraw.shapes.Shape;
 public class ShapeModel  { //extends AbstractUndoableEdit
 
 	/** List of shapes */
-	private final List<Shape> shapes;
+	public final List<Shape> shapes;
 
 	/** List of selected shapes */
 	private final List<Shape> selected;
 
 	/** List for event listeners */
 	private final EventListenerList listeners;
+	
+	private final Deque<Command> undoStack = new ArrayDeque<>();
+	private final Deque<Command> redoStack = new ArrayDeque<>();
 
 	/** Default constructor */
 	public ShapeModel() {
@@ -59,9 +66,12 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the shape to add
 	 */
 	public void addShape(Shape s) {
-		assert (s != null);
+/*		assert (s != null);
 		shapes.add(s);
-		fireShapeAdded(s);
+		fireShapeAdded(s);*/
+		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
+		addShapeCommand.doCmd();
+		undoStack.addFirst(addShapeCommand);
 	}
 
 	/**
@@ -71,10 +81,13 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 *            the shape to remove
 	 */
 	public void removeShape(Shape s) {
-		assert (s != null);
+/*		assert (s != null);
 		shapes.remove(s);
 		fireShapeRemoved(s);
-		removeSelection(s);
+		removeSelection(s);*/
+		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
+		removeShapeCommand.undoCmd();
+		undoStack.addFirst(removeShapeCommand);
 	}
 
 /*	@Override
@@ -244,7 +257,7 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 * @param s
 	 *            the shape which has been added
 	 */
-	private void fireShapeAdded(Shape s) {
+	public void fireShapeAdded(Shape s) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "added",
 				new Shape[] { s });
 		for (ShapeChangedListener l : listeners
@@ -259,7 +272,7 @@ public class ShapeModel  { //extends AbstractUndoableEdit
 	 * @param s
 	 *            the shape which has been removed
 	 */
-	private void fireShapeRemoved(Shape s) {
+	public void fireShapeRemoved(Shape s) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "removed",
 				new Shape[] { s });
 		for (ShapeChangedListener l : listeners
