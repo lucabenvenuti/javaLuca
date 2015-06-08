@@ -24,7 +24,7 @@ public class ImageTool extends Tool {
 
 	/** Default width of added image */
 	private static final int DEFAULT_WIDTH = 50;
-	
+
 	/** Default height of added image */
 	private static final int DEFAULT_HEIGHT = 40;
 
@@ -47,8 +47,8 @@ public class ImageTool extends Tool {
 
 	/**
 	 * Handles mouse clicked events (forwarded from drawing panel) and adds a
-	 * {@link ImageShape} object at current mouse position and with default width and
-	 * height to the shape model.
+	 * {@link ImageShape} object at current mouse position and with default
+	 * width and height to the shape model.
 	 * 
 	 * @param me
 	 *            the mouse event object
@@ -61,7 +61,8 @@ public class ImageTool extends Tool {
 			File imgFile = chooser.getSelectedFile();
 			try {
 				BufferedImage image = javax.imageio.ImageIO.read(imgFile);
-				ImageAdapter i = new ImageAdapter(image, me.getX(), me.getY(), DEFAULT_WIDTH, DEFAULT_HEIGHT);
+				ImageAdapter i = new ImageAdapter(image, me.getX(), me.getY(),
+						DEFAULT_WIDTH, DEFAULT_HEIGHT);
 				model.clearSelection();
 				model.addShape(i);
 			} catch (IOException e) {

@@ -25,7 +25,6 @@ import mdraw.ui.tools.RectTool;
 import mdraw.ui.tools.SelTool;
 import mdraw.ui.tools.ToolPalette;
 
-
 /**
  * Application object for micro drawing tool.
  * 
@@ -38,7 +37,8 @@ public class DrawApp {
 	/**
 	 * Starts the drawing application with new drawing model.
 	 * 
-	 * @param args the program arguments (not used)
+	 * @param args
+	 *            the program arguments (not used)
 	 */
 	public static void main(String[] args) {
 		ShapeModel model = new ShapeModel();
@@ -48,19 +48,21 @@ public class DrawApp {
 
 	/** Drawing model */
 	private final ShapeModel model;
-	
+
 	/** Frame object */
 	private final JFrame frame;
-	
+
 	/** Tool palette representing tools in tool bar */
 	private ToolPalette toolPalette;
-	
+
 	/** Drawing panel object */
 	private DrawPanel drawPanel;
 
-	/** 
-	 * Constructor initializing model and setting up application. 
-	 * @param model the model for this application
+	/**
+	 * Constructor initializing model and setting up application.
+	 * 
+	 * @param model
+	 *            the model for this application
 	 */
 	public DrawApp(ShapeModel model) {
 		super();
@@ -253,7 +255,7 @@ public class DrawApp {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
-			//model.redoCommand();
+			// model.redoCommand();
 		}
 	};
 

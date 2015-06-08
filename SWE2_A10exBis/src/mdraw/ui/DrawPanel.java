@@ -53,13 +53,13 @@ public class DrawPanel extends JPanel {
 	public DrawPanel(ShapeModel model, ToolPalette toolPalette) {
 		this.model = model;
 		this.toolPalette = toolPalette;
-		
+
 		model.addShapeChangedListener(shapeChangedListener);
 		model.addShapeSelectionListener(shapeSelectionListener);
-		
+
 		this.addMouseListener(mouseHandler);
 		this.addMouseMotionListener(mouseHandler);
-		
+
 		this.setPreferredSize(new Dimension(PREF_WIDTH, PREF_HEIGHT));
 		this.setBackground(Color.WHITE);
 	}

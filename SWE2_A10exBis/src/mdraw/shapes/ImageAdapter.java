@@ -21,7 +21,7 @@ import mdraw.visitor.ShapeVisitor;
  * @author Luca Benvenuti
  * @version 1.0
  */
-public class ImageAdapter extends PrimitiveShape  {
+public class ImageAdapter extends PrimitiveShape {
 
 	/** x-coordinate of the shape. */
 	protected int x;
@@ -54,7 +54,7 @@ public class ImageAdapter extends PrimitiveShape  {
 		this.image = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
 		this.x = x;
 		this.y = y;
-    }
+	}
 
 	@Override
 	public void setSize(int w, int h) {
@@ -65,8 +65,7 @@ public class ImageAdapter extends PrimitiveShape  {
 	public void paint(Graphics g) {
 		g.drawImage(image, getLeft(), getTop(), Color.WHITE, null);
 	}
-	
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -100,7 +99,6 @@ public class ImageAdapter extends PrimitiveShape  {
 						+ getHeight())) && isWithin(x, getLeft(), getLeft()
 						+ getWidth()));
 	}
-
 
 	@Override
 	public <T> T accept(ShapeVisitor<T> v) {
