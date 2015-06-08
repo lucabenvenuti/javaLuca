@@ -2,6 +2,7 @@ package mdraw.shapes;
 
 import static mdraw.shapes.ShapeUtil.areClose;
 import static mdraw.shapes.ShapeUtil.isWithin;
+import mdraw.visitor.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -63,6 +64,11 @@ public class Rect extends PrimitiveShape {
 				|| ((areClose(y, getTop()) || areClose(y, getTop()
 						+ getHeight())) && isWithin(x, getLeft(), getLeft()
 						+ getWidth()));
+	}
+	
+	@Override
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitRect(this);
 	}
 
 }

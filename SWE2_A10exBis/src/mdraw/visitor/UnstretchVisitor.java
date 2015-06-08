@@ -1,4 +1,5 @@
 package mdraw.visitor;
+import mdraw.shapes.*;
 
 public class UnstretchVisitor implements ShapeVisitor<Void> {
 

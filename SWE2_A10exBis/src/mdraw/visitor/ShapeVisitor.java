@@ -1,5 +1,7 @@
 package mdraw.visitor;
 
+import mdraw.shapes.*;
+
 public interface ShapeVisitor<T> {
 	public T visitRect(Rect r);
 	public T visitOval(Oval o);

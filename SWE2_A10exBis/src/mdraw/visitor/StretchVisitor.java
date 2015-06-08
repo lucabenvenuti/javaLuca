@@ -1,5 +1,7 @@
 package mdraw.visitor;
 
+import mdraw.shapes.*;
+
 public class StretchVisitor implements ShapeVisitor<Void> {
 
 	@Override

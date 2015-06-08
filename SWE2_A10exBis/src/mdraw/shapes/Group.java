@@ -3,6 +3,8 @@ package mdraw.shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import mdraw.visitor.ShapeVisitor;
+
 /**
  * Class for grouping shapes into a group which is again a {@link Shape}. Has a
  * set of sub-shapes.
@@ -187,6 +189,11 @@ public class Group implements Shape {
 		Group copy;
 		copy = new Group(ShapeUtil.copyShapes(this.elements));
 		return copy;
+	}
+	
+	@Override
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitGroup(this);
 	}
 
 }

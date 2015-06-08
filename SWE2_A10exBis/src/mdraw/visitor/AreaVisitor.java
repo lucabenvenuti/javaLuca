@@ -1,5 +1,7 @@
 package mdraw.visitor;
 
+import mdraw.shapes.*;
+
 public class AreaVisitor implements ShapeVisitor<Integer> {
 
 	@Override

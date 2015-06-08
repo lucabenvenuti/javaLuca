@@ -2,7 +2,7 @@ package mdraw.shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
+import mdraw.visitor.*;
 /**
  * Class for oval shape objects.
  * 
@@ -68,6 +68,11 @@ public class Oval extends PrimitiveShape {
 		double d2S = Math.pow(d2, 0.25);
 		double a2b2S = Math.pow(a2b2, 0.25);
 		return ShapeUtil.areClose(d2S, a2b2S);
+	}
+	
+	@Override
+	public <T> T accept(ShapeVisitor<T> v) {
+		return v.visitOval(this);
 	}
 
 }
