@@ -23,7 +23,6 @@ public interface ShapeVisitor<T> {
 	 * Visit a Rect shape.
 	 * 
 	 * @param r
-	 * @return a generic object T
 	 */
 	public T visitRect(Rect r);
 
@@ -31,7 +30,6 @@ public interface ShapeVisitor<T> {
 	 * Visit an Oval shape.
 	 * 
 	 * @param o
-	 * @return a generic object T
 	 */
 	public T visitOval(Oval o);
 
@@ -39,7 +37,6 @@ public interface ShapeVisitor<T> {
 	 * Visit a Group shape.
 	 * 
 	 * @param g
-	 * @return a generic object T
 	 */
 	public T visitGroup(Group g);
 
@@ -47,7 +44,6 @@ public interface ShapeVisitor<T> {
 	 * Visit an ImageAdapter shape.
 	 * 
 	 * @param a
-	 * @return a generic object T
 	 */
 	public T visitAdapter(ImageAdapter a);
 }
