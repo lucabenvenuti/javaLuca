@@ -17,9 +17,10 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 
 import mdraw.model.ShapeModel;
-import mdraw.shapes.Group;
+import mdraw.shapes.*;
+import mdraw.visitor.*;
 import mdraw.shapes.Shape;
-import mdraw.ui.tools.OvalTool;
+import mdraw.ui.tools.*;
 import mdraw.ui.tools.RectTool;
 import mdraw.ui.tools.SelTool;
 import mdraw.ui.tools.ToolPalette;
@@ -94,6 +95,11 @@ public class DrawApp {
 		editMenu.addSeparator();
 		editMenu.add(undoAction);
 		editMenu.add(redoAction);
+		editMenu.addSeparator();
+		editMenu.addSeparator();
+		editMenu.add(strechShapes);
+		editMenu.add(unstrechShapes);
+		editMenu.add(computeArea);
 
 		// tools and tool palette
 		toolPalette = new ToolPalette();
@@ -101,6 +107,7 @@ public class DrawApp {
 		toolPalette.addTool(new SelTool(toolPalette, model));
 		toolPalette.addTool(new RectTool(toolPalette, model));
 		toolPalette.addTool(new OvalTool(toolPalette, model));
+		toolPalette.addTool(new ImageTool(toolPalette, model));
 		toolPalette.addSeparator(new Dimension(8, 12));
 		toolPalette.add(delAction);
 		toolPalette.addSeparator(new Dimension(8, 12));
@@ -109,7 +116,10 @@ public class DrawApp {
 		toolPalette.addSeparator(new Dimension(8, 12));
 		toolPalette.add(undoAction);
 		toolPalette.add(redoAction);
-		
+		toolPalette.addSeparator(new Dimension(8, 12));
+		toolPalette.add(strechShapes);
+		toolPalette.add(unstrechShapes);
+		toolPalette.add(computeArea);
 
 		// drawing panel
 		drawPanel = new DrawPanel(model, toolPalette);
@@ -163,7 +173,7 @@ public class DrawApp {
 	};
 
 	/** Handler for group actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action groupAction = new AbstractAction("Group") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -190,7 +200,7 @@ public class DrawApp {
 	};
 
 	/** Handler for ungroup actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action ungroupAction = new AbstractAction("Ungroup") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -217,7 +227,7 @@ public class DrawApp {
 	};
 
 	/** Handler for undo actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action undoAction = new AbstractAction("Undo") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -232,7 +242,7 @@ public class DrawApp {
 	};
 
 	/** Handler for redo actions */
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "static-access" })
 	private Action redoAction = new AbstractAction("Redo") {
 		{
 			putValue(Action.ACCELERATOR_KEY,
@@ -243,6 +253,78 @@ public class DrawApp {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
+			//model.redoCommand();
+		}
+	};
+
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action strechShapes = new AbstractAction("Strech shapes") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Strech the shapes");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			for (Shape s : selected) {
+				ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
+				s.accept(stretchVisitor);
+			}
+			model.clearSelection();
+		}
+	};
+
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action unstrechShapes = new AbstractAction("Unstrech shapes") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Unstrech the shapes");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			for (Shape s : selected) {
+				ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
+				s.accept(unstretchVisitor);
+			}
+			model.clearSelection();
+		}
+	};
+
+	@SuppressWarnings({ "serial", "static-access" })
+	private Action computeArea = new AbstractAction("Compute area") {
+		{
+			putValue(Action.ACCELERATOR_KEY,
+					KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK));
+			putValue(Action.SHORT_DESCRIPTION, "Compute the area");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Shape[] selected = model.getSelected();
+			if (selected.length < 1) {
+				throw new UnsupportedOperationException();
+			}
+			int area = 0;
+			for (Shape s : selected) {
+				ShapeVisitor<Integer> areaVisitor = new AreaVisitor();
+				area += s.accept(areaVisitor);
+			}
+			System.out.println("Area of selected images is:");
+			System.out.println(area);
+			model.clearSelection();
 		}
 	};
 
