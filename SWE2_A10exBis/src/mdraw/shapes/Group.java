@@ -11,9 +11,9 @@ import mdraw.visitor.ShapeVisitor;
  * 
  * <code>Group</code> implements the Composite pattern for shapes.
  * 
- * @author Herbert Praehofer
- * @version 1.1
- * @since 1.0
+ * @author Herbert Praehofer & Luca Benvenuti
+ * @version 1.2
+ * @since 1.1
  */
 public class Group implements Shape {
 

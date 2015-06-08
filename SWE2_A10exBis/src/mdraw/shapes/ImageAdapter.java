@@ -9,30 +9,24 @@ import java.awt.Image;
 
 import mdraw.visitor.ShapeVisitor;
 
+
 /**
- * ImageAdapter.
+ * ImageAdapter.java
+ *
+ * A {@link ImageAdapter} is a public class implementing a {@link PrimitiveShape}. It
+ * adapts an {@link Image} to a Shape.
+ * 
+ * Software Development II, 2015SS JKU Linz
  * 
  * @author Luca Benvenuti
- * @version 1.0
  */
 public class ImageAdapter extends PrimitiveShape {
-
-/*	*//** x-coordinate of the shape. *//*
-	protected int x;
-
-	*//** y-coordinate of the shape. *//*
-	protected int y;
-
-	*//** Width of the shape. *//*
-	private int w;
-
-	*//** Height of the shape. *//*
-	private int h;*/
 
 	private Image image;
 
 	/**
-	 * Constructor initializing image and x and y coordinate and width and heigth.
+	 * Constructor initializing image and x and y coordinate and width and
+	 * heigth.
 	 * 
 	 * @param x
 	 *            the x-coordinate
@@ -46,8 +40,6 @@ public class ImageAdapter extends PrimitiveShape {
 	public ImageAdapter(Image image, int x, int y, int w, int h) {
 		super(x, y, w, h);
 		this.image = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
-	//	this.x = x;
-	//	this.y = y;
 	}
 
 	@Override

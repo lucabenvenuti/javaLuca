@@ -45,60 +45,32 @@ abstract public class PrimitiveShape extends Object implements Shape {
 		this.h = h;
 	}
 
-	/* (non-Javadoc)
-	 * @see mdraw.shapes.Shape#getLeft()
-	 */
 	@Override
 	public int getLeft() {
 		return x;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#getTop()
-	 */
 	@Override
 	public int getTop() {
 		return y;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#getWidth()
-	 */
 	@Override
 	public int getWidth() {
 		return w;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#getHeight()
-	 */
 	@Override
 	public int getHeight() {
 		return h;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#move(int, int)
-	 */
 	@Override
 	public void setPos(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#resize(int, int)
-	 */
 	@Override
 	public void setSize(int w, int h) {
 		this.w = w;
@@ -116,9 +88,6 @@ abstract public class PrimitiveShape extends Object implements Shape {
 		return (Shape)clone();
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public Object clone() {
 		try {

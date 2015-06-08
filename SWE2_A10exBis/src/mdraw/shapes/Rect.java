@@ -10,9 +10,9 @@ import java.awt.Graphics;
 /**
  * Class representing rectangular shapes.
  * 
- * @author Herbert Praehofer
- * @version 1.1
- * @since 1.0
+ * @author Herbert Praehofer & Luca Benvenuti
+ * @version 1.2
+ * @since 1.1
  */
 public class Rect extends PrimitiveShape {
 
@@ -32,18 +32,11 @@ public class Rect extends PrimitiveShape {
 		super(x, y, w, h);
 	}
 
-	/* (non-Javadoc)
-	 * @see mdraw.shapes.Shape#draw(java.awt.Graphics)
-	 */
 	@Override
 	public void draw(Graphics g) {
 		g.drawRect(getLeft(), getTop(), getWidth(), getHeight());
 	}
 
-	
-	/* (non-Javadoc)
-	 * @see mdraw.shapes.Shape#fill(java.awt.Graphics, java.awt.Color)
-	 */
 	@Override
 	public void fill(Graphics g, Color c) {
 		Color prev = g.getColor();
@@ -52,11 +45,6 @@ public class Rect extends PrimitiveShape {
 		g.setColor(prev);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#isSelection(int, int)
-	 */
 	@Override
 	public boolean isSelection(int x, int y) {
 		return ((areClose(x, getLeft()) || areClose(x, getLeft() + getWidth())) && isWithin(
@@ -65,7 +53,7 @@ public class Rect extends PrimitiveShape {
 						+ getHeight())) && isWithin(x, getLeft(), getLeft()
 						+ getWidth()));
 	}
-	
+
 	@Override
 	public <T> T accept(ShapeVisitor<T> v) {
 		return v.visitRect(this);

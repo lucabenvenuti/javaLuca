@@ -3,12 +3,13 @@ package mdraw.shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import mdraw.visitor.*;
+
 /**
  * Class for oval shape objects.
  * 
- * @author Herbert Praehofer
- * @version 1.1
- * @since 1.0
+ * @author Herbert Praehofer & Luca Benvenuti
+ * @version 1.2
+ * @since 1.1
  */
 public class Oval extends PrimitiveShape {
 
@@ -28,21 +29,11 @@ public class Oval extends PrimitiveShape {
 		super(x, y, w, h);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see shapes.Shape#draw()
-	 */
 	@Override
 	public void draw(Graphics g) {
 		g.drawOval(getLeft(), getTop(), getWidth(), getHeight());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see shapes.Shape#draw()
-	 */
 	@Override
 	public void fill(Graphics g, Color c) {
 		Color prev = g.getColor();
@@ -51,11 +42,6 @@ public class Oval extends PrimitiveShape {
 		g.setColor(prev);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see draw.shapes.Shape#isSelection(int, int)
-	 */
 	@Override
 	public boolean isSelection(int x, int y) {
 		// based on ellipse equation b2*x2 + a2*y2 = a2*b2

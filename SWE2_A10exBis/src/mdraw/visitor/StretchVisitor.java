@@ -1,7 +1,23 @@
 package mdraw.visitor;
 
-import mdraw.shapes.*;
+import mdraw.shapes.Group;
+import mdraw.shapes.ImageAdapter;
+import mdraw.shapes.Oval;
+import mdraw.shapes.Rect;
+import mdraw.shapes.Shape;
 
+/**
+ * StretchVisitor.java
+ *
+ * A {@link StretchVisitor} is a public class implementing a {@link ShapeVisitor}. It
+ * allows stretching the area of the various shapes.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @param <Void>
+ */
 public class StretchVisitor implements ShapeVisitor<Void> {
 
 	@Override

@@ -1,7 +1,23 @@
 package mdraw.visitor;
 
-import mdraw.shapes.*;
+import mdraw.shapes.Group;
+import mdraw.shapes.ImageAdapter;
+import mdraw.shapes.Oval;
+import mdraw.shapes.Rect;
+import mdraw.shapes.Shape;
 
+/**
+ * AreaVisitor.java
+ *
+ * A {@link AreaVisitor} is a public class implementing a {@link ShapeVisitor}. It
+ * allows calculating the area of the various shapes.
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ * 
+ * @param <Integer>
+ */
 public class AreaVisitor implements ShapeVisitor<Integer> {
 
 	@Override

@@ -13,9 +13,9 @@ import mdraw.visitor.ShapeVisitor;
  * All shapes implement {@link Cloneable}.
  * </p>
  * 
- * @author Herbert Praehofer
- * @version 1.1
- * @since 1.0
+ * @author Herbert Praehofer & Luca Benvenuti
+ * @version 1.2
+ * @since 1.1
  * 
  * @see Cloneable
  */

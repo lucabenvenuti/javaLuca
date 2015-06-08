@@ -99,6 +99,7 @@ public class DrawPanel extends JPanel {
 	 * @param withResizeCorner
 	 *            if the right/bottom corner should be shown as a resize anchor
 	 */
+	@SuppressWarnings("static-method")
 	private void drawSelection(Shape sel, Graphics g, boolean withResizeCorner) {
 		int x = sel.getLeft();
 		int y = sel.getTop();
@@ -161,6 +162,7 @@ public class DrawPanel extends JPanel {
 	 */
 	private MouseAdapter mouseHandler = new MouseAdapter() {
 
+		@SuppressWarnings("synthetic-access")
 		@Override
 		public void mouseClicked(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -169,6 +171,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override
 		public void mousePressed(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -177,6 +180,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override
 		public void mouseReleased(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -185,6 +189,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override
 		public void mouseDragged(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
