@@ -105,7 +105,13 @@ public interface Shape extends Cloneable {
 	 * @return the copy of this shape.
 	 */
 	public abstract Shape copy();
-	
+
+	/**
+	 * Accept a ShapeVisitor
+	 * 
+	 * @param v of generic class T
+	 * @return object of generic class T
+	 */
 	public <T> T accept(ShapeVisitor<T> v);
 
 }
