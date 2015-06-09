@@ -71,7 +71,7 @@ public class DrawPanel extends JPanel {
 	 * @param g
 	 *            the graphics context
 	 */
-	@Override
+	@Override  // Javadoc: see super class
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (Shape shape : model.getShapes()) {
@@ -126,17 +126,17 @@ public class DrawPanel extends JPanel {
 	 */
 	private ShapeChangedListener shapeChangedListener = new ShapeChangedListener() {
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeRemoved(ShapeChangedEvent evt) {
 			repaint();
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeChanged(ShapeChangedEvent evt) {
 			repaint();
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeAdded(ShapeChangedEvent evt) {
 			repaint();
 		}
@@ -148,7 +148,7 @@ public class DrawPanel extends JPanel {
 	 */
 	private ShapeSelectionListener shapeSelectionListener = new ShapeSelectionListener() {
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeSelectionChanged(ShapeSelectionEvent evt) {
 			repaint();
 		}
@@ -163,7 +163,7 @@ public class DrawPanel extends JPanel {
 	private MouseAdapter mouseHandler = new MouseAdapter() {
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void mouseClicked(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseClicked(me);
@@ -172,7 +172,7 @@ public class DrawPanel extends JPanel {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void mousePressed(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mousePressed(me);
@@ -181,7 +181,7 @@ public class DrawPanel extends JPanel {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void mouseReleased(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseReleased(me);
@@ -190,7 +190,7 @@ public class DrawPanel extends JPanel {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void mouseDragged(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseDragged(me);

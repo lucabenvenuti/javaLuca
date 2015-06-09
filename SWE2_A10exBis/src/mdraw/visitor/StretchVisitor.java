@@ -20,19 +20,19 @@ import mdraw.shapes.Shape;
  */
 public class StretchVisitor implements ShapeVisitor<Void> {
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Void visitRect(Rect r) {
 		r.setSize(r.getWidth(), r.getHeight() * 2);
 		return null;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Void visitOval(Oval o) {
 		o.setSize(o.getWidth() * 2, o.getHeight());
 		return null;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Void visitGroup(Group g) {
 		for (Shape s : g.getElements()) {
 			s.setSize(s.getWidth() * 2, s.getHeight() * 2);
@@ -40,7 +40,7 @@ public class StretchVisitor implements ShapeVisitor<Void> {
 		return null;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Void visitAdapter(ImageAdapter a) {
 		return null;
 	}

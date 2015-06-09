@@ -144,7 +144,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
 		}
@@ -160,7 +160,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length == 0) {
@@ -183,7 +183,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length <= 1) {
@@ -211,7 +211,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length != 1 || !(selected[0] instanceof Group)) {
@@ -238,7 +238,7 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Undo last operation");
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
 		}
@@ -253,7 +253,7 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Redo last undone operation");
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			throw new UnsupportedOperationException();
 			// model.redoCommand();
@@ -270,7 +270,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
 			Shape[] selected = model.getSelected();
@@ -296,7 +296,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
 			Shape[] selected = model.getSelected();
@@ -322,7 +322,7 @@ public class DrawApp {
 		}
 
 		@SuppressWarnings("synthetic-access")
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length < 1) {

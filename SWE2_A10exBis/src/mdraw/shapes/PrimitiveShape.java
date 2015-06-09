@@ -45,33 +45,33 @@ abstract public class PrimitiveShape extends Object implements Shape {
 		this.h = h;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public int getLeft() {
 		return x;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public int getTop() {
 		return y;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public int getWidth() {
 		return w;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public int getHeight() {
 		return h;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void setPos(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void setSize(int w, int h) {
 		this.w = w;
 		this.h = h;
@@ -88,7 +88,7 @@ abstract public class PrimitiveShape extends Object implements Shape {
 		return (Shape)clone();
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Object clone() {
 		try {
 			return super.clone();

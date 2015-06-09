@@ -149,7 +149,7 @@ public class Group implements Shape {
 	 * @param c
 	 *            the fill color
 	 */
-	@Override
+	@Override  // Javadoc: see super class
 	public void fill(Graphics g, Color c) {
 		for (Shape s : elements) {
 			s.fill(g, c);
@@ -191,7 +191,7 @@ public class Group implements Shape {
 		return copy;
 	}
 	
-	@Override
+	@Override  // Javadoc: see super class
 	public <T> T accept(ShapeVisitor<T> v) {
 		return v.visitGroup(this);
 	}

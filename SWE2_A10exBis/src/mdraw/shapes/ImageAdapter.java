@@ -42,23 +42,23 @@ public class ImageAdapter extends PrimitiveShape {
 		this.image = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void setSize(int w, int h) {
 		super.setSize(w, h);
 		image = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void draw(Graphics g) {
 		fill(g, Color.WHITE);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void fill(Graphics g, Color c) {
 		g.drawImage(image, getLeft(), getTop(), Color.WHITE, null);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public boolean isSelection(int x, int y) {
 		return ((areClose(x, getLeft()) || areClose(x, getLeft() + getWidth())) && isWithin(
 				y, getTop(), getTop() + getHeight()))
@@ -67,7 +67,7 @@ public class ImageAdapter extends PrimitiveShape {
 						+ getWidth()));
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public <T> T accept(ShapeVisitor<T> v) {
 		return v.visitAdapter(this);
 	}

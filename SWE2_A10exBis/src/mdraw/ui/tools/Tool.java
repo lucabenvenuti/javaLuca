@@ -107,31 +107,31 @@ public abstract class Tool extends AbstractAction implements MouseListener,
 		palette.setSelectedTool(name);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseDragged(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseMoved(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseClicked(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mousePressed(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseReleased(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseEntered(MouseEvent e) {
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void mouseExited(MouseEvent e) {
 	}
 

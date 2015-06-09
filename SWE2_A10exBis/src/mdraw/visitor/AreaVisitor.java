@@ -20,17 +20,17 @@ import mdraw.shapes.Shape;
  */
 public class AreaVisitor implements ShapeVisitor<Integer> {
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Integer visitRect(Rect r) {
 		return r.getHeight() * r.getWidth();
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Integer visitOval(Oval o) {
 		return (int) (o.getHeight() * o.getWidth() * Math.PI / 4);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Integer visitGroup(Group g) {
 		int area = 0;
 		for (Shape s : g.getElements()) {
@@ -39,7 +39,7 @@ public class AreaVisitor implements ShapeVisitor<Integer> {
 		return area;
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public Integer visitAdapter(ImageAdapter a) {
 		return a.getHeight() * a.getWidth();
 	}

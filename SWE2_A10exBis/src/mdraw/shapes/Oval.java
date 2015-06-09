@@ -29,12 +29,12 @@ public class Oval extends PrimitiveShape {
 		super(x, y, w, h);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void draw(Graphics g) {
 		g.drawOval(getLeft(), getTop(), getWidth(), getHeight());
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void fill(Graphics g, Color c) {
 		Color prev = g.getColor();
 		g.setColor(c);
@@ -42,7 +42,7 @@ public class Oval extends PrimitiveShape {
 		g.setColor(prev);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public boolean isSelection(int x, int y) {
 		// based on ellipse equation b2*x2 + a2*y2 = a2*b2
 		double a = (double) getWidth() / 2;
@@ -56,7 +56,7 @@ public class Oval extends PrimitiveShape {
 		return ShapeUtil.areClose(d2S, a2b2S);
 	}
 	
-	@Override
+	@Override  // Javadoc: see super class
 	public <T> T accept(ShapeVisitor<T> v) {
 		return v.visitOval(this);
 	}

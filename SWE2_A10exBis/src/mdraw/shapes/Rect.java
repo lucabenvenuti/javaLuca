@@ -32,12 +32,12 @@ public class Rect extends PrimitiveShape {
 		super(x, y, w, h);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void draw(Graphics g) {
 		g.drawRect(getLeft(), getTop(), getWidth(), getHeight());
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public void fill(Graphics g, Color c) {
 		Color prev = g.getColor();
 		g.setColor(c);
@@ -45,7 +45,7 @@ public class Rect extends PrimitiveShape {
 		g.setColor(prev);
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public boolean isSelection(int x, int y) {
 		return ((areClose(x, getLeft()) || areClose(x, getLeft() + getWidth())) && isWithin(
 				y, getTop(), getTop() + getHeight()))
@@ -54,7 +54,7 @@ public class Rect extends PrimitiveShape {
 						+ getWidth()));
 	}
 
-	@Override
+	@Override  // Javadoc: see super class
 	public <T> T accept(ShapeVisitor<T> v) {
 		return v.visitRect(this);
 	}
