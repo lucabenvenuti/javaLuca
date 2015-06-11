@@ -8,8 +8,18 @@ import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
+import mdraw.command.AddSelectionCommand;
+import mdraw.command.AddShapeCommand;
+import mdraw.command.ClearSelectionCommand;
 //import cmd.Command;
-import mdraw.command.*;
+import mdraw.command.Command;
+import mdraw.command.MoveShapeCommand;
+import mdraw.command.RemoveSelectionCommand;
+import mdraw.command.RemoveShapeCommand;
+import mdraw.command.ResizeShapeCommand;
+import mdraw.command.SetSelectionCommand;
+import mdraw.command.StretchSelectionCommand;
+import mdraw.command.UnstretchSelectionCommand;
 import mdraw.shapes.Shape;
 
 /**
@@ -228,6 +238,30 @@ public class ShapeModel {
 		undoStack.addFirst(clearSelectionCommand);
 	}
 
+	public void stretchShapes() {
+		/*
+		 * Shape[] selected = getSelected(); if (selected.length < 1) {
+		 * JOptionPane.showMessageDialog(new JFrame(),
+		 * "Please select at least one element", "Dialog",
+		 * JOptionPane.ERROR_MESSAGE); } for (Shape s : selected) {
+		 * ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
+		 * s.accept(stretchVisitor); }
+		 */
+
+		StretchSelectionCommand stretchSelectionCommand = new StretchSelectionCommand(
+				this);
+		// , shapes);
+		stretchSelectionCommand.doCmd();
+		undoStack.addFirst(stretchSelectionCommand);
+	}
+
+	public void unstretchShapes() {
+		UnstretchSelectionCommand unstretchSelectionCommand = new UnstretchSelectionCommand(
+				this);
+		unstretchSelectionCommand.doCmd();
+		undoStack.addFirst(unstretchSelectionCommand);
+	}
+
 	/**
 	 * Tests if the given shape is in the set of selected shapes.
 	 * 
@@ -323,7 +357,7 @@ public class ShapeModel {
 			l.shapeSelectionChanged(evt);
 		}
 	}
-	
+
 	public void undoCommand() {
 		if (undoStack.isEmpty()) {
 			return;
@@ -339,7 +373,7 @@ public class ShapeModel {
 			return;
 		}
 		Command cmd = redoStack.removeFirst();
-		//doCommand(cmd);
+		// doCommand(cmd);
 		cmd.doCmd();
 		undoStack.addFirst(cmd);
 	}

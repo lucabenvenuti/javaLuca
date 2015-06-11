@@ -143,7 +143,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Exit application");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
 		}
@@ -158,7 +159,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Delete selected shapes");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length == 0) {
@@ -180,7 +182,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Group selected shapes");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length <= 1) {
@@ -207,7 +210,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Ungroup selected group");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length != 1 || !(selected[0] instanceof Group)) {
@@ -234,9 +238,10 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Undo last operation");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			//throw new UnsupportedOperationException();
+			// throw new UnsupportedOperationException();
 			model.undoCommand();
 		}
 	};
@@ -250,9 +255,10 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Redo last undone operation");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			//throw new UnsupportedOperationException();
+			// throw new UnsupportedOperationException();
 			model.redoCommand();
 		}
 	};
@@ -266,22 +272,15 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Strech the shapes");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
-			Shape[] selected = model.getSelected();
-			if (selected.length < 1) {
-				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
-				        JOptionPane.ERROR_MESSAGE);
-			}
-			for (Shape s : selected) {
-				ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
-				s.accept(stretchVisitor);
-			}
+			model.stretchShapes();
 			model.clearSelection();
 		}
 	};
-	
+
 	/** Handler for unstrech shapes actions */
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action unstrechShapes = new AbstractAction("Unstrech shapes") {
@@ -291,18 +290,19 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Unstrech the shapes");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
-			Shape[] selected = model.getSelected();
-			if (selected.length < 1) {
-				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
-				        JOptionPane.ERROR_MESSAGE);
-			}
-			for (Shape s : selected) {
-				ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
-				s.accept(unstretchVisitor);
-			}
+			/*
+			 * Shape[] selected = model.getSelected(); if (selected.length < 1)
+			 * { JOptionPane.showMessageDialog(new
+			 * JFrame(),"Please select at least one element", "Dialog",
+			 * JOptionPane.ERROR_MESSAGE); } for (Shape s : selected) {
+			 * ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
+			 * s.accept(unstretchVisitor); }
+			 */
+			model.unstretchShapes();
 			model.clearSelection();
 		}
 	};
@@ -316,12 +316,14 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Compute the area");
 		}
 
-		@Override  // Javadoc: see super class
+		@Override
+		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length < 1) {
-				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
-				        JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(new JFrame(),
+						"Please select at least one element", "Dialog",
+						JOptionPane.ERROR_MESSAGE);
 			}
 			int area = 0;
 			for (Shape s : selected) {
