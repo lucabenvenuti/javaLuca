@@ -150,7 +150,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Exit application");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
 		}
@@ -165,7 +166,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Delete selected shapes");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length == 0) {
@@ -187,7 +189,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Group selected shapes");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length <= 1) {
@@ -214,7 +217,8 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Ungroup selected group");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length != 1 || !(selected[0] instanceof Group)) {
@@ -241,7 +245,7 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Undo last operation");
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			//throw new UnsupportedOperationException();
 			model.undoCommand();
@@ -257,13 +261,14 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Redo last undone operation");
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			//throw new UnsupportedOperationException();
 			model.redoCommand();
 		}
 	};
 
+	/** Handler for strech shapes actions */
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action strechShapes = new AbstractAction("Strech shapes") {
 		{
@@ -272,12 +277,14 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Strech the shapes");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
 			Shape[] selected = model.getSelected();
 			if (selected.length < 1) {
-				throw new UnsupportedOperationException();
+				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
+				        JOptionPane.ERROR_MESSAGE);
 			}
 			for (Shape s : selected) {
 				ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
@@ -286,7 +293,8 @@ public class DrawApp {
 			model.clearSelection();
 		}
 	};
-
+	
+	/** Handler for unstrech shapes actions */
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action unstrechShapes = new AbstractAction("Unstrech shapes") {
 		{
@@ -295,12 +303,14 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Unstrech the shapes");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
 			Shape[] selected = model.getSelected();
 			if (selected.length < 1) {
-				throw new UnsupportedOperationException();
+				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
+				        JOptionPane.ERROR_MESSAGE);
 			}
 			for (Shape s : selected) {
 				ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
@@ -310,6 +320,7 @@ public class DrawApp {
 		}
 	};
 
+	/** Handler for compute area actions */
 	@SuppressWarnings({ "serial", "static-access" })
 	private Action computeArea = new AbstractAction("Compute area") {
 		{
@@ -318,11 +329,13 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Compute the area");
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
 			if (selected.length < 1) {
-				throw new UnsupportedOperationException();
+				JOptionPane.showMessageDialog(new JFrame(),"Please select at least one element", "Dialog",
+				        JOptionPane.ERROR_MESSAGE);
 			}
 			int area = 0;
 			for (Shape s : selected) {

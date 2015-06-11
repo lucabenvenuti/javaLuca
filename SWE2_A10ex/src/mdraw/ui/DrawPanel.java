@@ -53,13 +53,13 @@ public class DrawPanel extends JPanel {
 	public DrawPanel(ShapeModel model, ToolPalette toolPalette) {
 		this.model = model;
 		this.toolPalette = toolPalette;
-		
+
 		model.addShapeChangedListener(shapeChangedListener);
 		model.addShapeSelectionListener(shapeSelectionListener);
-		
+
 		this.addMouseListener(mouseHandler);
 		this.addMouseMotionListener(mouseHandler);
-		
+
 		this.setPreferredSize(new Dimension(PREF_WIDTH, PREF_HEIGHT));
 		this.setBackground(Color.WHITE);
 	}
@@ -71,7 +71,7 @@ public class DrawPanel extends JPanel {
 	 * @param g
 	 *            the graphics context
 	 */
-	@Override
+	@Override  // Javadoc: see super class
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (Shape shape : model.getShapes()) {
@@ -99,7 +99,8 @@ public class DrawPanel extends JPanel {
 	 * @param withResizeCorner
 	 *            if the right/bottom corner should be shown as a resize anchor
 	 */
-	private static void drawSelection(Shape sel, Graphics g, boolean withResizeCorner) {
+	@SuppressWarnings("static-method")
+	private void drawSelection(Shape sel, Graphics g, boolean withResizeCorner) {
 		int x = sel.getLeft();
 		int y = sel.getTop();
 		int w = sel.getWidth();
@@ -125,17 +126,17 @@ public class DrawPanel extends JPanel {
 	 */
 	private ShapeChangedListener shapeChangedListener = new ShapeChangedListener() {
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeRemoved(ShapeChangedEvent evt) {
 			repaint();
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeChanged(ShapeChangedEvent evt) {
 			repaint();
 		}
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeAdded(ShapeChangedEvent evt) {
 			repaint();
 		}
@@ -147,7 +148,7 @@ public class DrawPanel extends JPanel {
 	 */
 	private ShapeSelectionListener shapeSelectionListener = new ShapeSelectionListener() {
 
-		@Override
+		@Override  // Javadoc: see super class
 		public void shapeSelectionChanged(ShapeSelectionEvent evt) {
 			repaint();
 		}
@@ -161,7 +162,8 @@ public class DrawPanel extends JPanel {
 	 */
 	private MouseAdapter mouseHandler = new MouseAdapter() {
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void mouseClicked(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseClicked(me);
@@ -169,7 +171,8 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void mousePressed(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mousePressed(me);
@@ -177,7 +180,8 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void mouseReleased(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseReleased(me);
@@ -185,7 +189,8 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
-		@Override
+		@SuppressWarnings("synthetic-access")
+		@Override  // Javadoc: see super class
 		public void mouseDragged(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
 				toolPalette.getSelectedTool().mouseDragged(me);

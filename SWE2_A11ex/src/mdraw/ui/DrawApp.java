@@ -44,10 +44,10 @@ public class DrawApp {
 	}
 
 	/** Drawing model */
-	private final ShapeModel model;
+	public final ShapeModel model;
 
 	/** Frame object */
-	private final JFrame frame;
+	public final JFrame frame;
 
 	/** Tool palette representing tools in tool bar */
 	private ToolPalette toolPalette;
@@ -143,7 +143,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Exit application");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
@@ -159,7 +158,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Delete selected shapes");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
@@ -182,7 +180,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Group selected shapes");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
@@ -210,7 +207,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Ungroup selected group");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();
@@ -240,7 +236,8 @@ public class DrawApp {
 
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			throw new UnsupportedOperationException();
+			//throw new UnsupportedOperationException();
+			model.undoCommand();
 		}
 	};
 
@@ -255,8 +252,8 @@ public class DrawApp {
 
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			throw new UnsupportedOperationException();
-			// model.redoCommand();
+			//throw new UnsupportedOperationException();
+			model.redoCommand();
 		}
 	};
 
@@ -269,7 +266,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Strech the shapes");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
@@ -295,7 +291,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Unstrech the shapes");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 
@@ -321,7 +316,6 @@ public class DrawApp {
 			putValue(Action.SHORT_DESCRIPTION, "Compute the area");
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
 			Shape[] selected = model.getSelected();

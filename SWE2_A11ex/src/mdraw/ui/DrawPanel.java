@@ -40,7 +40,7 @@ public class DrawPanel extends JPanel {
 	private final ShapeModel model;
 
 	/** The tool palette shown in the tool bar */
-	private final ToolPalette toolPalette;
+	public final ToolPalette toolPalette;
 
 	/**
 	 * Constructor initializing shape model and setting tool palette
