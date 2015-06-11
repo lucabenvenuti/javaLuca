@@ -24,8 +24,7 @@ import mdraw.shapes.Shape;
  * @version 1.1
  * @since 1.0
  */
-// @SuppressWarnings("serial")
-public class ShapeModel { // extends AbstractUndoableEdit
+public class ShapeModel {
 
 	/** List of shapes */
 	public final List<Shape> shapes;

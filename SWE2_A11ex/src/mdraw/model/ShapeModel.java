@@ -1,11 +1,15 @@
 package mdraw.model;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
+//import cmd.Command;
+import mdraw.command.*;
 import mdraw.shapes.Shape;
 
 /**
@@ -23,13 +27,16 @@ import mdraw.shapes.Shape;
 public class ShapeModel {
 
 	/** List of shapes */
-	private final List<Shape> shapes;
+	public final List<Shape> shapes;
 
 	/** List of selected shapes */
-	private final List<Shape> selected;
+	public final List<Shape> selected;
 
 	/** List for event listeners */
 	private final EventListenerList listeners;
+
+	private final Deque<Command> undoStack = new ArrayDeque<>();
+	private final Deque<Command> redoStack = new ArrayDeque<>();
 
 	/** Default constructor */
 	public ShapeModel() {
@@ -58,8 +65,12 @@ public class ShapeModel {
 	 */
 	public void addShape(Shape s) {
 		assert (s != null);
-		shapes.add(s);
-		fireShapeAdded(s);
+		/*
+		 * shapes.add(s); fireShapeAdded(s);
+		 */
+		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
+		addShapeCommand.doCmd();
+		undoStack.addFirst(addShapeCommand);
 	}
 
 	/**
@@ -70,9 +81,12 @@ public class ShapeModel {
 	 */
 	public void removeShape(Shape s) {
 		assert (s != null);
-		shapes.remove(s);
-		fireShapeRemoved(s);
-		removeSelection(s);
+		/*
+		 * shapes.remove(s); fireShapeRemoved(s); removeSelection(s);
+		 */
+		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
+		removeShapeCommand.doCmd();
+		undoStack.addFirst(removeShapeCommand);
 	}
 
 	/**
@@ -87,8 +101,13 @@ public class ShapeModel {
 	 */
 	public void moveShape(Shape s, int dx, int dy) {
 		assert (s != null);
-		s.setPos(s.getLeft() + dx, s.getTop() + dy);
-		fireShapeChanged(s);
+		/*
+		 * s.setPos(s.getLeft() + dx, s.getTop() + dy); fireShapeChanged(s);
+		 */
+		MoveShapeCommand moveShapeCommand = new MoveShapeCommand(this, s, dx,
+				dy);
+		moveShapeCommand.doCmd();
+		undoStack.addFirst(moveShapeCommand);
 	}
 
 	/**
@@ -103,8 +122,13 @@ public class ShapeModel {
 	 */
 	public void resizeShape(Shape s, int w, int h) {
 		assert (s != null);
-		s.setSize(w, h);
-		fireShapeChanged(s);
+		/*
+		 * s.setSize(w, h); fireShapeChanged(s);
+		 */
+		ResizeShapeCommand resizeShapeCommand = new ResizeShapeCommand(this, s,
+				w, h);
+		resizeShapeCommand.doCmd();
+		undoStack.addFirst(resizeShapeCommand);
 	}
 
 	/**
@@ -147,9 +171,14 @@ public class ShapeModel {
 	 */
 	public void setSelection(Shape[] shapes) {
 		assert (shapes != null);
-		selected.clear();
-		selected.addAll(Arrays.asList(shapes));
-		fireSelectionChanged(selected);
+		/*
+		 * selected.clear(); selected.addAll(Arrays.asList(shapes));
+		 * fireSelectionChanged(selected);
+		 */
+		SetSelectionCommand setSelectionCommand = new SetSelectionCommand(this,
+				shapes);
+		setSelectionCommand.doCmd();
+		undoStack.addFirst(setSelectionCommand);
 	}
 
 	/**
@@ -160,9 +189,13 @@ public class ShapeModel {
 	 */
 	public void addSelections(Shape s) {
 		assert (s != null);
-		if (selected.add(s)) {
-			fireSelectionChanged(selected);
-		}
+		/*
+		 * if (selected.add(s)) { fireSelectionChanged(selected); }
+		 */
+		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
+				s);
+		addSelectionCommand.doCmd();
+		undoStack.addFirst(addSelectionCommand);
 	}
 
 	/**
@@ -173,17 +206,26 @@ public class ShapeModel {
 	 */
 	public void removeSelection(Shape s) {
 		assert (s != null);
-		if (selected.remove(s)) {
-			fireSelectionChanged(selected);
-		}
+		/*
+		 * if (selected.remove(s)) { fireSelectionChanged(selected); }
+		 */
+		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
+				this, s);
+		removeSelectionCommand.doCmd();
+		undoStack.addFirst(removeSelectionCommand);
 	}
 
 	/**
 	 * Clears the selected shapes. Selected shapes will be empty afterwards.
 	 */
 	public void clearSelection() {
-		selected.clear();
-		fireSelectionChanged(selected);
+		/*
+		 * selected.clear(); fireSelectionChanged(selected);
+		 */
+		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
+				this);
+		clearSelectionCommand.doCmd();
+		undoStack.addFirst(clearSelectionCommand);
 	}
 
 	/**
@@ -230,10 +272,11 @@ public class ShapeModel {
 	 * @param s
 	 *            the shape which has been added
 	 */
-	private void fireShapeAdded(Shape s) {
+	public void fireShapeAdded(Shape s) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "added",
 				new Shape[] { s });
-		for (ShapeChangedListener l : listeners.getListeners(ShapeChangedListener.class)) {
+		for (ShapeChangedListener l : listeners
+				.getListeners(ShapeChangedListener.class)) {
 			l.shapeAdded(evt);
 		}
 	}
@@ -244,7 +287,7 @@ public class ShapeModel {
 	 * @param s
 	 *            the shape which has been removed
 	 */
-	private void fireShapeRemoved(Shape s) {
+	public void fireShapeRemoved(Shape s) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "removed",
 				new Shape[] { s });
 		for (ShapeChangedListener l : listeners
@@ -259,7 +302,7 @@ public class ShapeModel {
 	 * @param shapes
 	 *            the shapes which have been changed
 	 */
-	private void fireShapeChanged(Shape... shapes) {
+	public void fireShapeChanged(Shape... shapes) {
 		ShapeChangedEvent evt = new ShapeChangedEvent(this, "changed", shapes);
 		for (ShapeChangedListener l : listeners
 				.getListeners(ShapeChangedListener.class)) {
@@ -273,12 +316,32 @@ public class ShapeModel {
 	 * @param selected
 	 *            the shapes which are now selected
 	 */
-	private void fireSelectionChanged(List<Shape> selected) {
+	public void fireSelectionChanged(List<Shape> selected) {
 		ShapeSelectionEvent evt = new ShapeSelectionEvent(this, getSelected());
 		for (ShapeSelectionListener l : listeners
 				.getListeners(ShapeSelectionListener.class)) {
 			l.shapeSelectionChanged(evt);
 		}
+	}
+	
+	public void undoCommand() {
+		if (undoStack.isEmpty()) {
+			return;
+		}
+		Command cmd = undoStack.getFirst();
+		cmd.undoCmd();
+		undoStack.removeFirst();
+		redoStack.addFirst(cmd);
+	}
+
+	public void redoCommand() {
+		if (redoStack.isEmpty()) {
+			return;
+		}
+		Command cmd = redoStack.removeFirst();
+		//doCommand(cmd);
+		cmd.doCmd();
+		undoStack.addFirst(cmd);
 	}
 
 }
