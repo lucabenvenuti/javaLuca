@@ -4,8 +4,11 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 //import java.util.Arrays;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.event.EventListenerList;
 
 import mdraw.command.AddSelectionCommand;
@@ -55,8 +58,8 @@ public class ShapeModel {
 		shapes = new ArrayList<>();
 		selected = new ArrayList<>();
 		listeners = new EventListenerList();
-		undoStack = new ArrayDeque<>();
-		redoStack = new ArrayDeque<>();
+		undoStack = new MyDequeue<>("undo");
+		redoStack = new MyDequeue<>("redo");
 	}
 
 	// shapes
@@ -84,6 +87,7 @@ public class ShapeModel {
 		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
 		addShapeCommand.doCmd();
 		undoStack.addFirst(addShapeCommand);
+		// redoStack.clear();
 	}
 
 	/**
@@ -100,6 +104,7 @@ public class ShapeModel {
 		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
 		removeShapeCommand.doCmd();
 		undoStack.addFirst(removeShapeCommand);
+		// redoStack.clear();
 	}
 
 	/**
@@ -121,6 +126,7 @@ public class ShapeModel {
 				dy);
 		moveShapeCommand.doCmd();
 		undoStack.addFirst(moveShapeCommand);
+		// redoStack.clear();
 	}
 
 	/**
@@ -142,6 +148,7 @@ public class ShapeModel {
 				w, h);
 		resizeShapeCommand.doCmd();
 		undoStack.addFirst(resizeShapeCommand);
+		// redoStack.clear();
 	}
 
 	/**
@@ -192,6 +199,7 @@ public class ShapeModel {
 				shapes);
 		setSelectionCommand.doCmd();
 		undoStack.addFirst(setSelectionCommand);
+		// redoStack.clear();
 	}
 
 	/**
@@ -208,7 +216,7 @@ public class ShapeModel {
 		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
 				s);
 		addSelectionCommand.doCmd();
-		undoStack.addFirst(addSelectionCommand);
+//		undoStack.addFirst(addSelectionCommand);
 	}
 
 	/**
@@ -225,7 +233,7 @@ public class ShapeModel {
 		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
 				this, s);
 		removeSelectionCommand.doCmd();
-		undoStack.addFirst(removeSelectionCommand);
+//		undoStack.addFirst(removeSelectionCommand);
 	}
 
 	/**
@@ -238,7 +246,7 @@ public class ShapeModel {
 		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
 				this);
 		clearSelectionCommand.doCmd();
-		undoStack.addFirst(clearSelectionCommand);
+//		undoStack.addFirst(clearSelectionCommand);
 	}
 
 	public void stretchShapes() {
@@ -251,18 +259,32 @@ public class ShapeModel {
 		 * s.accept(stretchVisitor); }
 		 */
 
-		StretchSelectionCommand stretchSelectionCommand = new StretchSelectionCommand(
-				this);
-		// , shapes);
-		stretchSelectionCommand.doCmd();
-		undoStack.addFirst(stretchSelectionCommand);
+		if (selected.isEmpty()) {
+			JOptionPane.showMessageDialog(new JFrame(),
+					"Please select at least one element", "Dialog",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			StretchSelectionCommand stretchSelectionCommand = new StretchSelectionCommand(
+					this);
+			// , shapes);
+			stretchSelectionCommand.doCmd();
+			undoStack.addFirst(stretchSelectionCommand);
+			// redoStack.clear();
+		}
 	}
 
 	public void unstretchShapes() {
-		UnstretchSelectionCommand unstretchSelectionCommand = new UnstretchSelectionCommand(
-				this);
-		unstretchSelectionCommand.doCmd();
-		undoStack.addFirst(unstretchSelectionCommand);
+		if (selected.isEmpty()) {
+			JOptionPane.showMessageDialog(new JFrame(),
+					"Please select at least one element", "Dialog",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			UnstretchSelectionCommand unstretchSelectionCommand = new UnstretchSelectionCommand(
+					this);
+			unstretchSelectionCommand.doCmd();
+			undoStack.addFirst(unstretchSelectionCommand);
+			// redoStack.clear();
+		}
 	}
 
 	/**
@@ -379,6 +401,54 @@ public class ShapeModel {
 		// doCommand(cmd);
 		cmd.doCmd();
 		undoStack.addFirst(cmd);
+		redoStack.clear();
 	}
 
+	private static class MyDequeue<T> extends ArrayDeque<T> {
+
+		private static final long serialVersionUID = -2662413229615025572L;
+		private final String name;
+
+		public MyDequeue(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public T getFirst() {
+			try {
+				System.out.println("[" + name + " getFirst] " + super.getFirst());
+				return super.getFirst();
+			} finally {
+				print();
+			}
+		}
+
+		@Override
+		public void addFirst(T t) {
+			try {
+				System.out.println("[" + name + " addFirst] " + t);
+				super.addFirst(t);
+			} finally {
+				print();
+			}
+		}
+
+		@Override
+		public T removeFirst() {
+			try {
+				System.out.println("[" + name + " removeFirst]");
+				return super.removeFirst();
+			} finally {
+				print();
+			}
+		}
+
+		private void print() {
+			System.out.println("NAME: " + name);
+			for (Iterator<T> iter = iterator(); iter.hasNext();) {
+				System.out.println("- " + iter.next());
+			}
+			System.out.println("0000000000000000000000000000");
+		}
+	}
 }
