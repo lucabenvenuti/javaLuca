@@ -37,23 +37,26 @@ import mdraw.shapes.Shape;
 public class ShapeModel {
 
 	/** List of shapes */
-	public final List<Shape> shapes;
+	// TODO: setters and getters
+	public final ArrayList<Shape> shapes;
 
 	/** List of selected shapes */
-	public final List<Shape> selected;
+	// TODO: setters and getters
+	public final ArrayList<Shape> selected;
 
 	/** List for event listeners */
 	private final EventListenerList listeners;
 
-	private final Deque<Command> undoStack = new ArrayDeque<>();
-	private final Deque<Command> redoStack = new ArrayDeque<>();
+	private final Deque<Command> undoStack;
+	private final Deque<Command> redoStack;
 
 	/** Default constructor */
 	public ShapeModel() {
-		super();
-		this.shapes = new ArrayList<>();
-		this.selected = new ArrayList<>();
-		this.listeners = new EventListenerList();
+		shapes = new ArrayList<>();
+		selected = new ArrayList<>();
+		listeners = new EventListenerList();
+		undoStack = new ArrayDeque<>();
+		redoStack = new ArrayDeque<>();
 	}
 
 	// shapes

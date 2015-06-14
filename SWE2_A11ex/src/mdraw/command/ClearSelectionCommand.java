@@ -1,5 +1,6 @@
 package mdraw.command;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mdraw.model.ShapeModel;
@@ -8,12 +9,12 @@ import mdraw.shapes.Shape;
 public class ClearSelectionCommand implements Command {
 
 	private ShapeModel model;
-	private final List<Shape> selected;
+	private final ArrayList<Shape> selected;
 
 	public ClearSelectionCommand(ShapeModel model) {
 		super();
 		this.model = model;
-		this.selected = model.selected;
+		this.selected = (ArrayList)model.selected.clone(); //TODO: clone method in ShapeModel with return ArrayList
 	}
 
 	@Override

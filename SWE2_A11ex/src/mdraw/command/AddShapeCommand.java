@@ -11,7 +11,6 @@ public class AddShapeCommand implements Command {
 	public AddShapeCommand(ShapeModel model, Shape s) {
 		super();
 		this.model = model;
-		assert (s != null);
 		this.s = s;
 	}
 
@@ -24,8 +23,8 @@ public class AddShapeCommand implements Command {
 	@Override
 	public void undoCmd() {
 		model.shapes.remove(s);
-		model.fireShapeRemoved(s);
 		model.removeSelection(s);
+		model.fireShapeRemoved(s);
 	}
 
 }
