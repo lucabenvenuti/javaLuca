@@ -13,9 +13,7 @@ public class MoveShapeCommand implements Command {
 	private final int topOrig;
 
 	public MoveShapeCommand(ShapeModel model, Shape s, int dx, int dy) {
-		super();
 		this.model = model;
-		// assert (s != null);
 		this.s = s;
 		this.dx = dx;
 		this.dy = dy;

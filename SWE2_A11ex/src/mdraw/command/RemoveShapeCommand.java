@@ -16,14 +16,14 @@ public class RemoveShapeCommand implements Command {
 
 	@Override
 	public void doCmd() {
-		model.shapes.remove(s);
+		model.getListShapes().remove(s);
 		model.removeSelection(s);
 		model.fireShapeRemoved(s);
 	}
 
 	@Override
 	public void undoCmd() {
-		model.shapes.add(s);
+		model.getListShapes().add(s);
 		model.fireShapeAdded(s);
 	}
 }

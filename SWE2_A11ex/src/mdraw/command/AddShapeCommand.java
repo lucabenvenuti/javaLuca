@@ -5,8 +5,8 @@ import mdraw.shapes.Shape;
 
 public class AddShapeCommand implements Command {
 
-	private ShapeModel model;
-	private Shape s;
+	private final ShapeModel model;
+	private final Shape s;
 
 	public AddShapeCommand(ShapeModel model, Shape s) {
 		super();
@@ -16,13 +16,13 @@ public class AddShapeCommand implements Command {
 
 	@Override
 	public void doCmd() {
-		model.shapes.add(s);
+		model.getListShapes().add(s);
 		model.fireShapeAdded(s);
 	}
 
 	@Override
 	public void undoCmd() {
-		model.shapes.remove(s);
+		model.getListShapes().remove(s);
 		model.removeSelection(s);
 		model.fireShapeRemoved(s);
 	}

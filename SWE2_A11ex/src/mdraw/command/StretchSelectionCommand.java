@@ -23,7 +23,7 @@ public class StretchSelectionCommand implements Command {
 			ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
 			s.accept(stretchVisitor);
 		}
-		model.fireSelectionChanged(model.selected);	
+		model.fireSelectionChanged(model.getListSelected());	
 	}
 
 	@Override
@@ -32,6 +32,6 @@ public class StretchSelectionCommand implements Command {
 			ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
 			s.accept(unstretchVisitor);
 		}
-		model.fireSelectionChanged(model.selected);
+		model.fireSelectionChanged(model.getListSelected());
 	}
 }

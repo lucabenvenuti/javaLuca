@@ -3,25 +3,18 @@ package mdraw.model;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-//import java.util.Arrays;
 import java.util.Deque;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.EventListenerList;
 
-import mdraw.command.AddSelectionCommand;
 import mdraw.command.AddShapeCommand;
-import mdraw.command.ClearSelectionCommand;
-//import cmd.Command;
 import mdraw.command.Command;
 import mdraw.command.MoveShapeCommand;
-import mdraw.command.RemoveSelectionCommand;
 import mdraw.command.RemoveShapeCommand;
 import mdraw.command.ResizeShapeCommand;
-import mdraw.command.SetSelectionCommand;
 import mdraw.command.StretchSelectionCommand;
 import mdraw.command.UnstretchSelectionCommand;
 import mdraw.shapes.Shape;
@@ -35,18 +28,17 @@ import mdraw.shapes.Shape;
  * shapes.
  * 
  * @author Herbert Praehofer
- * @version 1.1
- * @since 1.0
+ * @author Luca Benvenuti
+ * @version 1.2
+ * @since 1.1
  */
 public class ShapeModel {
 
 	/** List of shapes */
-	// TODO: setters and getters
-	public final ArrayList<Shape> shapes;
+	private final ArrayList<Shape> shapes;
 
 	/** List of selected shapes */
-	// TODO: setters and getters
-	public final ArrayList<Shape> selected;
+	private final ArrayList<Shape> selected;
 
 	/** List for event listeners */
 	private final EventListenerList listeners;
@@ -59,8 +51,8 @@ public class ShapeModel {
 		shapes = new ArrayList<>();
 		selected = new ArrayList<>();
 		listeners = new EventListenerList();
-		undoStack = new MyDequeue<>("undo");
-		redoStack = new MyDequeue<>("redo");
+		undoStack = new ArrayDeque<>();
+		redoStack = new ArrayDeque<>();
 	}
 
 	// shapes
@@ -71,7 +63,7 @@ public class ShapeModel {
 	 * @return the shapes of this model
 	 */
 	public Shape[] getShapes() {
-		return shapes.toArray(new Shape[shapes.size()]);
+		return getListShapes().toArray(new Shape[getListShapes().size()]);
 	}
 
 	/**
@@ -82,9 +74,6 @@ public class ShapeModel {
 	 */
 	public void addShape(Shape s) {
 		assert (s != null);
-		/*
-		 * shapes.add(s); fireShapeAdded(s);
-		 */
 		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
 		addShapeCommand.doCmd();
 		undoStack.addFirst(addShapeCommand);
@@ -99,9 +88,6 @@ public class ShapeModel {
 	 */
 	public void removeShape(Shape s) {
 		assert (s != null);
-		/*
-		 * shapes.remove(s); fireShapeRemoved(s); removeSelection(s);
-		 */
 		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
 		removeShapeCommand.doCmd();
 		undoStack.addFirst(removeShapeCommand);
@@ -120,9 +106,6 @@ public class ShapeModel {
 	 */
 	public void moveShape(Shape s, int dx, int dy) {
 		assert (s != null);
-		/*
-		 * s.setPos(s.getLeft() + dx, s.getTop() + dy); fireShapeChanged(s);
-		 */
 		MoveShapeCommand moveShapeCommand = new MoveShapeCommand(this, s, dx,
 				dy);
 		moveShapeCommand.doCmd();
@@ -142,9 +125,6 @@ public class ShapeModel {
 	 */
 	public void resizeShape(Shape s, int w, int h) {
 		assert (s != null);
-		/*
-		 * s.setSize(w, h); fireShapeChanged(s);
-		 */
 		ResizeShapeCommand resizeShapeCommand = new ResizeShapeCommand(this, s,
 				w, h);
 		resizeShapeCommand.doCmd();
@@ -180,7 +160,7 @@ public class ShapeModel {
 	 * @return the selected shapes
 	 */
 	public Shape[] getSelected() {
-		return selected.toArray(new Shape[selected.size()]);
+		return getListSelected().toArray(new Shape[getListSelected().size()]);
 	}
 
 	/**
@@ -192,17 +172,10 @@ public class ShapeModel {
 	 */
 	public void setSelection(Shape[] shapes) {
 		assert (shapes != null);
-		/**/
-		 selected.clear(); 
-		 selected.addAll(Arrays.asList(shapes));
-		 fireSelectionChanged(selected);
-		 
-/*		SetSelectionCommand setSelectionCommand = new SetSelectionCommand(this,
-				shapes);
-		setSelectionCommand.doCmd();
-		undoStack.addFirst(setSelectionCommand);
-		// redoStack.clear();
-*/	}
+		getListSelected().clear();
+		getListSelected().addAll(Arrays.asList(shapes));
+		fireSelectionChanged(getListSelected());
+	}
 
 	/**
 	 * Adds a shape to the currently selected shapes.
@@ -212,13 +185,10 @@ public class ShapeModel {
 	 */
 	public void addSelections(Shape s) {
 		assert (s != null);
-		if (selected.add(s)) { fireSelectionChanged(selected); }
-		
-/*		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
-				s);
-		addSelectionCommand.doCmd();
-//		undoStack.addFirst(addSelectionCommand);
-*/	}
+		if (getListSelected().add(s)) {
+			fireSelectionChanged(getListSelected());
+		}
+	}
 
 	/**
 	 * Removes a shape to the currently selected shapes.
@@ -228,44 +198,27 @@ public class ShapeModel {
 	 */
 	public void removeSelection(Shape s) {
 		assert (s != null);
-		if (selected.remove(s)) { fireSelectionChanged(selected); }
-		 
-/*		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
-				this, s);
-		removeSelectionCommand.doCmd();
-//		undoStack.addFirst(removeSelectionCommand);
-*/	}
+		if (getListSelected().remove(s)) {
+			fireSelectionChanged(getListSelected());
+		}
+	}
 
 	/**
 	 * Clears the selected shapes. Selected shapes will be empty afterwards.
 	 */
 	public void clearSelection() {
-		selected.clear(); fireSelectionChanged(selected);
-
-/*		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
-				this);
-		clearSelectionCommand.doCmd();
-//		undoStack.addFirst(clearSelectionCommand);
-*/	}
+		getListSelected().clear();
+		fireSelectionChanged(getListSelected());
+	}
 
 	public void stretchShapes() {
-		/*
-		 * Shape[] selected = getSelected(); if (selected.length < 1) {
-		 * JOptionPane.showMessageDialog(new JFrame(),
-		 * "Please select at least one element", "Dialog",
-		 * JOptionPane.ERROR_MESSAGE); } for (Shape s : selected) {
-		 * ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
-		 * s.accept(stretchVisitor); }
-		 */
-
-		if (selected.isEmpty()) {
+		if (getListSelected().isEmpty()) {
 			JOptionPane.showMessageDialog(new JFrame(),
 					"Please select at least one element", "Dialog",
 					JOptionPane.ERROR_MESSAGE);
 		} else {
 			StretchSelectionCommand stretchSelectionCommand = new StretchSelectionCommand(
 					this);
-			// , shapes);
 			stretchSelectionCommand.doCmd();
 			undoStack.addFirst(stretchSelectionCommand);
 			redoStack.clear();
@@ -273,7 +226,7 @@ public class ShapeModel {
 	}
 
 	public void unstretchShapes() {
-		if (selected.isEmpty()) {
+		if (getListSelected().isEmpty()) {
 			JOptionPane.showMessageDialog(new JFrame(),
 					"Please select at least one element", "Dialog",
 					JOptionPane.ERROR_MESSAGE);
@@ -294,7 +247,7 @@ public class ShapeModel {
 	 * @return <code>true</code> if shape is in the set of selected shapes
 	 */
 	public boolean isSelected(Shape shape) {
-		for (Shape s : selected) {
+		for (Shape s : getListSelected()) {
 			if (s == shape) {
 				return true;
 			}
@@ -321,8 +274,6 @@ public class ShapeModel {
 	public void removeShapeSelectionListener(ShapeSelectionListener l) {
 		listeners.remove(ShapeSelectionListener.class, l);
 	}
-
-	// private
 
 	/**
 	 * Fires a shape added event for the given shape.
@@ -397,62 +348,16 @@ public class ShapeModel {
 			return;
 		}
 		Command cmd = redoStack.removeFirst();
-		// doCommand(cmd);
 		cmd.doCmd();
 		undoStack.addFirst(cmd);
 	}
 
-	private static class MyDequeue<T> extends ArrayDeque<T> {
-
-		private static final long serialVersionUID = -2662413229615025572L;
-		private final String name;
-
-		public MyDequeue(String name) {
-			this.name = name;
-		}
-
-		@Override
-		public T getFirst() {
-			try {
-				System.out.println("[" + name + " getFirst] " + super.getFirst());
-				return super.getFirst();
-			} finally {
-				print();
-			}
-		}
-
-		@Override
-		public void addFirst(T t) {
-			try {
-				System.out.println("[" + name + " addFirst] " + t);
-				super.addFirst(t);
-			} finally {
-				print();
-			}
-		}
-
-		@Override
-		public T removeFirst() {
-			try {
-				System.out.println("[" + name + " removeFirst]");
-				return super.removeFirst();
-			} finally {
-				print();
-			}
-		}
-
-		@Override
-		public void clear() {
-			System.out.println("[" + name + " clear]");
-			super.clear();
-		}
-
-		private void print() {
-			System.out.println("NAME: " + name);
-			for (Iterator<T> iter = iterator(); iter.hasNext();) {
-				System.out.println("- " + iter.next());
-			}
-			System.out.println("0000000000000000000000000000");
-		}
+	public ArrayList<Shape> getListSelected() {
+		return selected;
 	}
+
+	public ArrayList<Shape> getListShapes() {
+		return shapes;
+	}
+
 }

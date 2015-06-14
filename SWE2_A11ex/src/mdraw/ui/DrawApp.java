@@ -25,9 +25,10 @@ import mdraw.ui.tools.*;
 /**
  * Application object for micro drawing tool.
  * 
- * @author Herbert Praehofer & Luca Benvenuti
- * @version 1.2
- * @since 1.1
+ * @author Herbert Praehofer
+ * @author Luca Benvenuti
+ * @version 1.3
+ * @since 1.2
  */
 public class DrawApp {
 
@@ -241,7 +242,6 @@ public class DrawApp {
 		@Override
 		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			// throw new UnsupportedOperationException();
 			model.undoCommand();
 		}
 	};
@@ -258,7 +258,6 @@ public class DrawApp {
 		@Override
 		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-			// throw new UnsupportedOperationException();
 			model.redoCommand();
 		}
 	};
@@ -275,7 +274,6 @@ public class DrawApp {
 		@Override
 		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-
 			model.stretchShapes();
 			model.clearSelection();
 		}
@@ -293,15 +291,6 @@ public class DrawApp {
 		@Override
 		// Javadoc: see super class
 		public void actionPerformed(ActionEvent e) {
-
-			/*
-			 * Shape[] selected = model.getSelected(); if (selected.length < 1)
-			 * { JOptionPane.showMessageDialog(new
-			 * JFrame(),"Please select at least one element", "Dialog",
-			 * JOptionPane.ERROR_MESSAGE); } for (Shape s : selected) {
-			 * ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
-			 * s.accept(unstretchVisitor); }
-			 */
 			model.unstretchShapes();
 			model.clearSelection();
 		}
