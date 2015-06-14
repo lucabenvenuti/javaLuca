@@ -2,6 +2,7 @@ package mdraw.model;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 //import java.util.Arrays;
 import java.util.Deque;
 import java.util.Iterator;
@@ -87,7 +88,7 @@ public class ShapeModel {
 		AddShapeCommand addShapeCommand = new AddShapeCommand(this, s);
 		addShapeCommand.doCmd();
 		undoStack.addFirst(addShapeCommand);
-		// redoStack.clear();
+		redoStack.clear();
 	}
 
 	/**
@@ -104,7 +105,7 @@ public class ShapeModel {
 		RemoveShapeCommand removeShapeCommand = new RemoveShapeCommand(this, s);
 		removeShapeCommand.doCmd();
 		undoStack.addFirst(removeShapeCommand);
-		// redoStack.clear();
+		redoStack.clear();
 	}
 
 	/**
@@ -126,7 +127,7 @@ public class ShapeModel {
 				dy);
 		moveShapeCommand.doCmd();
 		undoStack.addFirst(moveShapeCommand);
-		// redoStack.clear();
+		redoStack.clear();
 	}
 
 	/**
@@ -148,7 +149,7 @@ public class ShapeModel {
 				w, h);
 		resizeShapeCommand.doCmd();
 		undoStack.addFirst(resizeShapeCommand);
-		// redoStack.clear();
+		redoStack.clear();
 	}
 
 	/**
@@ -191,16 +192,17 @@ public class ShapeModel {
 	 */
 	public void setSelection(Shape[] shapes) {
 		assert (shapes != null);
-		/*
-		 * selected.clear(); selected.addAll(Arrays.asList(shapes));
-		 * fireSelectionChanged(selected);
-		 */
-		SetSelectionCommand setSelectionCommand = new SetSelectionCommand(this,
+		/**/
+		 selected.clear(); 
+		 selected.addAll(Arrays.asList(shapes));
+		 fireSelectionChanged(selected);
+		 
+/*		SetSelectionCommand setSelectionCommand = new SetSelectionCommand(this,
 				shapes);
 		setSelectionCommand.doCmd();
 		undoStack.addFirst(setSelectionCommand);
 		// redoStack.clear();
-	}
+*/	}
 
 	/**
 	 * Adds a shape to the currently selected shapes.
@@ -210,14 +212,13 @@ public class ShapeModel {
 	 */
 	public void addSelections(Shape s) {
 		assert (s != null);
-		/*
-		 * if (selected.add(s)) { fireSelectionChanged(selected); }
-		 */
-		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
+		if (selected.add(s)) { fireSelectionChanged(selected); }
+		
+/*		AddSelectionCommand addSelectionCommand = new AddSelectionCommand(this,
 				s);
 		addSelectionCommand.doCmd();
 //		undoStack.addFirst(addSelectionCommand);
-	}
+*/	}
 
 	/**
 	 * Removes a shape to the currently selected shapes.
@@ -227,27 +228,25 @@ public class ShapeModel {
 	 */
 	public void removeSelection(Shape s) {
 		assert (s != null);
-		/*
-		 * if (selected.remove(s)) { fireSelectionChanged(selected); }
-		 */
-		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
+		if (selected.remove(s)) { fireSelectionChanged(selected); }
+		 
+/*		RemoveSelectionCommand removeSelectionCommand = new RemoveSelectionCommand(
 				this, s);
 		removeSelectionCommand.doCmd();
 //		undoStack.addFirst(removeSelectionCommand);
-	}
+*/	}
 
 	/**
 	 * Clears the selected shapes. Selected shapes will be empty afterwards.
 	 */
 	public void clearSelection() {
-		/*
-		 * selected.clear(); fireSelectionChanged(selected);
-		 */
-		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
+		selected.clear(); fireSelectionChanged(selected);
+
+/*		ClearSelectionCommand clearSelectionCommand = new ClearSelectionCommand(
 				this);
 		clearSelectionCommand.doCmd();
 //		undoStack.addFirst(clearSelectionCommand);
-	}
+*/	}
 
 	public void stretchShapes() {
 		/*
@@ -269,7 +268,7 @@ public class ShapeModel {
 			// , shapes);
 			stretchSelectionCommand.doCmd();
 			undoStack.addFirst(stretchSelectionCommand);
-			// redoStack.clear();
+			redoStack.clear();
 		}
 	}
 
@@ -283,7 +282,7 @@ public class ShapeModel {
 					this);
 			unstretchSelectionCommand.doCmd();
 			undoStack.addFirst(unstretchSelectionCommand);
-			// redoStack.clear();
+			redoStack.clear();
 		}
 	}
 
@@ -401,7 +400,6 @@ public class ShapeModel {
 		// doCommand(cmd);
 		cmd.doCmd();
 		undoStack.addFirst(cmd);
-		redoStack.clear();
 	}
 
 	private static class MyDequeue<T> extends ArrayDeque<T> {
@@ -441,6 +439,12 @@ public class ShapeModel {
 			} finally {
 				print();
 			}
+		}
+
+		@Override
+		public void clear() {
+			System.out.println("[" + name + " clear]");
+			super.clear();
 		}
 
 		private void print() {
