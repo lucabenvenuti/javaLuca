@@ -3,6 +3,16 @@ package mdraw.command;
 import mdraw.model.ShapeModel;
 import mdraw.shapes.Shape;
 
+/**
+ * AddShapeCommand.java
+ *
+ * A {@link AddShapeCommand} is a public class implementing a {@link Command}. It
+ * allows adding a .
+ * 
+ * Software Development II, 2015SS JKU Linz
+ * 
+ * @author Luca Benvenuti
+ */
 public class AddShapeCommand implements Command {
 
 	private final ShapeModel model;
