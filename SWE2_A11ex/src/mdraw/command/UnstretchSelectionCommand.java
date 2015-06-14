@@ -13,13 +13,9 @@ public class UnstretchSelectionCommand implements Command {
 
 	private ShapeModel model;
 
-	public UnstretchSelectionCommand(ShapeModel model
-		//	, Shape[] s
-			) {
+	public UnstretchSelectionCommand(ShapeModel model) {
 		super();
 		this.model = model;
-	//	this.selected = model.selected;
-		//this.s = s;
 	}
 
 	@Override
@@ -34,22 +30,16 @@ public class UnstretchSelectionCommand implements Command {
 			ShapeVisitor<Void> unstretchVisitor = new UnstretchVisitor();
 			s.accept(unstretchVisitor);
 		}
-	//	model.selected.clear();
-		//model.selected.addAll(Arrays.asList(s));
 		model.fireSelectionChanged(model.selected);
 	}
 
 	@Override
 	public void undoCmd() {
-	//	model.selected.clear();
-	//	model.selected.addAll(selected);
 		Shape[] selected = model.getSelected();
 		for (Shape s : selected) {
-
 			ShapeVisitor<Void> stretchVisitor = new StretchVisitor();
 			s.accept(stretchVisitor);
 		}
-	//	model.selected.addAll(selected);
 		model.fireSelectionChanged(model.selected);
 	}
 

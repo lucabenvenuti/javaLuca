@@ -5,12 +5,12 @@ import mdraw.shapes.Shape;
 
 public class MoveShapeCommand implements Command {
 
-	private ShapeModel model;
-	private Shape s;
-	private int dx;
-	private int dy;
-	private int leftOrig;
-	private int topOrig;
+	private final ShapeModel model;
+	private final Shape s;
+	private final int dx;
+	private final int dy;
+	private final int leftOrig;
+	private final int topOrig;
 
 	public MoveShapeCommand(ShapeModel model, Shape s, int dx, int dy) {
 		super();

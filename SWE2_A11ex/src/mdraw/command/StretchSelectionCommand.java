@@ -11,18 +11,11 @@ import mdraw.visitor.UnstretchVisitor;
 
 public class StretchSelectionCommand implements Command {
 
-	private ShapeModel model;
+	private final ShapeModel model;
 
-	// private Shape[] s;
-	// private final List<Shape> selected;
-
-	public StretchSelectionCommand(ShapeModel model
-	// , Shape[] s
-	) {
+	public StretchSelectionCommand(ShapeModel model) {
 		super();
 		this.model = model;
-		// this.selected = model.selected;
-		// this.s = s;
 	}
 
 	@Override

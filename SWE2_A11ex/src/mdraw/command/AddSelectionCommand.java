@@ -5,8 +5,8 @@ import mdraw.shapes.Shape;
 
 public class AddSelectionCommand implements Command {
 
-	private ShapeModel model;
-	private Shape s;
+	private final ShapeModel model;
+	private final Shape s;
 
 	public AddSelectionCommand(ShapeModel model, Shape s) {
 		super();
@@ -16,16 +16,13 @@ public class AddSelectionCommand implements Command {
 
 	@Override
 	public void doCmd() {
-		if (model.selected.add(s)) {
-			model.fireSelectionChanged(model.selected);
-		}
+		model.selected.add(s);
+		model.fireSelectionChanged(model.selected);
 	}
 
 	@Override
 	public void undoCmd() {
-		if (model.selected.remove(s)) {
-			model.fireSelectionChanged(model.selected);
-		}
+		model.selected.remove(s);
+		model.fireSelectionChanged(model.selected);	
 	}
-
 }

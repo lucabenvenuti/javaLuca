@@ -8,7 +8,7 @@ import mdraw.shapes.Shape;
 
 public class ClearSelectionCommand implements Command {
 
-	private ShapeModel model;
+	private final ShapeModel model;
 	private final ArrayList<Shape> selected;
 
 	public ClearSelectionCommand(ShapeModel model) {

@@ -5,8 +5,8 @@ import mdraw.shapes.Shape;
 
 public class RemoveShapeCommand implements Command {
 
-	private ShapeModel model;
-	private Shape s;
+	private final ShapeModel model;
+	private final Shape s;
 
 	public RemoveShapeCommand(ShapeModel model, Shape s) {
 		super();
@@ -17,8 +17,8 @@ public class RemoveShapeCommand implements Command {
 	@Override
 	public void doCmd() {
 		model.shapes.remove(s);
-		model.fireShapeRemoved(s);
 		model.removeSelection(s);
+		model.fireShapeRemoved(s);
 	}
 
 	@Override
@@ -26,5 +26,4 @@ public class RemoveShapeCommand implements Command {
 		model.shapes.add(s);
 		model.fireShapeAdded(s);
 	}
-
 }

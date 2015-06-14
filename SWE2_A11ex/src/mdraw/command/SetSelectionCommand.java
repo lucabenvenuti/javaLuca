@@ -1,21 +1,21 @@
 package mdraw.command;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import mdraw.model.ShapeModel;
 import mdraw.shapes.Shape;
 
 public class SetSelectionCommand implements Command {
 
-	private ShapeModel model;
-	private Shape[] s;
-	private final List<Shape> selected;
+	private final ShapeModel model;
+	private final Shape[] s;
+	private final ArrayList<Shape> selected;
 
 	public SetSelectionCommand(ShapeModel model, Shape[] s) {
 		super();
 		this.model = model;
-		this.selected = model.selected;
+		this.selected = (ArrayList)model.selected.clone(); //TODO: clone method in ShapeModel with return ArrayList
 		this.s = s;
 	}
 
@@ -32,5 +32,4 @@ public class SetSelectionCommand implements Command {
 		model.selected.addAll(selected);
 		model.fireSelectionChanged(selected);
 	}
-
 }

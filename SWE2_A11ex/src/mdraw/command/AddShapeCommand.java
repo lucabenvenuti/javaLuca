@@ -26,5 +26,4 @@ public class AddShapeCommand implements Command {
 		model.removeSelection(s);
 		model.fireShapeRemoved(s);
 	}
-
 }
