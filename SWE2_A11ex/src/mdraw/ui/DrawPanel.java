@@ -40,7 +40,7 @@ public class DrawPanel extends JPanel {
 	private final ShapeModel model;
 
 	/** The tool palette shown in the tool bar */
-	public final ToolPalette toolPalette;
+	private final ToolPalette toolPalette;
 
 	/**
 	 * Constructor initializing shape model and setting tool palette
@@ -162,6 +162,7 @@ public class DrawPanel extends JPanel {
 	 */
 	private MouseAdapter mouseHandler = new MouseAdapter() {
 
+		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void mouseClicked(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -170,6 +171,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void mousePressed(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -178,6 +180,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void mouseReleased(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {
@@ -186,6 +189,7 @@ public class DrawPanel extends JPanel {
 			repaint();
 		}
 
+		@SuppressWarnings("synthetic-access")
 		@Override  // Javadoc: see super class
 		public void mouseDragged(MouseEvent me) {
 			if (toolPalette.getSelectedTool() != null) {

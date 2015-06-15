@@ -211,6 +211,10 @@ public class ShapeModel {
 		fireSelectionChanged(getListSelected());
 	}
 
+	/**
+	 * Stretch the selected Shapes. Gives a message error if there is none
+	 * selected.
+	 */
 	public void stretchShapes() {
 		if (getListSelected().isEmpty()) {
 			JOptionPane.showMessageDialog(new JFrame(),
@@ -225,6 +229,10 @@ public class ShapeModel {
 		}
 	}
 
+	/**
+	 * Stretch the selected Shapes. Gives a message error if there is none
+	 * selected.
+	 */
 	public void unstretchShapes() {
 		if (getListSelected().isEmpty()) {
 			JOptionPane.showMessageDialog(new JFrame(),
@@ -333,6 +341,9 @@ public class ShapeModel {
 		}
 	}
 
+	/**
+	 * Undo the latest command performed.
+	 */
 	public void undoCommand() {
 		if (undoStack.isEmpty()) {
 			return;
@@ -343,6 +354,9 @@ public class ShapeModel {
 		redoStack.addFirst(cmd);
 	}
 
+	/**
+	 * Redo the latest command performed.
+	 */
 	public void redoCommand() {
 		if (redoStack.isEmpty()) {
 			return;
@@ -352,10 +366,20 @@ public class ShapeModel {
 		undoStack.addFirst(cmd);
 	}
 
+	/**
+	 * Getter.
+	 * 
+	 * @return the <code>selected</code> as an <code>ArrayList<Shape></code>
+	 */
 	public ArrayList<Shape> getListSelected() {
 		return selected;
 	}
 
+	/**
+	 * Getter.
+	 * 
+	 * @return the <code>shapes</code> as an <code>ArrayList<Shape></code>
+	 */
 	public ArrayList<Shape> getListShapes() {
 		return shapes;
 	}
