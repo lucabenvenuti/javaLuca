@@ -83,16 +83,17 @@ public class LinkedList<E> implements List<E> {
 	}
 	
 // does not work, because array of type E cannot be created 
-//	public E[] toEArray() {
-//		Object[] objs = new Object[size()]; 
-//		E[] a = (E[]) objs; 
-//		int i = 0; 
-//		for (E e: this) {
-//			a[i++] = e; 
-//		}
-//		return a;
-//	}
+	public E[] toEArray() {
+		Object[] objs = new Object[size()]; 
+		E[] a = (E[]) objs; 
+		int i = 0; 
+		for (E e: this) {
+			a[i++] = e; 
+		}
+		return a;
+	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a) {
 		if (a.length < size()) {

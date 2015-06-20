@@ -27,30 +27,31 @@ public class ListApp {
 		
 		// Wildcards ----------------------------------------------------------
 		
-//		List<?> some = students; 
-//		// some.add(new Teacher("Mueller")); // The method add(capture#1-of ?) in the type List<capture#1-of ?> is not applicable for the arguments (Teacher)
-//		for (Object o: some) {
-//			System.out.println(o.toString()); 	
-//		}
-//				
-//		List<? extends Person> somePersons = students; 
-//		// somePersons.add(new Teacher("Mueller")); // The method add(capture#1-of ? extends Person) in the type List<capture#1-of ? extends Person> is not applicable for the arguments (Teacher)
-//		for (Person p: somePersons) {
-//			System.out.println(p.name); 
-//		}
+		List<?> some = students; 
+		// some.add(new Teacher("Mueller")); // The method add(capture#1-of ?) in the type List<capture#1-of ?> is not applicable for the arguments (Teacher)
+		for (Object o: some) {
+			System.out.println(o.toString()); 	
+		}
+				
+		List<? extends Person> somePersons = students; 
+		// somePersons.add(new Teacher("Mueller")); // The method add(capture#1-of ? extends Person) in the type List<capture#1-of ? extends Person> is not applicable for the arguments (Teacher)
+		for (Person p: somePersons) {
+			System.out.println(p.name); 
+		}
 		
 		// Methods ------------------------------------------------------------
 		
-//		persons = new LinkedList<Person>(); 
-//		persons.addAll(students);
-//		persons.addAll(teachers); 
-//		System.out.println(); 
-//		for (Person p: persons) {
-//			p.print(); 
-//		}
-//		
-//		System.out.println(); 
-//		System.out.println(persons.containsAll(students));
+		List<Person> persons = new LinkedList<Person>(); 
+		persons.addAll(students);
+		persons.addAll(teachers); 
+		System.out.println(); 
+		for (Person p: persons) {
+			p.print(); 
+		}
+		
+		System.out.println(); 
+		System.out.println(persons.containsAll(students));
+		System.out.println(persons.containsAll(teachers));
 		
 		// toArray ------------------------------------------------------------
 		
@@ -63,11 +64,11 @@ public class ListApp {
 		// toEArray tests
 		
 		// toEArray would work with Object[]: 
-//		Object[] ox = students.toEArray(); 
-//		System.out.println(); 
-//		for (Object o: ox) {
-//			System.out.println(o.toString()); 
-//		}
+		Object[] ox = students.toEArray(); 
+		System.out.println(); 
+		for (Object o: ox) {
+			System.out.println(o.toString()); 
+		}
 		
 		// toEArray would not work with any other Array than Object[]: 
 //		Person[] pa1 = students.toEArray(); 

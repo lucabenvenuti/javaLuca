@@ -12,7 +12,7 @@ public interface List<E> extends Iterable<E> {
 	
 	public boolean containsAll(Iterable<?> c); 
 	
-//	public E[] toEArray(); 
+	public E[] toEArray(); 
 	
 	public Object[] toArray(); 
 	

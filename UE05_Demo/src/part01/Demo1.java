@@ -11,7 +11,7 @@ public class Demo1 {
 		System.out.println(equals);
 
 		Object obj2 = franz2;
-		System.out.println(obj2.toString());
+		//System.out.println(obj2.toString());
 		System.out.println(obj2.equals(franz1));
 		equals = franz1.equals(obj2);
 		System.out.println(equals);

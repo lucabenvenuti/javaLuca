@@ -36,11 +36,11 @@ public class ListApp1 {
 		// persons = students;
 		// objects = students;
 
-		// l = students;
-		// l.add(new Teacher("Mueller"));
-		// for (Student s : students) {
-		// s.learn();
-		// }
+		l = students;
+		l.add(new Teacher("Mueller"));
+		for (Student s : students) {
+		s.learn();
+		}
 
 	}
 
