@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Demo7 {
 
@@ -18,24 +19,46 @@ public class Demo7 {
 				- p1.hired);
 
 		scss.add(new Person("Franz", "Maier", 2004));
-		scss.add(new Person("Alois", "Müller", 2003));
+		scss.add(new Person("Alois", "Mueller", 2003));
 		scss.add(new Person("Gustav", "Maier", 1999));
 		scss.add(new Person("Berta", "Maier", 2003));
 		scss.forEach(p -> System.out.println(p));
+
+		// What's with Berta?
 
 		Out.println("---- test list sort --------------");
 
 		List<Person> plist = new ArrayList<Person>();
 
 		plist.add(new Person("Franz", "Maier", 2004));
-		plist.add(new Person("Alois", "Müller", 2003));
+		plist.add(new Person("Alois", "Mueller", 2003));
 		plist.add(new Person("Gustav", "Maier", 1999));
 		plist.add(new Person("Berta", "Maier", 2003));
-		Collections.sort(plist, (p1, p2) -> p2.hired - p1.hired);
+		System.out.println("unsorted:");
+		plist.forEach(p -> Out.println(p));
+
+		System.out.println();
+		System.out.println("sorted 1:");
 		plist.stream().sorted((p1, p2) -> p2.hired - p1.hired)
 				.forEach(p -> System.out.println(p));
-		plist.forEach(p -> Out.println(p));
-		Out.println();
 
+		System.out.println();
+		System.out.println("unsorted:");
+		plist.forEach(p -> Out.println(p));
+
+		Collections.sort(plist, (p1, p2) -> p2.hired - p1.hired);
+		System.out.println();
+		System.out.println("sorted 2:");
+		plist.forEach(p -> Out.println(p));
+
+		Out.println("---- test remove duplicates --------------");
+		plist.add(new Person("Berta", "Maier", 2003));
+		plist.forEach(p -> Out.println(p));
+
+		System.out.println();
+
+		List<Person> noDuplicates = plist.stream().distinct()
+				.collect(Collectors.toList());
+		noDuplicates.forEach(p -> System.out.println(p));
 	}
 }

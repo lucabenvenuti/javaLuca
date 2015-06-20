@@ -1,10 +1,10 @@
-package part02;
+package part01right;
 
 public class Person {
 
-	public String surName;
-	public String firstName;
-	public int hired;
+	public final String surName;
+	public final String firstName;
+	public final int hired;
 
 	public Person(String firstName, String surName) {
 		this(firstName, surName, 2009);
@@ -30,9 +30,4 @@ public class Person {
 		}
 		return false;
 	}
-
-	// @Override
-	// public int hashCode() {
-	// return this.surName.hashCode() ^ firstName.hashCode();
-	// }
 }

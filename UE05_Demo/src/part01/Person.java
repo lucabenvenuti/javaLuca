@@ -25,14 +25,4 @@ public class Person {
 		return this.surName.equals(other.surName)
 				&& this.firstName.equals(other.firstName);
 	}
-
-	// @Override
-	// public boolean equals(Object obj) {
-	// if (obj instanceof Person) {
-	// Person other = (Person) obj;
-	// return this.surName.equals(other.surName)
-	// && this.firstName.equals(other.firstName);
-	// }
-	// return false;
-	// }
 }

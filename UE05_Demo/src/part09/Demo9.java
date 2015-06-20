@@ -17,7 +17,7 @@ public class Demo9 {
 		Out.println();
 		List<Person> plist = new ArrayList<Person>();
 		plist.add(new Person("Franz", "Maier", 2004));
-		plist.add(new Person("Alois", "Müller", 2003));
+		plist.add(new Person("Alois", "Mï¿½ller", 2003));
 		plist.add(new Person("Gustav", "Maier", 1999));
 		plist.add(new Person("Berta", "Maier", 2003));
 		plist.forEach(p -> System.out.println(p));
@@ -36,7 +36,7 @@ public class Demo9 {
 
 		// binary search
 		System.out.println("search with java7:");
-		int pos = Collections.binarySearch(plist, new Person("Alois", "Müller",
+		int pos = Collections.binarySearch(plist, new Person("Alois", "Mï¿½ller",
 				2003));
 		Out.println(pos);
 		Out.println();

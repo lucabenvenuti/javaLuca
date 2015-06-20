@@ -1,4 +1,4 @@
-package part02;
+package part02b;
 
 public class Person {
 
@@ -31,8 +31,9 @@ public class Person {
 		return false;
 	}
 
-	// @Override
-	// public int hashCode() {
-	// return this.surName.hashCode() ^ firstName.hashCode();
-	// }
+	@Override
+	public int hashCode() {
+		return this.surName.hashCode() ^ firstName.hashCode();
+	}
+
 }

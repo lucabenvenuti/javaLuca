@@ -1,4 +1,4 @@
-package part02;
+package part02bsolved;
 
 import inout.Out;
 
@@ -26,6 +26,9 @@ public class Demo2 {
 		boolean franz2Contained = hs.contains(franz2);
 		Out.println(franz2Contained);
 		hs.add(franz2);
+
+		franz2Contained = hs.contains(franz2);
+		Out.println(franz2Contained);
 
 	}
 }

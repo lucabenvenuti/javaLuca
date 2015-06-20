@@ -1,10 +1,10 @@
-package part02;
+package part06solved;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
-	public String surName;
-	public String firstName;
-	public int hired;
+	public final String surName;
+	public final String firstName;
+	public final int hired;
 
 	public Person(String firstName, String surName) {
 		this(firstName, surName, 2009);
@@ -31,8 +31,18 @@ public class Person {
 		return false;
 	}
 
-	// @Override
-	// public int hashCode() {
-	// return this.surName.hashCode() ^ firstName.hashCode();
-	// }
+	@Override
+	public int hashCode() {
+		return this.surName.hashCode() ^ firstName.hashCode();
+	}
+
+	@Override
+	public int compareTo(Person other) {
+		int compare = this.surName.compareTo(other.surName);
+		if (compare == 0) {
+			compare = this.firstName.compareTo(other.firstName);
+		}
+		return compare;
+	}
+
 }

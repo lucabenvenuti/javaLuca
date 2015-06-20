@@ -23,7 +23,7 @@ public class Demo8 {
 		});
 
 		scss.add(new Person("Franz", "Maier", 2004));
-		scss.add(new Person("Alois", "Müller", 2003));
+		scss.add(new Person("Alois", "Mueller", 2003));
 		scss.add(new Person("Gustav", "Maier", 1999));
 		scss.add(new Person("Berta", "Maier", 2003));
 		scss.forEach(p -> System.out.println(p));
@@ -33,7 +33,7 @@ public class Demo8 {
 		List<Person> plist = new ArrayList<Person>();
 
 		plist.add(new Person("Franz", "Maier", 2004));
-		plist.add(new Person("Alois", "Müller", 2003));
+		plist.add(new Person("Alois", "Mueller", 2003));
 		plist.add(new Person("Gustav", "Maier", 1999));
 		plist.add(new Person("Berta", "Maier", 2003));
 		Collections.sort(plist, (p1, p2) -> {

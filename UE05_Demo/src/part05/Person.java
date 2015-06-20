@@ -2,23 +2,31 @@ package part05;
 
 public class Person implements Comparable<Person> {
 
-	public final String surName;
-	public final String firstName;
-	public final int hired;
+	private final String surName;
+	private final String firstName;
+	private final int age;
 
-	public Person(String firstName, String surName) {
-		this(firstName, surName, 2009);
-	}
-
-	public Person(String firstName, String surName, int hired) {
+	public Person(String firstName, String surName, int age) {
 		this.firstName = firstName;
 		this.surName = surName;
-		this.hired = hired;
+		this.age = age;
 	}
 
 	@Override
 	public String toString() {
-		return firstName + " " + surName + " " + hired;
+		return firstName + " " + surName + " " + age;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getSurName() {
+		return surName;
 	}
 
 	@Override
