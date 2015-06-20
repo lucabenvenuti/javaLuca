@@ -14,9 +14,8 @@ public class LightView extends JComponent {
 	private LightButton button;
 
 	public LightView(LightModel model) {
-		removeAll();
 		setLayout(new GridLayout(1, 1));
-		Dimension boardSize = new Dimension(600, 600);
+		Dimension boardSize = new Dimension(200, 200);
 		setPreferredSize(boardSize);
 		setBounds(0, 0, boardSize.width, boardSize.height);
 

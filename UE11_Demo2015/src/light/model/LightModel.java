@@ -11,10 +11,9 @@ public class LightModel {
 		return light;
 	}
 
-	public Light setLight() {
+	public void onActionPerformed() {
 		this.light = light.other();
 		fireChangeEvent();
-		return this.light;
 	}
 
 	public void addChangeListener(ChangeListener listener) {

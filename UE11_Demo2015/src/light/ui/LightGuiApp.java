@@ -66,15 +66,13 @@ public class LightGuiApp {
 		Container contentPane = frame.getContentPane();
 		contentPane.setLayout(new BorderLayout());
 
-		JPanel topPanel = new JPanel();
-		contentPane.add(topPanel, BorderLayout.NORTH);
-		topPanel.setBorder(BorderFactory.createEtchedBorder());
-
+		// Light MVC
 		LightView view = new LightView(model);
-		topPanel.add(view, BorderLayout.CENTER);
+		contentPane.add(view);
 
+		// Label MVC - optional
 		stateLabel = new JLabel(model.getLight().name());
-		topPanel.add(stateLabel, BorderLayout.SOUTH);
+		contentPane.add(stateLabel, BorderLayout.SOUTH);
 		model.addChangeListener(changedListener);
 
 		frame.setLocation(100, 100);
