@@ -2,9 +2,7 @@ package light.model;
 
 public enum Light {
 
-	/** Positions occupied by first player. */
 	ON(true),
-	/** Position occupied by second player. */
 	OFF(false);
 
 	private final boolean condition;

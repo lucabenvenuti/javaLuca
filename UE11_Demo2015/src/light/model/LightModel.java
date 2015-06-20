@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LightModel {
-	private Light light;
+	private Light light = Light.OFF;
 	private List<ChangeListener> listeners = new ArrayList<>();
 
 	public Light getLight() {
 		return light;
 	}
 
-	public void setLight() {
+	public Light setLight() {
 		this.light = light.other();
 		fireChangeEvent();
+		return this.light;
 	}
 
 	public void addChangeListener(ChangeListener listener) {
@@ -25,7 +26,7 @@ public class LightModel {
 	}
 
 	protected void fireChangeEvent() {
-		ChangeEvent evt = new ChangeEvent(this, light);
+		ChangeEvent evt = new ChangeEvent(this, getLight());
 		for (ChangeListener l : listeners) {
 			l.stateChanged(evt);
 		}

@@ -2,24 +2,18 @@ package light.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 
-import light.controller.LightController;
 import light.model.ChangeEvent;
 import light.model.ChangeListener;
 import light.model.LightModel;
@@ -27,7 +21,6 @@ import light.model.LightModel;
 public class LightGuiApp {
 
 	private final LightModel model;
-	private final LightView view;
 
 	private JFrame frame;
 	private JLabel stateLabel;
@@ -36,7 +29,11 @@ public class LightGuiApp {
 		@SuppressWarnings("synthetic-access")
 		@Override
 		public void stateChanged(ChangeEvent e) {
-			stateLabel.setText(e.getSource().toString()); // ??
+			if (e.getSource() instanceof LightModel) {
+				stateLabel.setText(((LightModel)e.getSource()).getLight().name());
+			} else {
+				throw new RuntimeException();
+			}
 		}
 	};
 
@@ -48,9 +45,8 @@ public class LightGuiApp {
 		}
 	};
 
-	private LightGuiApp(LightModel model, LightView view) {
+	private LightGuiApp(LightModel model) {
 		this.model = model;
-		this.view = view;
 	}
 
 	private void start() {
@@ -74,22 +70,20 @@ public class LightGuiApp {
 		contentPane.add(topPanel, BorderLayout.NORTH);
 		topPanel.setBorder(BorderFactory.createEtchedBorder());
 
-		contentPane.add(view, BorderLayout.WEST);
+		LightView view = new LightView(model);
+		topPanel.add(view, BorderLayout.CENTER);
 
+		stateLabel = new JLabel(model.getLight().name());
+		topPanel.add(stateLabel, BorderLayout.SOUTH);
 		model.addChangeListener(changedListener);
 
 		frame.setLocation(100, 100);
 		frame.pack();
 		frame.setVisible(true);
-		// model.play();
 	}
 
 	public static void main(String[] args) {
-		LightView view = new LightView();
-		LightModel model = new LightModel();// view);
-		LightController controller = new LightController(model);
-		view.initialize(controller);
-		LightGuiApp app = new LightGuiApp(model, view);
+		LightGuiApp app = new LightGuiApp(new LightModel());
 		app.start();
 	}
 }

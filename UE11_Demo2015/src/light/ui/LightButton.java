@@ -5,12 +5,15 @@ import java.awt.Graphics;
 
 import javax.swing.JToggleButton;
 
-import light.*;
 import light.model.Light;
 
 public class LightButton extends JToggleButton {
 	private static final long serialVersionUID = -8933910706465044870L;
-	private Light light = Light.OFF;
+	private Light light;
+
+	public LightButton(Light light) {
+		this.light = light;
+	}
 
 	public void setLight(Light light) {
 		this.light = light;

@@ -17,9 +17,9 @@ public class LightController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if (source instanceof LightButton && source != null) {
-			// LightButton lightButton = (LightButton) source;
-			model.setLight();
+		if (source instanceof LightButton) {
+			// LightButton lightButton = (LightButton) source;  && source != null
+			((LightButton)source).setLight(model.setLight());
 		}
 	}
 }
