@@ -2,10 +2,10 @@ package patterns.decoratorCoffee;
 
 public class MilkDecorator extends CoffeeDecorator {
 	
-	private final Coffee next;
+	//private final Coffee next;
 
 	public MilkDecorator(Coffee next) {
-		this.next = next;
+		super(next);
 	}
 
 	@Override
