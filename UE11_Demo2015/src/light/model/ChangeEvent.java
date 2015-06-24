@@ -13,7 +13,7 @@ public class ChangeEvent extends EventObject {
 
 	}
 
-	public Light getValue() {
+	public Light getLight() {
 		return light;
 	}
 

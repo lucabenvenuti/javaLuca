@@ -28,7 +28,7 @@ public class StreamDemo01 {
 		words.add("C");
 
 		Stream<String> wordStream = words.stream();
-		//wordStream.forEach(w -> System.out.println(w.toString()));
+	//	wordStream.forEach(w -> System.out.println(w.toString()));
 		// from arrays ----------------------------------------------
 
 		int[] numbers = new int[] { 1, 2, 3 };
@@ -47,11 +47,12 @@ public class StreamDemo01 {
 		//all.forEach( n -> System.out.println(n));
 
 		IntStream range0_99 = IntStream.range(0, 100);
-		
+		//range0_99.forEach(n -> System.out.println(n));
+		System.out.println(range0_99.sum());
 		
 		
 		IntStream range0_100 = IntStream.rangeClosed(0, 100);
-		range0_100.forEach(n -> System.out.println(n));
+	//	range0_100.forEach(n -> System.out.println(n));
 
 		// by generator functions -----------------------------------
 
@@ -59,7 +60,7 @@ public class StreamDemo01 {
 		//posStream.forEach(p -> System.out.println(p));
 		final Random r = new Random();
 		IntStream randStream = IntStream.generate(() -> r.nextInt(100));
-		//randStream.limit(100).forEach(x -> Out.println(x));
+		randStream.limit(100).forEach(x -> Out.println(x));
 		
 		
 		// streams can be iterated only once ------------------------

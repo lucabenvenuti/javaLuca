@@ -60,12 +60,13 @@ public class StreamDemo03 {
 		// ----  building chains ---------------------------------------------
 		
 		// building chains of functions: VERY IMPORTANT!
-		wordStream = words.stream();
-		String ws = wordStream
+		//wordStream = words.stream();
+		String ws = words.stream()
 						.distinct()
 						.sorted()
 						.reduce("", (a, b) -> a + " " + b);
 		Out.println("Words: " + ws);
+		//.filter(w -> w.equals("A")).findFirst().orElse("trota");
 	}
 
 }

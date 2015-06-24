@@ -73,8 +73,12 @@ public class Demo5 {
 
 		System.out.println();
 
-		int sum = ss.stream().mapToInt(p -> p.getAge()).sum();
+		int sum = ss.stream().mapToInt(Person::getAge).sum();
+		System.out.println("Lachelmannculo");
 		System.out.println(sum);
+		double sum2 = ss.stream().mapToInt(p -> p.getAge()).average().orElse(0);
+		System.out.println("Lachelmannculo");
+		System.out.println(sum2);
 
 		System.out.println();
 
