@@ -1,7 +1,7 @@
 package roadNetwork;
 
-import java.util.LinkedList;
-import java.util.List;
+//import java.util.LinkedList;
+//import java.util.List;
 
 /**
  * Link.java
@@ -23,7 +23,7 @@ public class Link implements Comparable<Link> {
 	private final Location end;
 	private final float travelTimeInHours;
 
-	Link(String name, LinkType linkType, int length, Location start,
+	public Link(String name, LinkType linkType, int length, Location start,
 			Location end) {
 		this.name = name;
 		this.linkType = linkType;
@@ -33,14 +33,14 @@ public class Link implements Comparable<Link> {
 		travelTimeInHours = (float) length / linkType.getVel();
 	}
 
-	List<Location> getLocations() {
-		LinkedList<Location> locations = new LinkedList<Location>();
-		locations.add(start);
-		locations.add(end);
-		return locations;
-	}
+//	private List<Location> getLocations() {
+//		LinkedList<Location> locations = new LinkedList<Location>();
+//		locations.add(start);
+//		locations.add(end);
+//		return locations;
+//	}
 
-	Location getOtherLocation(Location loc) {
+	public Location getOtherLocation(Location loc) {
 		if (loc.equals(start)) {
 			return end;
 		} else if (loc.equals(end)) {
@@ -50,31 +50,31 @@ public class Link implements Comparable<Link> {
 		}
 	}
 
-	String getName() {
+	private String getName() {
 		return name;
 	}
 
-	LinkType getLinkType() {
+	private LinkType getLinkType() {
 		return linkType;
 	}
 
-	int getLength() {
+	public int getLength() {
 		return length;
 	}
 
-	Location getStart() {
+	public Location getStart() {
 		return start;
 	}
 
-	Location getEnd() {
+	public Location getEnd() {
 		return end;
 	}
 
-	float getTravelTimeInHours() {
+	public float getTravelTimeInHours() {
 		return travelTimeInHours;
 	}
 
-	String travelTimeInHoursMinutesToString() {
+	private String travelTimeInHoursMinutesToString() {
 		int hours = (int) Math.floor(getTravelTimeInHours());
 		int minutes = (int) (Math.floor(getTravelTimeInHours() * 60) - hours * 60);
 		int seconds = (int) (Math.floor(getTravelTimeInHours() * 3600) - hours
@@ -109,7 +109,7 @@ public class Link implements Comparable<Link> {
 		return this.getName().compareTo(link.getName());
 	}
 
-	int compareTo(int length, LinkType linkType, String name) {
+	public int compareTo(int length, LinkType linkType, String name) {
 		return compareTo(new Link(name, linkType, length, null, null));
 	}
 

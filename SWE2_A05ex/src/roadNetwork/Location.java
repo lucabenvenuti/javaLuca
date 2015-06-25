@@ -22,7 +22,7 @@ public class Location implements Comparable<Location> {
 	private final int x;
 	private final int y;
 	private final String name;
-	private Collection<Link> links = new TreeSet<Link>();
+	private final Collection<Link> links = new TreeSet<Link>();
 
 	public Location(int x, int y, String name) {
 		this.x = x;
@@ -30,11 +30,11 @@ public class Location implements Comparable<Location> {
 		this.name = name;
 	}
 
-	int getX() {
+	public int getX() {
 		return x;
 	}
 
-	int getY() {
+	public int getY() {
 		return y;
 	}
 
@@ -45,40 +45,40 @@ public class Location implements Comparable<Location> {
 		return name;
 	}
 
-	void addLink(Link link) {
+	public void addLink(Link link) {
 		getLinks().add(link);
 	}
 
-	Collection<Link> getLinks() {
+	private Collection<Link> getLinks() {
 		return links;
 	}
 
-	void setLinks(Collection<Link> links) {
-		this.links = links;
-	}
+//	void setLinks(Collection<Link> links) {
+//		this.links = links;
+//	}
 
-	Link checkExistingLink(int length, LinkType linkType, String name) {
+	public Link checkExistingLink(int length, LinkType linkType, String name) {
 		return getLinks().stream()
 				.filter(l -> l.compareTo(length, linkType, name) == 0)
 				.findFirst().orElse(null);
 	}
 
-	Collection<Location> getNeighbors() {
+	private Collection<Location> getNeighbors() {
 		return getLinks().stream().map(l -> getNeighborFor(l))
 				.collect(Collectors.toList());
 	}
 
-	Location getNeighborFor(Link lnk) {
+	private Location getNeighborFor(Link lnk) {
 		return lnk.getOtherLocation(this);
 	}
 
-	Link getLinkTo(Location neighbor) {
-		return getLinks()
-				.stream()
-				.filter(l -> l.getEnd().equals(neighbor)
-						|| l.getStart().equals(neighbor)).findFirst()
-				.orElse(null);
-	}
+//	private Link getLinkTo(Location neighbor) {
+//		return getLinks()
+//				.stream()
+//				.filter(l -> l.getEnd().equals(neighbor)
+//						|| l.getStart().equals(neighbor)).findFirst()
+//				.orElse(null);
+//	}
 
 	/**
 	 * @param linkComparator

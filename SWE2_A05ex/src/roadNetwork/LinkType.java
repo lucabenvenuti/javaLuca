@@ -22,7 +22,7 @@ public enum LinkType {
 		this.vel = vel;
 	}
 
-	int getVel() {
+	public int getVel() {
 		return vel;
 	}
 

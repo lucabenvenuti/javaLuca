@@ -16,11 +16,11 @@ public class PersonApp {
 		Person p = new Person("Gust");
 		
 		// 1. Test
-//		p1.meetsWith(p2); 
-//		stdt.meetsWith(p2); 
-//		stdt.meetsWith(prof);
-//		p2.meetsWith(p1); 
-//		prof.meetsWith(p1); 
+		p1.meetsWith(p2); 
+		stdt.meetsWith(p2); 
+		stdt.meetsWith(prof);
+		p2.meetsWith(p1); 
+		prof.meetsWith(p1); 
 		
 		p1.meetsWith(stdt); 
 		p1.meetsWith(p1); 
